@@ -36,12 +36,23 @@ Much like any other items on the web there are a number of different static site
 
 ## Ruby
 
-* [Jekyll]() - The core blog tool that is used by a number of sites, including github pages.  
-* [Octopress]() - Built on top of Jekyll
+* [Jekyll](http://jekyllrb.com) - The core blog tool that is used by a number of sites, including github pages.  
+* [Octopress](http://octopress.org) - Built on top of Jekyll
 * [Nanoc](http://nanoc.ws/)
+
 
 ## Python
 
+* [Pelican](http://getpelican.com) - Light and simple static site generation in python *Most likely the candidate after Docpad*
+* [Nikola](http://getnikola.com) - Uses doit for fast builds and has plugin capabilities
+* [Mynt](http://mynt.mirroredwhite.com/) - Attempt at giving advanced CMS support to static blogs
+* [Blogofile](http://www.blogofile.com/) - A generator for those obsessed with blogging
+* [Frozen-Flask](http://pythonhosted.org/Frozen-Flask/) - Taking a flask application and turning it into static content
 
 At this point I am happy with the choice to use Octopress, but I'm also finiky and will "most likely" migrate the blog to another technology in the future.  This is mostly because, if I am not learning something new, than what I am doing here ;-).  
+
+# Resources
+
+There were a few useful sites that I came across while checking these tools out, especially one that pointed to the numerous available python frameworks.  Those are listed below. 
+* http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/ 
 
