@@ -6,7 +6,7 @@ url: http://wrightcoder.github.io
 title: My Tinkerings
 subtitle: A Blog of Trial and Error
 author: Michael Wright
-simple_search: http://google.com/search
+# simple_search:
 description: This is a basic blogging site that will contain my simple thoughts and experiences as I try to increase my knowledge
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
