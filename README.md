@@ -39,6 +39,8 @@ Topics
 * Redis
 * MongoDB
 * Cassandra
+* [Jinja2](http://jinja.pocoo.org/docs/)
+* [Glyphish](http://www.glyphish.com/)
 
 Projects 
 --------------------------

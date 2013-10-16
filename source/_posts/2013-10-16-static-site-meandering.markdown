@@ -39,6 +39,7 @@ Much like any other items on the web there are a number of different static site
 * [Jekyll](http://jekyllrb.com) - The core blog tool that is used by a number of sites, including github pages.  
 * [Octopress](http://octopress.org) - Built on top of Jekyll
 * [Nanoc](http://nanoc.ws/)
+* [MiddleMan](http://middlemanapp.com/) 
 
 
 ## Python
