@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Static Site Meandering"
-date: 2013-10-16 00:06
+date: 2013-10-15 20:06
 comments: true
 categories: 
-- Development
+- Frontend
 - Research
 - Ruby
 - Python
@@ -54,5 +54,6 @@ At this point I am happy with the choice to use Octopress, but I'm also finiky a
 # Resources
 
 There were a few useful sites that I came across while checking these tools out, especially one that pointed to the numerous available python frameworks.  Those are listed below. 
+
 * http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/ 
 
