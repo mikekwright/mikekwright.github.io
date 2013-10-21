@@ -9,6 +9,10 @@ author: Michael Wright
 # simple_search:
 description: This is a basic blogging site that will contain my simple thoughts and experiences as I try to increase my knowledge
 
+# Page settings to hide certain entries
+front_page_categories: [Hidden] # A list of categories for the front page
+front_page_categories_op : 'hide' # Whether to show or hide the list of categories from front_page_categories
+
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime

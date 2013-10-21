@@ -18,7 +18,7 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-alias start=bundle exec rake preview
-alias deploy=bundle exec rake gen_deploy
+alias start="bundle exec rake preview"
+alias deploy="bundle exec rake gen_deploy"
 
 
