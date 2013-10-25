@@ -45,6 +45,7 @@ Topics
 * Splunk 6 New enterprise deployment changes for simplification.  
 * Splunk 6 Advanced dashboards using javascript and Django bindings
 * Splunk 6 Predict 
+* OpenCL
 
 Projects 
 --------------------------
