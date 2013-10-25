@@ -23,7 +23,8 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: mkwright@gmail.com
+site.email: mkwright@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -65,6 +66,16 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
+#
+social:
+  title: Track my Movements
+  github: wrightcoder
+  googleplus: 118232506537372838088 
+  stackoverflow: 310561
+  linkedin: weijiajun
+  youtube: weijiajun
+  twitter: mk_wright
+    
 
 # Github repositories
 github_user: wrightcoder
