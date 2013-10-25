@@ -41,6 +41,7 @@ Topics
 * Cassandra
 * [Jinja2](http://jinja.pocoo.org/docs/)
 * [Glyphish](http://www.glyphish.com/)
+* [Microsoft Fakes](http://msdn.microsoft.com/en-us/library/hh549175.aspx) 
 
 Projects 
 --------------------------
@@ -50,7 +51,12 @@ Projects
 * Arduino Controlled Looper Pedal (ISD400x chip support?) - PIC24EP512GP202
 * Make RC Plane / Copter
 
+Others
+---------------------------
+[Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
+
 
 Completed 
 --------------------------
 * Install FreeBSD 9.2 on VMWare workstation 9
+
