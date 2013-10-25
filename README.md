@@ -42,9 +42,13 @@ Topics
 * [Jinja2](http://jinja.pocoo.org/docs/)
 * [Glyphish](http://www.glyphish.com/)
 * [Microsoft Fakes](http://msdn.microsoft.com/en-us/library/hh549175.aspx) 
+* Splunk 6 New enterprise deployment changes for simplification.  
+* Splunk 6 Advanced dashboards using javascript and Django bindings
+* Splunk 6 Predict 
 
 Projects 
 --------------------------
+
 * MAME Cabinet
 * Strong bad audio-player when outage
 * Beaglebone Black - Intercom System
@@ -53,10 +57,12 @@ Projects
 
 Others
 ---------------------------
-[Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
+
+* [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 
 
 Completed 
 --------------------------
+
 * Install FreeBSD 9.2 on VMWare workstation 9
 
