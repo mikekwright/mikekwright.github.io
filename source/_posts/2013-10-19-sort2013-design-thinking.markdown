@@ -1,14 +1,13 @@
 ---
 layout: post
-title: "Sort2013: Design Thinking"
+title: "Sort2013 Part II: Design Thinking"
 date: 2013-10-19 22:43
 comments: true
 categories: 
-- Hidden
-- Sort
-- Sort2013
-- Architecture
-- Software Craftsmanship
+- sort
+- sort2013
+- architecture
+- software craftsmanship
 ---
 
 This lecture was given by Brandon Gillespie and it was fantastic.  Below are my attempts 
@@ -18,6 +17,8 @@ This was a fantastic presentation that focused on delving into ideas of archiect
 helpful hints that can help keep an architect moving in the correct direction.  This session
 did not have any focus on specific tools so should not be limited to a certain "type" 
 of architect.  
+
+<!-- More -->
 
 To start there is a comment that I would share:  
 

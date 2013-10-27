@@ -4,8 +4,8 @@ title: "Splunk 6 - Whats New"
 date: 2013-10-24 22:56
 comments: true
 categories: 
-- Splunk
-- Web Development
+- splunk
+- web development
 ---
 
 Today we had a Tech Talk at work that was focused on our organizations upgrade to the newly

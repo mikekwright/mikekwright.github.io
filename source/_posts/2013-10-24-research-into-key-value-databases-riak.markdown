@@ -4,11 +4,9 @@ title: "Research into Key-Value Databases (Riak)"
 date: 2013-10-24 22:45
 comments: true
 categories: 
-- Study Group
-- Riak
-- NoSQL
-- Key-Value
-- Hidden
+- study group
+- riak
+- nosql
 ---
 
 A couple of weeks ago I came across a group at my work who had just started up going over the 

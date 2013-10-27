@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "FreeBSD 9.2 on VMware Workstation 9.4"
+title: "FreeBSD 9.2 on VMware Workstation 9.0.2"
 date: 2013-10-10 21:46
 comments: true
+keywords: FreeBSD
 categories: 
-- VMware
-- Virtualization
-- FreeBSD
+- vmware
+- virtualization
+- freebsd
 ---
 
 Tonight I decided I really wanted to switch to freebsd from Ubuntu.  The move was not because 

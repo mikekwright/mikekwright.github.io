@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Sort2013: A Review"
+title: "Sort2013 Part I: A Review"
 date: 2013-10-18 22:31
 comments: true
 categories: 
-- SORT
-- SORT2013
+- sort
+- sort2013
 ---
 
 SORT is a software/technology conference that is held by engineers working for the LDSChurch, 
@@ -69,9 +69,9 @@ Below is a list of sessions that I attended that I felt were things I wanted to 
 thoughts and learnings from. They are not necessarily the only ones I attended or the best ones
 but rather had pertinant information I wanted to share.    
 
-* [TMUX: Powerup Your Shell](/blog/2013/10/19/sort2013-tmux-powerup-your-shell)
-* [Machine Learning in Python: For fun and Profit](/blog/2013/10/19/sort2013-machine-learning-in-python)
-* [Design Thinking](/blog/2013/10/19/sort2013-design-thinking)
+* [Part II - TMUX: Powerup Your Shell](/blog/2013/10/19/sort2013-tmux-powerup-your-shell)
+* [Part III - Machine Learning in Python: For fun and Profit](/blog/2013/10/19/sort2013-machine-learning-in-python)
+* [Part Iv - Design Thinking](/blog/2013/10/19/sort2013-design-thinking)
 
 # Conclusion 
 

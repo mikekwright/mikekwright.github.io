@@ -4,11 +4,11 @@ title: "Static Site Meandering"
 date: 2013-10-15 20:06
 comments: true
 categories: 
-- Frontend
-- Research
-- Ruby
-- Python
-- NodeJS
+- frontend
+- research
+- ruby
+- python
+- nodejs
 ---
 
 So, I don't know if I want to say that I am "late" to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts.  Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my "limited" frontend skills.  However after a few posts and the issues that it raised I decided to move to an existing static site generator.  

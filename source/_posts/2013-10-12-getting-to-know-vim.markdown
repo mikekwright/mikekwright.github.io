@@ -4,6 +4,7 @@ title: "Getting to know vim"
 date: 2013-10-12 22:06
 comments: true
 categories: 
+- vim
 ---
 
 This will be one of those posts, that I hope grows often as I love to use vim, and especially
