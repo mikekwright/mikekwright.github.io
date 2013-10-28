@@ -46,6 +46,7 @@ Topics
 * Splunk 6 Advanced dashboards using javascript and Django bindings
 * Splunk 6 Predict 
 * OpenCL
+* [Docker](https://www.docker.io/)
 
 Projects 
 --------------------------
