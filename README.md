@@ -48,6 +48,7 @@ Topics
 * OpenCL
 * [Docker](https://www.docker.io/)
 * [Pandas - Python Data Analysis Library](http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures)
+* [shunit2](http://net.tutsplus.com/tutorials/tools-and-tips/test-driving-shell-scripts/)
 
 Projects 
 --------------------------
