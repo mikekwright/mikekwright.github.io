@@ -47,6 +47,7 @@ Topics
 * Splunk 6 Predict 
 * OpenCL
 * [Docker](https://www.docker.io/)
+* [Pandas - Python Data Analysis Library](http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures)
 
 Projects 
 --------------------------
