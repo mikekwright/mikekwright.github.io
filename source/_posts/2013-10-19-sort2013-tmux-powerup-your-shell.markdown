@@ -102,57 +102,7 @@ through the panes uses nearly the same shortcuts `C-<bindkey> [up-down-left-righ
 Tmux also provides a means for configuring your tmux setup by supplying .tmux.conf.  Below is 
 the sample .tmux.conf file that was created.  
 
-        # Setting my bindkey as a
-        set -g prefix C-a
-        unbind C-b
-        set -s escape-time 1
-        bind r source-file ~/.tmux.conf \; display "Reloaded."
-        bind C-a send-prefix
-        bind X kill-session
-        bind x kill-pane
-        
-        # Vim Keys for Pane management
-        bind h select-pane -L
-        bind j select-pane -D
-        bind k select-pane -U
-        bind l select-pane -R
-        bind -r H resize-pane -L 5
-        bind -r J resize-pane -D 5
-        bind -r K resize-pane -U 5
-        bind -r L resize-pane -R 5
-        
-        set -g default-terminal "screen-256color"
-        
-        setw -g mode-keys vi
-
-        # Command bar
-        set -g message-bg colour81
-        set -g message-fg black 
-        set -g status-interval 30
-
-        # Status Bar Changes
-        set -g status-fg white
-        set -g status-bg black
-
-        # Inactive windows
-        setw -g window-status-fg cyan
-        setw -g window-status-bg default
-        setw -g window-status-attr dim
-
-        # Active Window
-        setw -g window-status-current-fg black
-        setw -g window-status-current-bg green
-        setw -g window-status-current-attr bright
-
-        # Left side
-        set -g status-left-length 40
-        set -g status-left "#[fg=colour155][#S] #[fg=colour110]#I #[fg=colour81]pane: #P"
-
-        # Right Side
-        set -g status-right "#[fg=colour155]#(pmset -g batt | ~/bin/battinfo.rb) | #[fg=colour45]%d %b %R"
-        set -g status-justify centre
-        setw -g monitor-activity on
-        set -g visual-activity on
+{% gist 7326539 .tmux.conf %}
 
 ## Vim Configuration
 
@@ -182,41 +132,5 @@ some screen technologies).
 
 These are just some of the basic options that I prefer for use in my vim environment. 
 
-        set nocompatible
-        filetype on
-        filetype indent on
-        filetype plugin on
-        
-        colorscheme xoria256            " This does require 256 term
-        
-        set smartindent
-        set autoindent
-        set expandtab
-        set tabstop=2
-        set shiftwidth=2
-        
-        syntax on
-        set showmatch                   " Show matching [] and ()
-        set showmode
-        
-        set number
-        set hls    
-        
-        set cf                          " Enable error files & error jumping.
-        set clipboard=unnamed           " Yanks go to clipboard
-        set history=256
-        set autowrite                   " Writes on make/shell commands
-        set ruler
-        set timeoutlen=250              " Time to wait after ESC
-        set bs=2                        " Backspace over everything in insert mode
-        
-        set noerrorbells                " No noise on errors
-        
-        set laststatus=2                " Always show status line
-        
-        set mousehide                   " Hide mouse after chars typed
-        set mouse=a                     " Mouse is in all modes
-
-
-
+{% gist 7326565 vimrc %}
 
