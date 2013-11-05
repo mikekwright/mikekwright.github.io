@@ -60,17 +60,7 @@ jump in using an example test.
 
 Open up your favorite text editor and enter the code defined below.  
 
-        #!/bin/bash
-        #
-        # Description: This is a sample test using shunit2
-        #
-
-        testMyComparison() 
-        {
-          assertTrue "This is the message if it fails" "[ 1 -eq 1 ]"
-        }
-
-        . shunit2
+{% gist 7325445 my-first-test.sh %}
 
 Now to run this test you will need to make a few changes to the file, which for this case
 lets have the file called `my-first-test.sh`
@@ -139,74 +129,16 @@ is accomplished using PATH manipulation and running calls.
 Lets start with a simple script that is used to pull down a sample configuration using 
 wget and then executes the configuration.  `configRetriever.sh`
 
-        #!/bin/bash
-        if [ -z "$1" ]
-        then
-          echo "Missing required command line url"
-          exit 1
-        fi
-
-        wget http://s3.amazon.com/work/sharedconfig.txt
-        if [ ! $? -eq  0 ]
-        then
-          echo "Failed to get the file from the web"
-          exit 2
-        fi
-
-        echo "Success"
+{% gist 7325511 configRetriever.sh %}
 
 Now that we have our test file, there are two more files that we need, the tests and 
 also a mock of wget.  So lets first start with the mock. `wget`
 
-        #!/bin/bash
-        if [ -z "$TEST_WGET_FAILURE" ]
-        then
-          echo "Downloading $1"
-        else
-          echo "Failed to download file"
-          exit 1
-        fi 
+{% gist 7325539 wget %}
 
 And finally the actual tests. `configTests.sh`  
 
-        #!/bin/bash
-        
-        setUp()
-        {
-          originalPath=$PATH
-          PATH=$PWD:$PATH
-        }
-
-        tearDown()
-        {
-          PATH=$originalPath
-          export TEST_WGET_FAILURE=
-        }
-
-        testFailsWhenArgumentNotSupplied()
-        {
-          ./configRetriever.sh > /dev/null
-          returnCode=$?
-          assertEquals "Script should fail when no argument" 1 $returnCode
-        }
-
-        testFailsWhenwgetFails()
-        {
-          export TEST_WGET_FAILURE=1
-          ./configRetriever.sh "testUrl" > /dev/null
-          returnCode=$?
-          assertEquals "Script should fail when wget fails" 2 $returnCode
-        }
-
-        testSuccessAllAround()
-        {
-          response=$(./configRetriever.sh "testUrl")
-          echo "$response" | grep -qE "Script was a success" 
-          returnCode=$?
-          assertEquals "Script was not successful" 0 $returnCode
-        }
-
-        . shunit2
+{% gist 7325587 configTests.sh %}
 
 A couple of things to point out from here, I am adjusting the path before each test and I am
 restoring it after a test using the `setUp()` and `tearDown()`.  It is important to make 
