@@ -52,6 +52,7 @@ Topics
 * [SonarQube](http://www.sonarqube.org/)
 * [Lipstick for Pig](http://techblog.netflix.com/2013/06/introducing-lipstick-on-apache-pig.html)
 * [Apache Kafka](https://kafka.apache.org/)
+* [Presto: Facebook's distributed SQL Query Engine](http://www.infoq.com/news/2013/11/Presto)
 
 Projects 
 --------------------------
