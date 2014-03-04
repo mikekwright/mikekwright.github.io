@@ -59,6 +59,10 @@ Topics
 * [Simplify your life with sshconfig](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/)
 * [Java - RESTeasy](https://www.jboss.org/resteasy/)
 * [Scala.js and ReactJS](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
+* [Spock - Different Java Testing](https://code.google.com/p/spock/)
+* [Apache Accumulo - Distributed Key/Value Store](https://accumulo.apache.org/)
+* [JSlate - Data Dashboards](http://jslate.com/)
+* [iText - iTextSharp (PDF Library)](http://itextpdf.com/)
 * [Stylus - CSS Compilation](http://learnboost.github.io/stylus/)
 
 Work
