@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: study group | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/study-group/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Research into Key-Value Databases (Riak)]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/24/research-into-key-value-databases-riak/"/>
+    <updated>2013-10-24T22:45:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/24/research-into-key-value-databases-riak</id>
+    <content type="html"><![CDATA[<p>A couple of weeks ago I came across a group at my work who had just started up going over the
+<a href="http://www.amazon.com/NoSQL-Distilled-Emerging-Persistence-ebook/dp/B0090J3SYW">NoSQL Distilled</a>
+book. This is a great introductory book to a lot of the ideas behind NoSQL and what makes it
+a more viable solution in some situations over a Relational Database.</p>
+
+<p>In this post I am going to cover my experiences with Key-Value NoSQL databases, specifically
+using the Riak implementation (as selected in the book). Another key-value database that I
+will also cover (less than Riak) is Redis.</p>
+
+<!-- More -->
+
+
+<p>This post will have a number of subposts on the different areas of my use with Riak, to keep
+the information better organized and to make the post a little smaller.</p>
+
+<h1><a href="http://basho.com/riak/">Riak</a></h1>
+
+<ul>
+<li>Definition</li>
+<li>Installation</li>
+<li>API Usage</li>
+<li>Scalling</li>
+<li>Uniqueness</li>
+</ul>
+
+
+<h1><a href="redis.io">Redis</a></h1>
+
+<ul>
+<li>Definition</li>
+<li>Installation</li>
+<li>API Usage</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

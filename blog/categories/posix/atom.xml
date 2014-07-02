@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Posix | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/posix/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux - AWK/GAWK]]></title>
+    <link href="http://www.mikewright.me/blog/2014/07/02/linux-awk/"/>
+    <updated>2014-07-02T09:26:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2014/07/02/linux-awk</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

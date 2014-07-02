@@ -1,0 +1,514 @@
+
+
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sort2013 Part IV: TMUX - Powerup your shell - My Fortress of Solitude</title>
+    <meta name="author" content="Michael Wright">
+    
+    <meta name="description" content="Sort2013 Part IV: TMUX - Powerup your shell Oct 19th, 2013 sort sort2013 tmux linux shell During sort, this session was actually a really insightful &hellip;">
+    
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="canonical" href="http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell">
+    <link href="/favicon.png" rel="icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="//atom.xml" rel="alternate" title="My Fortress of Solitude" type="application/atom+xml">
+  </head>
+
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item two-fifths lap-four-sixths palm-one-whole">
+  <a href="/" class="site-title">My Fortress of Solitude</a>
+</div>
+
+<div class="grid__item three-fifths lap-two-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  <header>
+  
+  <h1 class="title indent">Sort2013 Part IV: TMUX - Powerup your shell</h1>
+  
+
+  
+  <div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2013-10-19T22:43:00-06:00" pubdate data-updated="true"><i class="icon-calendar"></i> Oct 19<span>th</span>, 2013</time>
+    
+
+
+
+  
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      <li><a href="/blog/categories/sort/">sort</a></li>
+    
+      <li><a href="/blog/categories/sort2013/">sort2013</a></li>
+    
+      <li><a href="/blog/categories/tmux/">tmux</a></li>
+    
+      <li><a href="/blog/categories/linux/">linux</a></li>
+    
+      <li><a href="/blog/categories/shell/">shell</a></li>
+    
+    </ul>
+  </div>
+  
+
+    
+  </div>
+  
+</header>
+
+
+
+
+  <p>During sort, this session was actually a really insightful look into mouse-less productivity.<br/>
+I have always been a fan of working in the console, and have actually used screen in the past.
+However tmux has opened up an entirely new world for me.</p>
+
+<p>In this post I am going to share some of the things that I have learned from using tmux
+as setups I have in place for creating easy on &ldquo;dev environments&rdquo;.</p>
+
+<!-- more -->
+
+
+<h2><a href="http://tmux.sourceforge.net/">TMux overview</a></h2>
+
+<p>Tmux is a <a href="http://en.wikipedia.org/wiki/Terminal_multiplexer">terminal multiplexer.</a> If you
+are a heavy user of command line execution on nix-like environments (including ssh) than you
+will want to become comfortable with using terminal multiplexers.  This will allow you to
+be able to persist sessions, allow for &ldquo;remote pair-programming&rdquo; like features.</p>
+
+<p>To work with tmux you need to realize that each tmux run creates a &ldquo;session&rdquo;.  Each session
+can intern have multiple windows.  And each window has 1+ panes.  When a pane is created it
+is a completely new shell environment and does not keep aliases or other configuration applied
+to a previous pane.</p>
+
+<h3>Session</h3>
+
+<p>Session can be created using names which can allow you to easily switch between multiple
+sessions depending on work you are doing.  To work with session information you start by
+using</p>
+
+<pre><code>    tmux new-session  
+</code></pre>
+
+<p>This will create a new unnamed session, which you can rename using <code>C-&lt;bindkey&gt; $</code>.  If you
+want to create a session from scratch with the correct name you can use</p>
+
+<pre><code>    tmux new-session -s &lt;name&gt;  
+</code></pre>
+
+<p>You can now disconnect from a session using <code>C-&lt;bindkey&gt; D</code>.  After disconnecting, reconnecting is accomplished using</p>
+
+<pre><code>    tmux attach -t &lt;name&gt;
+</code></pre>
+
+<h3>Windows</h3>
+
+<p>We have a newly created session and a single window and a pane at this point.  So lets go over
+how to work with windows, both creating and navigation.</p>
+
+<p>To create a new window from inside the session you can use the default shortcut <code>C-&lt;bindkey&gt; c</code>.
+This will create a new window that will default to the window number that has already been
+created.  You can also create a new window for an existing session using the following command
+line call.</p>
+
+<pre><code>    tmux new-window -t &lt;session-name&gt;
+</code></pre>
+
+<p>If you want to name this window you can either name it using the shortcut <code>C-&lt;bindkey&gt; ,</code>. You can
+also name it at creation or rename from command line using one of the below commands.</p>
+
+<pre><code>    tmux new-window -t &lt;session-name&gt; -n &lt;window-name&gt;
+    tmux rename-window -t &lt;session-name&gt;:&lt;window-number&gt; &lt;window-name&gt;
+</code></pre>
+
+<p>So we have window creation and renaming, now on to window destruction.  The shortcut for
+destroying the current window is <code>C-&lt;bindkey&gt; &amp;</code>.  This will prompt you before the deletion
+will be completed, it will also terminal all running processes that were started in any
+of the windows open panes.</p>
+
+<p>Window navigation is also pretty straight forward. The below list is the shortcuts and can be
+used when navigating.</p>
+
+<ul>
+<li><code>C-&lt;bindkey&gt; n</code> &ndash; Navigate to the next window</li>
+<li><code>C-&lt;bindkey&gt; p</code> &ndash; Navigate to the previous window</li>
+<li><code>C-&lt;bindkey&gt; w</code> &ndash; Open up a window chooser</li>
+<li><code>C-&lt;bindkey&gt; [0-9]</code> &ndash; Quickly navigate to selected window [0-9]</li>
+</ul>
+
+
+<h3>Panes</h3>
+
+<p>This is (of course) the reason we are using tmux.  The ability to work with terminals.  A
+pane is always its own terminal.  Up until now we have basically defined tools used to
+organize these created terminals, but panes are the only ones that are terminals.</p>
+
+<p>Pane creation is done through window manipulation.  So you always start with your first
+pane, to create a second you must <strong>SPLIT</strong> the existing pane.  Splitting the pane can
+be down either vertically or horizontally.</p>
+
+<ul>
+<li><code>C-&lt;bindkey&gt; %</code> &ndash; Split pane 50% horizontally</li>
+<li><code>C-&lt;bindkey&gt; "</code> &ndash; Split pane 50% vertically</li>
+</ul>
+
+
+<p>You can also resize existing panes by using <code>C-&lt;bindkey&gt; C-[up-down-left-right]</code>. As you use
+the arrow keys it will adjust the panes giving you the exact setup you desire.  Navigating
+through the panes uses nearly the same shortcuts <code>C-&lt;bindkey&gt; [up-down-left-right]</code>.</p>
+
+<h3>Configuration</h3>
+
+<p>Tmux also provides a means for configuring your tmux setup by supplying .tmux.conf.  Below is
+the sample .tmux.conf file that was created.</p>
+
+<div><script src='https://gist.github.com/7326539.js?file=.tmux.conf'></script>
+<noscript><pre><code># Setting my bindkey as a
+set -g prefix C-a
+unbind C-b
+set -s escape-time 1
+bind r source-file ~/.tmux.conf \; display &quot;Reloaded.&quot;
+bind C-a send-prefix
+bind X kill-session
+bind x kill-pane
+
+# Vim Keys for Pane management
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+set -g default-terminal &quot;screen-256color&quot;
+
+setw -g mode-keys vi
+
+# Command bar
+set -g message-bg colour81
+set -g message-fg black 
+set -g status-interval 30
+
+# Status Bar Changes
+set -g status-fg white
+set -g status-bg black
+
+# Inactive windows
+setw -g window-status-fg cyan
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+# Active Window
+setw -g window-status-current-fg black
+setw -g window-status-current-bg green
+setw -g window-status-current-attr bright
+
+# Left side
+set -g status-left-length 40
+set -g status-left &quot;#[fg=colour155][#S] #[fg=colour110]#I #[fg=colour81]pane: #P&quot;
+
+# Right Side
+set -g status-right &quot;#[fg=colour155]#(pmset -g batt | ~/bin/battinfo.rb) | #[fg=colour45]%d %b %R&quot;
+set -g status-justify centre
+setw -g monitor-activity on
+set -g visual-activity on</code></pre></noscript></div>
+
+
+<h2>Vim Configuration</h2>
+
+<p>So I am a huge vim fan.  Nearly every ide I have has vim mode enabled.  It is one of the
+funniest things to have happen when a co-worker says &ldquo;wow you go through that fast&rdquo; and I
+respond, &ldquo;it&rsquo;s just the vim binding&rdquo;.  At that point they start to laugh cause I&rsquo;m using
+vim bindings, and I just shrug and say, &ldquo;Whatever makes me more productive than you ;&ndash;)&rdquo;.</p>
+
+<p>My vim setup is pretty simple, since I use vim through ssh shells often and inside of
+screen / tmux sessions, I have adjusted vim to use certain bindings that work in these
+environments.</p>
+
+<h3>Plugins</h3>
+
+<p>To really get the power of vim you will need to have some plugins installed and setup
+to be enabled in your environment.  Vim allows you to set any number of keyboard shortcuts
+you would like, but I would recommend not using function keys (you can get conflicts with
+some screen technologies).</p>
+
+<ul>
+<li><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> &ndash; Easy Plugin Management <strong>A MUST</strong></li>
+<li><a href="https://github.com/scrooloose/nerdtree">NerdTree</a> &ndash; File Explorer</li>
+<li><a href="https://github.com/kien/ctrlp.vim">ctrlp</a> &ndash; Ctrl+P File Searching</li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=42">bufexplorer</a></li>
+<li>Colorscheme <a href="http://www.vim.org/scripts/script.php?script_id=2140">xoria256</a> &ndash; 256 trem</li>
+</ul>
+
+
+<h3>vimrc</h3>
+
+<p>These are just some of the basic options that I prefer for use in my vim environment.</p>
+
+<div><script src='https://gist.github.com/7326565.js?file=vimrc'></script>
+<noscript><pre><code>set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+
+colorscheme xoria256            &quot; This does require 256 term
+
+set smartindent
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+syntax on
+set showmatch                   &quot; Show matching [] and ()
+set showmode
+
+set number
+set hls    
+
+set cf                          &quot; Enable error files &amp; error jumping.
+set clipboard=unnamed           &quot; Yanks go to clipboard
+set history=256
+set autowrite                   &quot; Writes on make/shell commands
+set ruler
+set timeoutlen=250              &quot; Time to wait after ESC
+set bs=2                        &quot; Backspace over everything in insert mode
+
+set noerrorbells                &quot; No noise on errors
+
+set laststatus=2                &quot; Always show status line
+
+set mousehide                   &quot; Hide mouse after chars typed
+set mouse=a                     &quot; Mouse is in all modes</code></pre></noscript></div>
+
+
+
+
+
+</article>
+
+ 
+<section id="disqus">
+  <h1 class="indent title">Comments</h1>
+  <div id="disqus_thread" aria-live="polite"><div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'wrightcoder'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+</div>
+</section>
+
+        
+        </div>
+        
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+
+  
+<section class="social aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    Track my Movements
+  </h1>
+  <ul class="unstyled">
+    
+    
+    <li><a class="github" href="//github.com/wrightcoder"><i class="icon-github"></i> Github</a></li>
+    
+    <li><a class="gplus" href="//plus.google.com/118232506537372838088"><i class="icon-google-plus-sign"></i> Google+</a></li>
+    <li><a class="linkedin" href="//linkedin.com/in/weijiajun"><i class="icon-linkedin-sign"></i> LinkedIn</a></li>
+    
+    <li><a class="stackoverflow" href="//stackoverflow.com/users/310561"><i class="icon-stackexchange"></i> StackOverflow</a></li>
+    <li><a class="twitter" href="//twitter.com/mk_wright"><i class="icon-twitter"></i> Twitter</a></li>
+    <li><a class="youtube" href="//youtube.com/user/weijiajun"><i class="icon-youtube"></i> YouTube</a></li>
+  </ul>
+</section>
+
+
+  <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/07/02/linux-awk/">Linux - AWK/GAWK</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/ocaml/">Ocaml, Opam and utop from a newb</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/31/shunit2-bash-testing/">shUnit2 - Bash Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/24/splunk-6-whats-new/">Splunk 6 - Whats New</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/24/research-into-key-value-databases-riak/">Research into Key-Value Databases (Riak)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/wrightcoder" title="@wrightcoder on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
+
+
+
+</div>
+
+        </aside>
+        
+      </div>
+    </div>
+    
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <p class="copyright">
+  All content by Michael Wright and licenced under <a href="//creativecommons.org/licenses/by-nc-sa/3.0/ie/">Creative Commons</a>.<br>
+  Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+
+
+<script>
+  var disqus_shortname = 'wrightcoder';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell/';
+    var disqus_url = 'http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'wrightcoder',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

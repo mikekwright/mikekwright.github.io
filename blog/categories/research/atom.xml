@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: research | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/research/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Static Site Meandering]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/15/static-site-meandering/"/>
+    <updated>2013-10-15T20:06:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/15/static-site-meandering</id>
+    <content type="html"><![CDATA[<p>So, I don&rsquo;t know if I want to say that I am &ldquo;late&rdquo; to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts.  Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my &ldquo;limited&rdquo; frontend skills.  However after a few posts and the issues that it raised I decided to move to an existing static site generator.</p>
+
+<h1>AND I WAS BLOWN AWAY BY THE CHOICES</h1>
+
+<!-- more -->
+
+
+<p>Much like any other items on the web there are a number of different static site generators that exist.  I wasn&rsquo;t able to go through and use all of them yet, but I decided I wanted to place the ones that I saw and my very quick experience with these generators.  These generators can be broken up by the language that is used in the generator.</p>
+
+<h2>NodeJS</h2>
+
+<ul>
+<li><a href="http://docpad.org">Docpad</a> &ndash; This seemed to be the tool of choice for many nodejs devs, very powerful and rich <em>Most likely next candidate</em></li>
+<li><a href="http://wintersmith.io/">Wintersmith</a> &ndash; &ldquo;Flexible, minimalistic, multi-platform static site generator&rdquo; &ndash; Site Description</li>
+<li><a href="http://harpjs.com/">Harp</a> &ndash; Another static frontend generator with an available <a href="https://harp.io">platform</a></li>
+<li><a href="https://github.com/flatiron/blacksmith">Blacksmith</a> &ndash; &ldquo;A generic static site generator built using flatiron, plates, and marked.&rdquo; &ndash; Site Description</li>
+<li><a href="https://github.com/techwraith/scotch">Scotch</a> &ndash; &ldquo;A really classy, dead simple, markdown based, blogging framework for node.js&rdquo; &ndash; Site Description</li>
+<li><a href="https://github.com/creationix/wheat">Wheat</a> &ndash; A blogging framework that has a number of stars, but not recently updated (Over a year ago)</li>
+</ul>
+
+
+<h3><a href="http://yeoman.io">Yeoman Generators</a></h3>
+
+<ul>
+<li><a href="https://github.com/Snugug/generator-armadillo">Armadillo</a> &ndash; Generator for easily creating static sites for use with Github pages</li>
+<li><a href="https://github.com/colynb/generator-go-static">Go Statis</a> &ndash; Generator for site scaffolding and Grunt task execution</li>
+</ul>
+
+
+<h2>Ruby</h2>
+
+<ul>
+<li><a href="http://jekyllrb.com">Jekyll</a> &ndash; The core blog tool that is used by a number of sites, including github pages.</li>
+<li><a href="http://octopress.org">Octopress</a> &ndash; Built on top of Jekyll</li>
+<li><a href="http://nanoc.ws/">Nanoc</a></li>
+<li><a href="http://middlemanapp.com/">MiddleMan</a></li>
+</ul>
+
+
+<h2>Python</h2>
+
+<ul>
+<li><a href="http://getpelican.com">Pelican</a> &ndash; Light and simple static site generation in python <em>Most likely the candidate after Docpad</em></li>
+<li><a href="http://getnikola.com">Nikola</a> &ndash; Uses doit for fast builds and has plugin capabilities</li>
+<li><a href="http://mynt.mirroredwhite.com/">Mynt</a> &ndash; Attempt at giving advanced CMS support to static blogs</li>
+<li><a href="http://www.blogofile.com/">Blogofile</a> &ndash; A generator for those obsessed with blogging</li>
+<li><a href="http://pythonhosted.org/Frozen-Flask/">Frozen-Flask</a> &ndash; Taking a flask application and turning it into static content</li>
+</ul>
+
+
+<p>At this point I am happy with the choice to use Octopress, but I&rsquo;m also finiky and will &ldquo;most likely&rdquo; migrate the blog to another technology in the future.  This is mostly because, if I am not learning something new, than what I am doing here ;&ndash;).</p>
+
+<h1>Resources</h1>
+
+<p>There were a few useful sites that I came across while checking these tools out, especially one that pointed to the numerous available python frameworks.  Those are listed below.</p>
+
+<ul>
+<li><a href="http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/">http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

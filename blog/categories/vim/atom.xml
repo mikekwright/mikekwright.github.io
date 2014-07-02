@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vim | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting to know vim]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim/"/>
+    <updated>2013-10-12T22:06:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim</id>
+    <content type="html"><![CDATA[<p>This will be one of those posts, that I hope grows often as I love to use vim, and especially
+love to write down what I learn in case I forget it in the future.</p>
+
+<!-- More -->
+
+
+<h1>Useful Shortcuts</h1>
+
+<ul>
+<li><p>Disable Search Highlighting</p>
+
+<pre><code>  set nohlsearch   " Turn it off
+  set hlsearch!    " Toggle on or off
+
+  :nohlsearch      " Turn it off as command
+  :nohl            " Shorthand
+  :noh             " Even Shorter
+</code></pre></li>
+</ul>
+
+
+<h1>Useful Plugins</h1>
+
+<p>TODO ;&ndash;)</p>
+]]></content>
+  </entry>
+  
+</feed>

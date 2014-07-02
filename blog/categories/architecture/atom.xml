@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: architecture | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/architecture/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Sort2013 Part II: Design Thinking]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking/"/>
+    <updated>2013-10-19T22:43:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking</id>
+    <content type="html"><![CDATA[<p>This lecture was given by Brandon Gillespie and it was fantastic.  Below are my attempts
+at creating reasonable information based on the lecture given.</p>
+
+<p>This was a fantastic presentation that focused on delving into ideas of archiecture progress and
+helpful hints that can help keep an architect moving in the correct direction.  This session
+did not have any focus on specific tools so should not be limited to a certain &ldquo;type&rdquo;
+of architect.</p>
+
+<!-- More -->
+
+
+<p>To start there is a comment that I would share:</p>
+
+<p><em>How often do we get stuck &ldquo;looking at the
+shingles&rdquo; as it where and forget what the real purpose of the &ldquo;house&rdquo; we are building was to
+begin with?</em></p>
+
+<h1>Overview of &ldquo;Architect&rdquo; in IT</h1>
+
+<p>There are a few fundamental facets of a good architect.</p>
+
+<ul>
+<li>Planning &ndash; <em>Managing Change across time and expectations</em></li>
+<li>Analysis &ndash; <em>Decomposition of complex systems</em></li>
+<li>Communication &ndash; <em>Trusted Translator</em></li>
+</ul>
+
+
+<h2>Planning</h2>
+
+<p>Planning is a fundamental aspect of architecture and design.</p>
+
+<ul>
+<li>Principle element of design!</li>
+<li>Need to constantly change and improve</li>
+<li>Changes takes A LONG TIME</li>
+</ul>
+
+
+<p>To compare the importance of it changing, lets compare it to a spoken language. And when
+is a spoken language considered &ldquo;dead&rdquo;?</p>
+
+<p><strong>A Language is considered dead when it STOPS CHANGING</strong></p>
+
+<p>When you are planning there are a few key elements to put into play, for each plan you do.
+First you need to &ldquo;make sure you really know where you are going&rdquo;.  This is fundamental since
+the longer you are working on a plan the greater the likelyhood that you will run into a block
+in the road.  When you reach these blocks you will need to &lsquo;fork&rsquo; your decisions to achieve
+your end goal, but if you haven&rsquo;t made sure where you are going you, these forks will end
+up pushing you farther and farther away from your real goal.</p>
+
+<p>A great analogy of this behavoid can be found when compared to a farmer.  Imagine a farmar
+who is plowing the field. When you start plowing, farmers will pick a post or some other
+set point as a &lsquo;goal&rsquo; for him to reach.  This &ldquo;goal on the horizon&rdquo; could be a fence post or
+other landmark.  This allows him to move around rocks and other &ldquo;blockers&rdquo; when tilling, but
+still make the original plan he had from the beginning.</p>
+
+<h2>Analysis</h2>
+
+<p><strong>Decompose Complex to Simple</strong></p>
+
+<p>The analysis section can be broken down into two seperate categories as well, A Perspective on
+time that helps us to better understand how long decisions and adaptions will take and
+Standards.</p>
+
+<h3>Perspective of Time</h3>
+
+<p>How we view the time we spend on a given problem or project allow us to can categorize
+the mindset that is used.</p>
+
+<ul>
+<li>Operations &ndash; <em>Now to a few months</em></li>
+<li>Engineering &ndash; <em>A few months to a year</em></li>
+<li>Architect &ndash; <em>Years</em></li>
+</ul>
+
+
+<h3>Standards</h3>
+
+<p>Working from a baseline and seeing what the variant from the &ldquo;standard&rdquo; that we want to see.
+You need to see the variant difference (through documentation) so that you can use it to
+better analysis and define a system.</p>
+
+<ul>
+<li>Flexible, accomodating</li>
+<li>Allows for variances, documented by TCO</li>
+</ul>
+
+
+<p>There are a couple of things that you will need to watch out for when working with Standards.
+The most important of these is to not create too many standards, especially those that
+<a href="http://xkcd.com/927/">will be hard to adopt</a>. You also need to make sure that your standards
+don&rsquo;t become a roadblock in the work you are doing.</p>
+
+<h2>Communication</h2>
+
+<p>This is a critical section that needs to be well thought out and understood. Infact this might
+be more important than many of the other areas for an architect to be good at, since if they
+can&rsquo;t communicate their thoughts and plans, those who were told will likely never achieve
+the expected results.</p>
+
+<p><em>If you cannot explain something to me in a way I can understand it, than I assume
+that you don&rsquo;t understand it.</em></p>
+
+<p>This means that if you are communicating with a relatively intelligent person you should
+be able to come up with some metaphor or story or description that can be used to help
+them understand.</p>
+
+<h1>Design Thinking</h1>
+
+<p><em>Methodology for execution of a vision</em></p>
+
+<p>To really get you in the mode, here are some insipring quotes</p>
+
+<ul>
+<li>Vision without Execution is Hallucination &ndash; <em>Thomas Edision</em></li>
+<li>You can&rsquo;t plow a field simply by turning it over in your mind &ndash; <em>President Hinckley</em></li>
+<li>A goal without a plan is just a wish &ndash; <em>Antoine de Saint-Exupery</em></li>
+</ul>
+
+
+<p>Design thinking is a form of solution-based thinking focusing on the <em>desired achievement</em>
+instead of the problem. This can help to properly bring vision to fruition (Designed vs
+Organic Result)</p>
+
+<p>Steps:</p>
+
+<ul>
+<li>Define</li>
+<li>Research</li>
+<li>Ideation</li>
+<li>Prototype</li>
+<li>Objectives</li>
+<li>Implemented</li>
+<li>Learn</li>
+</ul>
+
+
+<h2>Define</h2>
+
+<p>When going through the Define process you should start by determining the issues that
+are going to be resolved.  These are the true needs of the application or project but
+they are not the requirements.  Once these requirements have been defined, the next step
+is to prioritize the effort in terms of urgency.  And finally, you need to have some
+measure that can be used to determine <strong>what is considered success</strong>.</p>
+
+<h2>Research</h2>
+
+<ul>
+<li>Review history (Have we done this before, did we fail, why)</li>
+<li>Talk to end user &ndash; invite for design processes to specify needs (not requirements)</li>
+<li>Identify <em>thought leader&rsquo;s</em> and their roles</li>
+</ul>
+
+
+<h2>Ideation</h2>
+
+<p>Clearly identify the needs and motivations of your end users (requirements analysis)</p>
+
+<p>Brainstorm
+* Make sure the group idea is the same and focused on requirements</p>
+
+<h2>Prototype</h2>
+
+<p>Prototype are <em>THROW AWAY</em> not &ldquo;prototype for production&rdquo;, Sometimes you need to recognize and be able to express when the cost of
+keeping a prototype is more than re-writing.</p>
+
+<ul>
+<li>Rapid</li>
+<li>Quicky understand direction</li>
+<li>Multiple different drafts</li>
+<li><em>Reserve judgment, maintain neutrality in code</em> and <em>DON&rsquo;T BE OFFENDED</em></li>
+<li>Be sure to create and present actual working prototypes.</li>
+<li>Final result of a prototype should be able to create a refined selection of ideas</li>
+</ul>
+
+
+<p><em>Make sure you can quickly recognize when you are going the wrong direction</em></p>
+
+<h2>Objectives</h2>
+
+<p>This is the align of the prototype and the real requirements.</p>
+
+<ul>
+<li>Set aside emotion and ownership of ideas</li>
+<li>The most practical solution is not always the best solution</li>
+</ul>
+
+
+<h2>Implementation</h2>
+
+<p>Never touch a production system, you can build a brand new environemnt in parallel and
+then cut over to it. This can make less man power to complete and may not as expensive.</p>
+
+<p><em>Create and execute a custom implementation plan.</em></p>
+
+<h2>Learn</h2>
+
+<p>Study what you implemented to learn what to do (or not do) in the future.</p>
+
+<h2>Pitfalls</h2>
+
+<ul>
+<li>Negativity &ndash; People who only think why it won&rsquo;t work rather than a solution</li>
+<li>Fear</li>
+<li>Resistance</li>
+<li>Devils Advocate &ndash; Good to have as long as you don&rsquo;t become a Negative person</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

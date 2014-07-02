@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: testing | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/testing/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[shUnit2 - Bash Testing]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/31/shunit2-bash-testing/"/>
+    <updated>2013-10-31T22:03:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/31/shunit2-bash-testing</id>
+    <content type="html"><![CDATA[<p>So I have been working on the platform team at work for the last 2 years, and during this time
+we have had to not only write some code in Java and Ruby but also to write a number of bash
+scripts to help with management of systems.  I&rsquo;m a huge proponent of unit testing and especially
+of TDD.</p>
+
+<p>Since we have had a goal recently to make sure we are meeting minimum code coverage
+requirements on all of our tools I have looked into what it would take to unit test our bash
+scripts.  Luckily there is an engineer who is already doing some bash testing on another
+team and he pointed me towards shUnit2 and some example projects they are using it with inhouse.</p>
+
+<p>In this post I am going to cover the areas of shUnit2 that I have found to be the most useful,
+and how the process of mocking and other interactions could be handled.</p>
+
+<!-- more -->
+
+
+<h2>shUnit2</h2>
+
+<p><a href="https://code.google.com/p/shunit2/">shUnit2</a> is an xunit style testing framework made to
+work with Bash scripts.  It has a very simple setup process on my systems (especially
+debian-based systems).</p>
+
+<h3>Installation</h3>
+
+<p>To install shUnit2 on a debian based system you only need to run the below command.</p>
+
+<pre><code>    apt-get install shunit2
+</code></pre>
+
+<p>If everything is setup correctly you should see output similiar to that below.</p>
+
+<pre><code>    $ shunit2
+
+    Ran 0 tests. 
+
+    OK
+</code></pre>
+
+<p>You can also manually install it by downloading the latest build from
+<a href="https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz">code.google.com</a>. This is actually
+a nice thing to pull down as it contains some useful examples for shUnit2. After pulling it
+you will need to add it to your path for usage.</p>
+
+<pre><code>    wget https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz
+    tar -xvf shunit2-2.1.6.tgz
+    PATH=$DIRSTACK/shunit2-2.1.6/bin:$PATH
+    shunit2
+</code></pre>
+
+<h3>First Tests</h3>
+
+<p>The easiest way to start learning a framework is often to use the framework, so lets quickly
+jump in using an example test.</p>
+
+<p>Open up your favorite text editor and enter the code defined below.</p>
+
+<p><div><script src='https://gist.github.com/7325445.js?file=my-first-test.sh'></script>
+<noscript><pre><code>#!/bin/bash
+#
+# Description: This is a sample test using shunit2
+#
+
+testMyComparison() 
+{
+  assertTrue &quot;This is the message if it fails&quot; &quot;[ 1 -eq 1 ]&quot;
+}
+
+. shunit2
+</code></pre></noscript></div>
+</p>
+
+<p>Now to run this test you will need to make a few changes to the file, which for this case
+lets have the file called <code>my-first-test.sh</code></p>
+
+<pre><code>    $ chmod +x my-first-test.sh
+    $ ./my-first-test.sh
+
+    testMyComparison  
+
+    Ran 1 tests.
+
+    OK
+</code></pre>
+
+<p>If this doesn&rsquo;t work, check a couple of things that might be the cause.</p>
+
+<ul>
+<li>shunit2 should be in the path</li>
+<li>function name starts with lowercase &lsquo;test&rsquo;</li>
+<li>assertTrue comparison has correct spacing and quotes &ndash; <code>"[ 1 -eq 1 ]"</code></li>
+</ul>
+
+
+<h3>Assertions</h3>
+
+<p>One of the most important part of tests is making sure that the test is descriptive
+in what it is trying to accomplish. To help achieve this these xUnit frameworks will
+often include a number of different assertions that can help to make the code more
+readable.</p>
+
+<p>This is the list of current assertions as of version 2.1.6</p>
+
+<ul>
+<li>assertEquals [message] expected actual</li>
+<li>assertSame [message] expected actual</li>
+<li>assertNotEquals [message] expected actual</li>
+<li>assertNotSame [message] expected actual</li>
+<li>assertNull [message] value</li>
+<li>assertNotNull [message] value</li>
+<li>assertTrue [message] condition</li>
+<li>assertFalse [message] condition</li>
+</ul>
+
+
+<p>There are a couple of things to be aware of when using these assertions, especially the
+assertNull and assertNotNull calls.  They are used to compare a null in bash which is a
+zero length string.</p>
+
+<h3>Failures</h3>
+
+<p>Next to assertions you also have failures that you can place in your code to automatically
+trigger the test to fail and execution to stop.  This is a list of the different failures
+that are supported in shUnit2.</p>
+
+<p><em>Note: failures are not for value comparisons, if you need this functionality use assertions</em></p>
+
+<ul>
+<li>fail [message]</li>
+<li>failNotEquals [message] unexpected actual</li>
+<li>failSame [message] expected actual</li>
+<li>failNotSame [message] unexpected actual</li>
+</ul>
+
+
+<h2>Code Dependencies</h2>
+
+<p>One of the common situations that you will run across with unit testing is making sure that
+your code is testing the smallest piece possible, which can help you quickly and easily
+find bugs that could show up, and give you better confidence with refactoring.</p>
+
+<p>In most other languages this is accomplished using mocking frameworks (java and mockito,
+.net and rhinomocks). In bash I have not yet found a framework that successfully mocks
+calls that could be made from the bash scripts, so instead the process that I recommend
+is accomplished using PATH manipulation and running calls.</p>
+
+<p>Lets start with a simple script that is used to pull down a sample configuration using
+wget and then executes the configuration.  <code>configRetriever.sh</code></p>
+
+<p><div><script src='https://gist.github.com/7325511.js?file=configRetriever.sh'></script>
+<noscript><pre><code> #!/bin/bash
+if [ -z &quot;$1&quot; ]
+then
+  echo &quot;Missing required command line url&quot;
+  exit 1
+fi
+
+wget http://s3.amazon.com/work/sharedconfig.txt
+if [ ! $? -eq  0 ]
+then
+  echo &quot;Failed to get the file from the web&quot;
+  exit 2
+fi
+
+echo &quot;Success&quot;
+</code></pre></noscript></div>
+</p>
+
+<p>Now that we have our test file, there are two more files that we need, the tests and
+also a mock of wget.  So lets first start with the mock. <code>wget</code></p>
+
+<p><div><script src='https://gist.github.com/7325539.js?file=wget'></script>
+<noscript><pre><code>#!/bin/bash
+if [ -z &quot;$TEST_WGET_FAILURE&quot; ]
+then
+  echo &quot;Downloading $1&quot;
+else
+  echo &quot;Failed to download file&quot;
+  exit 1
+fi 
+</code></pre></noscript></div>
+</p>
+
+<p>And finally the actual tests. <code>configTests.sh</code></p>
+
+<p><div><script src='https://gist.github.com/7325587.js?file=configTests.sh'></script>
+<noscript><pre><code>#!/bin/bash
+
+setUp()
+{
+  originalPath=$PATH
+  PATH=$PWD:$PATH
+}
+
+tearDown()
+{
+  PATH=$originalPath
+  export TEST_WGET_FAILURE=
+}
+
+testFailsWhenArgumentNotSupplied()
+{
+  ./configRetriever.sh &gt; /dev/null
+  returnCode=$?
+  assertEquals &quot;Script should fail when no argument&quot; 1 $returnCode
+}
+
+testFailsWhenwgetFails()
+{
+  export TEST_WGET_FAILURE=1
+  ./configRetriever.sh &quot;testUrl&quot; &gt; /dev/null
+  returnCode=$?
+  assertEquals &quot;Script should fail when wget fails&quot; 2 $returnCode
+}
+
+testSuccessAllAround()
+{
+  response=$(./configRetriever.sh &quot;testUrl&quot;)
+  echo &quot;$response&quot; | grep -qE &quot;Script was a success&quot; 
+  returnCode=$?
+  assertEquals &quot;Script was not successful&quot; 0 $returnCode
+}
+
+. shunit2</code></pre></noscript></div>
+</p>
+
+<p>A couple of things to point out from here, I am adjusting the path before each test and I am
+restoring it after a test using the <code>setUp()</code> and <code>tearDown()</code>.  It is important to make
+sure that you are forcing a clean slate for each test, so you don&rsquo;t get false negatives (or
+positives for that matter).</p>
+
+<p>The next important thing to see is how to hide or handle output from the running script,
+you should do this otherwise you might find it hard to find the alerts from test outputs
+that are run.</p>
+
+<h2>Conclusion</h2>
+
+<p>So after getting my feet a little wet with shUnit2 and using path manipulation to handle
+script internal calls, I have to say that I think bash unit testing is much easier
+than I had originally figured and am excited to move forward with testing my scripts.</p>
+]]></content>
+  </entry>
+  
+</feed>

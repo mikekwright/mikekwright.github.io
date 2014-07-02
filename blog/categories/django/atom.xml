@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: django | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Django with no root access]]></title>
+    <link href="http://www.mikewright.me/blog/2012/05/09/installing-django-with-no-root-access/"/>
+    <updated>2012-05-09T00:00:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2012/05/09/installing-django-with-no-root-access</id>
+    <content type="html"><![CDATA[<p>I really have enjoyed working with a $5/month hosting company for seriously small projects
+with few performance requirements.  The service that I am using at this time is
+<a href="http://www.site5.com/">site5</a>.  They offer a great plan that works for me and the many
+simple projects I have been using as prototypes.</p>
+
+<p>For this specific discussion I am going to talk about what I needed to do get the lastest
+django (v1.4) working on site5.</p>
+
+<!-- more -->
+
+
+<h2>Sandbox environment</h2>
+
+<p>Lets setup our little sandbox area for placing the source to compile and the actually
+compiled instance</p>
+
+<pre><code>    cd ~
+    mkdir installed
+    cd installed
+    mkdir compile
+    cd compile
+</code></pre>
+
+<p>Next we will download python for use on the instance. (Django 1.4 doesn&rsquo;t work with python 3)</p>
+
+<pre><code>    wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+    tar -xvf Python-2.7.3.tar.bz2 
+</code></pre>
+
+<p><em>Note: This is specific for version 2.7.3 which was the stable release at the time this
+article was written</em></p>
+
+<p>So we have the source, now we need to compile and install Python 2.7 (non root user)</p>
+
+<pre><code>    cd Python-2.7.3
+    ./configure PREFIX=$HOME/installed/python2.7
+    make install DESTDIR=$HOME/installed/python2.7
+</code></pre>
+
+<p>Add python to the PATH for simplicity, to do this we will add an entry to the
+.bash_profile file located in our home directory</p>
+
+<pre><code>    cd ~
+    echo "export PATH=$HOME/installed/python2.7/bin:$PATH" &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>Reload the .bash_profile so that python will be on the path.</p>
+
+<pre><code>    source .bash_profile
+</code></pre>
+
+<p>Verify that the new python is found in the path</p>
+
+<pre><code>    python --version
+    (should print Python 2.7.3)
+</code></pre>
+
+<p>Install PIP (I followed instructions found <a href="http://www.pip-installer.org/en/latest/installing.html">here</a>)</p>
+
+<pre><code>    cd ~/installed/compile
+    curl http://python-distribute.org/distribute_setup.py | python
+    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
+</code></pre>
+
+<p><em>Note if the last command fails with certificate issue, run with curl -k</em></p>
+
+<p>Install django using pip</p>
+
+<pre><code>    pip install django
+    pip install flup
+    pip install pysqlite  (only sometimes required and only if you are doing sqlite db)
+</code></pre>
+
+<p>Create directory for website and add necessary files to get apache to pick it up or in this
+case <strong>.htaccess</strong></p>
+
+<pre><code>    AddHandler fcgid-script .fcgi
+    Options +FollowSymLinks
+
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^(media/.*)$ - [L]
+    RewriteRule ^(static/.*)$ - [L]
+    RewriteCond %{REQUEST_URI} !(django.fcgi)
+    RewriteRule ^(.*)$ django.fcgi/$1 [L]
+</code></pre>
+
+<p><strong>django.fcgi</strong></p>
+
+<pre><code>    #!/home/&lt;username&gt;/installed/python2.7/bin/python
+    import sys, os
+
+    # Add a custom Python path.
+    sys.path.insert(0, "/home/&lt;username&gt;/&lt;website-location&gt;")
+
+    # Switch to the directory of your project. (Optional.)
+    #os.chdir("/home/&lt;username&gt;/&lt;website-location&gt;")
+
+    # Set the DJANGO_SETTINGS_MODULE environment variable.
+    os.environ['DJANGO_SETTINGS_MODULE'] = "&lt;projectname&gt;.settings"
+
+    from django.core.servers.fastcgi import runfastcgi
+    runfastcgi(method="threaded", daemonize="false")
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>So hopefully after following this little tutorial, you too can get the newest version
+of django up and running on a hosted machine with no root access.</p>
+]]></content>
+  </entry>
+  
+</feed>

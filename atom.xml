@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux - AWK/GAWK]]></title>
+    <link href="http://www.mikewright.me/blog/2014/07/02/linux-awk/"/>
+    <updated>2014-07-02T09:26:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2014/07/02/linux-awk</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ocaml, Opam and utop from a newb]]></title>
+    <link href="http://www.mikewright.me/blog/2013/11/16/ocaml/"/>
+    <updated>2013-11-16T15:03:00-07:00</updated>
+    <id>http://www.mikewright.me/blog/2013/11/16/ocaml</id>
+    <content type="html"><![CDATA[<p>This week I had the chance to attend QCon SF and let me tell you it was a great experience.
+One of the benefits that came out of this conference was a free ebook from ORielly books. The
+book that I decided to pickup was the newly released <em>Real World Ocaml</em>.</p>
+
+<p>One of the first things that you need to setup when working with ocaml is, of course, the
+environment.  This book talks about using utop and opam (the ocaml package manager). So I
+decided to install these tools on my system.  There were a few issues that I ran into while
+trying to get it working, so I have decided to document those (and what worked in the end)
+so that when I setup a new system I don&rsquo;t have to figure them out all over again.</p>
+
+<!-- more -->
+
+
+<p></p>
+
+<p>For this installation I will be using Ubuntu 13.10 as my OS of choice, however the final
+solution is one that should work on any nix system.</p>
+
+<h2>Install from Packages</h2>
+
+<p>This was the first attempt that I had at installing ocaml and opam, using the debian
+provided packages.  This had a few issues, the main issue being that opam is not included
+in the standard repositories, so they require you to add another repository.</p>
+
+<pre><code>    add-apt-repository ppa:avsm/ppa
+    apt-get update
+    apt-get install ocaml opam
+</code></pre>
+
+<p>This worked to install the basic opam and ocaml systems, except that I already had ocaml
+installed, so I had to first remove the original ocaml package</p>
+
+<pre><code>    apt-get remove ocaml
+</code></pre>
+
+<p>After that the install above worked to set things up.  But when trying to install a few of
+the packages using opam I ran into the issue that the <code>ocaml-compiler-libs</code> was not installed
+and trying to install it failed with a version conflict.</p>
+
+<p>At this point I could have tried to dive a little deeper to find out why it failed and
+see if I could resolve the package issue, however I prefer to understand how the install
+of the different packages goes anyways, so I decided to install from source.</p>
+
+<h2>Install from Source</h2>
+
+<p>I try to install tools from source whenever I get the chance as I really like to understand
+what exactly is happening underneath the covers so that if I run into problems in the
+future with it running I can have a better starting point.</p>
+
+<p>So to install ocaml and opam from source these are the steps that I went through.</p>
+
+<div><script src='https://gist.github.com/7506393.js?file=ocaml-install.sh'></script>
+<noscript><pre><code>#!/bin/bash
+# Sample of this executing located below
+#
+# INSTALL_PREFIX=$HOME/Development/ocaml CODE_DIR=$HOME/Development/src ./ocaml-install.sh
+#
+function installOcaml
+{
+  local codeDir=$1
+  local installDir=$2
+
+  cd $codeDir
+
+  wget http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz
+  tar -xvf ocaml-4.01.0.tar.gz
+  cd ocaml-4.01.0
+  
+  ./configure -prefix $installDir
+  make world.opt
+  make install
+
+  export PATH=$PATH:$installDir/bin
+}
+
+function installOpam
+{
+  local codeDir=$1
+  local installDir=$2
+
+  cd $codeDir
+
+  wget http://www.ocamlpro.com/pub/opam-full-1.1.0.tar.gz
+  tar -xvf opam-full-1.1.0.tar.gz
+  cd opam-full-1.1.0
+  
+  ./configure -prefix $installDir
+  make
+  make install
+
+  $installDir/bin/opam init
+  $installDir/bin/opam config setup -a
+
+  echo &quot;. $HOME/.opam/opam-init/init.sh &gt; /dev/null 2&gt; /dev/null || true&quot; &gt;&gt; ~/.bashrc
+}
+
+installPrefix=${INSTALL_PREFIX:-&quot;/usr/local&quot;}
+codeDir=${CODE_DIR:-&quot;/usr/local/src&quot;}
+
+set -o nounset
+
+installOcaml $codeDir $installPrefix
+installOpam $codeDir $installPrefix
+
+echo &quot;Ocaml and Opam now installed, you can install utop by doing the following two things&quot;
+echo &quot;&quot;
+echo &quot;   1. source $HOME/.opam/opam-init/init.sh&quot;
+echo &quot;   2. opam install --yes utop&quot;
+</code></pre></noscript></div>
+
+
+<h2>All done?</h2>
+
+<p>Well this was just my first day getting setup to go through the Real World Ocaml book, but
+I am very, very excited about this book as ocaml was a language that I reported on in school
+years ago and found it to be very exciting.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[shUnit2 - Bash Testing]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/31/shunit2-bash-testing/"/>
+    <updated>2013-10-31T22:03:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/31/shunit2-bash-testing</id>
+    <content type="html"><![CDATA[<p>So I have been working on the platform team at work for the last 2 years, and during this time
+we have had to not only write some code in Java and Ruby but also to write a number of bash
+scripts to help with management of systems.  I&rsquo;m a huge proponent of unit testing and especially
+of TDD.</p>
+
+<p>Since we have had a goal recently to make sure we are meeting minimum code coverage
+requirements on all of our tools I have looked into what it would take to unit test our bash
+scripts.  Luckily there is an engineer who is already doing some bash testing on another
+team and he pointed me towards shUnit2 and some example projects they are using it with inhouse.</p>
+
+<p>In this post I am going to cover the areas of shUnit2 that I have found to be the most useful,
+and how the process of mocking and other interactions could be handled.</p>
+
+<!-- more -->
+
+
+<h2>shUnit2</h2>
+
+<p><a href="https://code.google.com/p/shunit2/">shUnit2</a> is an xunit style testing framework made to
+work with Bash scripts.  It has a very simple setup process on my systems (especially
+debian-based systems).</p>
+
+<h3>Installation</h3>
+
+<p>To install shUnit2 on a debian based system you only need to run the below command.</p>
+
+<pre><code>    apt-get install shunit2
+</code></pre>
+
+<p>If everything is setup correctly you should see output similiar to that below.</p>
+
+<pre><code>    $ shunit2
+
+    Ran 0 tests. 
+
+    OK
+</code></pre>
+
+<p>You can also manually install it by downloading the latest build from
+<a href="https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz">code.google.com</a>. This is actually
+a nice thing to pull down as it contains some useful examples for shUnit2. After pulling it
+you will need to add it to your path for usage.</p>
+
+<pre><code>    wget https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz
+    tar -xvf shunit2-2.1.6.tgz
+    PATH=$DIRSTACK/shunit2-2.1.6/bin:$PATH
+    shunit2
+</code></pre>
+
+<h3>First Tests</h3>
+
+<p>The easiest way to start learning a framework is often to use the framework, so lets quickly
+jump in using an example test.</p>
+
+<p>Open up your favorite text editor and enter the code defined below.</p>
+
+<div><script src='https://gist.github.com/7325445.js?file=my-first-test.sh'></script>
+<noscript><pre><code>#!/bin/bash
+#
+# Description: This is a sample test using shunit2
+#
+
+testMyComparison() 
+{
+  assertTrue &quot;This is the message if it fails&quot; &quot;[ 1 -eq 1 ]&quot;
+}
+
+. shunit2
+</code></pre></noscript></div>
+
+
+<p>Now to run this test you will need to make a few changes to the file, which for this case
+lets have the file called <code>my-first-test.sh</code></p>
+
+<pre><code>    $ chmod +x my-first-test.sh
+    $ ./my-first-test.sh
+
+    testMyComparison  
+
+    Ran 1 tests.
+
+    OK
+</code></pre>
+
+<p>If this doesn&rsquo;t work, check a couple of things that might be the cause.</p>
+
+<ul>
+<li>shunit2 should be in the path</li>
+<li>function name starts with lowercase &lsquo;test&rsquo;</li>
+<li>assertTrue comparison has correct spacing and quotes &ndash; <code>"[ 1 -eq 1 ]"</code></li>
+</ul>
+
+
+<h3>Assertions</h3>
+
+<p>One of the most important part of tests is making sure that the test is descriptive
+in what it is trying to accomplish. To help achieve this these xUnit frameworks will
+often include a number of different assertions that can help to make the code more
+readable.</p>
+
+<p>This is the list of current assertions as of version 2.1.6</p>
+
+<ul>
+<li>assertEquals [message] expected actual</li>
+<li>assertSame [message] expected actual</li>
+<li>assertNotEquals [message] expected actual</li>
+<li>assertNotSame [message] expected actual</li>
+<li>assertNull [message] value</li>
+<li>assertNotNull [message] value</li>
+<li>assertTrue [message] condition</li>
+<li>assertFalse [message] condition</li>
+</ul>
+
+
+<p>There are a couple of things to be aware of when using these assertions, especially the
+assertNull and assertNotNull calls.  They are used to compare a null in bash which is a
+zero length string.</p>
+
+<h3>Failures</h3>
+
+<p>Next to assertions you also have failures that you can place in your code to automatically
+trigger the test to fail and execution to stop.  This is a list of the different failures
+that are supported in shUnit2.</p>
+
+<p><em>Note: failures are not for value comparisons, if you need this functionality use assertions</em></p>
+
+<ul>
+<li>fail [message]</li>
+<li>failNotEquals [message] unexpected actual</li>
+<li>failSame [message] expected actual</li>
+<li>failNotSame [message] unexpected actual</li>
+</ul>
+
+
+<h2>Code Dependencies</h2>
+
+<p>One of the common situations that you will run across with unit testing is making sure that
+your code is testing the smallest piece possible, which can help you quickly and easily
+find bugs that could show up, and give you better confidence with refactoring.</p>
+
+<p>In most other languages this is accomplished using mocking frameworks (java and mockito,
+.net and rhinomocks). In bash I have not yet found a framework that successfully mocks
+calls that could be made from the bash scripts, so instead the process that I recommend
+is accomplished using PATH manipulation and running calls.</p>
+
+<p>Lets start with a simple script that is used to pull down a sample configuration using
+wget and then executes the configuration.  <code>configRetriever.sh</code></p>
+
+<div><script src='https://gist.github.com/7325511.js?file=configRetriever.sh'></script>
+<noscript><pre><code> #!/bin/bash
+if [ -z &quot;$1&quot; ]
+then
+  echo &quot;Missing required command line url&quot;
+  exit 1
+fi
+
+wget http://s3.amazon.com/work/sharedconfig.txt
+if [ ! $? -eq  0 ]
+then
+  echo &quot;Failed to get the file from the web&quot;
+  exit 2
+fi
+
+echo &quot;Success&quot;
+</code></pre></noscript></div>
+
+
+<p>Now that we have our test file, there are two more files that we need, the tests and
+also a mock of wget.  So lets first start with the mock. <code>wget</code></p>
+
+<div><script src='https://gist.github.com/7325539.js?file=wget'></script>
+<noscript><pre><code>#!/bin/bash
+if [ -z &quot;$TEST_WGET_FAILURE&quot; ]
+then
+  echo &quot;Downloading $1&quot;
+else
+  echo &quot;Failed to download file&quot;
+  exit 1
+fi 
+</code></pre></noscript></div>
+
+
+<p>And finally the actual tests. <code>configTests.sh</code></p>
+
+<div><script src='https://gist.github.com/7325587.js?file=configTests.sh'></script>
+<noscript><pre><code>#!/bin/bash
+
+setUp()
+{
+  originalPath=$PATH
+  PATH=$PWD:$PATH
+}
+
+tearDown()
+{
+  PATH=$originalPath
+  export TEST_WGET_FAILURE=
+}
+
+testFailsWhenArgumentNotSupplied()
+{
+  ./configRetriever.sh &gt; /dev/null
+  returnCode=$?
+  assertEquals &quot;Script should fail when no argument&quot; 1 $returnCode
+}
+
+testFailsWhenwgetFails()
+{
+  export TEST_WGET_FAILURE=1
+  ./configRetriever.sh &quot;testUrl&quot; &gt; /dev/null
+  returnCode=$?
+  assertEquals &quot;Script should fail when wget fails&quot; 2 $returnCode
+}
+
+testSuccessAllAround()
+{
+  response=$(./configRetriever.sh &quot;testUrl&quot;)
+  echo &quot;$response&quot; | grep -qE &quot;Script was a success&quot; 
+  returnCode=$?
+  assertEquals &quot;Script was not successful&quot; 0 $returnCode
+}
+
+. shunit2</code></pre></noscript></div>
+
+
+<p>A couple of things to point out from here, I am adjusting the path before each test and I am
+restoring it after a test using the <code>setUp()</code> and <code>tearDown()</code>.  It is important to make
+sure that you are forcing a clean slate for each test, so you don&rsquo;t get false negatives (or
+positives for that matter).</p>
+
+<p>The next important thing to see is how to hide or handle output from the running script,
+you should do this otherwise you might find it hard to find the alerts from test outputs
+that are run.</p>
+
+<h2>Conclusion</h2>
+
+<p>So after getting my feet a little wet with shUnit2 and using path manipulation to handle
+script internal calls, I have to say that I think bash unit testing is much easier
+than I had originally figured and am excited to move forward with testing my scripts.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Splunk 6 - Whats New]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/24/splunk-6-whats-new/"/>
+    <updated>2013-10-24T22:56:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/24/splunk-6-whats-new</id>
+    <content type="html"><![CDATA[<p>Today we had a Tech Talk at work that was focused on our organizations upgrade to the newly
+released Splunk 6, and all its bells and whistles.  This presentation was given by James
+Brodsky, a Sr. Sales Engineer from Splunk.</p>
+
+<!-- more -->
+
+
+<p>There are 3 main usage feature changes that have occured in splunk 6.  The main focus of these
+upgrades are focused on increasing &ldquo;non-technical&rdquo; user experiences.</p>
+
+<ul>
+<li>Pivot</li>
+<li>Data Model</li>
+<li>Analytics</li>
+</ul>
+
+
+<p>Also rather than reading through the below notes, you can also go through a
+<a href="http://docs.splunk.com/Documentation/Splunk/6.0/PivotTutorial/WelcometothePivotTutorial">great tutorial</a>
+that introduces these new features.</p>
+
+<h2>Pivot</h2>
+
+<p>The idea behind pivot is to utilize data models and graphical options to generate advanced
+queries.  When using a pivot the user only needs to select the data model to use to view
+the pivotal data, and from there they can utilize simple combo boxes and links to create
+specific queries to use.</p>
+
+<p>There is also an option to use Pivots as a starting point, and once you have filtered to the
+data you would like to see, you can convert the pivot to a search allowing you to use
+more advanced operations.  This is achived using the <em>pivot</em> search command.  It is also
+common to start the search with a | that has no start search, allowing for an &ldquo;implicit search&rdquo;</p>
+
+<p>For a much more indepth look at pivots, please view the Splunk 6
+<a href="http://docs.splunk.com/Documentation/Splunk/6.0/Pivot/IntroductiontoPivot">documentation</a>.</p>
+
+<h2>Data Model</h2>
+
+<p>Data Models are fantastic, they are simply a meaningful representation of the underlying
+raw machine data. They are especially useful in allowing users to be consuming exactly
+the same data in their searches, rather than having each one define their own search
+attempting to gather the data (which will often be different).</p>
+
+<p>To start creation on a Data Model you first need to understand how the model is setup.
+The model is based on constraints against the data.  This allows for Data Models to be
+hierarichal by building the constraints on top of the previous constraint.  This idea
+of constraints is completed by basically appending narrowing search fields.</p>
+
+<pre><code>    index=production sourcetype=tomcat jvm=7
+</code></pre>
+
+<p>Because these constraints are based on the splunk search language, you can also use
+lookup tables when creating the data model, or other auto-extracted fields like sums
+that can be calculated rather than found in the data.</p>
+
+<p>The key tie in for Data Models is their availability to use the new acceleration feature
+that can return data upto 1000x faster.</p>
+
+<h3>Acceleration</h3>
+
+<p>To help to speed up searches that use these data models, splunk has implemented
+Analytics Store. <strong>Note: This will increase storage and processing cost.</strong> The way
+this store works, is that it creates a custom index (basically) that will hold the
+data that is consumed by the data model.  It is a sliding window store, so there is
+an initial increase in used storage when created, but after that should be relatively
+stable in and out (as long as the incoming longs are pretty set).</p>
+
+<p>So here are the main benefits of an Analytics Store</p>
+
+<ul>
+<li>Benefit from Data Model requests for speed (up to 1000x faster)</li>
+<li>Allows for time sections for the increased analytics</li>
+</ul>
+
+
+<h2>Analytics</h2>
+
+<p>There have been some new items that are integrated with Splunk 6 to increase its analytics.</p>
+
+<h3>Maps</h3>
+
+<ul>
+<li>Integrated GEO-IP map that display geopraphic data</li>
+<li>MaxMind is the GEO backend licensed through Splunk</li>
+</ul>
+
+
+<h3>Predictive Analysis</h3>
+
+<ul>
+<li>Predict command on time series search</li>
+<li>Includes system capacity and resource utilization</li>
+<li>Faster, More Accurate and Flexible</li>
+</ul>
+
+
+<h3>Rich Developer Environment</h3>
+
+<ul>
+<li><a href="dev.splunk.com">Dev Site</a></li>
+<li>Rapidly build pslunk apps using web technologies</li>
+<li>SimpleXML conversion to HTML5 / Javascript</li>
+<li>Examples and integration using <a href="d3js.org">D3</a> javascript.</li>
+<li>Allow for token passing easily in dashboards.</li>
+</ul>
+
+
+<h2>Changes in App Usage</h2>
+
+<p>As well as all these added features, there are some other features targeting just standard
+use of splunk.</p>
+
+<ul>
+<li>Drill down now has multiple options &ndash; None (Yeah), Inner, Outer and Full</li>
+<li>Search page additions &ndash; Inspect Search, Background Run, Progress Bar</li>
+<li>Apps show up on Home Page (Drag Drop capable)</li>
+<li>Time Picker broader selection</li>
+</ul>
+
+
+<h2>Other items</h2>
+
+<p>Splunk also now has a
+<a href="http://www.splunk.com/view/hadoop-connect/SP-CAAAHA3">Splunk Hadoop Connect</a></p>
+
+<h2>Deprecation</h2>
+
+<p>Well after a great show of the new features, we now get to show the newly deprecated
+items, which is always best to keep till last. Luckily for this deprecation there is really
+only one thing that was brought up.</p>
+
+<ul>
+<li>Advanced XML Feature for Dashboards</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Research into Key-Value Databases (Riak)]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/24/research-into-key-value-databases-riak/"/>
+    <updated>2013-10-24T22:45:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/24/research-into-key-value-databases-riak</id>
+    <content type="html"><![CDATA[<p>A couple of weeks ago I came across a group at my work who had just started up going over the
+<a href="http://www.amazon.com/NoSQL-Distilled-Emerging-Persistence-ebook/dp/B0090J3SYW">NoSQL Distilled</a>
+book. This is a great introductory book to a lot of the ideas behind NoSQL and what makes it
+a more viable solution in some situations over a Relational Database.</p>
+
+<p>In this post I am going to cover my experiences with Key-Value NoSQL databases, specifically
+using the Riak implementation (as selected in the book). Another key-value database that I
+will also cover (less than Riak) is Redis.</p>
+
+<!-- More -->
+
+
+<p>This post will have a number of subposts on the different areas of my use with Riak, to keep
+the information better organized and to make the post a little smaller.</p>
+
+<h1><a href="http://basho.com/riak/">Riak</a></h1>
+
+<ul>
+<li>Definition</li>
+<li>Installation</li>
+<li>API Usage</li>
+<li>Scalling</li>
+<li>Uniqueness</li>
+</ul>
+
+
+<h1><a href="redis.io">Redis</a></h1>
+
+<ul>
+<li>Definition</li>
+<li>Installation</li>
+<li>API Usage</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sort2013 Part IV: TMUX - Powerup your shell]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell/"/>
+    <updated>2013-10-19T22:43:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell</id>
+    <content type="html"><![CDATA[<p>During sort, this session was actually a really insightful look into mouse-less productivity.<br/>
+I have always been a fan of working in the console, and have actually used screen in the past.
+However tmux has opened up an entirely new world for me.</p>
+
+<p>In this post I am going to share some of the things that I have learned from using tmux
+as setups I have in place for creating easy on &ldquo;dev environments&rdquo;.</p>
+
+<!-- more -->
+
+
+<h2><a href="http://tmux.sourceforge.net/">TMux overview</a></h2>
+
+<p>Tmux is a <a href="http://en.wikipedia.org/wiki/Terminal_multiplexer">terminal multiplexer.</a> If you
+are a heavy user of command line execution on nix-like environments (including ssh) than you
+will want to become comfortable with using terminal multiplexers.  This will allow you to
+be able to persist sessions, allow for &ldquo;remote pair-programming&rdquo; like features.</p>
+
+<p>To work with tmux you need to realize that each tmux run creates a &ldquo;session&rdquo;.  Each session
+can intern have multiple windows.  And each window has 1+ panes.  When a pane is created it
+is a completely new shell environment and does not keep aliases or other configuration applied
+to a previous pane.</p>
+
+<h3>Session</h3>
+
+<p>Session can be created using names which can allow you to easily switch between multiple
+sessions depending on work you are doing.  To work with session information you start by
+using</p>
+
+<pre><code>    tmux new-session  
+</code></pre>
+
+<p>This will create a new unnamed session, which you can rename using <code>C-&lt;bindkey&gt; $</code>.  If you
+want to create a session from scratch with the correct name you can use</p>
+
+<pre><code>    tmux new-session -s &lt;name&gt;  
+</code></pre>
+
+<p>You can now disconnect from a session using <code>C-&lt;bindkey&gt; D</code>.  After disconnecting, reconnecting is accomplished using</p>
+
+<pre><code>    tmux attach -t &lt;name&gt;
+</code></pre>
+
+<h3>Windows</h3>
+
+<p>We have a newly created session and a single window and a pane at this point.  So lets go over
+how to work with windows, both creating and navigation.</p>
+
+<p>To create a new window from inside the session you can use the default shortcut <code>C-&lt;bindkey&gt; c</code>.
+This will create a new window that will default to the window number that has already been
+created.  You can also create a new window for an existing session using the following command
+line call.</p>
+
+<pre><code>    tmux new-window -t &lt;session-name&gt;
+</code></pre>
+
+<p>If you want to name this window you can either name it using the shortcut <code>C-&lt;bindkey&gt; ,</code>. You can
+also name it at creation or rename from command line using one of the below commands.</p>
+
+<pre><code>    tmux new-window -t &lt;session-name&gt; -n &lt;window-name&gt;
+    tmux rename-window -t &lt;session-name&gt;:&lt;window-number&gt; &lt;window-name&gt;
+</code></pre>
+
+<p>So we have window creation and renaming, now on to window destruction.  The shortcut for
+destroying the current window is <code>C-&lt;bindkey&gt; &amp;</code>.  This will prompt you before the deletion
+will be completed, it will also terminal all running processes that were started in any
+of the windows open panes.</p>
+
+<p>Window navigation is also pretty straight forward. The below list is the shortcuts and can be
+used when navigating.</p>
+
+<ul>
+<li><code>C-&lt;bindkey&gt; n</code> &ndash; Navigate to the next window</li>
+<li><code>C-&lt;bindkey&gt; p</code> &ndash; Navigate to the previous window</li>
+<li><code>C-&lt;bindkey&gt; w</code> &ndash; Open up a window chooser</li>
+<li><code>C-&lt;bindkey&gt; [0-9]</code> &ndash; Quickly navigate to selected window [0-9]</li>
+</ul>
+
+
+<h3>Panes</h3>
+
+<p>This is (of course) the reason we are using tmux.  The ability to work with terminals.  A
+pane is always its own terminal.  Up until now we have basically defined tools used to
+organize these created terminals, but panes are the only ones that are terminals.</p>
+
+<p>Pane creation is done through window manipulation.  So you always start with your first
+pane, to create a second you must <strong>SPLIT</strong> the existing pane.  Splitting the pane can
+be down either vertically or horizontally.</p>
+
+<ul>
+<li><code>C-&lt;bindkey&gt; %</code> &ndash; Split pane 50% horizontally</li>
+<li><code>C-&lt;bindkey&gt; "</code> &ndash; Split pane 50% vertically</li>
+</ul>
+
+
+<p>You can also resize existing panes by using <code>C-&lt;bindkey&gt; C-[up-down-left-right]</code>. As you use
+the arrow keys it will adjust the panes giving you the exact setup you desire.  Navigating
+through the panes uses nearly the same shortcuts <code>C-&lt;bindkey&gt; [up-down-left-right]</code>.</p>
+
+<h3>Configuration</h3>
+
+<p>Tmux also provides a means for configuring your tmux setup by supplying .tmux.conf.  Below is
+the sample .tmux.conf file that was created.</p>
+
+<div><script src='https://gist.github.com/7326539.js?file=.tmux.conf'></script>
+<noscript><pre><code># Setting my bindkey as a
+set -g prefix C-a
+unbind C-b
+set -s escape-time 1
+bind r source-file ~/.tmux.conf \; display &quot;Reloaded.&quot;
+bind C-a send-prefix
+bind X kill-session
+bind x kill-pane
+
+# Vim Keys for Pane management
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+set -g default-terminal &quot;screen-256color&quot;
+
+setw -g mode-keys vi
+
+# Command bar
+set -g message-bg colour81
+set -g message-fg black 
+set -g status-interval 30
+
+# Status Bar Changes
+set -g status-fg white
+set -g status-bg black
+
+# Inactive windows
+setw -g window-status-fg cyan
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+# Active Window
+setw -g window-status-current-fg black
+setw -g window-status-current-bg green
+setw -g window-status-current-attr bright
+
+# Left side
+set -g status-left-length 40
+set -g status-left &quot;#[fg=colour155][#S] #[fg=colour110]#I #[fg=colour81]pane: #P&quot;
+
+# Right Side
+set -g status-right &quot;#[fg=colour155]#(pmset -g batt | ~/bin/battinfo.rb) | #[fg=colour45]%d %b %R&quot;
+set -g status-justify centre
+setw -g monitor-activity on
+set -g visual-activity on</code></pre></noscript></div>
+
+
+<h2>Vim Configuration</h2>
+
+<p>So I am a huge vim fan.  Nearly every ide I have has vim mode enabled.  It is one of the
+funniest things to have happen when a co-worker says &ldquo;wow you go through that fast&rdquo; and I
+respond, &ldquo;it&rsquo;s just the vim binding&rdquo;.  At that point they start to laugh cause I&rsquo;m using
+vim bindings, and I just shrug and say, &ldquo;Whatever makes me more productive than you ;&ndash;)&rdquo;.</p>
+
+<p>My vim setup is pretty simple, since I use vim through ssh shells often and inside of
+screen / tmux sessions, I have adjusted vim to use certain bindings that work in these
+environments.</p>
+
+<h3>Plugins</h3>
+
+<p>To really get the power of vim you will need to have some plugins installed and setup
+to be enabled in your environment.  Vim allows you to set any number of keyboard shortcuts
+you would like, but I would recommend not using function keys (you can get conflicts with
+some screen technologies).</p>
+
+<ul>
+<li><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> &ndash; Easy Plugin Management <strong>A MUST</strong></li>
+<li><a href="https://github.com/scrooloose/nerdtree">NerdTree</a> &ndash; File Explorer</li>
+<li><a href="https://github.com/kien/ctrlp.vim">ctrlp</a> &ndash; Ctrl+P File Searching</li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=42">bufexplorer</a></li>
+<li>Colorscheme <a href="http://www.vim.org/scripts/script.php?script_id=2140">xoria256</a> &ndash; 256 trem</li>
+</ul>
+
+
+<h3>vimrc</h3>
+
+<p>These are just some of the basic options that I prefer for use in my vim environment.</p>
+
+<div><script src='https://gist.github.com/7326565.js?file=vimrc'></script>
+<noscript><pre><code>set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+
+colorscheme xoria256            &quot; This does require 256 term
+
+set smartindent
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+syntax on
+set showmatch                   &quot; Show matching [] and ()
+set showmode
+
+set number
+set hls    
+
+set cf                          &quot; Enable error files &amp; error jumping.
+set clipboard=unnamed           &quot; Yanks go to clipboard
+set history=256
+set autowrite                   &quot; Writes on make/shell commands
+set ruler
+set timeoutlen=250              &quot; Time to wait after ESC
+set bs=2                        &quot; Backspace over everything in insert mode
+
+set noerrorbells                &quot; No noise on errors
+
+set laststatus=2                &quot; Always show status line
+
+set mousehide                   &quot; Hide mouse after chars typed
+set mouse=a                     &quot; Mouse is in all modes</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sort2013 Part III: Machine Learning in Python]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/19/sort2013-machine-learning-in-python/"/>
+    <updated>2013-10-19T22:43:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/19/sort2013-machine-learning-in-python</id>
+    <content type="html"><![CDATA[<p>I haven&rsquo;t done much with Machine Learning since graduating from school years ago.  However
+recently there have been a number of projects where the use of machine learning can bring
+a significant benefit.  This lecture was a great refresher and introduction to how
+task can be accomplished using python.</p>
+
+<p>Why should we focus on machine learning now?</p>
+
+<p>The power of a machine learning algorithm is its ability to <strong>GENERALIZE</strong> from a finite set of examples.</p>
+
+<!-- more -->
+
+
+<ul>
+<li>Database mining &ndash; Large Dataset from growth and automation, web click data, etc</li>
+<li>Can get a better feel for total number of people with the flu on the <a href="http://www.google.org/flutrends/us/#US">web faster than hospitals</a></li>
+<li>Hard by hand app development &ndash; Handwriting Recognition, Computer Vision, Language Processing</li>
+<li>Self-customizing programs &ndash; Netflix, Amazon product recommendations, Google ads, etc</li>
+<li>Prediction &ndash; Continuous outcomes, Catgorical outcomes like email spam</li>
+</ul>
+
+
+<h2>Clustering</h2>
+
+<p><em>Clustering is grouping all items that have a similiar relationship than items that appear
+in other clusters</em></p>
+
+<p>There are a few types of clustering and how
+<a href="http://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html">the compare</a>.
+Below is alist of this different cluster types.</p>
+
+<ul>
+<li>MiniBatchKMeans</li>
+<li>AffinityPropagation</li>
+<li>MeanShift</li>
+<li>Spectral</li>
+<li>Ward</li>
+<li>DBSCAN</li>
+<li>K-Means</li>
+</ul>
+
+
+<p>In the lecture he specifically covered K-Means clustering.</p>
+
+<h3>K-Means clustering</h3>
+
+<p>Allows you to take a feature vector and figure out how the information should group
+together (correlate)</p>
+
+<p>Given a training data set and a number of clusters find the position of the centroids.
+However the weakness you have with K is that you need to specify a number to begin
+with for it to use with grouping.</p>
+
+<p>It is often used with Image Color Compression (Converting a 16-bit image to a 6-bit image). Which
+is accomplished by Replace each pixel color in the original with the color of its nearest k-means centroid.</p>
+
+<p>Advantages</p>
+
+<ul>
+<li>Simple to implement</li>
+<li>Usually very fast</li>
+<li>Works well for many applications</li>
+</ul>
+
+
+<p>Disadvantages</p>
+
+<ul>
+<li>Have to know number of clusters in advances</li>
+<li>Linear Partitioning</li>
+<li>Outcome <strong>can</strong> be dependent on initial centroid position (so run multiple times with different centers)</li>
+<li>Isn&rsquo;t perfect at grouping data that isn&rsquo;t seperated by equal distance (Like multiple Curves being associated instead of blobs)</li>
+</ul>
+
+
+<h2>Regression Prediction (Intuition)</h2>
+
+<h3>Intuition</h3>
+
+<ul>
+<li>Supervised learning</li>
+<li>Generating a graph based on points and finding the line (2D Linear Regression)</li>
+<li>This is done by finding the minimal error in the generated line given the total number of points.</li>
+</ul>
+
+
+<h3>Gradient Descent</h3>
+
+<ul>
+<li>Define a cost function that reflects the total error as a function of the regression parameters</li>
+<li>Find the parameters that then minimize the cost function
+&ndash;> Start with Random parameter values
+&ndash;> Adjust parameters by some step (directly in proportion to the cost function results)
+&ndash;> Repeat until parameters no longer change</li>
+</ul>
+
+
+<h2>Classifiers</h2>
+
+<ul>
+<li>Supervised learning &ndash; training set includes &ldquo;truth&rdquo;</li>
+<li>Categorical outcomes (Gaussian Mixture Model &ndash; GMM and other probabilitstic classifiers)</li>
+<li>Examples
+&ndash;> Logistic Regression
+&ndash;> Support Vector Machine
+&ndash;> Decision Tree</li>
+</ul>
+
+
+<h3>Metrics</h3>
+
+<p>Precision: <em>percentage of the objects classified as A, really are A</em><br/>
+Recall: <em>Of all the A objects the percentage that we actually classified as A</em></p>
+
+<h3>Decision Tree</h3>
+
+<ul>
+<li>Object to be classified has an associated set of properties</li>
+<li>classifier can be constructued as set of rules</li>
+</ul>
+
+
+<p>Fruit &amp; Vegetable Example</p>
+
+<ul>
+<li>Properties
+&ndash;> size
+&ndash;> shape
+&ndash;> color</li>
+<li>Rules
+&ndash;> if size is small ^ shape is round ^ (color is green v color is red)
+&ndash;> etc</li>
+</ul>
+
+
+<p>Can be constructed working with a tree that sets what is there where every leaf from a root becomes a new rule</p>
+
+<p>Classifiers can be set using <em>entropy</em> &ndash; A coin toss has an entropy of 1 bit. The highest information gain will have the least entropy (unpredictability).</p>
+
+<p>Overfitting is a disadvantage because it doesn&rsquo;t create the clear seperation necessary, this can be solved using &ldquo;Random Forests&rdquo; or multiple decision tress.</p>
+
+<h2>Python</h2>
+
+<p>The main question that one might ask is why to look into python as the language for
+machine learning. Well it turns out that Python has basically become the defacto
+standard for scientific tools and languages.</p>
+
+<p>Books</p>
+
+<ul>
+<li>Python for Data Analysis</li>
+</ul>
+
+
+<p>Libraries</p>
+
+<ul>
+<li>Numpy</li>
+<li>Scipy</li>
+<li><a href="http://scikit-learn.org/stable/">Scikit-learn</a></li>
+</ul>
+
+
+<h2>Resources</h2>
+
+<p>Kaggle.com is a machine learning competition problem.</p>
+
+<p>Coursera classes</p>
+
+<ul>
+<li>Machine Learnining &ndash; Standford</li>
+<li>Intro to Data Science &ndash; University of Washington</li>
+<li>Discrete Optimizations</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sort2013 Part II: Design Thinking]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking/"/>
+    <updated>2013-10-19T22:43:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking</id>
+    <content type="html"><![CDATA[<p>This lecture was given by Brandon Gillespie and it was fantastic.  Below are my attempts
+at creating reasonable information based on the lecture given.</p>
+
+<p>This was a fantastic presentation that focused on delving into ideas of archiecture progress and
+helpful hints that can help keep an architect moving in the correct direction.  This session
+did not have any focus on specific tools so should not be limited to a certain &ldquo;type&rdquo;
+of architect.</p>
+
+<!-- More -->
+
+
+<p>To start there is a comment that I would share:</p>
+
+<p><em>How often do we get stuck &ldquo;looking at the
+shingles&rdquo; as it where and forget what the real purpose of the &ldquo;house&rdquo; we are building was to
+begin with?</em></p>
+
+<h1>Overview of &ldquo;Architect&rdquo; in IT</h1>
+
+<p>There are a few fundamental facets of a good architect.</p>
+
+<ul>
+<li>Planning &ndash; <em>Managing Change across time and expectations</em></li>
+<li>Analysis &ndash; <em>Decomposition of complex systems</em></li>
+<li>Communication &ndash; <em>Trusted Translator</em></li>
+</ul>
+
+
+<h2>Planning</h2>
+
+<p>Planning is a fundamental aspect of architecture and design.</p>
+
+<ul>
+<li>Principle element of design!</li>
+<li>Need to constantly change and improve</li>
+<li>Changes takes A LONG TIME</li>
+</ul>
+
+
+<p>To compare the importance of it changing, lets compare it to a spoken language. And when
+is a spoken language considered &ldquo;dead&rdquo;?</p>
+
+<p><strong>A Language is considered dead when it STOPS CHANGING</strong></p>
+
+<p>When you are planning there are a few key elements to put into play, for each plan you do.
+First you need to &ldquo;make sure you really know where you are going&rdquo;.  This is fundamental since
+the longer you are working on a plan the greater the likelyhood that you will run into a block
+in the road.  When you reach these blocks you will need to &lsquo;fork&rsquo; your decisions to achieve
+your end goal, but if you haven&rsquo;t made sure where you are going you, these forks will end
+up pushing you farther and farther away from your real goal.</p>
+
+<p>A great analogy of this behavoid can be found when compared to a farmer.  Imagine a farmar
+who is plowing the field. When you start plowing, farmers will pick a post or some other
+set point as a &lsquo;goal&rsquo; for him to reach.  This &ldquo;goal on the horizon&rdquo; could be a fence post or
+other landmark.  This allows him to move around rocks and other &ldquo;blockers&rdquo; when tilling, but
+still make the original plan he had from the beginning.</p>
+
+<h2>Analysis</h2>
+
+<p><strong>Decompose Complex to Simple</strong></p>
+
+<p>The analysis section can be broken down into two seperate categories as well, A Perspective on
+time that helps us to better understand how long decisions and adaptions will take and
+Standards.</p>
+
+<h3>Perspective of Time</h3>
+
+<p>How we view the time we spend on a given problem or project allow us to can categorize
+the mindset that is used.</p>
+
+<ul>
+<li>Operations &ndash; <em>Now to a few months</em></li>
+<li>Engineering &ndash; <em>A few months to a year</em></li>
+<li>Architect &ndash; <em>Years</em></li>
+</ul>
+
+
+<h3>Standards</h3>
+
+<p>Working from a baseline and seeing what the variant from the &ldquo;standard&rdquo; that we want to see.
+You need to see the variant difference (through documentation) so that you can use it to
+better analysis and define a system.</p>
+
+<ul>
+<li>Flexible, accomodating</li>
+<li>Allows for variances, documented by TCO</li>
+</ul>
+
+
+<p>There are a couple of things that you will need to watch out for when working with Standards.
+The most important of these is to not create too many standards, especially those that
+<a href="http://xkcd.com/927/">will be hard to adopt</a>. You also need to make sure that your standards
+don&rsquo;t become a roadblock in the work you are doing.</p>
+
+<h2>Communication</h2>
+
+<p>This is a critical section that needs to be well thought out and understood. Infact this might
+be more important than many of the other areas for an architect to be good at, since if they
+can&rsquo;t communicate their thoughts and plans, those who were told will likely never achieve
+the expected results.</p>
+
+<p><em>If you cannot explain something to me in a way I can understand it, than I assume
+that you don&rsquo;t understand it.</em></p>
+
+<p>This means that if you are communicating with a relatively intelligent person you should
+be able to come up with some metaphor or story or description that can be used to help
+them understand.</p>
+
+<h1>Design Thinking</h1>
+
+<p><em>Methodology for execution of a vision</em></p>
+
+<p>To really get you in the mode, here are some insipring quotes</p>
+
+<ul>
+<li>Vision without Execution is Hallucination &ndash; <em>Thomas Edision</em></li>
+<li>You can&rsquo;t plow a field simply by turning it over in your mind &ndash; <em>President Hinckley</em></li>
+<li>A goal without a plan is just a wish &ndash; <em>Antoine de Saint-Exupery</em></li>
+</ul>
+
+
+<p>Design thinking is a form of solution-based thinking focusing on the <em>desired achievement</em>
+instead of the problem. This can help to properly bring vision to fruition (Designed vs
+Organic Result)</p>
+
+<p>Steps:</p>
+
+<ul>
+<li>Define</li>
+<li>Research</li>
+<li>Ideation</li>
+<li>Prototype</li>
+<li>Objectives</li>
+<li>Implemented</li>
+<li>Learn</li>
+</ul>
+
+
+<h2>Define</h2>
+
+<p>When going through the Define process you should start by determining the issues that
+are going to be resolved.  These are the true needs of the application or project but
+they are not the requirements.  Once these requirements have been defined, the next step
+is to prioritize the effort in terms of urgency.  And finally, you need to have some
+measure that can be used to determine <strong>what is considered success</strong>.</p>
+
+<h2>Research</h2>
+
+<ul>
+<li>Review history (Have we done this before, did we fail, why)</li>
+<li>Talk to end user &ndash; invite for design processes to specify needs (not requirements)</li>
+<li>Identify <em>thought leader&rsquo;s</em> and their roles</li>
+</ul>
+
+
+<h2>Ideation</h2>
+
+<p>Clearly identify the needs and motivations of your end users (requirements analysis)</p>
+
+<p>Brainstorm
+* Make sure the group idea is the same and focused on requirements</p>
+
+<h2>Prototype</h2>
+
+<p>Prototype are <em>THROW AWAY</em> not &ldquo;prototype for production&rdquo;, Sometimes you need to recognize and be able to express when the cost of
+keeping a prototype is more than re-writing.</p>
+
+<ul>
+<li>Rapid</li>
+<li>Quicky understand direction</li>
+<li>Multiple different drafts</li>
+<li><em>Reserve judgment, maintain neutrality in code</em> and <em>DON&rsquo;T BE OFFENDED</em></li>
+<li>Be sure to create and present actual working prototypes.</li>
+<li>Final result of a prototype should be able to create a refined selection of ideas</li>
+</ul>
+
+
+<p><em>Make sure you can quickly recognize when you are going the wrong direction</em></p>
+
+<h2>Objectives</h2>
+
+<p>This is the align of the prototype and the real requirements.</p>
+
+<ul>
+<li>Set aside emotion and ownership of ideas</li>
+<li>The most practical solution is not always the best solution</li>
+</ul>
+
+
+<h2>Implementation</h2>
+
+<p>Never touch a production system, you can build a brand new environemnt in parallel and
+then cut over to it. This can make less man power to complete and may not as expensive.</p>
+
+<p><em>Create and execute a custom implementation plan.</em></p>
+
+<h2>Learn</h2>
+
+<p>Study what you implemented to learn what to do (or not do) in the future.</p>
+
+<h2>Pitfalls</h2>
+
+<ul>
+<li>Negativity &ndash; People who only think why it won&rsquo;t work rather than a solution</li>
+<li>Fear</li>
+<li>Resistance</li>
+<li>Devils Advocate &ndash; Good to have as long as you don&rsquo;t become a Negative person</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sort2013 Part I: A Review]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/18/sort2013-a-review/"/>
+    <updated>2013-10-18T22:31:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/18/sort2013-a-review</id>
+    <content type="html"><![CDATA[<p>SORT is a software/technology conference that is held by engineers working for the LDSChurch,
+FamilySearch and Utah Based Higher Education organizations.  It is an annual conference that
+is free to attend and is held at the University of Utah institute building.</p>
+
+<p>While this may not be exactly like the other conferences you have attended, QCon and the like,
+it is still a great experience, and one should never pass up the oppurtunity to learn something
+new.</p>
+
+<p>For this article I am going to focus on some of the items that I found to be beneficial to
+me as a software developer (whether in practical use or just introducing new paradigms). I will
+also share some of the items about SORT that I hope can be changed in the future to make the
+conference even better.</p>
+
+<!-- More -->
+
+
+<h1>The Good</h1>
+
+<p>When attending a conference, what is it you like to see?</p>
+
+<p>For me, this question is answered by <strong>OPTIONS</strong>.  I attend conferences in hopes of increasing
+my knowledge in all areas of technology.  The one belief that I have as an engineer is that
+a good engineer is one who knows and understands the different paradigms and not about the
+languages. As such, conferences tend to have a number of classes that can introduction me to
+some new paradigms I haven&rsquo;t come across, or to help solidify my understand of another.</p>
+
+<p>I am also a fan of conferences where the focus isn&rsquo;t just about a specific language or tool,
+but rather about a mindset or possibly a process used that is new to me. As an example
+I can learn about Python 3.3 latest features myself, what I want to see is how to best
+use it to help increase uptime in my applications.</p>
+
+<p>One other area of the conference that I enjoy, is the social networking. There are a lot
+of good engineers who work at these conferences, however it is often difficult to meet
+other engineers, just given the total number in the org.  Attending sessions can help to
+show other engineers working in the same area, or at least with the same interests.</p>
+
+<p>As much as I love SORT there are a few things that I find troublesome about the way that
+sort is implimented.  These are minor issues, and ones that I am sure will be corrected
+over time.</p>
+
+<h1>The Bad</h1>
+
+<p>One issue with attending any session or tutorial at any conference is the possibility that
+a simple Javascript Testing course will turn into just a straight plug for Jasmine or Mocha.
+While I love these technologies, I am always annoyed when I attend a session that doesn&rsquo;t
+explicitly call out that they will show you only Jasmine features, rather than just good
+Javascript testing practices.</p>
+
+<p>This is a situation that can be easily remedied by just vetting the session descriptions
+to make sure that if they are specifically going to be about a techonology or implementation,
+are labeled as such.</p>
+
+<p>I just find that when I attend a session, expecting great information on web security, and
+instead hear a plug about some 3rd party vendor and exactly how to secure using their tool
+rather than the appropriate practices, I feel a little jaded.</p>
+
+<h1>Lectures</h1>
+
+<p>Below is a list of sessions that I attended that I felt were things I wanted to share my
+thoughts and learnings from. They are not necessarily the only ones I attended or the best ones
+but rather had pertinant information I wanted to share.</p>
+
+<ul>
+<li><a href="http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell">Part II &ndash; TMUX: Powerup Your Shell</a></li>
+<li><a href="http://www.mikewright.me/blog/2013/10/19/sort2013-machine-learning-in-python">Part III &ndash; Machine Learning in Python: For fun and Profit</a></li>
+<li><a href="http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking">Part Iv &ndash; Design Thinking</a></li>
+</ul>
+
+
+<h1>Conclusion</h1>
+
+<p>If you are in the Salt Lake County or Utah County areas, and want to attend a free conference
+this is a fantastic one to choose. It will run again next year in October, so be sure to check
+out the <a href="https://sortreg.ldschurch.org/">Registration Site</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Static Site Meandering]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/15/static-site-meandering/"/>
+    <updated>2013-10-15T20:06:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/15/static-site-meandering</id>
+    <content type="html"><![CDATA[<p>So, I don&rsquo;t know if I want to say that I am &ldquo;late&rdquo; to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts.  Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my &ldquo;limited&rdquo; frontend skills.  However after a few posts and the issues that it raised I decided to move to an existing static site generator.</p>
+
+<h1>AND I WAS BLOWN AWAY BY THE CHOICES</h1>
+
+<!-- more -->
+
+
+<p>Much like any other items on the web there are a number of different static site generators that exist.  I wasn&rsquo;t able to go through and use all of them yet, but I decided I wanted to place the ones that I saw and my very quick experience with these generators.  These generators can be broken up by the language that is used in the generator.</p>
+
+<h2>NodeJS</h2>
+
+<ul>
+<li><a href="http://docpad.org">Docpad</a> &ndash; This seemed to be the tool of choice for many nodejs devs, very powerful and rich <em>Most likely next candidate</em></li>
+<li><a href="http://wintersmith.io/">Wintersmith</a> &ndash; &ldquo;Flexible, minimalistic, multi-platform static site generator&rdquo; &ndash; Site Description</li>
+<li><a href="http://harpjs.com/">Harp</a> &ndash; Another static frontend generator with an available <a href="https://harp.io">platform</a></li>
+<li><a href="https://github.com/flatiron/blacksmith">Blacksmith</a> &ndash; &ldquo;A generic static site generator built using flatiron, plates, and marked.&rdquo; &ndash; Site Description</li>
+<li><a href="https://github.com/techwraith/scotch">Scotch</a> &ndash; &ldquo;A really classy, dead simple, markdown based, blogging framework for node.js&rdquo; &ndash; Site Description</li>
+<li><a href="https://github.com/creationix/wheat">Wheat</a> &ndash; A blogging framework that has a number of stars, but not recently updated (Over a year ago)</li>
+</ul>
+
+
+<h3><a href="http://yeoman.io">Yeoman Generators</a></h3>
+
+<ul>
+<li><a href="https://github.com/Snugug/generator-armadillo">Armadillo</a> &ndash; Generator for easily creating static sites for use with Github pages</li>
+<li><a href="https://github.com/colynb/generator-go-static">Go Statis</a> &ndash; Generator for site scaffolding and Grunt task execution</li>
+</ul>
+
+
+<h2>Ruby</h2>
+
+<ul>
+<li><a href="http://jekyllrb.com">Jekyll</a> &ndash; The core blog tool that is used by a number of sites, including github pages.</li>
+<li><a href="http://octopress.org">Octopress</a> &ndash; Built on top of Jekyll</li>
+<li><a href="http://nanoc.ws/">Nanoc</a></li>
+<li><a href="http://middlemanapp.com/">MiddleMan</a></li>
+</ul>
+
+
+<h2>Python</h2>
+
+<ul>
+<li><a href="http://getpelican.com">Pelican</a> &ndash; Light and simple static site generation in python <em>Most likely the candidate after Docpad</em></li>
+<li><a href="http://getnikola.com">Nikola</a> &ndash; Uses doit for fast builds and has plugin capabilities</li>
+<li><a href="http://mynt.mirroredwhite.com/">Mynt</a> &ndash; Attempt at giving advanced CMS support to static blogs</li>
+<li><a href="http://www.blogofile.com/">Blogofile</a> &ndash; A generator for those obsessed with blogging</li>
+<li><a href="http://pythonhosted.org/Frozen-Flask/">Frozen-Flask</a> &ndash; Taking a flask application and turning it into static content</li>
+</ul>
+
+
+<p>At this point I am happy with the choice to use Octopress, but I&rsquo;m also finiky and will &ldquo;most likely&rdquo; migrate the blog to another technology in the future.  This is mostly because, if I am not learning something new, than what I am doing here ;&ndash;).</p>
+
+<h1>Resources</h1>
+
+<p>There were a few useful sites that I came across while checking these tools out, especially one that pointed to the numerous available python frameworks.  Those are listed below.</p>
+
+<ul>
+<li><a href="http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/">http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting to know vim]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim/"/>
+    <updated>2013-10-12T22:06:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim</id>
+    <content type="html"><![CDATA[<p>This will be one of those posts, that I hope grows often as I love to use vim, and especially
+love to write down what I learn in case I forget it in the future.</p>
+
+<!-- More -->
+
+
+<h1>Useful Shortcuts</h1>
+
+<ul>
+<li><p>Disable Search Highlighting</p>
+
+<pre><code>  set nohlsearch   " Turn it off
+  set hlsearch!    " Toggle on or off
+
+  :nohlsearch      " Turn it off as command
+  :nohl            " Shorthand
+  :noh             " Even Shorter
+</code></pre></li>
+</ul>
+
+
+<h1>Useful Plugins</h1>
+
+<p>TODO ;&ndash;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FreeBSD 9.2 on VMware Workstation 9.0.2]]></title>
+    <link href="http://www.mikewright.me/blog/2013/10/10/freebsd-9-dot-2-and-vmware-workstation-9-dot-4/"/>
+    <updated>2013-10-10T21:46:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2013/10/10/freebsd-9-dot-2-and-vmware-workstation-9-dot-4</id>
+    <content type="html"><![CDATA[<p>Tonight I decided I really wanted to switch to freebsd from Ubuntu.  The move was not because
+ubuntu had issues, but rather because I felt that I would enjoy the experience of freebsd
+more than that of linux.  It was going to be a new world, with a different way of making things
+work.</p>
+
+<p>So the items I list below will show the steps that I went through to get freebsd working
+smoothly on vmware.</p>
+
+<p><strong>Note:</strong> <em>I will assume you have already installed freebsd and will not walk through those steps&#8221;</em></p>
+
+<!-- More -->
+
+
+<ol>
+<li>Installing gnome2</li>
+<li>Installing rc.conf</li>
+<li>Install VM tools</li>
+<li>Configure Xorg</li>
+<li>Installing Screen Tools</li>
+<li><strong>Acknowledgements</strong></li>
+</ol>
+
+
+<h1>Install gnome2</h1>
+
+<p>To install gnome2 the steps that I took are below.</p>
+
+<ol>
+<li><p>Install gnome2</p>
+
+<pre><code> cd /usr/ports/x11/gnome2
+ make install clean
+</code></pre></li>
+<li><p>Install xorg</p>
+
+<pre><code> cd /usr/ports/x11/xorg
+ make install clean
+</code></pre></li>
+<li><p>Create the initial xorg.conf file</p>
+
+<pre><code> Xorg -configure
+ cp /root/xorg.conf.new $HOME/xorg.conf
+</code></pre></li>
+</ol>
+
+
+<p>At this time the gnome2 desktop should be installed so we can complete.</p>
+
+<h1>Configure rc.conf</h1>
+
+<p>The next step is to configure rc.conf to startup by default.  This can be done by adding
+the below two lines to /etc/rc.conf and than rebooting.</p>
+
+<pre><code>    # DBus and HALd
+    dbus_enable="YES"
+    hald_enable="YES"
+
+    # VMware tools
+    vmware_guest_vmblock_enable="YES"
+    vmware_guest_vmhgfs_enable="YES"
+    vmware_guest_vmmemctl_enable="YES"
+    vmware_guest_vmxnet_enable="YES"
+    vmware_guestd_enable="YES"
+</code></pre>
+
+<h1>Install VM tools</h1>
+
+<p>There are a few tools that you will want to install to make it so that your vm exprience
+is the best.</p>
+
+<ol>
+<li><p>install open-vm-tools</p>
+
+<pre><code> cd /usr/ports/emulators/open-vm-tools
+ make install clean
+</code></pre></li>
+<li><p>install the mouse tools</p>
+
+<pre><code> cd /usr/ports/x11-drivers/xf86-input-vmmouse
+ make install clean
+</code></pre></li>
+<li><p>install the vmware tools (from the vmware dvd)</p>
+
+<pre><code> tar -xvf vmware-freebsd-tools.tar.gz
+ cd vmware-tools-distrib
+ ./vmware-install.pl
+</code></pre></li>
+</ol>
+
+
+<h1>Configure Xorg</h1>
+
+<p>You will need to configure the screen and input devices to make them work correctly
+with a virtual system.</p>
+
+<pre><code>    Section "ServerLayout"
+      Identifier "X.org Configured"
+      Screen 0 "VMScreen" 0 0
+      InputDevice "VMMouse" "CorePointer"
+      InputDevice "Keyboard0" "CoreKeyboard" 
+    EndSection
+
+    Section "InputDevice"
+      Identifier "VMMouse"
+      Driver "vmmouse"
+      Option "Protocol" "auto"
+      Option "Device" "/dev/sysmouse"
+      Option "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+    Section "Monitor"
+      Identifier "VMMonitor"
+      VendorName "VMware, Inc"
+    EndSection
+
+    Section "Device"
+      Identifier "VMware SVGA"
+      Driver "vmware"
+    EndSection
+
+    Section "Screen"
+      Identifier "VMScreen" 
+      Device "VMware SVGA"
+      Monitor "VMMonitor"
+      ...
+    EndSection
+</code></pre>
+
+<h1>Install Screen tools</h1>
+
+<p>To install the screen tools you need to install a few development tools like git,
+wget and dependencies.</p>
+
+<ol>
+<li><p>Install the gsed dependency</p>
+
+<pre><code> cd /usr/ports/textproc/gsed
+ make install clean
+</code></pre></li>
+<li><p>Install the newt dependency (<b>include python support</b>)</p>
+
+<pre><code> cd /usr/ports/devel/newt
+ make install clean
+</code></pre></li>
+<li><p>Install tmux</p>
+
+<pre><code> cd /usr/ports/sysutils/tmux
+ make install clean
+</code></pre></li>
+<li><p>Install byobu (for tmux support need downloaded version) &ndash; Last <b>version used 5.60</b></p>
+
+<pre><code> cd $HOME
+ wget https://launchpad.net/byobu/trunk/5.60/+download/byobu_5.60.orig.tar.gz
+ tar -xvf byobu_5.60.orig.tar.gz
+ ./configure --prefix="$HOME/byobu"
+ make 
+ make install clean
+ echo "echo "export PATH=$HOME/byobu/bin:$PATH" &amp;ltsp;&amp;ltsp; $HOME/.bashrc
+ source $HOME/.bashrc
+</code></pre></li>
+</ol>
+
+
+<h1>Acknowledgements</h1>
+
+<p>As you can imagine the majority of this information was info that I found while online.
+As such, I like to share links to the sites that I used to access this information.</p>
+
+<ul>
+<li><p><a href="http://allstarnix.blogspot.com/2012/08/install-vmware-tools-in-freebsd-9.html">Howard&rsquo;s Blog</a></p>
+
+<p>If you have been searching, this is one of the first links that comes up, it is a great site
+and has tons of useful information, I highly recommend checking it out.</p></li>
+<li><p><a href="http://www.rhyous.com/2012/05/09/installing-vmware-tools-on-freebsd-9-without-xorg/#comment-55356">Rhyous Blog</a></p>
+
+<p>This was a useful blog as well, but especially the comment by <strong>HW</strong>.  This comment included
+the information to install xf86-input-vmmouse which is what was able to halt the odd stuttering
+effect that was happening when the mouse would lose/get focus.</p></li>
+<li><p><a href="https://github.com/dustinkirkland/byobu">Byobu Source README.md</a></p>
+
+<p>This section included the details on installing the missing pieces for byobu
+(especially the byobu config).</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Typescript Preview on AppHarbor]]></title>
+    <link href="http://www.mikewright.me/blog/2012/10/21/typescript-preview-on-appharbor/"/>
+    <updated>2012-10-21T00:01:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2012/10/21/typescript-preview-on-appharbor</id>
+    <content type="html"><![CDATA[<p>So, this weekend a friend and I started working on a little side project and wanted to use
+Microsoft&rsquo;s new TypeScript language for our JS development.  We had also decided on using
+AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds.  There
+were a few oddities that had to be fixed to allow this to work, and I hope to share with
+you the process that we went through to allow for typescript to be successfully deployed
+to an ASP.NET MVC app running on AppHarbor.</p>
+
+<!-- more -->
+
+
+<p></p>
+
+<h2>Typescript Installation</h2>
+
+<ol>
+<li>Install VS 2012 (For my case I used Professional 2012)</li>
+<li>Install the Typescript Preview (version 0.8.0.0)</li>
+<li>Install the Visual Studio plugin if it didn&rsquo;t get successfully installed
+
+<ul>
+<li>Manually run the file TypeScriptLanguageService.vsix found at   %PROGRAM_FILES%\Microsoft SDKs\TypeScript\0.8.0.0\</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Project Setup</h2>
+
+<p>At this point we now have visual studio and a developer box setup to create our new project.<br/>
+The project template that I used was an ASP.NET MVC 4 web application.  After creating the
+project file you will need to edit the .csproj file to have some tags to run the tsc
+(TypeScript compiler) on the ts files found in your project.  We will also need to copy the
+tsc compiler to our solution, so that we can commit it to the repository
+(required only for AppHarbor building).</p>
+
+<p>Create a folder in a subdirectory of your solution and copy the following files from the
+TypeScript install directory</p>
+
+<ul>
+<li>tsc.exe</li>
+<li>tschost.dll (not sure if it is actually required)</li>
+<li>tsc.js</li>
+</ul>
+
+
+<p>Noting the above directories location relative to the solution&rsquo;s root, you will then edit
+the projects csproj file using your favorite editor and add the below lines</p>
+
+<pre><code>    &lt;Target Name="BeforeBuild"&gt;
+      &lt;Exec Command="&amp;quot;$(SolutionDir)&lt;TypescriptDirectory&gt;\tsc&amp;quot; @(TypeScriptCompile -&gt;'&amp;quot;%(fullpath)&amp;quot;', ' ')" /&gt;
+    &lt;/Target&gt;
+</code></pre>
+
+<p>This new command will cause the typescript compiler to run before each build and compile
+the .ts files to .js</p>
+
+<p><em>Note: The reason for copying the compiler over is so that it will be able to be executed on
+the AppHarbor machines without the need for them to install the dependency.</em></p>
+
+<h2>Finishing</h2>
+
+<p>So, at this point you should have an application that will build your typescript files on any
+machine that can build a regular csproj project.  When adding the ts file to your project,
+use the visual studio &ldquo;Add New Item&rdquo; option and select a typescript file, if you try to
+manually add it with the extension you will need to add the compile command to the projects
+csproj file as well (example below).</p>
+
+<pre><code>    &lt;TypeScriptCompile Include="TSScripts\app.ts" /&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Django with no root access]]></title>
+    <link href="http://www.mikewright.me/blog/2012/05/09/installing-django-with-no-root-access/"/>
+    <updated>2012-05-09T00:00:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2012/05/09/installing-django-with-no-root-access</id>
+    <content type="html"><![CDATA[<p>I really have enjoyed working with a $5/month hosting company for seriously small projects
+with few performance requirements.  The service that I am using at this time is
+<a href="http://www.site5.com/">site5</a>.  They offer a great plan that works for me and the many
+simple projects I have been using as prototypes.</p>
+
+<p>For this specific discussion I am going to talk about what I needed to do get the lastest
+django (v1.4) working on site5.</p>
+
+<!-- more -->
+
+
+<h2>Sandbox environment</h2>
+
+<p>Lets setup our little sandbox area for placing the source to compile and the actually
+compiled instance</p>
+
+<pre><code>    cd ~
+    mkdir installed
+    cd installed
+    mkdir compile
+    cd compile
+</code></pre>
+
+<p>Next we will download python for use on the instance. (Django 1.4 doesn&rsquo;t work with python 3)</p>
+
+<pre><code>    wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+    tar -xvf Python-2.7.3.tar.bz2 
+</code></pre>
+
+<p><em>Note: This is specific for version 2.7.3 which was the stable release at the time this
+article was written</em></p>
+
+<p>So we have the source, now we need to compile and install Python 2.7 (non root user)</p>
+
+<pre><code>    cd Python-2.7.3
+    ./configure PREFIX=$HOME/installed/python2.7
+    make install DESTDIR=$HOME/installed/python2.7
+</code></pre>
+
+<p>Add python to the PATH for simplicity, to do this we will add an entry to the
+.bash_profile file located in our home directory</p>
+
+<pre><code>    cd ~
+    echo "export PATH=$HOME/installed/python2.7/bin:$PATH" &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>Reload the .bash_profile so that python will be on the path.</p>
+
+<pre><code>    source .bash_profile
+</code></pre>
+
+<p>Verify that the new python is found in the path</p>
+
+<pre><code>    python --version
+    (should print Python 2.7.3)
+</code></pre>
+
+<p>Install PIP (I followed instructions found <a href="http://www.pip-installer.org/en/latest/installing.html">here</a>)</p>
+
+<pre><code>    cd ~/installed/compile
+    curl http://python-distribute.org/distribute_setup.py | python
+    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
+</code></pre>
+
+<p><em>Note if the last command fails with certificate issue, run with curl -k</em></p>
+
+<p>Install django using pip</p>
+
+<pre><code>    pip install django
+    pip install flup
+    pip install pysqlite  (only sometimes required and only if you are doing sqlite db)
+</code></pre>
+
+<p>Create directory for website and add necessary files to get apache to pick it up or in this
+case <strong>.htaccess</strong></p>
+
+<pre><code>    AddHandler fcgid-script .fcgi
+    Options +FollowSymLinks
+
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^(media/.*)$ - [L]
+    RewriteRule ^(static/.*)$ - [L]
+    RewriteCond %{REQUEST_URI} !(django.fcgi)
+    RewriteRule ^(.*)$ django.fcgi/$1 [L]
+</code></pre>
+
+<p><strong>django.fcgi</strong></p>
+
+<pre><code>    #!/home/&lt;username&gt;/installed/python2.7/bin/python
+    import sys, os
+
+    # Add a custom Python path.
+    sys.path.insert(0, "/home/&lt;username&gt;/&lt;website-location&gt;")
+
+    # Switch to the directory of your project. (Optional.)
+    #os.chdir("/home/&lt;username&gt;/&lt;website-location&gt;")
+
+    # Set the DJANGO_SETTINGS_MODULE environment variable.
+    os.environ['DJANGO_SETTINGS_MODULE'] = "&lt;projectname&gt;.settings"
+
+    from django.core.servers.fastcgi import runfastcgi
+    runfastcgi(method="threaded", daemonize="false")
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>So hopefully after following this little tutorial, you too can get the newest version
+of django up and running on a hosted machine with no root access.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: typescript | My Fortress of Solitude]]></title>
+  <link href="http://www.mikewright.me/blog/categories/typescript/atom.xml" rel="self"/>
+  <link href="http://www.mikewright.me/"/>
+  <updated>2014-07-02T09:30:30-06:00</updated>
+  <id>http://www.mikewright.me/</id>
+  <author>
+    <name><![CDATA[Michael Wright]]></name>
+    <email><![CDATA[mkwright@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Typescript Preview on AppHarbor]]></title>
+    <link href="http://www.mikewright.me/blog/2012/10/21/typescript-preview-on-appharbor/"/>
+    <updated>2012-10-21T00:01:00-06:00</updated>
+    <id>http://www.mikewright.me/blog/2012/10/21/typescript-preview-on-appharbor</id>
+    <content type="html"><![CDATA[<p>So, this weekend a friend and I started working on a little side project and wanted to use
+Microsoft&rsquo;s new TypeScript language for our JS development.  We had also decided on using
+AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds.  There
+were a few oddities that had to be fixed to allow this to work, and I hope to share with
+you the process that we went through to allow for typescript to be successfully deployed
+to an ASP.NET MVC app running on AppHarbor.</p>
+
+<!-- more -->
+
+
+<p></p>
+
+<h2>Typescript Installation</h2>
+
+<ol>
+<li>Install VS 2012 (For my case I used Professional 2012)</li>
+<li>Install the Typescript Preview (version 0.8.0.0)</li>
+<li>Install the Visual Studio plugin if it didn&rsquo;t get successfully installed
+
+<ul>
+<li>Manually run the file TypeScriptLanguageService.vsix found at   %PROGRAM_FILES%\Microsoft SDKs\TypeScript\0.8.0.0\</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Project Setup</h2>
+
+<p>At this point we now have visual studio and a developer box setup to create our new project.<br/>
+The project template that I used was an ASP.NET MVC 4 web application.  After creating the
+project file you will need to edit the .csproj file to have some tags to run the tsc
+(TypeScript compiler) on the ts files found in your project.  We will also need to copy the
+tsc compiler to our solution, so that we can commit it to the repository
+(required only for AppHarbor building).</p>
+
+<p>Create a folder in a subdirectory of your solution and copy the following files from the
+TypeScript install directory</p>
+
+<ul>
+<li>tsc.exe</li>
+<li>tschost.dll (not sure if it is actually required)</li>
+<li>tsc.js</li>
+</ul>
+
+
+<p>Noting the above directories location relative to the solution&rsquo;s root, you will then edit
+the projects csproj file using your favorite editor and add the below lines</p>
+
+<pre><code>    &lt;Target Name="BeforeBuild"&gt;
+      &lt;Exec Command="&amp;quot;$(SolutionDir)&lt;TypescriptDirectory&gt;\tsc&amp;quot; @(TypeScriptCompile -&gt;'&amp;quot;%(fullpath)&amp;quot;', ' ')" /&gt;
+    &lt;/Target&gt;
+</code></pre>
+
+<p>This new command will cause the typescript compiler to run before each build and compile
+the .ts files to .js</p>
+
+<p><em>Note: The reason for copying the compiler over is so that it will be able to be executed on
+the AppHarbor machines without the need for them to install the dependency.</em></p>
+
+<h2>Finishing</h2>
+
+<p>So, at this point you should have an application that will build your typescript files on any
+machine that can build a regular csproj project.  When adding the ts file to your project,
+use the visual studio &ldquo;Add New Item&rdquo; option and select a typescript file, if you try to
+manually add it with the extension you will need to add the compile command to the projects
+csproj file as well (example below).</p>
+
+<pre><code>    &lt;TypeScriptCompile Include="TSScripts\app.ts" /&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
