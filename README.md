@@ -83,12 +83,19 @@ Projects
 * Arduino Controlled Looper Pedal (ISD400x chip support?) - PIC24EP512GP202
 * Make RC Plane / Copter
 
+Books
+---------------------------
+
+* iOS 7 in Action 
+* CoffeeScript in Action
+* The Creature from Jekyll Island
+* American Nations by Colin Woodard 
+
 Others
 ---------------------------
 
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
-
 
 Completed
 --------------------------
