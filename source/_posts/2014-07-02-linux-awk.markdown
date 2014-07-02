@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Linux - AWK/GAWK"
+date: 2014-07-02 09:26
+comments: true
+categories:
+- Terminal
+- Posix
+---

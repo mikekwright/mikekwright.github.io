@@ -41,12 +41,11 @@ Topics
 * Cassandra
 * [Jinja2](http://jinja.pocoo.org/docs/)
 * [Glyphish](http://www.glyphish.com/)
-* [Microsoft Fakes](http://msdn.microsoft.com/en-us/library/hh549175.aspx) 
+* [Microsoft Fakes](http://msdn.microsoft.com/en-us/library/hh549175.aspx)
 * Splunk 6 New enterprise deployment changes for simplification.  
 * Splunk 6 Advanced dashboards using javascript and Django bindings
-* Splunk 6 Predict 
+* Splunk 6 Predict
 * OpenCL
-* [Docker](https://www.docker.io/)
 * [Pandas - Python Data Analysis Library](http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures)
 * [shunit2](http://net.tutsplus.com/tutorials/tools-and-tips/test-driving-shell-scripts/)
 * [SonarQube](http://www.sonarqube.org/)
@@ -64,14 +63,18 @@ Topics
 * [JSlate - Data Dashboards](http://jslate.com/)
 * [iText - iTextSharp (PDF Library)](http://itextpdf.com/)
 * [Stylus - CSS Compilation](http://learnboost.github.io/stylus/)
+* [Polymer - Web Component Future](http://www.polymer-project.org/)
 
 Work
 --------------------------
 * [LivePerson](https://www.liveperson.com)
 * [MediaWiki](https://www.mediawiki.org)
 * [CKEditor](http://ckeditor.com/)
+* [Docker](https://www.docker.io/)
+* [Force.com](http://developer.force.com)
+* [Force.com TDD](https://developer.salesforce.com/page/Test_Driven_Development_with_Force.com?elq_mid=6689&elq_cid=18652335)
 
-Projects 
+Projects
 --------------------------
 
 * MAME Cabinet
@@ -87,8 +90,7 @@ Others
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
 
 
-Completed 
+Completed
 --------------------------
 
 * Install FreeBSD 9.2 on VMWare workstation 9
-
