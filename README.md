@@ -64,6 +64,10 @@ Topics
 * [iText - iTextSharp (PDF Library)](http://itextpdf.com/)
 * [Stylus - CSS Compilation](http://learnboost.github.io/stylus/)
 * [Polymer - Web Component Future](http://www.polymer-project.org/)
+* [Kivy - Python UI Cross Tool](http://kivy.org/#home)
+* [Fuse FileSystem](http://fuse.sourceforge.net/)
+* [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
+
 
 Work
 --------------------------
