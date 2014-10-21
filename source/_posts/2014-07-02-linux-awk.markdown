@@ -7,3 +7,7 @@ categories:
 - Terminal
 - Posix
 ---
+
+There is a process that I have always wanted to be more familiar with, and
+this process is awk. Someone might ask why I am spending my time on this tool.
+I would answer with... "that is a great question".  

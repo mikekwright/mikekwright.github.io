@@ -100,6 +100,7 @@ Others
 
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
+* [Haskell Xmonad Tutorial](http://www.haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source)   
 
 Completed
 --------------------------
