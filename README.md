@@ -70,6 +70,15 @@ Topics
 * [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
 
 
+Open Source Projects to Study
+-------------------------------
+* [Haskell Xmonad Tutorial](http://www.haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source)   
+* [Tornado - Python Web](https://github.com/tornadoweb/tornado)
+* [Ruby Unicorn - Because it is Unix](http://jacobian.org/writing/star-is-unix/)    
+* [eXo Platform - Social Networking Platform](http://www.exoplatform.com/)   
+* [Xv6 - A Simple Unix-like Teaching OS](http://pdos.csail.mit.edu/6.828/2014/xv6.html)   
+
+
 Work
 --------------------------
 * [LivePerson](https://www.liveperson.com)
@@ -95,13 +104,13 @@ Books
 * CoffeeScript in Action
 * The Creature from Jekyll Island
 * American Nations by Colin Woodard 
+* [Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)  
 
 Others
 ---------------------------
 
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
-* [Haskell Xmonad Tutorial](http://www.haskell.org/haskellwiki/Xmonad/Guided_tour_of_the_xmonad_source)   
 
 Completed
 --------------------------
