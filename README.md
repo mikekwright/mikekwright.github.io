@@ -67,6 +67,7 @@ Topics
 * [Kivy - Python UI Cross Tool](http://kivy.org/#home)
 * [Fuse FileSystem](http://fuse.sourceforge.net/)
 * [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
+* [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
 
 
 Work
