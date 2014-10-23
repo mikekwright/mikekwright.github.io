@@ -68,6 +68,13 @@ Topics
 * [Fuse FileSystem](http://fuse.sourceforge.net/)
 * [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
 * [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
+* [Kotlin Project - JVM language without null](http://kotlinlang.org)   
+* [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
+
+
+Electronics
+-------------------------------
+* [Mojo - FPGA board](https://www.sparkfun.com/products/11953) 
 
 
 Open Source Projects to Study
