@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EC2 | My Fortress of Solitude]]></title>
   <link href="http://www.mikewright.me/blog/categories/ec2/atom.xml" rel="self"/>
   <link href="http://www.mikewright.me/"/>
-  <updated>2014-12-01T11:45:55-07:00</updated>
+  <updated>2014-12-01T11:46:58-07:00</updated>
   <id>http://www.mikewright.me/</id>
   <author>
     <name><![CDATA[Michael Wright]]></name>
@@ -20,6 +20,9 @@
     <id>http://www.mikewright.me/blog/2014/12/01/ec2-container-service</id>
     <content type="html"><![CDATA[<p>At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2
 Container Service.  A service provided by AWS to run docker containers on top of EC2 instances.</p>
+
+<!-- more -->
+
 
 <p>We have been using docker for a while now within our organization, and I have to say that I
 am a huge fan of Docker.  This is a great step in the right direction and I believe can help
