@@ -123,3 +123,4 @@ Completed
 --------------------------
 
 * Install FreeBSD 9.2 on VMWare workstation 9
+* AWS EC2 Container Service (Initial Research)
