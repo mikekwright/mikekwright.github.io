@@ -94,6 +94,7 @@ Work
 * [Docker](https://www.docker.io/)
 * [Force.com](http://developer.force.com)
 * [Force.com TDD](https://developer.salesforce.com/page/Test_Driven_Development_with_Force.com?elq_mid=6689&elq_cid=18652335)
+* [Apache Drill](http://drill.apache.org/)
 
 Projects
 --------------------------
