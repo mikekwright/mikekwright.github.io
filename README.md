@@ -70,6 +70,7 @@ Topics
 * [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
 * [Kotlin Project - JVM language without null](http://kotlinlang.org)   
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
+* [Apache Mesos](http://mesos.apache.org/)
 
 
 Electronics
