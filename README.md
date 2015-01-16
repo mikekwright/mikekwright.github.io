@@ -120,6 +120,7 @@ Others
 
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
+* [Git built-in pull requests](http://git-scm.com/docs/git-request-pull)
 
 Completed
 --------------------------
