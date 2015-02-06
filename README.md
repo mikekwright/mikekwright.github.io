@@ -57,7 +57,8 @@ Topics
 * [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
 * [Simplify your life with sshconfig](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/)
 * [Java - RESTeasy](https://www.jboss.org/resteasy/)
-* [Scala.js and ReactJS](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
+* [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
+* [React](http://facebook.github.io/react/)
 * [Spock - Different Java Testing](https://code.google.com/p/spock/)
 * [Apache Accumulo - Distributed Key/Value Store](https://accumulo.apache.org/)
 * [JSlate - Data Dashboards](http://jslate.com/)
@@ -71,6 +72,10 @@ Topics
 * [Kotlin Project - JVM language without null](http://kotlinlang.org)   
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
 * [Apache Mesos](http://mesos.apache.org/)
+* [Web Components](http://webcomponents.org/)
+* [Polymer - WebComponents Framework](https://www.polymer-project.org/)
+* [Bosonic - WebComponents Framework](http://bosonic.github.io/)
+* [X-Tags - WebComponents Framework](http://x-tags.org/)
 
 
 Electronics
@@ -96,6 +101,9 @@ Work
 * [Force.com](http://developer.force.com)
 * [Force.com TDD](https://developer.salesforce.com/page/Test_Driven_Development_with_Force.com?elq_mid=6689&elq_cid=18652335)
 * [Apache Drill](http://drill.apache.org/)
+* [Apache JackRabbit (Oak)](http://jackrabbit.apache.org/oak/docs/)
+* [Apache Sling](http://sling.apache.org/documentation/development.html)
+* [Apache Felix (OSGi)](http://felix.apache.org/)
 
 Projects
 --------------------------
