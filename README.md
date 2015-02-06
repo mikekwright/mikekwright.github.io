@@ -1,6 +1,13 @@
 michael-wright.github.io
 ========================
 
+Top 3 Topics
+------------------------
+
+* [Docker](https://www.docker.io/)
+* [Web Components](http://webcomponents.org/)
+* [Polymer - WebComponents Framework](https://www.polymer-project.org/)
+
 Topics
 ------------------------
 
@@ -72,8 +79,6 @@ Topics
 * [Kotlin Project - JVM language without null](http://kotlinlang.org)   
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
 * [Apache Mesos](http://mesos.apache.org/)
-* [Web Components](http://webcomponents.org/)
-* [Polymer - WebComponents Framework](https://www.polymer-project.org/)
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 
@@ -81,7 +86,6 @@ Topics
 Electronics
 -------------------------------
 * [Mojo - FPGA board](https://www.sparkfun.com/products/11953) 
-
 
 Open Source Projects to Study
 -------------------------------
@@ -97,9 +101,6 @@ Work
 * [LivePerson](https://www.liveperson.com)
 * [MediaWiki](https://www.mediawiki.org)
 * [CKEditor](http://ckeditor.com/)
-* [Docker](https://www.docker.io/)
-* [Force.com](http://developer.force.com)
-* [Force.com TDD](https://developer.salesforce.com/page/Test_Driven_Development_with_Force.com?elq_mid=6689&elq_cid=18652335)
 * [Apache Drill](http://drill.apache.org/)
 * [Apache JackRabbit (Oak)](http://jackrabbit.apache.org/oak/docs/)
 * [Apache Sling](http://sling.apache.org/documentation/development.html)
