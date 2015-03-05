@@ -4,7 +4,7 @@ michael-wright.github.io
 Top 3 Topics
 ------------------------
 
-* [Docker](https://www.docker.io/)
+* [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
 * [Web Components](http://webcomponents.org/)
 * [Polymer - WebComponents Framework](https://www.polymer-project.org/)
 
@@ -13,7 +13,6 @@ Topics
 
 * Vagrant
 * ElasticSearch
-* Sproutcore.com
 * Backbone.js
 * Ember.js
 * SQLite
@@ -21,7 +20,6 @@ Topics
 * Crontab
 * Openshift AWS
 * Cloudfoundry AWS - Private VPC
-* Erlang OTP
 * Linux - awk
 * Linux - grep
 * Linux - top
@@ -82,6 +80,16 @@ Topics
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 
+Languages
+-------------------------------
+* [Factor - A Stack Language](http://factorcode.org)
+* [Elm - A Functional Reactive](http://elm-lang.org)
+* [Elixir - Erlang VM Language](http://elixir-lang.org/)
+* [Erlang OTP](http://learnyousomeerlang.com/what-is-otp)
+* [Julia - Scientific Computing](http://julialang.org/)
+* [miniKanren - DSL Library for logic programming](http://minikanren.org/)
+* [Idris - Type Theory](http://www.idris-lang.org/)
+
 
 Electronics
 -------------------------------
@@ -136,3 +144,4 @@ Completed
 
 * Install FreeBSD 9.2 on VMWare workstation 9
 * AWS EC2 Container Service (Initial Research)
+* [Docker](https://www.docker.io/)
