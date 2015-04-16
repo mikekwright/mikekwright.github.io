@@ -7,6 +7,7 @@ Top 3 Topics
 * [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
 * [Web Components](http://webcomponents.org/)
 * [Polymer - WebComponents Framework](https://www.polymer-project.org/)
+* [AWS - Lambda](http://aws.amazon.com/lambda/)
 
 Topics
 ------------------------
