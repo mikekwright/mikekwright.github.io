@@ -3,6 +3,7 @@ layout: post
 title: "Getting to know vim"
 date: 2013-10-12 22:06
 comments: true
+published: false
 categories: 
 - vim
 ---

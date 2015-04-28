@@ -8,6 +8,7 @@ Top 3 Topics
 * [Web Components](http://webcomponents.org/)
 * [Polymer - WebComponents Framework](https://www.polymer-project.org/)
 * [AWS - Lambda](http://aws.amazon.com/lambda/)
+* [Apache Mesos](http://mesos.apache.org/)
 
 Topics
 ------------------------
@@ -77,7 +78,6 @@ Topics
 * [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
 * [Kotlin Project - JVM language without null](http://kotlinlang.org)   
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
-* [Apache Mesos](http://mesos.apache.org/)
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 
