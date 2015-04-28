@@ -4,7 +4,7 @@
   <title><![CDATA[My Fortress of Solitude]]></title>
   <link href="http://www.mikewright.me/atom.xml" rel="self"/>
   <link href="http://www.mikewright.me/"/>
-  <updated>2015-02-06T16:07:24-07:00</updated>
+  <updated>2015-04-28T11:43:05-06:00</updated>
   <id>http://www.mikewright.me/</id>
   <author>
     <name><![CDATA[Michael Wright]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SproutCore - First Impressions]]></title>
+    <link href="http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions/"/>
+    <updated>2015-02-13T10:43:00-07:00</updated>
+    <id>http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions</id>
+    <content type="html"><![CDATA[<p>Today I decided to spend a little time to try out the sproutcore web framework,
+which has a lot of strengths centered around using appropriate programming practices.</p>
+
+<!-- more -->
+
+
+<h2>What is Sproutcore</h2>
+
+<p>Sproutcore is a framework that allows you to write the code in Javascript and has that code
+run on both the server and client.  It is a very powerful library that can help you to create
+web applications, not to extend your existing site.</p>
+
+<h2>Overview</h2>
+
+<p>To install sproutcore is pretty straight forward, at the time I ran it I was only able to get
+it to successfully work with Ruby 1.9.3 (Ruby 2.0+ failed).  To install it is as simple as
+installing a ruby gem and calling the appropriate commands.</p>
+
+<p>Like most new webframeworks, it provides a cli that gives you simple commands that can be used
+to generate a scaffold for you to use when building your application.</p>
+
+<p>It provides a number of rich elements for you to quickly consume and use to develop web
+applications.  This means that to be successful at using Sproutcore you will need to learn
+an entirely new way of developing for the web.</p>
+
+<h2>Personal Thoughts</h2>
+
+<p>I went throught the quick start, up to the point that a create todos application was complete.
+There are a few things that I really enjoyed about the framework, mainly when I could extend
+some existing functionality, however I found that there is a lot of more of a black box there
+then I am usually comfortable with.</p>
+
+<p>I love the idea of working with a set state machine.  This is such a fundamental concept, since
+most applications are nothing more than a sequence of states and their paths of migration between
+each state.</p>
+
+<p>A simple state design for the application would look like this:</p>
+
+<pre><code>App.STATE_NAME = SC.State.design({
+  enterState: function() {
+    ... 
+  },
+
+  exitState: function() {
+    ...
+  },
+
+  customState: function() {
+    ...
+  }, 
+
+  request: function() {
+    ...
+  },
+});
+</code></pre>
+
+<p>This defines a single state and the different substate that a given state could be in.  When
+your application is working with many states you will want to first update the <code>statechart.js</code>
+file that is found in the root of your application.</p>
+
+<p>After defining the states, you will then need to tie the different states into the controllers,
+models and view.  This is where you will start to take advantage of the sproutcore supplied
+constructs such as <code>SC.Record</code> and <code>SC.ArrayController</code>, etc.</p>
+
+<h2>Conclusion</h2>
+
+<p>All in all this framework seems like it is very powerful, but with great power can com great
+complexity and that is what I have found in Sproutcore.  From other frameworks I have worked
+with, this is one that even with a cursory glance, I feel like I still have no idea where to
+go now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Docker]]></title>
@@ -161,7 +240,7 @@ if [ ! -d &quot;$DHOME&quot; ]; then
     CAT &gt; &quot;$DHOME/Vagrantfile&quot; &lt;&lt;DOCKER_VAGRANTFILE
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = &quot;2&quot;
 
 
@@ -171,7 +250,7 @@ sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main\ &gt; /etc/apt
 sudo apt-get update
 sudo apt-get install --assume-yes --force-yes lxc-docker vim tmux openconnect
 sudo usermod -a -G docker vagrant
-sudo echo &quot;DOCKER_OPTS=&#39;-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --insecure-registry docker-registry.vip.fsglobal.net&#39;&quot; &gt;&gt; /etc/default/docker
+sudo echo &quot;DOCKER_OPTS='-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --insecure-registry docker-registry.vip.fsglobal.net'&quot; &gt;&gt; /etc/default/docker
 sudo service docker restart
 PROVISION
 
@@ -181,9 +260,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
   config.vm.provision &quot;shell&quot;, inline: \$script
   config.vm.network :private_network, ip: &quot;192.168.53.100&quot;
-  config.vm.network :forwarded_port, guest: 8080, host: 18080, protocol: &#39;tcp&#39;
-  config.vm.network :forwarded_port, guest: 3306, host: 13306, protocol: &#39;tcp&#39;
-  config.vm.network :forwarded_port, guest: 2375, host: 2375, protocol: &#39;tcp&#39;
+  config.vm.network :forwarded_port, guest: 8080, host: 18080, protocol: 'tcp'
+  config.vm.network :forwarded_port, guest: 3306, host: 13306, protocol: 'tcp'
+  config.vm.network :forwarded_port, guest: 2375, host: 2375, protocol: 'tcp'
   config.vm.provider :virtualbox do |v|
     v.memory = 2048
     v.cpus = 4
@@ -247,11 +326,11 @@ function vagrantSSHVPN {
 }
 
 function cleanupContainers {
-  $DOCKER_RUN ps -a | awk &#39;NR &lt;= 1 { next } NR &gt; 1 {print $1}&#39; | xargs $DOCKER_RUN rm -v
+  $DOCKER_RUN ps -a | awk 'NR &lt;= 1 { next } NR &gt; 1 {print $1}' | xargs $DOCKER_RUN rm -v
 }
 
 function cleanupImages {
-  $DOCKER_RUN images | grep &#39;&lt;none&gt;&#39; -a | awk &#39;{print $3}&#39; | xargs $DOCKER_RUN rmi
+  $DOCKER_RUN images | grep '&lt;none&gt;' -a | awk '{print $3}' | xargs $DOCKER_RUN rmi
 }
 
 function cleanup {
@@ -260,9 +339,9 @@ function cleanup {
 }
 
 if [ ! -f /tmp/docker-port-forward ]; then
-  export DOCKER_HOST=&#39;tcp://192.168.53.100:2375&#39;
+  export DOCKER_HOST='tcp://192.168.53.100:2375'
 else
-  export DOCKER_HOST=&#39;tcp://127.0.0.1:2375&#39;
+  export DOCKER_HOST='tcp://127.0.0.1:2375'
 fi
 
 if [[ $1 = &quot;up&quot; ]]; then
@@ -292,27 +371,6 @@ fi
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Docker and Continuous Delivery]]></title>
-    <link href="http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery/"/>
-    <updated>2015-02-06T14:35:00-07:00</updated>
-    <id>http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery</id>
-    <content type="html"><![CDATA[<p>I am a huge fan of continuous delivery, of release code as soon at it is written and passes the
-automated test gates.  I am also a fan of having a deployment system that can be more closely
-managed by me (the engineer).  Using docker at work we have been able to create a system that
-allows us to define a running container and using gates, continuously deploy this simple container
-to many different environments (stage, prod, etc).</p>
-
-<!-- more -->
-
-
-<p>Historically, one of the more difficult tasks that we are faced with in computing is the ability
-to gaurentee that the application you develop on your local laptop will work correctly on a
-production instance.  While not even Docker is full proof in this area, I believe that it has
-helped us to mitigate this issue and allows our stage and production systems to be closer aligned.</p>
 ]]></content>
   </entry>
   
@@ -1798,38 +1856,6 @@ out the <a href="https://sortreg.ldschurch.org/">Registration Site</a>.</p>
 <li><a href="http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/">http://eristoddle.github.io/python/2012/05/16/python-static-web-site-generators/</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Getting to know vim]]></title>
-    <link href="http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim/"/>
-    <updated>2013-10-12T22:06:00-06:00</updated>
-    <id>http://www.mikewright.me/blog/2013/10/12/getting-to-know-vim</id>
-    <content type="html"><![CDATA[<p>This will be one of those posts, that I hope grows often as I love to use vim, and especially
-love to write down what I learn in case I forget it in the future.</p>
-
-<!-- More -->
-
-
-<h1>Useful Shortcuts</h1>
-
-<ul>
-<li><p>Disable Search Highlighting</p>
-
-<pre><code>  set nohlsearch   " Turn it off
-  set hlsearch!    " Toggle on or off
-
-  :nohlsearch      " Turn it off as command
-  :nohl            " Shorthand
-  :noh             " Even Shorter
-</code></pre></li>
-</ul>
-
-
-<h1>Useful Plugins</h1>
-
-<p>TODO ;&ndash;)</p>
 ]]></content>
   </entry>
   

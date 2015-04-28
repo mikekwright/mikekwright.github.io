@@ -8,14 +8,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docker and Continuous Delivery - My Fortress of Solitude</title>
+    <title>SproutCore - First Impressions - My Fortress of Solitude</title>
     <meta name="author" content="Michael Wright">
     
-    <meta name="description" content="Docker and Continuous Delivery Feb 6th, 2015 AWS Docker I am a huge fan of continuous delivery, of release code as soon at it is written and passes &hellip;">
+    <meta name="description" content="SproutCore - First Impressions Feb 13th, 2015 Ruby JavaScript Web Today I decided to spend a little time to try out the sproutcore web framework, &hellip;">
     
     <meta name="viewport" content="width=device-width">
     
-    <link rel="canonical" href="http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery">
+    <link rel="canonical" href="http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions">
     <link href="/favicon.png" rel="icon">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="//atom.xml" rel="alternate" title="My Fortress of Solitude" type="application/atom+xml">
@@ -58,7 +58,7 @@
           <article class="post">
   <header>
   
-  <h1 class="title indent">Docker and Continuous Delivery</h1>
+  <h1 class="title indent">SproutCore - First Impressions</h1>
   
 
   
@@ -75,7 +75,7 @@
   
 
 
-<time class="pull-left" datetime="2015-02-06T14:35:00-07:00" pubdate data-updated="true"><i class="icon-calendar"></i> Feb 6<span>th</span>, 2015</time>
+<time class="pull-left" datetime="2015-02-13T10:43:00-07:00" pubdate data-updated="true"><i class="icon-calendar"></i> Feb 13<span>th</span>, 2015</time>
     
 
 
@@ -85,9 +85,11 @@
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
-      <li><a href="/blog/categories/AWS/">AWS</a></li>
+      <li><a href="/blog/categories/Ruby/">Ruby</a></li>
     
-      <li><a href="/blog/categories/Docker/">Docker</a></li>
+      <li><a href="/blog/categories/JavaScript/">JavaScript</a></li>
+    
+      <li><a href="/blog/categories/Web/">Web</a></li>
     
     </ul>
   </div>
@@ -101,19 +103,77 @@
 
 
 
-  <p>I am a huge fan of continuous delivery, of release code as soon at it is written and passes the
-automated test gates.  I am also a fan of having a deployment system that can be more closely
-managed by me (the engineer).  Using docker at work we have been able to create a system that
-allows us to define a running container and using gates, continuously deploy this simple container
-to many different environments (stage, prod, etc).</p>
+  <p>Today I decided to spend a little time to try out the sproutcore web framework,
+which has a lot of strengths centered around using appropriate programming practices.</p>
 
 <!-- more -->
 
 
-<p>Historically, one of the more difficult tasks that we are faced with in computing is the ability
-to gaurentee that the application you develop on your local laptop will work correctly on a
-production instance.  While not even Docker is full proof in this area, I believe that it has
-helped us to mitigate this issue and allows our stage and production systems to be closer aligned.</p>
+<h2>What is Sproutcore</h2>
+
+<p>Sproutcore is a framework that allows you to write the code in Javascript and has that code
+run on both the server and client.  It is a very powerful library that can help you to create
+web applications, not to extend your existing site.</p>
+
+<h2>Overview</h2>
+
+<p>To install sproutcore is pretty straight forward, at the time I ran it I was only able to get
+it to successfully work with Ruby 1.9.3 (Ruby 2.0+ failed).  To install it is as simple as
+installing a ruby gem and calling the appropriate commands.</p>
+
+<p>Like most new webframeworks, it provides a cli that gives you simple commands that can be used
+to generate a scaffold for you to use when building your application.</p>
+
+<p>It provides a number of rich elements for you to quickly consume and use to develop web
+applications.  This means that to be successful at using Sproutcore you will need to learn
+an entirely new way of developing for the web.</p>
+
+<h2>Personal Thoughts</h2>
+
+<p>I went throught the quick start, up to the point that a create todos application was complete.
+There are a few things that I really enjoyed about the framework, mainly when I could extend
+some existing functionality, however I found that there is a lot of more of a black box there
+then I am usually comfortable with.</p>
+
+<p>I love the idea of working with a set state machine.  This is such a fundamental concept, since
+most applications are nothing more than a sequence of states and their paths of migration between
+each state.</p>
+
+<p>A simple state design for the application would look like this:</p>
+
+<pre><code>App.STATE_NAME = SC.State.design({
+  enterState: function() {
+    ... 
+  },
+
+  exitState: function() {
+    ...
+  },
+
+  customState: function() {
+    ...
+  }, 
+
+  request: function() {
+    ...
+  },
+});
+</code></pre>
+
+<p>This defines a single state and the different substate that a given state could be in.  When
+your application is working with many states you will want to first update the <code>statechart.js</code>
+file that is found in the root of your application.</p>
+
+<p>After defining the states, you will then need to tie the different states into the controllers,
+models and view.  This is where you will start to take advantage of the sproutcore supplied
+constructs such as <code>SC.Record</code> and <code>SC.ArrayController</code>, etc.</p>
+
+<h2>Conclusion</h2>
+
+<p>All in all this framework seems like it is very powerful, but with great power can com great
+complexity and that is what I have found in Sproutcore.  From other frameworks I have worked
+with, this is one that even with a cursory glance, I feel like I still have no idea where to
+go now.</p>
 
 
 </article>
@@ -172,11 +232,11 @@ helped us to mitigate this issue and allows our stage and production systems to 
   <ul class="divided">
     
       <li class="post">
-        <a href="/blog/2015/02/06/docker/">Docker</a>
+        <a href="/blog/2015/02/13/sproutcore-first-impressions/">SproutCore - First Impressions</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/02/06/docker-and-continuous-delivery/">Docker and Continuous Delivery</a>
+        <a href="/blog/2015/02/06/docker/">Docker</a>
       </li>
     
       <li class="post">
@@ -252,8 +312,8 @@ helped us to mitigate this issue and allows our stage and production systems to 
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery/';
-    var disqus_url = 'http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery/';
+    var disqus_identifier = 'http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions/';
+    var disqus_url = 'http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions/';
     var disqus_script = 'embed.js';
   
   (function () {

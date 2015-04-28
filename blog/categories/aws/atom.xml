@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AWS | My Fortress of Solitude]]></title>
   <link href="http://www.mikewright.me/blog/categories/aws/atom.xml" rel="self"/>
   <link href="http://www.mikewright.me/"/>
-  <updated>2015-02-06T16:07:24-07:00</updated>
+  <updated>2015-04-28T11:43:05-06:00</updated>
   <id>http://www.mikewright.me/</id>
   <author>
     <name><![CDATA[Michael Wright]]></name>
@@ -12,27 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Docker and Continuous Delivery]]></title>
-    <link href="http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery/"/>
-    <updated>2015-02-06T14:35:00-07:00</updated>
-    <id>http://www.mikewright.me/blog/2015/02/06/docker-and-continuous-delivery</id>
-    <content type="html"><![CDATA[<p>I am a huge fan of continuous delivery, of release code as soon at it is written and passes the
-automated test gates.  I am also a fan of having a deployment system that can be more closely
-managed by me (the engineer).  Using docker at work we have been able to create a system that
-allows us to define a running container and using gates, continuously deploy this simple container
-to many different environments (stage, prod, etc).</p>
-
-<!-- more -->
-
-
-<p>Historically, one of the more difficult tasks that we are faced with in computing is the ability
-to gaurentee that the application you develop on your local laptop will work correctly on a
-production instance.  While not even Docker is full proof in this area, I believe that it has
-helped us to mitigate this issue and allows our stage and production systems to be closer aligned.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[EC2 Container Service]]></title>
