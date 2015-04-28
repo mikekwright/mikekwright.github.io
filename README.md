@@ -4,11 +4,10 @@ michael-wright.github.io
 Top 3 Topics
 ------------------------
 
-* [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
+* [Apache Mesos](http://mesos.apache.org/)
 * [Web Components](http://webcomponents.org/)
 * [Polymer - WebComponents Framework](https://www.polymer-project.org/)
 * [AWS - Lambda](http://aws.amazon.com/lambda/)
-* [Apache Mesos](http://mesos.apache.org/)
 
 Topics
 ------------------------
@@ -155,3 +154,5 @@ Completed
 * Install FreeBSD 9.2 on VMWare workstation 9
 * AWS EC2 Container Service (Initial Research)
 * [Docker](https://www.docker.io/)
+* [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
+
