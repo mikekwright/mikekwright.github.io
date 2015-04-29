@@ -79,6 +79,7 @@ Topics
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
+* [Hapi.js - Rich Node.js Framework](http://hapijs.com/)
 
 Languages
 -------------------------------
