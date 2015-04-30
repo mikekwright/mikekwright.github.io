@@ -80,6 +80,15 @@ Topics
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 * [Hapi.js - Rich Node.js Framework](http://hapijs.com/)
+* [Spark - Java Sinatra](http://sparkjava.com/)
+* [Dropwizard](http://www.dropwizard.io/)
+* [Restlet - Java Web APIs](http://restlet.com/)
+* [RatPack - Java Libraries for Web](http://ratpack.io/)
+* [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
+* [AssertJ - Fluent Java Assertions](http://joel-costigliola.github.io/assertj/)
+* [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
+* [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
+* [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
 
 Languages
 -------------------------------
@@ -114,15 +123,7 @@ Work
 * [Apache JackRabbit (Oak)](http://jackrabbit.apache.org/oak/docs/)
 * [Apache Sling](http://sling.apache.org/documentation/development.html)
 * [Apache Felix (OSGi)](http://felix.apache.org/)
-* [Spark - Java Sinatra](http://sparkjava.com/)
-* [Dropwizard](http://www.dropwizard.io/)
-* [Restlet - Java Web APIs](http://restlet.com/)
-* [RatPack - Java Libraries for Web](http://ratpack.io/)
-* [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
-* [AssertJ - Fluent Java Assertions](http://joel-costigliola.github.io/assertj/)
-* [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
-* [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
-* [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
+* [AWS Transcoder](http://aws.amazon.com/elastictranscoder/)
 
 Projects
 --------------------------
