@@ -124,6 +124,7 @@ Work
 * [Apache Sling](http://sling.apache.org/documentation/development.html)
 * [Apache Felix (OSGi)](http://felix.apache.org/)
 * [AWS Transcoder](http://aws.amazon.com/elastictranscoder/)
+* [EC2 Container Example](https://github.com/aws-troutman/magic8ball-flask/blob/master/scripts/register_with_elb.sh)
 
 Projects
 --------------------------
