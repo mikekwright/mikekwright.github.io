@@ -89,6 +89,7 @@ Topics
 * [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
 * [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
 * [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
+* [GNUPlot - Data plotting](http://www.gnuplot.info/) 
 
 Languages
 -------------------------------
@@ -125,6 +126,8 @@ Work
 * [Apache Felix (OSGi)](http://felix.apache.org/)
 * [AWS Transcoder](http://aws.amazon.com/elastictranscoder/)
 * [EC2 Container Example](https://github.com/aws-troutman/magic8ball-flask/blob/master/scripts/register_with_elb.sh)
+* [Docker Compose](https://docs.docker.com/compose)
+* [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 
 Projects
 --------------------------
