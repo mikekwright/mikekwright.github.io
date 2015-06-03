@@ -90,6 +90,7 @@ Topics
 * [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
 * [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
 * [GNUPlot - Data plotting](http://www.gnuplot.info/) 
+* [jsblocks - MV-ish](http://jsblocks.com/)
 
 Languages
 -------------------------------
