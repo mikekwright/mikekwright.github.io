@@ -155,6 +155,17 @@ Others
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
 * [Git built-in pull requests](http://git-scm.com/docs/git-request-pull)
 
+Web 2.0
+---------------------------
+
+* [Hydra - Better Web APIs](http://www.hydra-cg.com/)
+* [SparQL - RDF Query Language](http://en.wikipedia.org/wiki/SPARQL)  
+* [RDF Turtle](http://www.w3.org/TR/turtle/)
+* [N3 - A readable RDF Syntax](http://www.w3.org/TeamSubmission/n3/)  
+* [Json-LD - Json for linking data](http://json-ld.org/)   
+* [NTriples - RDF Core](http://www.w3.org/2001/sw/RDFCore/ntriples/)    
+
+
 Completed
 --------------------------
 
