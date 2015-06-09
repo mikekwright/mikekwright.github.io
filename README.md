@@ -62,10 +62,8 @@ Topics
 * [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)
 * [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
 * [Simplify your life with sshconfig](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/)
-* [Java - RESTeasy](https://www.jboss.org/resteasy/)
 * [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
 * [React](http://facebook.github.io/react/)
-* [Spock - Different Java Testing](https://code.google.com/p/spock/)
 * [Apache Accumulo - Distributed Key/Value Store](https://accumulo.apache.org/)
 * [JSlate - Data Dashboards](http://jslate.com/)
 * [iText - iTextSharp (PDF Library)](http://itextpdf.com/)
@@ -73,24 +71,19 @@ Topics
 * [Polymer - Web Component Future](http://www.polymer-project.org/)
 * [Kivy - Python UI Cross Tool](http://kivy.org/#home)
 * [Fuse FileSystem](http://fuse.sourceforge.net/)
-* [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
 * [Darcs - Distributed Interactive and Simple SCM](http://darcs.net/)   
 * [Kotlin Project - JVM language without null](http://kotlinlang.org)   
 * [Chip-8 - VM](http://en.wikipedia.org/wiki/CHIP-8)   
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 * [Hapi.js - Rich Node.js Framework](http://hapijs.com/)
-* [Spark - Java Sinatra](http://sparkjava.com/)
 * [Dropwizard](http://www.dropwizard.io/)
-* [Restlet - Java Web APIs](http://restlet.com/)
-* [RatPack - Java Libraries for Web](http://ratpack.io/)
 * [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
-* [AssertJ - Fluent Java Assertions](http://joel-costigliola.github.io/assertj/)
-* [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
 * [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
 * [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
 * [GNUPlot - Data plotting](http://www.gnuplot.info/) 
 * [jsblocks - MV-ish](http://jsblocks.com/)
+* [Dropwizard](http://www.dropwizard.io/)
 
 Languages
 -------------------------------
@@ -114,6 +107,19 @@ Open Source Projects to Study
 * [Ruby Unicorn - Because it is Unix](http://jacobian.org/writing/star-is-unix/)    
 * [eXo Platform - Social Networking Platform](http://www.exoplatform.com/)   
 * [Xv6 - A Simple Unix-like Teaching OS](http://pdos.csail.mit.edu/6.828/2014/xv6.html)   
+
+Java
+----------------------------
+
+* [Java - RESTeasy](https://www.jboss.org/resteasy/)
+* [Spock - Different Java Testing](https://code.google.com/p/spock/)
+* [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
+* [Spark - Java Sinatra](http://sparkjava.com/)
+* [Restlet - Java Web APIs](http://restlet.com/)
+* [RatPack - Java Libraries for Web](http://ratpack.io/)
+* [AssertJ - Fluent Java Assertions](http://joel-costigliola.github.io/assertj/)
+* [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
+* [Thymeleaf - Java Templating](http://www.thymeleaf.org/) 
 
 
 Work
