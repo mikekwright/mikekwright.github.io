@@ -172,6 +172,11 @@ Web 2.0
 * [Json-LD - Json for linking data](http://json-ld.org/)   
 * [NTriples - RDF Core](http://www.w3.org/2001/sw/RDFCore/ntriples/)    
 
+Security
+-----------------------------
+
+* [OpenID Connect](http://openid.net/connect/)   
+* [JWT - JSON Web Token](http://jwt.io/)    
 
 Completed
 --------------------------
