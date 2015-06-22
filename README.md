@@ -84,6 +84,7 @@ Topics
 * [GNUPlot - Data plotting](http://www.gnuplot.info/) 
 * [jsblocks - MV-ish](http://jsblocks.com/)
 * [Dropwizard](http://www.dropwizard.io/)
+* [Aurelia - Web MV Framework](http://www.aurelia.io)
 
 Languages
 -------------------------------
