@@ -59,6 +59,7 @@ Topics
 * [Apache Kafka](https://kafka.apache.org/)
 * [Presto: Facebook's distributed SQL Query Engine](http://www.infoq.com/news/2013/11/Presto)
 * [Scala - Cake Pattern](http://www.warski.org/blog/2010/12/di-in-scala-cake-pattern/)
+* [Scala - Wisp (Platting from console)](https://github.com/quantifind/wisp)    
 * [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)
 * [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
 * [Simplify your life with sshconfig](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/)
