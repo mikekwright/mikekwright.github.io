@@ -85,6 +85,7 @@ Topics
 * [jsblocks - MV-ish](http://jsblocks.com/)
 * [Dropwizard](http://www.dropwizard.io/)
 * [Aurelia - Web MV Framework](http://www.aurelia.io)
+* [NW.js - Node in the DOM](http://nwjs.io/)
 
 Languages
 -------------------------------
