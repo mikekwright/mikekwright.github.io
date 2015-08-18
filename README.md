@@ -89,6 +89,12 @@ Topics
 * [NW.js - Node in the DOM](http://nwjs.io/)
 * [purecss](http://purecss.io)
 
+
+Javascript
+-------------------------------
+* [Falcor - Javascript library for data fetching](http://netflix.github.io/falcor/) 
+
+
 Languages
 -------------------------------
 * [Factor - A Stack Language](http://factorcode.org)
@@ -174,6 +180,13 @@ Web 2.0
 * [N3 - A readable RDF Syntax](http://www.w3.org/TeamSubmission/n3/)  
 * [Json-LD - Json for linking data](http://json-ld.org/)   
 * [NTriples - RDF Core](http://www.w3.org/2001/sw/RDFCore/ntriples/)    
+* [Preconnect - Eliminate Rountrips](https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/)
+
+DB
+------------------------------
+* [LokiJS](http://lokijs.org/#/)    
+* [Voldemort](http://www.project-voldemort.com/voldemort/)    
+* [RethinkDB](http://rethinkdb.com/)    
 
 Security
 -----------------------------
