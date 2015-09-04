@@ -195,6 +195,11 @@ Security
 * [OpenID Connect](http://openid.net/connect/)   
 * [JWT - JSON Web Token](http://jwt.io/)    
 
+Tools
+------------------------------
+
+* [spf13-vim](https://github.com/spf13/spf13-vim)  
+
 Completed
 --------------------------
 
