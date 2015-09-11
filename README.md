@@ -94,6 +94,7 @@ Topics
 Javascript
 -------------------------------
 * [Falcor - Javascript library for data fetching](http://netflix.github.io/falcor/) 
+* [JWT - JSON Web Tokens](http://jwt.io/)  
 
 
 Languages
