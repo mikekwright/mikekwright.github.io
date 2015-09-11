@@ -131,6 +131,7 @@ Java
 * [AssertJ - Fluent Java Assertions](http://joel-costigliola.github.io/assertj/)
 * [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
 * [Thymeleaf - Java Templating](http://www.thymeleaf.org/) 
+* [Apache Shiro - Java Security](http://shiro.apache.org/)
 
 
 Work
