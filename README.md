@@ -108,6 +108,7 @@ Languages
 * [Julia - Scientific Computing](http://julialang.org/)
 * [miniKanren - DSL Library for logic programming](http://minikanren.org/)
 * [Idris - Type Theory](http://www.idris-lang.org/)
+* [J Lang](https://en.wikipedia.org/wiki/J_(programming_language))   
 
 
 Electronics
