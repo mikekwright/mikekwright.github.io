@@ -1,6 +1,11 @@
 michael-wright.github.io
 ========================
 
+If you are unable to deploy this site, be sure to first run the below command.  
+
+        git clone -b master https://github.com/wrightcoder/wrightcoder.github.io
+        bundle exec rake gen_deploy
+
 Top 3 Topics
 ------------------------
 

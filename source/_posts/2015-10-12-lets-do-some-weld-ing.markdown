@@ -13,7 +13,7 @@ So I am no stranger to dependency injection (DI), having used it for many years 
 RhinoMocks on .net).  For my new company they are using a CDI implementation (Weld) which is one
 framework that I have yet to use, so today I go over my experience with using this framework.  
 
-<-- more -->
+<!-- more -->
 
 ## Introduction
 
