@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DI | My Fortress of Solitude]]></title>
   <link href="http://www.mikewright.me/blog/categories/di/atom.xml" rel="self"/>
   <link href="http://www.mikewright.me/"/>
-  <updated>2015-10-12T16:36:59-06:00</updated>
+  <updated>2015-10-12T16:45:33-06:00</updated>
   <id>http://www.mikewright.me/</id>
   <author>
     <name><![CDATA[Michael Wright]]></name>
@@ -22,7 +22,8 @@
 RhinoMocks on .net).  For my new company they are using a CDI implementation (Weld) which is one
 framework that I have yet to use, so today I go over my experience with using this framework.</p>
 
-<p>&lt;&mdash; more &mdash;></p>
+<!-- more -->
+
 
 <h2>Introduction</h2>
 
