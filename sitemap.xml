@@ -2,90 +2,94 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://www.mikewright.me/blog/2012/05/09/installing-django-with-no-root-access/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2012/10/21/typescript-preview-on-appharbor/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.mikewright.me/blog/2013/10/10/freebsd-9-dot-2-and-vmware-workstation-9-dot-4/
         </loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/15/static-site-meandering/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/18/sort2013-a-review/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/19/sort2013-design-thinking/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/19/sort2013-machine-learning-in-python/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/19/sort2013-tmux-powerup-your-shell/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.mikewright.me/blog/2013/10/24/research-into-key-value-databases-riak/
         </loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/24/splunk-6-whats-new/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/10/31/shunit2-bash-testing/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2013/11/16/ocaml/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2014/07/02/linux-awk/</loc>
-        <lastmod>2015-02-06T14:29:29-07:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2014/12/01/ec2-container-service/</loc>
-        <lastmod>2014-12-01T11:46:50-07:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2015/02/06/docker/</loc>
-        <lastmod>2015-02-06T16:05:18-07:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/2015/02/13/sproutcore-first-impressions/</loc>
-        <lastmod>2015-04-28T11:39:09-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.mikewright.me/blog/2015/10/12/lets-do-some-weld-ing/</loc>
+        <lastmod>2015-10-12T15:22:42-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/about/</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/archives/</loc>
-        <lastmod>2015-04-28T11:39:09-06:00</lastmod>
+        <lastmod>2015-10-12T15:22:42-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/blog/</loc>
-        <lastmod>2015-04-28T11:39:09-06:00</lastmod>
+        <lastmod>2015-10-12T15:22:42-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/</loc>
-        <lastmod>2015-04-28T11:39:09-06:00</lastmod>
+        <lastmod>2015-10-12T15:22:42-06:00</lastmod>
     </url>
     <url>
         <loc>http://www.mikewright.me/robots.txt</loc>
-        <lastmod>2014-07-02T09:10:45-06:00</lastmod>
+        <lastmod>2015-08-27T22:18:25-06:00</lastmod>
     </url>
 </urlset>

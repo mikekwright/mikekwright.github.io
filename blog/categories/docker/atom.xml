@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Docker | My Fortress of Solitude]]></title>
   <link href="http://www.mikewright.me/blog/categories/docker/atom.xml" rel="self"/>
   <link href="http://www.mikewright.me/"/>
-  <updated>2015-04-28T11:43:05-06:00</updated>
+  <updated>2015-10-12T16:36:59-06:00</updated>
   <id>http://www.mikewright.me/</id>
   <author>
     <name><![CDATA[Michael Wright]]></name>
@@ -161,7 +161,7 @@ if [ ! -d &quot;$DHOME&quot; ]; then
     CAT &gt; &quot;$DHOME/Vagrantfile&quot; &lt;&lt;DOCKER_VAGRANTFILE
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+# Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!
 VAGRANTFILE_API_VERSION = &quot;2&quot;
 
 
@@ -171,7 +171,7 @@ sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main\ &gt; /etc/apt
 sudo apt-get update
 sudo apt-get install --assume-yes --force-yes lxc-docker vim tmux openconnect
 sudo usermod -a -G docker vagrant
-sudo echo &quot;DOCKER_OPTS='-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --insecure-registry docker-registry.vip.fsglobal.net'&quot; &gt;&gt; /etc/default/docker
+sudo echo &quot;DOCKER_OPTS=&#39;-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --insecure-registry docker-registry.vip.fsglobal.net&#39;&quot; &gt;&gt; /etc/default/docker
 sudo service docker restart
 PROVISION
 
@@ -181,10 +181,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
   config.vm.provision &quot;shell&quot;, inline: \$script
   config.vm.network :private_network, ip: &quot;192.168.53.100&quot;
-  config.vm.network :forwarded_port, guest: 8080, host: 18080, protocol: 'tcp'
-  config.vm.network :forwarded_port, guest: 3306, host: 13306, protocol: 'tcp'
-  config.vm.network :forwarded_port, guest: 2375, host: 2375, protocol: 'tcp'
+  config.vm.network :forwarded_port, guest: 8080, host: 18080, protocol: &#39;tcp&#39;
+  config.vm.network :forwarded_port, guest: 3306, host: 13306, protocol: &#39;tcp&#39;
+  config.vm.network :forwarded_port, guest: 2375, host: 2375, protocol: &#39;tcp&#39;
   config.vm.provider :virtualbox do |v|
+    v.customize [&quot;modifyvm&quot;, :id, &quot;--natdnshostresolver1&quot;, &quot;on&quot;]
+    v.customize [&quot;modifyvm&quot;, :id, &quot;--natdnsproxy1&quot;, &quot;on&quot;]
+    v.customize [&quot;modifyvm&quot;, :id, &quot;--nictype1&quot;, &quot;virtio&quot;]
+
     v.memory = 2048
     v.cpus = 4
   end
@@ -247,11 +251,11 @@ function vagrantSSHVPN {
 }
 
 function cleanupContainers {
-  $DOCKER_RUN ps -a | awk 'NR &lt;= 1 { next } NR &gt; 1 {print $1}' | xargs $DOCKER_RUN rm -v
+  $DOCKER_RUN ps -a | awk &#39;NR &lt;= 1 { next } NR &gt; 1 {print $1}&#39; | xargs $DOCKER_RUN rm -v
 }
 
 function cleanupImages {
-  $DOCKER_RUN images | grep '&lt;none&gt;' -a | awk '{print $3}' | xargs $DOCKER_RUN rmi
+  $DOCKER_RUN images | grep &#39;&lt;none&gt;&#39; -a | awk &#39;{print $3}&#39; | xargs $DOCKER_RUN rmi
 }
 
 function cleanup {
@@ -260,9 +264,9 @@ function cleanup {
 }
 
 if [ ! -f /tmp/docker-port-forward ]; then
-  export DOCKER_HOST='tcp://192.168.53.100:2375'
+  export DOCKER_HOST=&#39;tcp://192.168.53.100:2375&#39;
 else
-  export DOCKER_HOST='tcp://127.0.0.1:2375'
+  export DOCKER_HOST=&#39;tcp://127.0.0.1:2375&#39;
 fi
 
 if [[ $1 = &quot;up&quot; ]]; then
