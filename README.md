@@ -8,7 +8,6 @@ If you are unable to deploy this site, be sure to first run the below command.
 
 Top 3 Topics
 ------------------------
-
 * [Apache Mesos](http://mesos.apache.org/)
 * [Web Components](http://webcomponents.org/)
 * [Polymer - WebComponents Framework](https://www.polymer-project.org/)
@@ -16,7 +15,6 @@ Top 3 Topics
 
 Topics
 ------------------------
-
 * Vagrant
 * ElasticSearch
 * Backbone.js
@@ -63,12 +61,7 @@ Topics
 * [Lipstick for Pig](http://techblog.netflix.com/2013/06/introducing-lipstick-on-apache-pig.html)
 * [Apache Kafka](https://kafka.apache.org/)
 * [Presto: Facebook's distributed SQL Query Engine](http://www.infoq.com/news/2013/11/Presto)
-* [Scala - Cake Pattern](http://www.warski.org/blog/2010/12/di-in-scala-cake-pattern/)
-* [Scala - Wisp (Platting from console)](https://github.com/quantifind/wisp)    
-* [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)
-* [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
 * [Simplify your life with sshconfig](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/)
-* [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
 * [React](http://facebook.github.io/react/)
 * [Apache Accumulo - Distributed Key/Value Store](https://accumulo.apache.org/)
 * [JSlate - Data Dashboards](http://jslate.com/)
@@ -83,13 +76,10 @@ Topics
 * [Bosonic - WebComponents Framework](http://bosonic.github.io/)
 * [X-Tags - WebComponents Framework](http://x-tags.org/)
 * [Hapi.js - Rich Node.js Framework](http://hapijs.com/)
-* [Dropwizard](http://www.dropwizard.io/)
-* [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
 * [Spring Boot - Standalone Spring App](http://projects.spring.io/spring-boot/)
 * [HK2 - Lightweight & Dynamic DI](https://hk2.java.net/2.4.0-b16/)
 * [GNUPlot - Data plotting](http://www.gnuplot.info/) 
 * [jsblocks - MV-ish](http://jsblocks.com/)
-* [Dropwizard](http://www.dropwizard.io/)
 * [Aurelia - Web MV Framework](http://www.aurelia.io)
 * [NW.js - Node in the DOM](http://nwjs.io/)
 * [purecss](http://purecss.io)
@@ -102,6 +92,16 @@ Javascript
 * [Falcor - Javascript library for data fetching](http://netflix.github.io/falcor/) 
 * [JWT - JSON Web Tokens](http://jwt.io/)  
 * [BabelJS - BableJS is ES6 transcompiler](http://babeljs.io/)  
+* [JXcore - Extended Node.js](http://jxcore.com/home/)    
+
+Scala
+-------------------------------
+* [Scala - Cake Pattern](http://www.warski.org/blog/2010/12/di-in-scala-cake-pattern/)
+* [Scala - Wisp (Platting from console)](https://github.com/quantifind/wisp)    
+* [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)
+* [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
+* [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
+* [Spary - Async HTTP Server based on Akka](http://spray.io/)
 
 
 Languages
@@ -114,6 +114,11 @@ Languages
 * [miniKanren - DSL Library for logic programming](http://minikanren.org/)
 * [Idris - Type Theory](http://www.idris-lang.org/)
 * [J Lang](https://en.wikipedia.org/wiki/J_(programming_language))   
+
+Building
+---------------------------------
+* [ThoughtWorks go](http://www.thoughtworks.com/products/go-continuous-delivery)   
+* [Snap-CI - Hosted go](https://snap-ci.com/)   
 
 
 Electronics
@@ -130,7 +135,6 @@ Open Source Projects to Study
 
 Java
 ----------------------------
-
 * [Java - RESTeasy](https://www.jboss.org/resteasy/)
 * [Spock - Different Java Testing](https://code.google.com/p/spock/)
 * [Java WebFramework - Stripes](http://www.stripesframework.org/display/stripes/Home)
@@ -141,6 +145,18 @@ Java
 * [Undertow - Java Non-blocking API on NIO](http://undertow.io/)
 * [Thymeleaf - Java Templating](http://www.thymeleaf.org/) 
 * [Apache Shiro - Java Security](http://shiro.apache.org/)
+* [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
+* [Dropwizard](http://www.dropwizard.io/)
+* [Dropwizard - Metrics](http://metrics.dropwizard.io/)
+
+Containers
+-----------------------------
+* [Docker Compose](https://docs.docker.com/compose)
+* [Fabric 8 - OS Integration Platform](http://fabric8.io/)
+* [Kubernetes - Google cluster container manager](http://kubernetes.io/)   
+* [Openshift - Origin](http://www.openshift.org/)    
+* [Project Atomic - Container OS](http://www.projectatomic.io/)    
+* [CoreOS](https://coreos.com/)    
 
 
 Work
@@ -154,12 +170,10 @@ Work
 * [Apache Felix (OSGi)](http://felix.apache.org/)
 * [AWS Transcoder](http://aws.amazon.com/elastictranscoder/)
 * [EC2 Container Example](https://github.com/aws-troutman/magic8ball-flask/blob/master/scripts/register_with_elb.sh)
-* [Docker Compose](https://docs.docker.com/compose)
 * [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 
 Projects
 --------------------------
-
 * MAME Cabinet
 * Strong bad audio-player when outage
 * Beaglebone Black - Intercom System
@@ -168,7 +182,6 @@ Projects
 
 Books
 ---------------------------
-
 * iOS 7 in Action 
 * CoffeeScript in Action
 * The Creature from Jekyll Island
@@ -177,14 +190,12 @@ Books
 
 Others
 ---------------------------
-
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
 * [Git built-in pull requests](http://git-scm.com/docs/git-request-pull)
 
 Web 2.0
 ---------------------------
-
 * [Hydra - Better Web APIs](http://www.hydra-cg.com/)
 * [SparQL - RDF Query Language](http://en.wikipedia.org/wiki/SPARQL)  
 * [RDF Turtle](http://www.w3.org/TR/turtle/)
@@ -201,18 +212,15 @@ DB
 
 Security
 -----------------------------
-
 * [OpenID Connect](http://openid.net/connect/)   
 * [JWT - JSON Web Token](http://jwt.io/)    
 
 Tools
 ------------------------------
-
 * [spf13-vim](https://github.com/spf13/spf13-vim)  
 
 Completed
 --------------------------
-
 * Install FreeBSD 9.2 on VMWare workstation 9
 * AWS EC2 Container Service (Initial Research)
 * [Docker](https://www.docker.io/)
