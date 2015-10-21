@@ -1,0 +1,366 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alianza - Radically Chaning VoIP Solution</title>
+    <meta name="description" content="Alianza - Reveal.js"/>
+    <meta name="author" content="Michael Wright"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="css/reveal.min.css"/>
+    <link rel="stylesheet" href="css/theme/default.css" id="theme"/>
+    <link rel="stylesheet" href="lib/css/zenburn.css"/>
+    <link rel="stylesheet" href="css/alianza.css"/>
+    <script type="text/javascript">
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+      
+      
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section id="title">
+          <h1>Next Gen Build System</h1>
+          <h2>Alianza Platform Team</h2><br/>
+          <h3>Working to make things 
+            <div class="go-word"><a href="www.go.cd">GO</a></div>
+          </h3>
+          <p><small>Discussion Lead: <a href="http://www.mikewright.me">Michael Wright</a> /<a href="http://github.com/wrightcoder">wrightcoder</a></small></p>
+        </section>
+        <section id="overview">
+          <section>
+            <h2>Overview</h2><br/>
+            <p class="content">During this discussion we would like to discussion the hopeful future of our platform.
+              <ul>
+                <li class="title">Validation
+                  <p class="content definition">
+                    We would like to introduce 'fast-feedback' in hopes that bugs and errors can be
+                    found sooner (hopefully before code even gets merged into main branches). 
+                  </p>
+                </li>
+                <li class="title">Integration
+                  <p class="content definition">
+                    Be able to stand up a new build in a system for automated testing to verify its
+                    integration with existing components
+                  </p>
+                </li>
+                <li class="title">Delivery
+                  <p class="content definition">More quickly deliver new features to production even features that are in test</p>
+                </li>
+              </ul>
+            </p>
+          </section>
+        </section>
+        <section id="needs">
+          <section>
+            <h2>Needs</h2><br/>
+            <p class="content">So the question stands, what benefit would we get from a new build system? 
+              <ul>
+                <li>Simplicity
+                  <p class="content definition">Jenkins has a lot of functionality, maybe to much.  </p>
+                </li>
+                <li>Visibility
+                  <p class="content definition">We need better visibilty in code change impacts</p>
+                </li>
+                <li>Reproduceable
+                  <p class="content definition">The process a build server uses, should be the same everywhere</p>
+                </li>
+                <li>Cross-Discipline Support
+                  <p class="content definition">The UI engineers and BE engineers tools differ, but can be the same</p>
+                </li>
+              </ul>
+            </p>
+            <aside class="notes">Here are my notes</aside>
+          </section>
+        </section>
+        <section id="microservices">
+          <section>
+            <h1>Microservices</h1><br/>
+            <h3>Four Tier Application Architecture</h3>
+            <div class="offset">
+              <p class="content">Benefits
+                <ul class="left">
+                  <li>Faster Deploy Times</li>
+                  <li>Easier Testing</li>
+                  <li>SRP</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <section>
+            <image src="img/ooda-loop1.png"></image>
+          </section>
+          <section>
+            <h1>Some Best Practices</h1><br/>
+            <div class="offset">
+              <p class="content">
+                <ul class="left">
+                  <li>Seperate Data Store</li>
+                  <li>Similar Level of Maturity</li>
+                  <li>Seperate Build for each</li>
+                  <li>Deploy in Containers</li>
+                  <li>Servers are STATELESS</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <aside class="notes">
+            "It’s becoming increasingly clear that if you keep using development processes and application architectures 
+             that worked just fine ten years ago, you simply can’t move fast enough to capture and hold the interest 
+             of mobile users who can choose from an ever-growing number of apps." - Nginx Blog Post
+              
+            Why do we want to move towards Microservices?  
+             "Netflix made an early decision to optimize for speed. This refers specifically to tooling your software 
+             development process so that you can react quickly to what your customers want, or even better, can create 
+             innovative ... experiences that attract customers."  
+             
+            At netflix it is encouraged for the mindset of the team to change (OODA) to better facilitate microservices
+             
+            The one main takeaway is that a microservice really should fit the principles inside of good OOP, namely 
+             that a service has one purpose, should be able to be updated independantly of other services, and in fact
+             should be able to be developed without needing the knowledge of the internals of the other microservices 
+             (black box)
+             
+            A comment I really like "Create a High Freedom, High Responsibility Culture with Less Process"   
+              
+            OODA (https://www.nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/#culture)  
+             Observe refers to examining your current status to look for places where you can innovate. You want your 
+              company culture to implicitly authorize anyone who notices an opportunity to start a project to exploit it. 
+              For example, you might notice what the diagram calls a “customer pain point”: a lot of people abandoning 
+              the registration process on your website when they reach a certain step. You can undertake a project to 
+              investigate why and fix the problem.
+              
+            Orient refers to analyzing metrics to understand the reasons for the phenomena you’ve observed at the 
+              Observe point. Often this involves analyzing large amounts of unstructured data, such as log files; this 
+              is often referred to as big data analysis. The answers you’re looking for are not already in your business 
+              intelligence database. You’re examining data that no one has previously looked at and asking questions that 
+              haven’t been asked before.
+               
+            Decide refers to developing and executing a project plan. Company culture is a big factor at this point. As 
+              previously discussed, in a high-freedom, high-responsibility culture you don’t need to get management approval 
+              before starting to make changes. You share your plan, but you don’t have to ask for permission.
+                
+            Act refers to testing your solution and putting it into production. You deploy a microservice that includes 
+              your incremental feature to a cloud environment, where it’s automatically put into an AB test to compare it 
+              to the previous solution, side by side, for as long as it takes to collect the data that shows whether your 
+              approach is better. Cooperating microservices aren’t disrupted, and customers don’t see your changes unless 
+              they’re selected for the test. If your solution is better, you deploy it into production. It doesn’t have to 
+              be a big improvement, either. If the number of clients for your microservice is large enough, then even a 
+              fraction of a percent improvement (in response time, say) can be shown to be statistically valid, and the 
+              cumulative effect over time of many small changes can be significant.
+          </aside>
+        </section>
+        <section id="buildtool">
+          <section>
+            <h1>Build Tool Choice</h1><br/>
+            <p class="content">
+              Part of the move that we have made is to determine which build tool can help us to 
+               best fulfill our needs (not current needs, but where we want to go).   
+            </p>
+          </section>
+          <section>
+            <h1>jenkins</h1><br/>
+            <h3>This is our current tool and has some great benefits</h3>
+            <div class="offset">
+              <p class="content">Pros
+                <ul class="left">
+                  <li>Time tested</li>
+                  <li>Powerful</li>
+                  <li>Already Setup</li>
+                </ul>
+              </p>
+            </div><br/>
+            <div class="offset">
+              <p class="content">Cons
+                <ul class="left">
+                  <li>Complex</li>
+                  <li>Antiquated UI</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <section>
+            <h1>bamboo</h1><br/>
+            <h3>Atlassian creates some great tools, bamboo is their build solution.  </h3>
+            <div class="offset">
+              <p class="content">Pros
+                <ul class="left offset">
+                  <li>Uniform UI</li>
+                  <li>Link to tools</li>
+                  <li>Maven and Docker targets</li>
+                </ul>
+              </p>
+            </div><br/>
+            <div class="offset">
+              <p class="content">Cons
+                <ul class="left offset">
+                  <li>Not OS</li>
+                  <li>Simple things are hard</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <section>
+            <h1>Thoughtworks go</h1><br/>
+            <h3>Go is a simple pipeline tool that is OS and is easily extensible with plugins</h3>
+            <div class="offset">
+              <p class="content">Pros
+                <ul class="left offset">
+                  <li>Simple UI</li>
+                  <li>Easily Extended</li>
+                  <li>Free and OS</li>
+                </ul>
+              </p>
+            </div><br/>
+            <div class="offset">
+              <p class="content">Cons
+                <ul class="left offset">
+                  <li>Not built for complicated builds</li>
+                  <li>No central location for plugins</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <section>
+            <h1>Others</h1><br/>
+            <p class="content">There are a few other choices that have been discussed only briefly</p>
+            <div class="offset">
+              <ul class="left">
+                <li>Teamcity</li>
+                <li>Snap-CI</li>
+                <li>ElectricFlow</li>
+                <li>AWS CodePipeline</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Teamcity is a great tool, but it is on the pricey side where the charge is per
+               agent rather than per user (max agents is around $21K). 
+               
+              Snap-CI is a great tool as well, a hosted solution that is created by the makers
+               of go, however to make it work there could potentially be a lot of security 
+               concerns.  Not the visibility of the build machine itself, but in the requirement
+               for a hosted solution to have access to our internal systems.  
+               
+              ElectricFlow does not have a lot of knowledge around it, and while it does cater to 
+               ops and dev collaboration it doesn't feel like it is aiming toward our solution  
+               
+              AWS CodePipeline is a neat tool, but does require that our solution be fully hosted
+               (generally speaking) in AWS, as well as it may become more costly.  
+            </aside>
+          </section>
+          <section>
+            <h1>Our Winner?</h1><br/><br/>
+            <h2>Thoughtworks Go</h2>
+            <aside class="notes">
+              The important thing to note here is that while this is our winner, it wasn't because it
+               already had a lot of supported to do a lot of different things.  Instead it was because we 
+               felt that it was simple enough to not be confusing and would better target our endgoal
+               of microservices.   
+            </aside>
+          </section>
+        </section>
+        <section id="buildscript">
+          <section>
+            <h1>Build Script</h1><br/>
+            <h4>Builds need to be reproducable on developer machines</h4>
+          </section>
+          <section>
+            <h1>Style and Benefits</h1><br/>
+            <div class="offset">
+              <ul class="left">Style
+                <li>Bash Script</li>
+                <li>Auto-upgrading</li>
+                <li>Hooks</li>
+              </ul>
+            </div>
+          </section>
+          <aside class="notes">
+            The one thing about the script is that there are going to be clear steps. (e.g. compile, 
+              test, component-test, publish, medium-test, deploy, integration-test, promote, smoke-test)
+            Each of these areas will have custom hooks that a project can tie into specific to that 
+              project.  
+          </aside>
+        </section>
+        <section id="buildpullrequest">
+          <section>
+            <h1>Pull Requests</h1><br/>
+            <h4>Fail-Fast with Pull Request Validations</h4>
+            <div class="offset">
+              <p class="content">Validations
+                <ul class="left">
+                  <li>Code Coverage</li>
+                  <li>Sonar Quality</li>
+                  <li>Medium or Integration (large) Tests</li>
+                </ul>
+              </p>
+            </div>
+            <aside class="notes">
+              This is one important area, while it is true that we want to get our code into master 
+               (or dev with gitflow) as fast as we can, what we are really trying to do is get it into
+               an environment we can validate as fast as possible.  
+              This specific step will allow us to be able to make sure that pull requests don't have
+               adverse effects before they get merged (should allow us to better keep code groups
+               seperate in case of failure, and not to "revert" as much).  
+            </aside>
+          </section>
+        </section>
+        <section id="stash">
+          <section>
+            <h1>Stash</h1><br/>
+            <h3>Plugins to enhance stash</h3>
+            <div class="offset">
+              <p class="content">Stash has a lot of capabilities, but there are a few useful plugins. </p>
+              <ul class="left">
+                <li>Sonar for Bitbucket Server
+                  <p class="content definition"><a href="https://marketplace.atlassian.com/plugins/ch.mibex.stash.sonar4stash">Integrate Sonar Metrics</a></p>
+                </li>
+                <li>Stash-Code-Coverage-Plugin 
+                  <p class="content definition"><a href="https://www.versioneye.com/java/com.atlassian.stash.plugin:stash-code-coverage-plugin/1.1.0">Code coverage</a></p>
+                </li>
+                <li>Merge Request Check Plugin Module (Custom)
+                  <p class="content definition"><a href="https://developer.atlassian.com/stash/docs/latest/reference/plugin-module-types/merge-check.html">Custom</a></p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="docker">
+          <section>
+            <h1>Docker</h1><br/>
+            <h3>Container Deployment, need I say more</h3>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script type="text/javascript">
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+      
+    </script>
+  </body>
+</html>
