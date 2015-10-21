@@ -1,4 +1,20 @@
 section#buildpullrequest
   section
+    h1 Pull Requests
+    br
+    h4 Fail-Fast with Pull Request Validations
+    .offset
+      p.content
+        | Validations
+        ul.left
+          li Code Coverage
+          li Sonar Quality
+          li Medium or Integration (large) Tests
 
-
+    aside.notes
+      | This is one important area, while it is true that we want to get our code into master 
+      |  (or dev with gitflow) as fast as we can, what we are really trying to do is get it into
+      |  an environment we can validate as fast as possible.  
+      | This specific step will allow us to be able to make sure that pull requests don't have
+      |  adverse effects before they get merged (should allow us to better keep code groups
+      |  seperate in case of failure, and not to "revert" as much).  

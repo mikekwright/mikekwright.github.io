@@ -1,9 +1,13 @@
 section#buildtool
   section
-    h1 Tool Reveal
+    h1 Build Tool Choice
+    br
+    p.content
+      | Part of the move that we have made is to determine which build tool can help us to 
+      |  best fulfill our needs (not current needs, but where we want to go).   
 
   include build-tool/jenkins.jade
   include build-tool/bamboo.jade
   include build-tool/go.jade
   include build-tool/other.jade
-
+  include build-tool/winner.jade

@@ -1,2 +1,21 @@
 section#buildscript
   section
+    h1 Build Script
+    br
+    h4 Builds need to be reproducable on developer machines
+
+  section
+    h1 Style and Benefits
+    br
+    .offset
+      ul.left
+        | Style
+        li Bash Script
+        li Auto-upgrading
+        li Hooks
+
+   aside.notes
+    | The one thing about the script is that there are going to be clear steps. (e.g. compile, 
+    |   test, component-test, publish, medium-test, deploy, integration-test, promote, smoke-test)
+    | Each of these areas will have custom hooks that a project can tie into specific to that 
+    |   project.  
