@@ -1,0 +1,26 @@
+html
+  include layouts/slide-header
+  
+  body
+    .reveal
+      .slides
+        section#title
+          h1 Docker Training
+          h2 FamilySearch Help Team
+          br
+          h3 Welcome to the world of container development
+          p
+            small Discussion Lead: 
+              a(href='https://almtools.ldschurch.org/fhconfluence/display/~mikekwright') Michael Wright
+              |  /
+              a(href='http://github.com/wrightcoder') wrightcoder
+          
+        include layouts/docker-training/opening-qa.jade
+        include layouts/docker-training/why-docker.jade
+        include layouts/docker-training/docker-structure.jade
+        include layouts/docker-training/docker-architecture.jade
+        include layouts/docker-training/installation.jade
+        include layouts/docker-training/simple-commands.jade
+        include layouts/docker-training/dockerfile.jade
+    
+    include layouts/slide-footer

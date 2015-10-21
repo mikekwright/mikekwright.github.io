@@ -148,6 +148,7 @@ Java
 * [Vert.x - JVM Non-Blocking Web](http://vertx.io/)
 * [Dropwizard](http://www.dropwizard.io/)
 * [Dropwizard - Metrics](http://metrics.dropwizard.io/)
+* [Spring Reactor](https://spring.io/guides/gs/messaging-reactor/)   
 
 Containers
 -----------------------------
@@ -171,6 +172,7 @@ Work
 * [AWS Transcoder](http://aws.amazon.com/elastictranscoder/)
 * [EC2 Container Example](https://github.com/aws-troutman/magic8ball-flask/blob/master/scripts/register_with_elb.sh)
 * [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
+* [Graphite](http://graphite.readthedocs.org/en/latest/)    
 
 Projects
 --------------------------
@@ -218,6 +220,10 @@ Security
 Tools
 ------------------------------
 * [spf13-vim](https://github.com/spf13/spf13-vim)  
+* [otto - The new vagrant](https://ottoproject.io/intro/getting-started/infra.html)   
+* [Jenkins - Workflow](https://www.cloudbees.com/products/jenkins-enterprise/workflow)   
+* [Thoughtworks Go](http://www.go.cd)    
+* [RAML - Documentation Verification](http://raml.org/)  
 
 Completed
 --------------------------

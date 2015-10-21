@@ -1,0 +1,26 @@
+html
+  include layout/header
+  
+  body
+    .reveal
+      .slides
+        section#title
+          h1 Next Gen Build System
+          h2 Alianza Platform Team
+          br
+          h3 Working to make things 
+            .go-word 
+              a(href='www.go.cd') GO
+          p
+            small Discussion Lead: 
+              a(href='http://www.mikewright.me') Michael Wright
+              |  /
+              a(href='http://github.com/wrightcoder') wrightcoder
+          
+        include build-system/welcome.jade
+        include build-system/needs.jade
+        include build-system/build-tool.jade
+        include build-system/build-script.jade
+        include build-system/build-pull-requests.jade
+    
+    include layout/footer
