@@ -1,0 +1,19 @@
+{ 
+  "description": "These are quotes or comments that I have heard or come across in reading that I find to be very clear and useful.",
+  "quotes": {
+    "microservices": [
+      {
+        "quote": "The huge monolith is not an architecture style. It is usually a mistake.... and it probably has a lot to do with product pressures",
+        "author": "Sleepless Dev",
+        "link": "http://rick-hightower.blogspot.com/2015/03/java-microservices-architecture.html"
+      },
+      {
+        "quote": "... If their [monolithic] application is a big ball of spaghetti code, then that has nothing to do with lack of microservices or them trying to develop a monolithic [application], their process, training and culture are the issue.",
+        "author": "Sleepless Dev", 
+        "link": "http://rick-hightower.blogspot.com/2015/03/java-microservices-architecture.html"
+      }
+    ]
+  }
+}
+
+
