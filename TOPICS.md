@@ -149,6 +149,8 @@ Java
 * [Dropwizard](http://www.dropwizard.io/)
 * [Dropwizard - Metrics](http://metrics.dropwizard.io/)
 * [Spring Reactor](https://spring.io/guides/gs/messaging-reactor/)   
+* [Project Reactor](http://projectreactor.io/)    
+* [LMAX Disruptor](https://lmax-exchange.github.io/disruptor/)    
 
 Containers
 -----------------------------
