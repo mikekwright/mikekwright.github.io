@@ -1,0 +1,68 @@
+---
+layout: post
+title: "Ocaml, Opam and utop from a newb"
+date: 2013-11-16 15:03
+comments: true
+categories: 
+- Development
+- Ocaml
+---
+
+This week I had the chance to attend QCon SF and let me tell you it was a great experience. 
+One of the benefits that came out of this conference was a free ebook from ORielly books. The
+book that I decided to pickup was the newly released _Real World Ocaml_.  
+
+One of the first things that you need to setup when working with ocaml is, of course, the
+environment.  This book talks about using utop and opam (the ocaml package manager). So I 
+decided to install these tools on my system.  There were a few issues that I ran into while
+trying to get it working, so I have decided to document those (and what worked in the end)
+so that when I setup a new system I don't have to figure them out all over again.  
+
+<!-- more --> 
+
+For this installation I will be using Ubuntu 13.10 as my OS of choice, however the final
+solution is one that should work on any nix system.  
+
+## Install from Packages
+
+This was the first attempt that I had at installing ocaml and opam, using the debian
+provided packages.  This had a few issues, the main issue being that opam is not included
+in the standard repositories, so they require you to add another repository.  
+
+        add-apt-repository ppa:avsm/ppa
+        apt-get update
+        apt-get install ocaml opam
+
+This worked to install the basic opam and ocaml systems, except that I already had ocaml
+installed, so I had to first remove the original ocaml package
+
+        apt-get remove ocaml
+
+After that the install above worked to set things up.  But when trying to install a few of 
+the packages using opam I ran into the issue that the `ocaml-compiler-libs` was not installed 
+and trying to install it failed with a version conflict.  
+
+At this point I could have tried to dive a little deeper to find out why it failed and
+see if I could resolve the package issue, however I prefer to understand how the install
+of the different packages goes anyways, so I decided to install from source.   
+
+## Install from Source
+
+I try to install tools from source whenever I get the chance as I really like to understand
+what exactly is happening underneath the covers so that if I run into problems in the 
+future with it running I can have a better starting point.  
+
+So to install ocaml and opam from source these are the steps that I went through.  
+
+{% gist 7506393 ocaml-install.sh %}
+
+## All done?
+
+Well this was just my first day getting setup to go through the Real World Ocaml book, but 
+I am very, very excited about this book as ocaml was a language that I reported on in school
+years ago and found it to be very exciting.   
+
+
+
+
+
