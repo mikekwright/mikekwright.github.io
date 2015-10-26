@@ -160,6 +160,7 @@ Containers
 * [Openshift - Origin](http://www.openshift.org/)    
 * [Project Atomic - Container OS](http://www.projectatomic.io/)    
 * [CoreOS](https://coreos.com/)    
+* [Deis - Open source Docker PaaS](https://deis.com/learn)   
 
 
 Work
