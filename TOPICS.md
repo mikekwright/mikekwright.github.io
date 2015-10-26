@@ -228,6 +228,10 @@ Tools
 * [Thoughtworks Go](http://www.go.cd)    
 * [RAML - Documentation Verification](http://raml.org/)  
 
+* Practices and Paradigms
+-----------------------------
+* [Consumer Driven Contracts](http://martinfowler.com/articles/consumerDrivenContracts.html)   
+
 Completed
 --------------------------
 * Install FreeBSD 9.2 on VMWare workstation 9
