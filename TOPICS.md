@@ -47,7 +47,6 @@ Topics
 * Logstash
 * Redis
 * MongoDB
-* Cassandra
 * [Jinja2](http://jinja.pocoo.org/docs/)
 * [Glyphish](http://www.glyphish.com/)
 * [Microsoft Fakes](http://msdn.microsoft.com/en-us/library/hh549175.aspx)
@@ -228,7 +227,12 @@ Tools
 * [Thoughtworks Go](http://www.go.cd)    
 * [RAML - Documentation Verification](http://raml.org/)  
 
-* Practices and Paradigms
+Cassandra
+------------------------------
+* [Mutagen - Cassandra](https://github.com/toddfast/mutagen-cassandra)    
+* [Achilles](https://github.com/doanduyhai/Achilles)    
+
+Practices and Paradigms
 -----------------------------
 * [Consumer Driven Contracts](http://martinfowler.com/articles/consumerDrivenContracts.html)   
 
