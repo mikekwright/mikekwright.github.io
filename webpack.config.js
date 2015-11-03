@@ -8,14 +8,14 @@ var siteConfig = {
     path: here('site')
   },
   resolve: {
-    extensions: ['', '.js', '.jade', '.md'],
+    extensions: ['', '.js', '.jsx', '.jade', '.md'],
     modulesDirectories: [ 'shared', here('node_modules') ]
   },
   module: {
    loaders: [
+      { test: /\.js$/, loader: 'babel', query: { presets: ['react', 'es2015'] } },
       { test: /\.jade$/, loader: 'jade?doctype=xhtml', exclude: here('node_modules') },
       { test: /\.md$/, loader: 'html!markdown', exclude: here('node_modules') }
-      //{ test: /\.js?$/, loader: 'babel', exclude: 'node_modules' }
     ]
   }
 
