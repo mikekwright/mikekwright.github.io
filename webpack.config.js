@@ -1,11 +1,13 @@
 var here = require('path-here');
 
 var siteConfig = {
-  context: here('site'), 
-  entry: here('site', 'index.js'),
+  entry: { 
+    bundle: here('site', 'devEntry.js'),
+    bundleStatic: here('site', 'staticEntry.js')
+  },
   output: {
-    filename: 'bundle.js', 
-    path: here('site')
+    filename: '[name].js', 
+    path: here('_deploy')
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.jade', '.md'],
@@ -18,7 +20,6 @@ var siteConfig = {
       { test: /\.md$/, loader: 'html!markdown', exclude: here('node_modules') }
     ]
   }
-
 };
 
 module.exports = siteConfig;
