@@ -92,6 +92,7 @@ Javascript
 * [JWT - JSON Web Tokens](http://jwt.io/)  
 * [BabelJS - BableJS is ES6 transcompiler](http://babeljs.io/)  
 * [JXcore - Extended Node.js](http://jxcore.com/home/)    
+* [Font Awesome](https://fortawesome.github.io/Font-Awesome/)   
 
 Scala
 -------------------------------
@@ -150,6 +151,7 @@ Java
 * [Spring Reactor](https://spring.io/guides/gs/messaging-reactor/)   
 * [Project Reactor](http://projectreactor.io/)    
 * [LMAX Disruptor](https://lmax-exchange.github.io/disruptor/)    
+* [Functional Java](https://github.com/functionaljava/functionaljava/)    
 
 Containers
 -----------------------------
@@ -160,7 +162,7 @@ Containers
 * [Project Atomic - Container OS](http://www.projectatomic.io/)    
 * [CoreOS](https://coreos.com/)    
 * [Deis - Open source Docker PaaS](https://deis.com/learn)   
-
+* [Docker in Docker](https://hub.docker.com/r/jpetazzo/dind/)   
 
 Work
 --------------------------
@@ -175,6 +177,7 @@ Work
 * [EC2 Container Example](https://github.com/aws-troutman/magic8ball-flask/blob/master/scripts/register_with_elb.sh)
 * [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 * [Graphite](http://graphite.readthedocs.org/en/latest/)    
+* [Kamailio - Open Source SIP Server](http://www.kamailio.org/w/)   
 
 Projects
 --------------------------
@@ -222,6 +225,8 @@ Security
 Tools
 ------------------------------
 * [spf13-vim](https://github.com/spf13/spf13-vim)  
+* [Vim - Vundle](https://github.com/VundleVim/Vundle.vim)   
+* [Vim - Janus](https://github.com/carlhuda/janus)    
 * [otto - The new vagrant](https://ottoproject.io/intro/getting-started/infra.html)   
 * [Jenkins - Workflow](https://www.cloudbees.com/products/jenkins-enterprise/workflow)   
 * [Thoughtworks Go](http://www.go.cd)    
@@ -235,6 +240,7 @@ Cassandra
 Practices and Paradigms
 -----------------------------
 * [Consumer Driven Contracts](http://martinfowler.com/articles/consumerDrivenContracts.html)   
+* [Quicktest - Testing](https://www.fpcomplete.com/user/pbv/an-introduction-to-quickcheck-testing)   
 
 Completed
 --------------------------
