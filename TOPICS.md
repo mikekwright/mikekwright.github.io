@@ -152,6 +152,7 @@ Java
 * [Project Reactor](http://projectreactor.io/)    
 * [LMAX Disruptor](https://lmax-exchange.github.io/disruptor/)    
 * [Functional Java](https://github.com/functionaljava/functionaljava/)    
+* [Project Lombok](https://github.com/rzwitserloot/lombok)     
 
 Containers
 -----------------------------
