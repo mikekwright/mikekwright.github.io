@@ -96,12 +96,13 @@ Javascript
 
 Scala
 -------------------------------
-* [Scala - Cake Pattern](http://www.warski.org/blog/2010/12/di-in-scala-cake-pattern/)
+* [Scala - Cake Pattern](http://www.warski.org/blog/2010/12/di-in-scala-cake-pattern/)    
 * [Scala - Wisp (Platting from console)](https://github.com/quantifind/wisp)    
-* [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)
-* [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
-* [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)
-* [Spary - Async HTTP Server based on Akka](http://spray.io/)
+* [Akka vs Storm](http://www.warski.org/blog/2013/06/akka-vs-storm/)    
+* [Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)    
+* [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)    
+* [Spary - Async HTTP Server based on Akka](http://spray.io/)    
+* [Scalatest - Awesome test](http://www.scalatest.org/)    
 
 
 Languages
