@@ -244,10 +244,13 @@ Practices and Paradigms
 * [Consumer Driven Contracts](http://martinfowler.com/articles/consumerDrivenContracts.html)   
 * [Quicktest - Testing](https://www.fpcomplete.com/user/pbv/an-introduction-to-quickcheck-testing)   
 
+VoIP
+-----------------------------
+* [OpenSource VoIP Software](http://blog.commander.com/a-complete-list-of-open-source-voip-software/)    
+
 Completed
 --------------------------
 * Install FreeBSD 9.2 on VMWare workstation 9
 * AWS EC2 Container Service (Initial Research)
 * [Docker](https://www.docker.io/)
 * [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
-
