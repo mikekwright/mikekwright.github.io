@@ -166,6 +166,10 @@ Containers
 * [Deis - Open source Docker PaaS](https://deis.com/learn)   
 * [Docker in Docker](https://hub.docker.com/r/jpetazzo/dind/)   
 
+Automation
+--------------------------------
+* [Conf.d - Manage configuration using templates](https://github.com/kelseyhightower/confd)    
+
 Work
 --------------------------
 * [LivePerson](https://www.liveperson.com)
