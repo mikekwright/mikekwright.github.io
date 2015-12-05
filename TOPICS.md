@@ -93,6 +93,7 @@ Javascript
 * [BabelJS - BableJS is ES6 transcompiler](http://babeljs.io/)  
 * [JXcore - Extended Node.js](http://jxcore.com/home/)    
 * [Font Awesome](https://fortawesome.github.io/Font-Awesome/)   
+* [JS-Data](https://github.com/js-data/js-data)    
 
 Scala
 -------------------------------
