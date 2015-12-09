@@ -94,6 +94,7 @@ Javascript
 * [JXcore - Extended Node.js](http://jxcore.com/home/)    
 * [Font Awesome](https://fortawesome.github.io/Font-Awesome/)   
 * [JS-Data](https://github.com/js-data/js-data)    
+* [p5.js] (http://p5js.org/)    
 
 Scala
 -------------------------------
