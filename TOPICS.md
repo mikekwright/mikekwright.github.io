@@ -96,6 +96,7 @@ Javascript
 * [JS-Data](https://github.com/js-data/js-data)    
 * [p5.js](http://p5js.org/)    
 * [flow.js - Static type checker for Javascript](http://flowtype.org)    
+* [Kraken.js - App suite for node.js](http://krakenjs.com/)    
 
 Scala
 -------------------------------
