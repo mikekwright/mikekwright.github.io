@@ -160,6 +160,7 @@ Java
 * [LMAX Disruptor](https://lmax-exchange.github.io/disruptor/)    
 * [Functional Java](https://github.com/functionaljava/functionaljava/)    
 * [Project Lombok](https://github.com/rzwitserloot/lombok)     
+* [Baratine - Platform for Loosely-coupled POJO Microservices](http://baratine.io/)    
 
 Containers
 -----------------------------
