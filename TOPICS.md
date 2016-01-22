@@ -8,10 +8,12 @@ If you are unable to deploy this site, be sure to first run the below command.
 
 Top 3 Topics
 ------------------------
-* [Apache Mesos](http://mesos.apache.org/)
-* [Web Components](http://webcomponents.org/)
-* [Polymer - WebComponents Framework](https://www.polymer-project.org/)
-* [AWS - Lambda](http://aws.amazon.com/lambda/)
+* [Apache Mesos](http://mesos.apache.org/)    
+* [Web Components](http://webcomponents.org/)    
+* [Polymer - WebComponents Framework](https://www.polymer-project.org/)    
+* [AWS - Lambda](http://aws.amazon.com/lambda/)    
+* [Ansible - Automate Laptop Setup](http://www.ansible.com/get-started)    
+* [Ansible - Part 2](http://spin.atomicobject.com/2015/09/21/ansible-configuration-management-laptop/)    
 
 Topics
 ------------------------
@@ -99,6 +101,7 @@ Javascript
 * [Kraken.js - App suite for node.js](http://krakenjs.com/)    
 * [Pen.js - Live editor for browser (markdown)](http://sofish.github.io/pen/)    
 * [Mercury - Module Framework](https://github.com/Raynos/mercury)    
+* [PureScript - Strong Type Framework](http://www.purescript.org/)    
 
 Scala
 -------------------------------
