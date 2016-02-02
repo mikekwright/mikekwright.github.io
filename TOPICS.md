@@ -195,6 +195,10 @@ Work
 * [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 * [Graphite](http://graphite.readthedocs.org/en/latest/)    
 * [Kamailio - Open Source SIP Server](http://www.kamailio.org/w/)   
+* [Tyk - API Manager](https://tyk.io/)    
+* [Registrator - Registry Bridge for Docker](https://github.com/gliderlabs/registrator)    
+* [Archaius - Configuration Management](https://github.com/Netflix/archaius)    
+
 
 Projects
 --------------------------
