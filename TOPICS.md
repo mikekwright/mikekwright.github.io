@@ -85,7 +85,8 @@ Topics
 * [NW.js - Node in the DOM](http://nwjs.io/)
 * [purecss](http://purecss.io)
 * [Arquillian](http://arquillian.org/)     
-* [Tachyon - Memory Centric Distributed Storage](http://tachyon-project.org)
+* [Tachyon - Memory Centric Distributed Storage](http://tachyon-project.org)    
+* [NIM - Small static language - compiles to C](http://nim-lang.org/)    
 
 
 Javascript
