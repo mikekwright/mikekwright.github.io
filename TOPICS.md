@@ -103,6 +103,7 @@ Javascript
 * [Pen.js - Live editor for browser (markdown)](http://sofish.github.io/pen/)    
 * [Mercury - Module Framework](https://github.com/Raynos/mercury)    
 * [PureScript - Strong Type Framework](http://www.purescript.org/)    
+* [Production Level React Starter Kit](https://github.com/davezuko/react-redux-starter-kit)    
 
 Scala
 -------------------------------
