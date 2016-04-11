@@ -88,6 +88,7 @@ Topics
 * [Tachyon - Memory Centric Distributed Storage](http://tachyon-project.org)    
 * [NIM - Small static language - compiles to C](http://nim-lang.org/)    
 * [PipelineDB - Streaming Postgres DB](https://www.pipelinedb.com/)    
+* [SMACK - Spark, Mesos, Akka, Cassandra & Kafka Stack](https://dzone.com/articles/smack-stack-guide)    
 
 
 Javascript
