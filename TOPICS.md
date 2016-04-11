@@ -87,6 +87,7 @@ Topics
 * [Arquillian](http://arquillian.org/)     
 * [Tachyon - Memory Centric Distributed Storage](http://tachyon-project.org)    
 * [NIM - Small static language - compiles to C](http://nim-lang.org/)    
+* [PipelineDB - Streaming Postgres DB](https://www.pipelinedb.com/)    
 
 
 Javascript
@@ -104,6 +105,7 @@ Javascript
 * [Mercury - Module Framework](https://github.com/Raynos/mercury)    
 * [PureScript - Strong Type Framework](http://www.purescript.org/)    
 * [Production Level React Starter Kit](https://github.com/davezuko/react-redux-starter-kit)    
+* [Horizon - Developer platform for JS](https://github.com/mikekwright/horizon)    
 
 Scala
 -------------------------------
@@ -177,6 +179,7 @@ Containers
 * [CoreOS](https://coreos.com/)    
 * [Deis - Open source Docker PaaS](https://deis.com/learn)   
 * [Docker in Docker](https://hub.docker.com/r/jpetazzo/dind/)   
+* [Flocker - Container Data Volume Manager](https://clusterhq.com/flocker/introduction/)    
 
 Automation
 --------------------------------
