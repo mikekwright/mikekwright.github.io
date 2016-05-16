@@ -117,6 +117,7 @@ Scala
 * [Scala.js](http://matthiasnehlsen.com/blog/2014/01/24/scala-dot-js-and-reactjs/)    
 * [Spary - Async HTTP Server based on Akka](http://spray.io/)    
 * [Scalatest - Awesome test](http://www.scalatest.org/)    
+* [Scalatra - Sinatra for Scala](http://scalatra.org/)    
 
 
 Languages
@@ -169,6 +170,7 @@ Java
 * [Functional Java](https://github.com/functionaljava/functionaljava/)    
 * [Project Lombok](https://github.com/rzwitserloot/lombok)     
 * [Baratine - Platform for Loosely-coupled POJO Microservices](http://baratine.io/)    
+* [RxJava - Reactive Extensions for JVM](https://github.com/ReactiveX/RxJava)    
 
 Containers
 -----------------------------
