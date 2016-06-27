@@ -279,6 +279,10 @@ Android
 -----------------------------
 * [Roboelectric - Android testing](http://robolectric.org/)    
 
+PHP
+-----------------------------
+* [Laravel - Beutiful Code](https://laravel.com)    
+
 Completed
 --------------------------
 * Install FreeBSD 9.2 on VMWare workstation 9
