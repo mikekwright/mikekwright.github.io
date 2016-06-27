@@ -174,13 +174,14 @@ Java
 
 Containers
 -----------------------------
-* [Docker Compose](https://docs.docker.com/compose)
 * [Fabric 8 - OS Integration Platform](http://fabric8.io/)
-* [Kubernetes - Google cluster container manager](http://kubernetes.io/)   
 * [Openshift - Origin](http://www.openshift.org/)    
 * [Project Atomic - Container OS](http://www.projectatomic.io/)    
 * [CoreOS](https://coreos.com/)    
 * [Deis - Open source Docker PaaS](https://deis.com/learn)   
+* [Deis - PaaS on Kubernetes](https://deis.com/)    
+* [Docker Compose](https://docs.docker.com/compose)
+* [Kubernetes - Google cluster container manager](http://kubernetes.io/)   
 * [Docker in Docker](https://hub.docker.com/r/jpetazzo/dind/)   
 * [Flocker - Container Data Volume Manager](https://clusterhq.com/flocker/introduction/)    
 
@@ -205,7 +206,6 @@ Work
 * [Tyk - API Manager](https://tyk.io/)    
 * [Registrator - Registry Bridge for Docker](https://github.com/gliderlabs/registrator)    
 * [Archaius - Configuration Management](https://github.com/Netflix/archaius)    
-
 
 Projects
 --------------------------
