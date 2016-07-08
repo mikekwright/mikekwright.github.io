@@ -90,6 +90,8 @@ Topics
 * [PipelineDB - Streaming Postgres DB](https://www.pipelinedb.com/)    
 * [SMACK - Spark, Mesos, Akka, Cassandra & Kafka Stack](https://dzone.com/articles/smack-stack-guide)    
 * [DataBricks - Spark tool](https://community.cloud.databricks.com/)    
+* [Cumulus - OpenSource CloudFormation Replacement](https://github.com/cotdsa/cumulus)    
+* [Relate - Scala type JBDI lib](https://github.com/lucidsoftware/relate)    
 
 
 Javascript
