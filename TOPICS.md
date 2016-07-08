@@ -89,6 +89,7 @@ Topics
 * [NIM - Small static language - compiles to C](http://nim-lang.org/)    
 * [PipelineDB - Streaming Postgres DB](https://www.pipelinedb.com/)    
 * [SMACK - Spark, Mesos, Akka, Cassandra & Kafka Stack](https://dzone.com/articles/smack-stack-guide)    
+* [DataBricks - Spark tool](https://community.cloud.databricks.com/)    
 
 
 Javascript
