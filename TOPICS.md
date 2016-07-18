@@ -92,6 +92,11 @@ Topics
 * [DataBricks - Spark tool](https://community.cloud.databricks.com/)    
 * [Cumulus - OpenSource CloudFormation Replacement](https://github.com/cotdsa/cumulus)    
 * [Relate - Scala type JBDI lib](https://github.com/lucidsoftware/relate)    
+* [Haiku - Personal Computing OS](https://www.haiku-os.org/)     
+* [DVCSH - A git like system written in bash (demo)](https://github.com/scottw/dvcsh)     
+* [Keras - Keep Learning Library for Theano and TensorFlow](http://keras.io/)     
+* [Scikit-learn - Machine Learning in Python](http://scikit-learn.org/stable/)      
+* [Love2d - Simple game engine for 2d games](https://love2d.org/)     
 
 
 Javascript
@@ -110,6 +115,9 @@ Javascript
 * [PureScript - Strong Type Framework](http://www.purescript.org/)    
 * [Production Level React Starter Kit](https://github.com/davezuko/react-redux-starter-kit)    
 * [Horizon - Developer platform for JS](https://github.com/mikekwright/horizon)    
+* [Aurelia.io - Neat Platform](http://aurelia.io/)    
+* [Vue.js - Databinding](https://vuejs.org/)     
+
 
 Scala
 -------------------------------
@@ -133,6 +141,8 @@ Languages
 * [miniKanren - DSL Library for logic programming](http://minikanren.org/)
 * [Idris - Type Theory](http://www.idris-lang.org/)
 * [J Lang](https://en.wikipedia.org/wiki/J_(programming_language))   
+* [Pyramid - Elixir based Web Server](http://www.pylonsproject.org/)     
+
 
 Building
 ---------------------------------
@@ -174,6 +184,7 @@ Java
 * [Project Lombok](https://github.com/rzwitserloot/lombok)     
 * [Baratine - Platform for Loosely-coupled POJO Microservices](http://baratine.io/)    
 * [RxJava - Reactive Extensions for JVM](https://github.com/ReactiveX/RxJava)    
+* [Kalium - Java Binding for Networking and Cryptography](https://github.com/abstractj/kalium)     
 
 Containers
 -----------------------------
@@ -187,6 +198,10 @@ Containers
 * [Kubernetes - Google cluster container manager](http://kubernetes.io/)   
 * [Docker in Docker](https://hub.docker.com/r/jpetazzo/dind/)   
 * [Flocker - Container Data Volume Manager](https://clusterhq.com/flocker/introduction/)    
+* [rkt - A security-minded container engine](https://coreos.com/rkt/)     
+* [Wharfee - Docker CLI](https://github.com/j-bennet/wharfee)    
+* [Nginx Proxy - Container reverse proxy (auto)](https://github.com/jwilder/nginx-proxy)      
+
 
 Automation
 --------------------------------
@@ -231,6 +246,7 @@ Others
 * [Gamify Your Work](https://mediabriefs.ldschurch.org/gamify-your-work/) - Gamification
 * [Create on-line recommender with Mahout](http://www.warski.org/blog/2013/10/creating-an-on-line-recommender-system-with-apache-mahout/)
 * [Git built-in pull requests](http://git-scm.com/docs/git-request-pull)
+* [Spacemacs_ - Emacs/Vim editor](http://spacemacs.org/)    
 
 Web 2.0
 ---------------------------
@@ -241,6 +257,13 @@ Web 2.0
 * [Json-LD - Json for linking data](http://json-ld.org/)   
 * [NTriples - RDF Core](http://www.w3.org/2001/sw/RDFCore/ntriples/)    
 * [Preconnect - Eliminate Rountrips](https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/)
+* [Caddy - HTTP/2 Web Server with auto HTTPS (in go)](https://caddyserver.com/)      
+* [PostCSS](http://postcss.org/)     
+* [Catalyst - Perl MVC](http://www.catalystframework.org/)     
+* [Mojolicious - Perl Fun Web System](http://mojolicious.org/)     
+* [Perl Dancer - Easy Web Apps in Perl](http://perldancer.org/)     
+* [WebAssembly - Web in C](https://callahad.github.io/ow16-wasm/)     
+
 
 DB
 ------------------------------
