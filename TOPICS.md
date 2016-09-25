@@ -97,6 +97,8 @@ Topics
 * [Keras - Keep Learning Library for Theano and TensorFlow](http://keras.io/)     
 * [Scikit-learn - Machine Learning in Python](http://scikit-learn.org/stable/)      
 * [Love2d - Simple game engine for 2d games](https://love2d.org/)     
+* [Apache Flink - Distributed Streaming And Batch Processing](https://flink.apache.org/)    
+* [Hashicorp Vault - Secure Storage](https://www.vaultproject.io/)    
 
 
 Javascript
