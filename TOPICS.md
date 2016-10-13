@@ -99,6 +99,7 @@ Topics
 * [Love2d - Simple game engine for 2d games](https://love2d.org/)     
 * [Apache Flink - Distributed Streaming And Batch Processing](https://flink.apache.org/)    
 * [Hashicorp Vault - Secure Storage](https://www.vaultproject.io/)    
+* [Pure - Modern Style Functional Language](http://purelang.bitbucket.org/)     
 
 
 Javascript
