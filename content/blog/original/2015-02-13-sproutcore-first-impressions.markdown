@@ -1,13 +1,7 @@
----
-layout: post
-title: "SproutCore - First Impressions"
-date: 2015-02-13 10:43
-comments: true
-categories: 
-- Ruby
-- JavaScript
-- Web
----
+Title: "SproutCore - First Impressions"
+Date: 2015-02-13 10:43
+Category: development
+Tags: preview, ruby, javascript
 
 Today I decided to spend a little time to try out the sproutcore web framework, 
 which has a lot of strengths centered around using appropriate programming practices.   

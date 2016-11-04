@@ -10,7 +10,10 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = ''
+
+SITEURL = 'http://mikewright.me'
+SITELOGO = SITEURL + '/images/avatar.jpg'
+FAVICON = SITEURL + '/images/favicon.jpg'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'

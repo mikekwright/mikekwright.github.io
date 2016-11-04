@@ -1,13 +1,7 @@
----
-layout: post
-title: "Datastax Sandbox Network"
-date: 2015-10-16 11:10
-comments: true
-categories: 
-- Cassandra
-- Datastax
-- CentOS
----
+Title: "Datastax Sandbox Network"
+Date: 2015-10-16 11:10
+Category: ops
+Tags: cassandra, datastax, linux
 
 So today I was working with the datastax virtual environment (namely getting the OVA to work 
 inside of VMWare).  There was only one issue that I ran into, that was the external networking

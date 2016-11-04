@@ -1,12 +1,7 @@
----
-layout: post
-title: "Sort2013 Part I: A Review"
-date: 2013-10-18 22:31
-comments: true
-categories: 
-- sort
-- sort2013
----
+Title: "Sort2013 Part I: A Review"
+Date: 2013-10-18 22:31
+Category: conference
+Tags: sort
 
 SORT is a software/technology conference that is held by engineers working for the LDSChurch, 
 FamilySearch and Utah Based Higher Education organizations.  It is an annual conference that 

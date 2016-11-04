@@ -1,14 +1,7 @@
----
-layout: post
-title: "EC2 Container Service"
-date: 2014-12-01 11:18
-comments: true
-categories: 
-- AWS
-- EC2
-- Cloud
-- Docker
----
+Title: "EC2 Container Service"
+Date: 2014-12-01 11:18
+Category: cloud
+Tags: aws, ec2, docker
 
 At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 
 Container Service.  A service provided by AWS to run docker containers on top of EC2 instances.   

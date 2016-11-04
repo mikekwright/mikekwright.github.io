@@ -1,11 +1,7 @@
----
-layout: post
-title: "Typescript Preview on AppHarbor"
-date: 2012-10-21 00:01
-comments: true
-categories: 
-- typescript
----
+Title: "Typescript Preview on AppHarbor"
+Date: 2012-10-21 00:01
+Category: Development
+Tags: preview 
 
 So, this weekend a friend and I started working on a little side project and wanted to use 
 Microsoft's new TypeScript language for our JS development.  We had also decided on using 

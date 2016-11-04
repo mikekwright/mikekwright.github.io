@@ -1,12 +1,8 @@
----
-layout: post
-title: "Installing Django with no root access"
-date: 2012-05-09 
-comments: true
-categories: 
-- python
-- django
----
+Title: "Installing Django with no root access"
+Date: 2012-05-09 
+Comments: true
+Category: development
+Tags: python, django
 
 I really have enjoyed working with a $5/month hosting company for seriously small projects
 with few performance requirements.  The service that I am using at this time is 

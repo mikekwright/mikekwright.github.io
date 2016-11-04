@@ -1,12 +1,7 @@
----
-layout: post
-title: "shUnit2 - Bash Testing"
-date: 2013-10-31 22:03
-comments: true
-categories: 
-- testing
-- bash
----
+Title: "shUnit2 - Bash Testing"
+Date: 2013-10-31 22:03
+Category: development
+Tags: testing, bash
 
 So I have been working on the platform team at work for the last 2 years, and during this time
 we have had to not only write some code in Java and Ruby but also to write a number of bash
@@ -60,7 +55,7 @@ jump in using an example test.
 
 Open up your favorite text editor and enter the code defined below.  
 
-{% gist 7325445 my-first-test.sh %}
+[gist:id=7325445,file=my-first-test.sh]
 
 Now to run this test you will need to make a few changes to the file, which for this case
 lets have the file called `my-first-test.sh`
@@ -129,16 +124,16 @@ is accomplished using PATH manipulation and running calls.
 Lets start with a simple script that is used to pull down a sample configuration using 
 wget and then executes the configuration.  `configRetriever.sh`
 
-{% gist 7325511 configRetriever.sh %}
+[gist:id=7325511,file=configRetriever.sh]
 
 Now that we have our test file, there are two more files that we need, the tests and 
 also a mock of wget.  So lets first start with the mock. `wget`
 
-{% gist 7325539 wget %}
+[gist:id=7325539,file=wget] 
 
 And finally the actual tests. `configTests.sh`  
 
-{% gist 7325587 configTests.sh %}
+[gist:id=7325587,file=configTests.sh]
 
 A couple of things to point out from here, I am adjusting the path before each test and I am
 restoring it after a test using the `setUp()` and `tearDown()`.  It is important to make 

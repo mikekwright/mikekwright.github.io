@@ -1,12 +1,8 @@
----
-layout: post
-title: "Linux - AWK/GAWK"
-date: 2014-07-02 09:26
-comments: true
-categories:
-- Terminal
-- Posix
----
+Title: "Linux - AWK/GAWK"
+Date: 2014-07-02 09:26
+Status: draft
+Category: tools
+Tags: linux, awk
 
 There is a process that I have always wanted to be more familiar with, and
 this process is awk. Someone might ask why I am spending my time on this tool.

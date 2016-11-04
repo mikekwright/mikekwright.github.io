@@ -1,12 +1,7 @@
----
-layout: post
-title: "Docker"
-date: 2015-02-06 15:23
-comments: true
-categories: 
-- Docker
-- Mac
----
+Title: "Docker"
+Date: 2015-02-06 15:23
+Category: development
+Tags: docker, mac
 
 I love Docker and I really enjoy developing on a stable nix-like environment.  But with the 
 current limitation of the docker daemon requiring the linux kernel to work, I am left trying
@@ -127,5 +122,5 @@ This command is to enable or disable port forwarding use when connecting to the 
 
 ## docker
 
-{% gist 172093a8f0ab7542a568 docker %}
+[gist:id=172093a8f0ab7542a568,file=docker]
 

@@ -1,12 +1,7 @@
----
-layout: post
-title: "Splunk 6 - Whats New"
-date: 2013-10-24 22:56
-comments: true
-categories: 
-- splunk
-- web development
----
+Title: "Splunk 6 - Whats New"
+Date: 2013-10-24 22:56
+Category: development
+Tags: logs, splunk
 
 Today we had a Tech Talk at work that was focused on our organizations upgrade to the newly
 released Splunk 6, and all its bells and whistles.  This presentation was given by James

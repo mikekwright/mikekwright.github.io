@@ -1,12 +1,8 @@
----
-layout: post
-title: "Getting to know vim"
-date: 2013-10-12 22:06
-comments: true
-published: false
-categories: 
-- vim
----
+Title: "Getting to know vim"
+Date: 2013-10-12 22:06
+Status: draft
+Category: tools
+Tags: vim
 
 This will be one of those posts, that I hope grows often as I love to use vim, and especially
 love to write down what I learn in case I forget it in the future.    
