@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mike's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-11-04T10:00:00-06:00</updated><entry><title>Migrated to Pelican/Jupyter</title><link href="/01-blog-with-jupyter.html" rel="alternate"></link><published>2016-11-04T10:00:00-06:00</published><updated>2016-11-04T10:00:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:,2016-11-04:01-blog-with-jupyter.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mike's Dev / Data Science Blog</title><link href="http://mikewright.me/" rel="alternate"></link><link href="http://mikewright.me/feeds/all.atom.xml" rel="self"></link><id>http://mikewright.me/</id><updated>2016-11-04T10:00:00-06:00</updated><entry><title>Migrated to Pelican/Jupyter</title><link href="http://mikewright.me/01-blog-with-jupyter.html" rel="alternate"></link><published>2016-11-04T10:00:00-06:00</published><updated>2016-11-04T10:00:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2016-11-04:01-blog-with-jupyter.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
