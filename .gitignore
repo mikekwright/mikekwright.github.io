@@ -1,3 +1,7 @@
+__pycache__
+venv
+output
+*.swp
 .bundle
 .DS_Store
 .sass-cache
