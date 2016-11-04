@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://mikewright.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mike's Dev / Data Science Blog Atom">
+
+
+    <link rel="shortcut icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+    <link rel="icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+
+<meta name="author" content="Michael Wright" />
+<meta name="description" content="I haven't done much with Machine Learning since graduating from school years ago. However recently there have been a number of projects where the use of machine learning can bring a significant benefit. This lecture was a great refresher and introduction to how task can be accomplished using python ..." />
+<meta name="keywords" content="sort, python, machine learning">
+<meta property="og:site_name" content="Mike's Dev / Data Science Blog"/>
+<meta property="og:title" content=""Sort2013 Part III: Machine Learning in Python""/>
+<meta property="og:description" content="I haven't done much with Machine Learning since graduating from school years ago. However recently there have been a number of projects where the use of machine learning can bring a significant benefit. This lecture was a great refresher and introduction to how task can be accomplished using python ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://mikewright.me/sort2013-part-iii-machine-learning-in-python.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-10-19 22:43:00-06:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://mikewright.me/author/michael-wright.html">
+<meta property="article:section" content="conferences"/>
+<meta property="article:tag" content="sort"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="machine learning"/>
+<meta property="og:image" content="http://mikewright.me/images/avatar.jpg">
+
+  <title>Mike's Dev / Data Science Blog &ndash; "Sort2013 Part III: Machine Learning in Python"</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://mikewright.me">
+        <img src="http://mikewright.me/images/avatar.jpg" alt="Dev / Data Science Blog" title="Dev / Data Science Blog">
+      </a>
+      <h1><a href="http://mikewright.me">Dev / Data Science Blog</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="http://mikewright.me/pages/about.html#about">About</a></li>
+          <li><a href="http://mikewright.me/pages/contact.html#contact">Contact</a></li>
+          <li><a href="http://mikewright.me/pages/experience.html#experience">Experience</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/mikekwright" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/mikekwright" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/mikekwright" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://mikewright.me">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://mikewright.me/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="sort2013-part-iii-machine-learning-in-python">"Sort2013 Part III: Machine Learning in Python"</h1>
+    <p>
+          Posted on Sat 19 October 2013 in <a href="http://mikewright.me/category/conferences.html">conferences</a>
+
+
+    </p>
+  </header>
+  <div>
+    <p>I haven't done much with Machine Learning since graduating from school years ago.  However
+recently there have been a number of projects where the use of machine learning can bring 
+a significant benefit.  This lecture was a great refresher and introduction to how 
+task can be accomplished using python.    </p>
+<p>Why should we focus on machine learning now?    </p>
+<p>The power of a machine learning algorithm is its ability to <strong>GENERALIZE</strong> from a finite set of examples.      </p>
+<!-- more -->
+
+<ul>
+<li>Database mining - Large Dataset from growth and automation, web click data, etc</li>
+<li>Can get a better feel for total number of people with the flu on the <a href="http://www.google.org/flutrends/us/#US">web faster than hospitals</a></li>
+<li>Hard by hand app development - Handwriting Recognition, Computer Vision, Language Processing</li>
+<li>Self-customizing programs - Netflix, Amazon product recommendations, Google ads, etc</li>
+<li>Prediction - Continuous outcomes, Catgorical outcomes like email spam</li>
+</ul>
+<h2>Clustering</h2>
+<p><em>Clustering is grouping all items that have a similiar relationship than items that appear
+in other clusters</em></p>
+<p>There are a few types of clustering and how
+<a href="http://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html">the compare</a>.
+Below is alist of this different cluster types.    </p>
+<ul>
+<li>MiniBatchKMeans</li>
+<li>AffinityPropagation</li>
+<li>MeanShift</li>
+<li>Spectral</li>
+<li>Ward</li>
+<li>DBSCAN</li>
+<li>K-Means</li>
+</ul>
+<p>In the lecture he specifically covered K-Means clustering.    </p>
+<h3>K-Means clustering</h3>
+<p>Allows you to take a feature vector and figure out how the information should group 
+together (correlate)  </p>
+<p>Given a training data set and a number of clusters find the position of the centroids. 
+However the weakness you have with K is that you need to specify a number to begin 
+with for it to use with grouping.   </p>
+<p>It is often used with Image Color Compression (Converting a 16-bit image to a 6-bit image). Which 
+is accomplished by Replace each pixel color in the original with the color of its nearest k-means centroid.  </p>
+<p>Advantages</p>
+<ul>
+<li>Simple to implement</li>
+<li>Usually very fast</li>
+<li>Works well for many applications</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Have to know number of clusters in advances</li>
+<li>Linear Partitioning</li>
+<li>Outcome <strong>can</strong> be dependent on initial centroid position (so run multiple times with different centers)</li>
+<li>Isn't perfect at grouping data that isn't seperated by equal distance (Like multiple Curves being associated instead of blobs)</li>
+</ul>
+<h2>Regression Prediction (Intuition)</h2>
+<h3>Intuition</h3>
+<ul>
+<li>Supervised learning</li>
+<li>Generating a graph based on points and finding the line (2D Linear Regression)</li>
+<li>This is done by finding the minimal error in the generated line given the total number of points. </li>
+</ul>
+<h3>Gradient Descent</h3>
+<ul>
+<li>Define a cost function that reflects the total error as a function of the regression parameters</li>
+<li>Find the parameters that then minimize the cost function
+ -&gt; Start with Random parameter values
+ -&gt; Adjust parameters by some step (directly in proportion to the cost function results)
+ -&gt; Repeat until parameters no longer change</li>
+</ul>
+<h2>Classifiers</h2>
+<ul>
+<li>Supervised learning - training set includes "truth"</li>
+<li>Categorical outcomes (Gaussian Mixture Model - GMM and other probabilitstic classifiers)</li>
+<li>Examples
+  -&gt; Logistic Regression
+  -&gt; Support Vector Machine
+  -&gt; Decision Tree</li>
+</ul>
+<h3>Metrics</h3>
+<p>Precision: <em>percentage of the objects classified as A, really are A</em><br />
+Recall: <em>Of all the A objects the percentage that we actually classified as A</em>   </p>
+<h3>Decision Tree</h3>
+<ul>
+<li>Object to be classified has an associated set of properties</li>
+<li>classifier can be constructued as set of rules</li>
+</ul>
+<p>Fruit &amp; Vegetable Example  </p>
+<ul>
+<li>Properties
+  -&gt; size
+  -&gt; shape
+  -&gt; color</li>
+<li>Rules
+  -&gt; if size is small ^ shape is round ^ (color is green v color is red)
+  -&gt; etc</li>
+</ul>
+<p>Can be constructed working with a tree that sets what is there where every leaf from a root becomes a new rule   </p>
+<p>Classifiers can be set using <em>entropy</em> - A coin toss has an entropy of 1 bit. The highest information gain will have the least entropy (unpredictability).   </p>
+<p>Overfitting is a disadvantage because it doesn't create the clear seperation necessary, this can be solved using "Random Forests" or multiple decision tress.   </p>
+<h2>Python</h2>
+<p>The main question that one might ask is why to look into python as the language for 
+machine learning. Well it turns out that Python has basically become the defacto 
+standard for scientific tools and languages.    </p>
+<p>Books  </p>
+<ul>
+<li>Python for Data Analysis   </li>
+</ul>
+<p>Libraries</p>
+<ul>
+<li>Numpy</li>
+<li>Scipy</li>
+<li><a href="http://scikit-learn.org/stable/">Scikit-learn</a></li>
+</ul>
+<h2>Resources</h2>
+<p>Kaggle.com is a machine learning competition problem.    </p>
+<p>Coursera classes</p>
+<ul>
+<li>Machine Learnining - Standford</li>
+<li>Intro to Data Science - University of Washington</li>
+<li>Discrete Optimizations </li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://mikewright.me/tag/sort.html">sort</a>
+      <a href="http://mikewright.me/tag/python.html">python</a>
+      <a href="http://mikewright.me/tag/machine-learning.html">machine learning</a>
+    </p>
+  </div>
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Michael Wright 2016</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Mike's Dev / Data Science Blog ",
+  "url" : "http://mikewright.me",
+  "image": "http://mikewright.me/images/avatar.jpg",
+  "description": "Simple blog created for discussing different topics around development and data science"
+}
+</script>
+</body>
+</html>

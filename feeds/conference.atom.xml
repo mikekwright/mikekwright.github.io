@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mike's Dev / Data Science Blog</title><link href="http://mikewright.me/" rel="alternate"></link><link href="http://mikewright.me/feeds/conference.atom.xml" rel="self"></link><id>http://mikewright.me/</id><updated>2013-10-18T22:31:00-06:00</updated><entry><title>"Sort2013 Part I: A Review"</title><link href="http://mikewright.me/sort2013-part-i-a-review.html" rel="alternate"></link><published>2013-10-18T22:31:00-06:00</published><updated>2013-10-18T22:31:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2013-10-18:sort2013-part-i-a-review.html</id><summary type="html">&lt;p&gt;SORT is a software/technology conference that is held by engineers working for the LDSChurch, 
+FamilySearch and Utah Based Higher Education organizations.  It is an annual conference that 
+is free to attend and is held at the University of Utah institute building.   &lt;/p&gt;
+&lt;p&gt;While this may not be exactly like the other conferences you have attended, QCon and the like, 
+it is still a great experience, and one should never pass up the oppurtunity to learn something
+new.  &lt;/p&gt;
+&lt;p&gt;For this article I am going to focus on some of the items that I found to be beneficial to
+me as a software developer (whether in practical use or just introducing new paradigms). I will
+also share some of the items about SORT that I hope can be changed in the future to make the
+conference even better.  &lt;/p&gt;
+&lt;!-- More --&gt;
+
+&lt;h1&gt;The Good&lt;/h1&gt;
+&lt;p&gt;When attending a conference, what is it you like to see?  &lt;/p&gt;
+&lt;p&gt;For me, this question is answered by &lt;strong&gt;OPTIONS&lt;/strong&gt;.  I attend conferences in hopes of increasing
+my knowledge in all areas of technology.  The one belief that I have as an engineer is that
+a good engineer is one who knows and understands the different paradigms and not about the
+languages. As such, conferences tend to have a number of classes that can introduction me to 
+some new paradigms I haven't come across, or to help solidify my understand of another.    &lt;/p&gt;
+&lt;p&gt;I am also a fan of conferences where the focus isn't just about a specific language or tool, 
+but rather about a mindset or possibly a process used that is new to me. As an example 
+I can learn about Python 3.3 latest features myself, what I want to see is how to best 
+use it to help increase uptime in my applications.  &lt;/p&gt;
+&lt;p&gt;One other area of the conference that I enjoy, is the social networking. There are a lot
+of good engineers who work at these conferences, however it is often difficult to meet
+other engineers, just given the total number in the org.  Attending sessions can help to
+show other engineers working in the same area, or at least with the same interests.  &lt;/p&gt;
+&lt;p&gt;As much as I love SORT there are a few things that I find troublesome about the way that
+sort is implimented.  These are minor issues, and ones that I am sure will be corrected 
+over time.  &lt;/p&gt;
+&lt;h1&gt;The Bad&lt;/h1&gt;
+&lt;p&gt;One issue with attending any session or tutorial at any conference is the possibility that 
+a simple Javascript Testing course will turn into just a straight plug for Jasmine or Mocha. 
+While I love these technologies, I am always annoyed when I attend a session that doesn't 
+explicitly call out that they will show you only Jasmine features, rather than just good 
+Javascript testing practices.  &lt;/p&gt;
+&lt;p&gt;This is a situation that can be easily remedied by just vetting the session descriptions
+to make sure that if they are specifically going to be about a techonology or implementation,
+are labeled as such.   &lt;/p&gt;
+&lt;p&gt;I just find that when I attend a session, expecting great information on web security, and
+instead hear a plug about some 3rd party vendor and exactly how to secure using their tool
+rather than the appropriate practices, I feel a little jaded.  &lt;/p&gt;
+&lt;h1&gt;Lectures&lt;/h1&gt;
+&lt;p&gt;Below is a list of sessions that I attended that I felt were things I wanted to share my 
+thoughts and learnings from. They are not necessarily the only ones I attended or the best ones
+but rather had pertinant information I wanted to share.    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/blog/2013/10/19/sort2013-tmux-powerup-your-shell"&gt;Part II - TMUX: Powerup Your Shell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/blog/2013/10/19/sort2013-machine-learning-in-python"&gt;Part III - Machine Learning in Python: For fun and Profit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/blog/2013/10/19/sort2013-design-thinking"&gt;Part Iv - Design Thinking&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;If you are in the Salt Lake County or Utah County areas, and want to attend a free conference
+this is a fantastic one to choose. It will run again next year in October, so be sure to check
+out the &lt;a href="https://sortreg.ldschurch.org/"&gt;Registration Site&lt;/a&gt;.  &lt;/p&gt;</summary><category term="sort"></category></entry></feed>

@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://mikewright.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mike's Dev / Data Science Blog Atom">
+
+
+    <link rel="shortcut icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+    <link rel="icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+
+<meta name="author" content="Michael Wright" />
+<meta name="description" content="At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances. We have been using docker for a while now within our organization, and I have to say that ..." />
+<meta name="keywords" content="aws, ec2, docker">
+<meta property="og:site_name" content="Mike's Dev / Data Science Blog"/>
+<meta property="og:title" content=""EC2 Container Service""/>
+<meta property="og:description" content="At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances. We have been using docker for a while now within our organization, and I have to say that ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://mikewright.me/ec2-container-service.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2014-12-01 11:18:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://mikewright.me/author/michael-wright.html">
+<meta property="article:section" content="cloud"/>
+<meta property="article:tag" content="aws"/>
+<meta property="article:tag" content="ec2"/>
+<meta property="article:tag" content="docker"/>
+<meta property="og:image" content="http://mikewright.me/images/avatar.jpg">
+
+  <title>Mike's Dev / Data Science Blog &ndash; "EC2 Container Service"</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://mikewright.me">
+        <img src="http://mikewright.me/images/avatar.jpg" alt="Dev / Data Science Blog" title="Dev / Data Science Blog">
+      </a>
+      <h1><a href="http://mikewright.me">Dev / Data Science Blog</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="http://mikewright.me/pages/about.html#about">About</a></li>
+          <li><a href="http://mikewright.me/pages/contact.html#contact">Contact</a></li>
+          <li><a href="http://mikewright.me/pages/experience.html#experience">Experience</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/mikekwright" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/mikekwright" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/mikekwright" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://mikewright.me">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://mikewright.me/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="ec2-container-service">"EC2 Container Service"</h1>
+    <p>
+          Posted on Mon 01 December 2014 in <a href="http://mikewright.me/category/cloud.html">cloud</a>
+
+
+    </p>
+  </header>
+  <div>
+    <p>At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 
+Container Service.  A service provided by AWS to run docker containers on top of EC2 instances.   </p>
+<!-- more -->
+
+<p>We have been using docker for a while now within our organization, and I have to say that I
+am a huge fan of Docker.  This is a great step in the right direction and I believe can help 
+to decrease deploys to AWS while increasing stability and extensibility of a given architecture.   </p>
+<h2>EC2 Container Service</h2>
+<p>At this point in time EC2 Container Service is still in preview, which means that you will need 
+to request access to this preview in your own AWS account to follow this pattern.  However 
+AWS does have some great material that will allow you to see the benefits of this new service
+without requiring you to have preview access.  This material can be found 
+<a href="http://aws.amazon.com/ecs/getting-started/">here</a>.   </p>
+<h2>Service Breakdown</h2>
+<p>The main idea of this service is to give you the ability to create complese architectures that
+can be broken down into smaller docker containers, which in turn can be deployed to a cluster 
+of actual ec2 instances.  This meanst hat you could have a single m3.xlarge instance for your
+application while keeping the database and application code seperate, but without requiring you
+to have more instances than absolutely necessary.   </p>
+<p>The service pieces are broken down into the following.  </p>
+<ol>
+<li>Tasks</li>
+<li>Containers</li>
+<li>Clusters</li>
+<li>Container Instances</li>
+</ol>
+<h3>Tasks</h3>
+<p>Tasks are basically the starting point of your cluster deploy.  Anytime you want to deploy
+your application you will start by defining the task.  Tasks themselves are defined as json
+objects.  </p>
+<div class="highlight"><pre><span></span>{
+  &quot;family&quot;: &quot;application-name&quot;,
+  &quot;version&quot;: &quot;9a56714245e7e603127&quot;,    -- This can be a simple version or git SHA1
+  &quot;containers&quot;: [
+    &lt;&lt; CONTAINER DEFINITIONS &gt;&gt;
+  ]
+}
+</pre></div>
+
+
+<p>So with this json definition we are defining the entire application that we are providing, 
+so if I had an application that acted as an API endpoint I would provide the load balancing
+server as a container, the actual web server as a container and then a container for the
+database (if one exists).   </p>
+<p>When you have your task defined, you can register that task with EC2 Container Service 
+to specify that you have the new task.   </p>
+<div class="highlight"><pre><span></span>aws ecs register-task-definition --family &quot;custom-name&quot; --version &quot;custom-version&quot; definition.json
+</pre></div>
+
+
+<p>After you have registered the task and you have the cluster created you can run the 
+task using the following command.  </p>
+<div class="highlight"><pre><span></span>aws ecs run-task custom-name:custom-version
+</pre></div>
+
+
+<h3>Containers</h3>
+<p>Container definitions are very simple and can follow a lot of the docker idioms in creation.  </p>
+<div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;container-name&quot;, 
+  &quot;image&quot;: &quot;app-container:latest&quot;, 
+  &quot;cpu&quot;: 128,                        -- Note CPU is in units, defines the instances that can fit a given instance
+  &quot;memory&quot;: 512,
+  &quot;portMappings&quot;: [
+    {
+      &quot;containerPort&quot;: 9443, 
+      &quot;hostPort&quot;: 443 
+    }
+  ], 
+  &quot;links&quot;: [&quot;frontend&quot;], 
+  &quot;essential&quot;: true
+}
+</pre></div>
+
+
+<p>So the main things to understand on this definition is the <code>cpu</code> field.  This represents the
+unit of measurement for a cpu that should be used.  You can think of this as almost a percentage
+of the total CPU to use (which I believe 100% would be 1024).  So if I wanted to use 50% of the
+cpu for a given instance I would have <code>"cpu": 512</code>.   </p>
+<p>The links is the list of containers that this container should reference, you can find information
+about linking containers on the docker documentation site.  </p>
+<p>Finally the essential flag is set to let the cluster know if the task is basically good or not. 
+If a single container is essential, but cannot be created or fails to run, this would mean the 
+task is not valid anymore.  </p>
+<h3>Clusters</h3>
+<p>Clusters are basically grouping of container instances that are releated for a given task.  When
+the cluster is first created it is empty and it then populates with container as requirements
+come into play.   </p>
+<p>AWS does have a command line tool that you can use to create a cluster.   </p>
+<div class="highlight"><pre><span></span>aws ec2 create-cluster cluster-name
+</pre></div>
+
+
+<p>This will create a cluster an give you the ability to start creating container instances that
+can be part of this cluster.   When this cluster is created you will be given an <code>arn</code> to 
+reference this cluster. This is a very similar process to SQS, SNS, etc.    </p>
+<h3>Container Instances</h3>
+<p>These are instances that AWS have setup with a <code>go</code> application (container agent) that will 
+tie into the cluster mechanism.   </p>
+<h2>Conclusion</h2>
+<p>While I have not yet been able to test out ECS I am very excited about this service and 
+very excited about the flow they have created as I feel that it allows us to create much more
+stable and scalable systems.   </p>
+<p>Once I have access to the preview I will add my experiences in a follow-up post.  </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://mikewright.me/tag/aws.html">aws</a>
+      <a href="http://mikewright.me/tag/ec2.html">ec2</a>
+      <a href="http://mikewright.me/tag/docker.html">docker</a>
+    </p>
+  </div>
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Michael Wright 2016</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Mike's Dev / Data Science Blog ",
+  "url" : "http://mikewright.me",
+  "image": "http://mikewright.me/images/avatar.jpg",
+  "description": "Simple blog created for discussing different topics around development and data science"
+}
+</script>
+</body>
+</html>

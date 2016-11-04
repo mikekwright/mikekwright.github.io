@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mike's Dev / Data Science Blog</title><link href="http://mikewright.me/" rel="alternate"></link><link href="http://mikewright.me/feeds/ops.atom.xml" rel="self"></link><id>http://mikewright.me/</id><updated>2015-10-16T11:10:00-06:00</updated><entry><title>"Datastax Sandbox Network"</title><link href="http://mikewright.me/datastax-sandbox-network.html" rel="alternate"></link><published>2015-10-16T11:10:00-06:00</published><updated>2015-10-16T11:10:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2015-10-16:datastax-sandbox-network.html</id><summary type="html">&lt;p&gt;So today I was working with the datastax virtual environment (namely getting the OVA to work 
+inside of VMWare).  There was only one issue that I ran into, that was the external networking
+was not working out of the box.  In this post I will discuss what I looked into and how I 
+fixed the problem in the end.  &lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;To start, I am not a very savy linux guru, so the purpose of this post is to both share and 
+record my experience so that I can go over it again in the future if needed.   &lt;/p&gt;
+&lt;h2&gt;Datastax Sandbox&lt;/h2&gt;
+&lt;p&gt;The datastax sandbox is an environment that is setup with dse cassandra, opscenter and number of 
+useful training materials all on a predefined VM.  If you download this vm from datastax, you can
+either open it in virtualbox or vmware.  For me, while I like virtualbox and think it is a great
+product, I find that vmware general outperforms it for most of my use cases.  That may not always
+be the case and I would love to see virtualbox reign supreme.  But since I wanted to use vmware
+at the time, I pulled down and opened the ova file and imported it into VMWare.   &lt;/p&gt;
+&lt;p&gt;When starting up the virtual machine you will need to use the standard login credentials namely: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    username: datastax
+    password: datastax
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Open a terminal and enter the below command, and if you have a simliar output then this fix might
+be for you.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost ~]$ ifconfig
+    lo        Link encap:Local Loopback  
+              inet addr:127.0.0.1  Mask:255.0.0.0
+              inet6 addr: ::1/128 Scope:Host
+              UP LOOPBACK RUNNING  MTU:65536  Metric:1
+              RX packets:18330 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:18330 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:0 
+              RX bytes:7024417 (6.6 MiB)  TX bytes:7024417 (6.6 MiB)
+
+    [datastax@localhost ~]$
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This means that you have the loopback address up (which is good, otherwise you would be having
+some super serious issues), however there is no other connection so outbound traffic will not 
+work.  There is a network adapter that has been provided, so why is it that this network isn't 
+working?  &lt;/p&gt;
+&lt;h2&gt;Steps&lt;/h2&gt;
+&lt;p&gt;At this point, I spent my time trying to understand what is going on with the system.  Even when
+adding a new NIC in vmware fusion it did not show up in the virtual machine.  So I first went and
+looked in the network setup directory to see what was happenining.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost network-scripts]$ sudo ifup eth0
+    ifcfg-eth0
+    eth0
+    Device eth0 does not seem to be present, delaying initialization.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Since this failed, I went to the actual network scripts to run it and see what was going on.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost ~]$ cd /etc/sysconfig/network-scripts/
+    [datastax@localhost network-scripts]$ ./ifup-eth
+    ./network-functions: line 107: .: /etc/sysconfig/network-scripts/: is a directory
+    Device does not seem to be present, delaying initialization.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ok, so the device is not present, yet vmware has a device and it for sure is present.  The next
+place to look is in the /etc/udev/rules.d location.  So I opened up the 70-persistent-net.rules
+and found that there were actually 2 NICs defined in there.  It seems that when opening the 
+device in vmware it created a new nic instead of updating the default eth0.  That is great, this
+just means I need to have the startup scripts be aware of the new eth1 device.   &lt;/p&gt;
+&lt;p&gt;So jumping out of vim I decided to try to &lt;code&gt;ifup&lt;/code&gt; the eth1.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost network-scripts]$ ifup eth1
+    /sbin/ifup: configuration for eth1 not found.
+    Usage: ifup &amp;lt;device name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ok, so now I need a configuration for this new adapter.  I did this by copying the configuration
+for eth0 &lt;code&gt;ifcfg-eth0&lt;/code&gt; into a new file &lt;code&gt;ifcfg-eth1&lt;/code&gt; and then editing the values that were specific 
+for that devices, namely the &lt;code&gt;DEVICE&lt;/code&gt;, &lt;code&gt;HWADDR&lt;/code&gt; and removing the &lt;code&gt;UUID&lt;/code&gt;.  So when completed
+here is what my &lt;code&gt;ifcfg-eth1&lt;/code&gt; file looked like.  (Note: I had the actual mac address in the HWADDR
+field, but removed from this post).  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    DEVICE=&amp;quot;eth1&amp;quot;
+    BOOTPROTO=&amp;quot;dhcp&amp;quot;
+    HWADDR=&amp;quot;00:00:00:00:00:00&amp;quot;
+    IPV6INIT=&amp;quot;yes&amp;quot;
+    MTU=&amp;quot;1500&amp;quot;
+    NM_CONTROLLED=&amp;quot;yes&amp;quot;
+    ONBOOT=&amp;quot;yes&amp;quot;
+    TYPE=&amp;quot;Ethernet&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At this time, rebooting the machine brought everthing up and then running &lt;code&gt;ifconfig&lt;/code&gt; gave me 
+better results.   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost ~]$ ifconfig
+    eth1      Link encap:Ethernet  HWaddr 00:00:00:00:00:00  
+              inet addr:10.4.4.23  Bcast:10.4.4.255  Mask:255.255.255.0
+              inet6 addr: fe80::20c:29ff:fe22:7175/64 Scope:Link
+              UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+              RX packets:4220 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:1172 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:1000 
+              RX bytes:3207294 (3.0 MiB)  TX bytes:219693 (214.5 KiB)
+
+    lo        Link encap:Local Loopback  
+              inet addr:127.0.0.1  Mask:255.0.0.0
+              inet6 addr: ::1/128 Scope:Host
+              UP LOOPBACK RUNNING  MTU:65536  Metric:1
+              RX packets:56717 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:56717 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:0 
+              RX bytes:16718406 (15.9 MiB)  TX bytes:16718406 (15.9 MiB)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;finally we ran our test below to make sure my traffic was all good.   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [datastax@localhost ~]$ ping google.com
+    PING google.com (216.58.217.206) 56(84) bytes of data.
+    64 bytes from lax17s05-in-f206.1e100.net (216.58.217.206): icmp_seq=1 ttl=51 time=21.2 ms
+    64 bytes from lax17s05-in-f206.1e100.net (216.58.217.206): icmp_seq=2 ttl=51 time=21.4 ms
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Success! &lt;/p&gt;</summary><category term="cassandra"></category><category term="datastax"></category><category term="linux"></category></entry><entry><title>"FreeBSD 9.2 on VMware Workstation 9.0.2"</title><link href="http://mikewright.me/freebsd-92-on-vmware-workstation-902.html" rel="alternate"></link><published>2013-10-10T21:46:00-06:00</published><updated>2013-10-10T21:46:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2013-10-10:freebsd-92-on-vmware-workstation-902.html</id><summary type="html">&lt;p&gt;Tonight I decided I really wanted to switch to freebsd from Ubuntu.  The move was not because 
+ubuntu had issues, but rather because I felt that I would enjoy the experience of freebsd 
+more than that of linux.  It was going to be a new world, with a different way of making things 
+work.    &lt;/p&gt;
+&lt;p&gt;So the items I list below will show the steps that I went through to get freebsd working 
+smoothly on vmware.    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;I will assume you have already installed freebsd and will not walk through those steps"&lt;/em&gt;&lt;/p&gt;
+&lt;!-- More --&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Installing gnome2&lt;/li&gt;
+&lt;li&gt;Installing rc.conf&lt;/li&gt;
+&lt;li&gt;Install VM tools&lt;/li&gt;
+&lt;li&gt;Configure Xorg&lt;/li&gt;
+&lt;li&gt;Installing Screen Tools&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Acknowledgements&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Install gnome2&lt;/h1&gt;
+&lt;p&gt;To install gnome2 the steps that I took are below.   &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install gnome2&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/x11/gnome2
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install xorg&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/x11/xorg
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create the initial xorg.conf file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;Xorg -configure&lt;/span&gt;
+&lt;span class="x"&gt;cp /root/xorg.conf.new &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/xorg.conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;At this time the gnome2 desktop should be installed so we can complete.     &lt;/p&gt;
+&lt;h1&gt;Configure rc.conf&lt;/h1&gt;
+&lt;p&gt;The next step is to configure rc.conf to startup by default.  This can be done by adding 
+the below two lines to /etc/rc.conf and than rebooting.   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    # DBus and HALd
+    dbus_enable=&amp;quot;YES&amp;quot;
+    hald_enable=&amp;quot;YES&amp;quot;
+
+    # VMware tools
+    vmware_guest_vmblock_enable=&amp;quot;YES&amp;quot;
+    vmware_guest_vmhgfs_enable=&amp;quot;YES&amp;quot;
+    vmware_guest_vmmemctl_enable=&amp;quot;YES&amp;quot;
+    vmware_guest_vmxnet_enable=&amp;quot;YES&amp;quot;
+    vmware_guestd_enable=&amp;quot;YES&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Install VM tools&lt;/h1&gt;
+&lt;p&gt;There are a few tools that you will want to install to make it so that your vm exprience 
+is the best.    &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;install open-vm-tools&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/emulators/open-vm-tools
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;install the mouse tools&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/x11-drivers/xf86-input-vmmouse
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;install the vmware tools (from the vmware dvd)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -xvf vmware-freebsd-tools.tar.gz
+cd vmware-tools-distrib
+./vmware-install.pl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Configure Xorg&lt;/h1&gt;
+&lt;p&gt;You will need to configure the screen and input devices to make them work correctly 
+with a virtual system.    &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Section &amp;quot;ServerLayout&amp;quot;
+      Identifier &amp;quot;X.org Configured&amp;quot;
+      Screen 0 &amp;quot;VMScreen&amp;quot; 0 0
+      InputDevice &amp;quot;VMMouse&amp;quot; &amp;quot;CorePointer&amp;quot;
+      InputDevice &amp;quot;Keyboard0&amp;quot; &amp;quot;CoreKeyboard&amp;quot; 
+    EndSection
+
+    Section &amp;quot;InputDevice&amp;quot;
+      Identifier &amp;quot;VMMouse&amp;quot;
+      Driver &amp;quot;vmmouse&amp;quot;
+      Option &amp;quot;Protocol&amp;quot; &amp;quot;auto&amp;quot;
+      Option &amp;quot;Device&amp;quot; &amp;quot;/dev/sysmouse&amp;quot;
+      Option &amp;quot;ZAxisMapping&amp;quot; &amp;quot;4 5 6 7&amp;quot;
+    EndSection
+
+    Section &amp;quot;Monitor&amp;quot;
+      Identifier &amp;quot;VMMonitor&amp;quot;
+      VendorName &amp;quot;VMware, Inc&amp;quot;
+    EndSection
+
+    Section &amp;quot;Device&amp;quot;
+      Identifier &amp;quot;VMware SVGA&amp;quot;
+      Driver &amp;quot;vmware&amp;quot;
+    EndSection
+
+    Section &amp;quot;Screen&amp;quot;
+      Identifier &amp;quot;VMScreen&amp;quot; 
+      Device &amp;quot;VMware SVGA&amp;quot;
+      Monitor &amp;quot;VMMonitor&amp;quot;
+      ...
+    EndSection
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Install Screen tools&lt;/h1&gt;
+&lt;p&gt;To install the screen tools you need to install a few development tools like git, 
+wget and dependencies.   &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install the gsed dependency&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/textproc/gsed
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the newt dependency (&lt;b&gt;include python support&lt;/b&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/devel/newt
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install tmux&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /usr/ports/sysutils/tmux
+make install clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install byobu (for tmux support need downloaded version) - Last &lt;b&gt;version used 5.60&lt;/b&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;HOME&lt;/span&gt;
+&lt;span class="nt"&gt;wget&lt;/span&gt; &lt;span class="nt"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="nt"&gt;launchpad&lt;/span&gt;&lt;span class="nc"&gt;.net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;byobu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;5&lt;/span&gt;&lt;span class="nc"&gt;.60&lt;/span&gt;&lt;span class="o"&gt;/+&lt;/span&gt;&lt;span class="nt"&gt;download&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;byobu_5&lt;/span&gt;&lt;span class="nc"&gt;.60.orig.tar.gz&lt;/span&gt;
+&lt;span class="nt"&gt;tar&lt;/span&gt; &lt;span class="nt"&gt;-xvf&lt;/span&gt; &lt;span class="nt"&gt;byobu_5&lt;/span&gt;&lt;span class="nc"&gt;.60.orig.tar.gz&lt;/span&gt;
+&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="nt"&gt;configure&lt;/span&gt; &lt;span class="nt"&gt;--prefix&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;$HOME/byobu&amp;quot;&lt;/span&gt;
+&lt;span class="nt"&gt;make&lt;/span&gt; 
+&lt;span class="nt"&gt;make&lt;/span&gt; &lt;span class="nt"&gt;install&lt;/span&gt; &lt;span class="nt"&gt;clean&lt;/span&gt;
+&lt;span class="nt"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;echo &amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;export&lt;/span&gt; &lt;span class="nt"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=$&lt;/span&gt;&lt;span class="nt"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;byobu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;:$&lt;/span&gt;&lt;span class="nt"&gt;PATH&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nt"&gt;ltsp&lt;/span&gt;&lt;span class="o"&gt;;&amp;amp;&lt;/span&gt;&lt;span class="nt"&gt;ltsp&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nc"&gt;.bashrc&lt;/span&gt;
+&lt;span class="nt"&gt;source&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nc"&gt;.bashrc&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Acknowledgements&lt;/h1&gt;
+&lt;p&gt;As you can imagine the majority of this information was info that I found while online.
+As such, I like to share links to the sites that I used to access this information.    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://allstarnix.blogspot.com/2012/08/install-vmware-tools-in-freebsd-9.html"&gt;Howard's Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have been searching, this is one of the first links that comes up, it is a great site 
+  and has tons of useful information, I highly recommend checking it out.   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.rhyous.com/2012/05/09/installing-vmware-tools-on-freebsd-9-without-xorg/#comment-55356"&gt;Rhyous Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This was a useful blog as well, but especially the comment by &lt;strong&gt;HW&lt;/strong&gt;.  This comment included 
+  the information to install xf86-input-vmmouse which is what was able to halt the odd stuttering 
+  effect that was happening when the mouse would lose/get focus.    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/dustinkirkland/byobu"&gt;Byobu Source README.md&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This section included the details on installing the missing pieces for byobu 
+  (especially the byobu config).  &lt;/p&gt;</summary><category term="freebsd"></category><category term="vmware"></category><category term="virtualization"></category></entry></feed>

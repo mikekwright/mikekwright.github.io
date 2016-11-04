@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://mikewright.me/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://mikewright.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mike's Dev / Data Science Blog Atom">
+
+
+    <link rel="shortcut icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+    <link rel="icon" href="http://mikewright.me/images/favicon.jpg" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+
+<meta name="author" content="Michael Wright" />
+<meta name="description" content="This week I had the chance to attend QCon SF and let me tell you it was a great experience. One of the benefits that came out of this conference was a free ebook from ORielly books. The book that I decided to pickup was the newly released Real World ..." />
+<meta name="keywords" content="ocaml">
+<meta property="og:site_name" content="Mike's Dev / Data Science Blog"/>
+<meta property="og:title" content=""Ocaml, Opam and utop from a newb""/>
+<meta property="og:description" content="This week I had the chance to attend QCon SF and let me tell you it was a great experience. One of the benefits that came out of this conference was a free ebook from ORielly books. The book that I decided to pickup was the newly released Real World ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://mikewright.me/ocaml-opam-and-utop-from-a-newb.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-11-16 15:03:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://mikewright.me/author/michael-wright.html">
+<meta property="article:section" content="development"/>
+<meta property="article:tag" content="ocaml"/>
+<meta property="og:image" content="http://mikewright.me/images/avatar.jpg">
+
+  <title>Mike's Dev / Data Science Blog &ndash; "Ocaml, Opam and utop from a newb"</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://mikewright.me">
+        <img src="http://mikewright.me/images/avatar.jpg" alt="Dev / Data Science Blog" title="Dev / Data Science Blog">
+      </a>
+      <h1><a href="http://mikewright.me">Dev / Data Science Blog</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="http://mikewright.me/pages/about.html#about">About</a></li>
+          <li><a href="http://mikewright.me/pages/contact.html#contact">Contact</a></li>
+          <li><a href="http://mikewright.me/pages/experience.html#experience">Experience</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/mikekwright" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/mikekwright" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/mikekwright" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://mikewright.me">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://mikewright.me/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="ocaml-opam-and-utop-from-a-newb">"Ocaml, Opam and utop from a newb"</h1>
+    <p>
+          Posted on Sat 16 November 2013 in <a href="http://mikewright.me/category/development.html">development</a>
+
+
+    </p>
+  </header>
+  <div>
+    <p>This week I had the chance to attend QCon SF and let me tell you it was a great experience. 
+One of the benefits that came out of this conference was a free ebook from ORielly books. The
+book that I decided to pickup was the newly released <em>Real World Ocaml</em>.  </p>
+<p>One of the first things that you need to setup when working with ocaml is, of course, the
+environment.  This book talks about using utop and opam (the ocaml package manager). So I 
+decided to install these tools on my system.  There were a few issues that I ran into while
+trying to get it working, so I have decided to document those (and what worked in the end)
+so that when I setup a new system I don't have to figure them out all over again.  </p>
+<!-- more -->
+
+<p>For this installation I will be using Ubuntu 13.10 as my OS of choice, however the final
+solution is one that should work on any nix system.  </p>
+<h2>Install from Packages</h2>
+<p>This was the first attempt that I had at installing ocaml and opam, using the debian
+provided packages.  This had a few issues, the main issue being that opam is not included
+in the standard repositories, so they require you to add another repository.  </p>
+<div class="highlight"><pre><span></span>    add-apt-repository ppa:avsm/ppa
+    apt-get update
+    apt-get install ocaml opam
+</pre></div>
+
+
+<p>This worked to install the basic opam and ocaml systems, except that I already had ocaml
+installed, so I had to first remove the original ocaml package</p>
+<div class="highlight"><pre><span></span>    apt-get remove ocaml
+</pre></div>
+
+
+<p>After that the install above worked to set things up.  But when trying to install a few of 
+the packages using opam I ran into the issue that the <code>ocaml-compiler-libs</code> was not installed 
+and trying to install it failed with a version conflict.  </p>
+<p>At this point I could have tried to dive a little deeper to find out why it failed and
+see if I could resolve the package issue, however I prefer to understand how the install
+of the different packages goes anyways, so I decided to install from source.   </p>
+<h2>Install from Source</h2>
+<p>I try to install tools from source whenever I get the chance as I really like to understand
+what exactly is happening underneath the covers so that if I run into problems in the 
+future with it running I can have a better starting point.  </p>
+<p>So to install ocaml and opam from source these are the steps that I went through.  </p>
+<p>[gist:id=7506393,file=ocaml-install.sh]  </p>
+<h2>All done?</h2>
+<p>Well this was just my first day getting setup to go through the Real World Ocaml book, but 
+I am very, very excited about this book as ocaml was a language that I reported on in school
+years ago and found it to be very exciting.   </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://mikewright.me/tag/ocaml.html">ocaml</a>
+    </p>
+  </div>
+
+
+
+</article>
+
+    <footer>
+<p>&copy; Michael Wright 2016</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Mike's Dev / Data Science Blog ",
+  "url" : "http://mikewright.me",
+  "image": "http://mikewright.me/images/avatar.jpg",
+  "description": "Simple blog created for discussing different topics around development and data science"
+}
+</script>
+</body>
+</html>
