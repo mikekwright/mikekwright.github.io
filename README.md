@@ -57,6 +57,17 @@ To create an entry you will want to start a new notebook and create an associate
         Tags: tag1 tag2
         Author: <author>
         Summary: <summary>
+
+## Other Languages
+
+There are _hopefully_ going to be a number of different languages or patterns that I will go over
+in the course of writing my blog. Some of these will have official Jupyter support while others will 
+not have the corresponding support.   
+
+To find out if a language will have Jupyter support see the list of supported kernels that can be
+found [here](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages)    
+
+For all other languages I will use embedded gist entries to attempt to accomplish the same task.    
         
 ## References
 
