@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://wrightcoder.github.io/sitemap.xml 
