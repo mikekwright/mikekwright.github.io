@@ -1,3 +1,12 @@
 [submodule "plugins/ipynb"]
 	path = plugins/ipynb
 	url = git://github.com/danielfrg/pelican-ipynb.git
+[submodule "themes/alchemy"]
+	path = themes/alchemy
+	url = git@github.com:nairobilug/pelican-alchemy.git
+#[submodule "themes/pelican"]
+#	path = themes/pelican
+#	url = git@github.com:getpelican/pelican-themes
+[submodule "themes/Flex"]
+	path = themes/Flex
+	url = https://github.com/alexandrevicenzi/Flex

@@ -34,6 +34,11 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
+#THEME = './themes/alchemy/alchemy'
+#THEME = './themes/pelican/syte'
+#THEME = './themes/pelican/Flex'
+THEME = './themes/Flex'
+
 MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATH = './plugins'
