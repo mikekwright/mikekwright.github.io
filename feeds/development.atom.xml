@@ -1825,31 +1825,7 @@ items, which is always best to keep till last. Luckily for this deprecation ther
 only one thing that was brought up. &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Advanced XML Feature for Dashboards&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="logs"></category><category term="splunk"></category></entry><entry><title>"Research into Key-Value Databases (Riak)"</title><link href="http://mikewright.me/research-into-key-value-databases-riak.html" rel="alternate"></link><published>2013-10-24T22:45:00-06:00</published><updated>2013-10-24T22:45:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2013-10-24:research-into-key-value-databases-riak.html</id><summary type="html">&lt;p&gt;A couple of weeks ago I came across a group at my work who had just started up going over the 
-&lt;a href="http://www.amazon.com/NoSQL-Distilled-Emerging-Persistence-ebook/dp/B0090J3SYW"&gt;NoSQL Distilled&lt;/a&gt;
-book. This is a great introductory book to a lot of the ideas behind NoSQL and what makes it 
-a more viable solution in some situations over a Relational Database.  &lt;/p&gt;
-&lt;p&gt;In this post I am going to cover my experiences with Key-Value NoSQL databases, specifically 
-using the Riak implementation (as selected in the book). Another key-value database that I
-will also cover (less than Riak) is Redis.  &lt;/p&gt;
-&lt;!-- More --&gt;
-
-&lt;p&gt;This post will have a number of subposts on the different areas of my use with Riak, to keep
-the information better organized and to make the post a little smaller.  &lt;/p&gt;
-&lt;h1&gt;&lt;a href="http://basho.com/riak/"&gt;Riak&lt;/a&gt;&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Definition&lt;/li&gt;
-&lt;li&gt;Installation&lt;/li&gt;
-&lt;li&gt;API Usage&lt;/li&gt;
-&lt;li&gt;Scalling&lt;/li&gt;
-&lt;li&gt;Uniqueness&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;&lt;a href="redis.io"&gt;Redis&lt;/a&gt;&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Definition&lt;/li&gt;
-&lt;li&gt;Installation&lt;/li&gt;
-&lt;li&gt;API Usage&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="nosql"></category><category term="riak"></category></entry><entry><title>"Static Site Meandering"</title><link href="http://mikewright.me/static-site-meandering.html" rel="alternate"></link><published>2013-10-15T20:06:00-06:00</published><updated>2013-10-15T20:06:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2013-10-15:static-site-meandering.html</id><summary type="html">&lt;p&gt;So, I don't know if I want to say that I am "late" to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts.  Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my "limited" frontend skills.  However after a few posts and the issues that it raised I decided to move to an existing static site generator.  &lt;/p&gt;
+&lt;/ul&gt;</summary><category term="logs"></category><category term="splunk"></category></entry><entry><title>"Static Site Meandering"</title><link href="http://mikewright.me/static-site-meandering.html" rel="alternate"></link><published>2013-10-15T20:06:00-06:00</published><updated>2013-10-15T20:06:00-06:00</updated><author><name>Michael Wright</name></author><id>tag:mikewright.me,2013-10-15:static-site-meandering.html</id><summary type="html">&lt;p&gt;So, I don't know if I want to say that I am "late" to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts.  Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my "limited" frontend skills.  However after a few posts and the issues that it raised I decided to move to an existing static site generator.  &lt;/p&gt;
 &lt;h1&gt;AND I WAS BLOWN AWAY BY THE CHOICES&lt;/h1&gt;
 &lt;!-- more --&gt;
 
