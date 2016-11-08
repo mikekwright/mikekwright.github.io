@@ -38,6 +38,10 @@ correctly.
 
 You should now have all the tools necessary create new notebook entries using jupyter.  
 
+**Note**: on Ubuntu you will also need to have a couple of other libraries.   
+
+        apt install libfreetype6-dev libpng3
+
 ## Create Entry
 
 To create an entry you will want to start a new notebook and create an associated metadata file.   

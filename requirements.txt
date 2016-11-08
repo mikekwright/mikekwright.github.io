@@ -6,5 +6,5 @@ nbconvert>=4.0
 beautifulsoup4
 ghp-import==0.4.1
 matplotlib==1.5.1
-pelican-gist=0.3.3
-disqus-python=0.4.2
+pelican-gist==0.3.3
+disqus-python==0.4.2
