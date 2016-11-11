@@ -7,6 +7,7 @@ TIMEZONE = 'America/Denver'
 DEFAULT_LANG = 'en'
 STATIC_PATHS = ['images', 'extra', 'blog']
 ARTICLE_PATHS = ['blog']
+IGNORE_FILES = ['.ipynb_checkpoints']
 
 AUTHOR = 'Michael Wright'
 SITENAME = "Mike's Dev / Data Science Blog"
