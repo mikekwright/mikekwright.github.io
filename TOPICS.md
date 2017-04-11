@@ -271,6 +271,7 @@ DB
 * [LokiJS](http://lokijs.org/#/)    
 * [Voldemort](http://www.project-voldemort.com/voldemort/)    
 * [RethinkDB](http://rethinkdb.com/)    
+* [Crate.io - Elasticsearch DB](https://crate.io/])  
 
 Security
 -----------------------------
