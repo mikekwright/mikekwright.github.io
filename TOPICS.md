@@ -119,6 +119,7 @@ Javascript
 * [Horizon - Developer platform for JS](https://github.com/mikekwright/horizon)    
 * [Aurelia.io - Neat Platform](http://aurelia.io/)    
 * [Vue.js - Databinding](https://vuejs.org/)     
+* [Puppeteer - Headless Chrome](https://github.com/GoogleChrome/puppeteer)   
 
 
 Scala
@@ -203,6 +204,7 @@ Containers
 * [rkt - A security-minded container engine](https://coreos.com/rkt/)     
 * [Wharfee - Docker CLI](https://github.com/j-bennet/wharfee)    
 * [Nginx Proxy - Container reverse proxy (auto)](https://github.com/jwilder/nginx-proxy)      
+* [Nvidia Docker - GPU Support](https://github.com/NVIDIA/nvidia-docker)   
 
 
 Automation
@@ -311,6 +313,11 @@ Android
 PHP
 -----------------------------
 * [Laravel - Beutiful Code](https://laravel.com)    
+
+PYTHON
+-----------------------------
+* [Dask - Flesible Parallel Computing](https://dask.pydata.org/en/latest/)   
+* [Dataset - Databases for lazy people](https://dataset.readthedocs.io/en/latest/)   
 
 Security
 -----------------------------
