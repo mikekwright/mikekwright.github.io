@@ -268,13 +268,13 @@ Web 2.0
 * [Perl Dancer - Easy Web Apps in Perl](http://perldancer.org/)     
 * [WebAssembly - Web in C](https://callahad.github.io/ow16-wasm/)     
 
-
 DB
 ------------------------------
 * [LokiJS](http://lokijs.org/#/)    
 * [Voldemort](http://www.project-voldemort.com/voldemort/)    
 * [RethinkDB](http://rethinkdb.com/)    
 * [Crate.io - Elasticsearch DB](https://crate.io/])  
+* [Timescale - Postgres Time-series database](https://www.timescale.com/)  
 
 Security
 -----------------------------
@@ -326,6 +326,17 @@ Security
 Datascience
 -----------------------------
 * [Tensorflow Fold](https://github.com/tensorflow/fold/)    
+* [Facebook Horizon - Reinforcement Platform](https://code.fb.com/ml-applications/horizon/)   
+* [Pachyderm - Data management](https://pachyderm.readthedocs.io/en/latest/fundamentals/getting_data_into_pachyderm.html)   
+
+
+### Articles
+
+* [Towards Data Science - Reinforcement Learning](https://towardsdatascience.com/reinforcement-learning-79ffd92886a7)   
+* [Towards Data Science - My journey towards Reinforcement Learning](https://towardsdatascience.com/my-journey-to-reinforcement-learning-part-0-introduction-1e3aec1ee5bf)   
+
+
+
 
 Completed
 --------------------------
