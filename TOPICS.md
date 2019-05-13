@@ -145,6 +145,7 @@ Languages
 * [Idris - Type Theory](http://www.idris-lang.org/)
 * [J Lang](https://en.wikipedia.org/wiki/J_(programming_language))   
 * [Pyramid - Elixir based Web Server](http://www.pylonsproject.org/)     
+* [Sauron - Rust based Web (like elm)](https://github.com/ivanceras/sauron)  
 
 
 Building
@@ -291,6 +292,8 @@ Tools
 * [Thoughtworks Go](http://www.go.cd)    
 * [RAML - Documentation Verification](http://raml.org/)    
 * [BuildBot - Build System written in Python](http://buildbot.net/)    
+* [Apache Samza - Streaming Tool](http://samza.apache.org/)   
+
 
 Cassandrea
 ------------------------------
@@ -318,16 +321,32 @@ PYTHON
 -----------------------------
 * [Dask - Flesible Parallel Computing](https://dask.pydata.org/en/latest/)   
 * [Dataset - Databases for lazy people](https://dataset.readthedocs.io/en/latest/)   
+* [Black - Python Code Formatter](https://github.com/python/black/)  
 
 Security
 -----------------------------
 * [BeefProject - Browser Exploitation Framework](http://beefproject.com/)     
+* [Suricata - Network Thread Detection Engine](https://suricata-ids.org/)  
+* [Apache SpamAssassin](https://spamassassin.apache.org/)  
 
 Datascience
 -----------------------------
 * [Tensorflow Fold](https://github.com/tensorflow/fold/)    
 * [Facebook Horizon - Reinforcement Platform](https://code.fb.com/ml-applications/horizon/)   
 * [Pachyderm - Data management](https://pachyderm.readthedocs.io/en/latest/fundamentals/getting_data_into_pachyderm.html)   
+* [Jupytext - Output notebook to py](https://github.com/mwouts/jupytext]   
+* [Ray - Flexible, High Performance distributed execution framework](https://ray.readthedocs.io/en/latest/index.html)  
+* [Google Seedbank - Bunch of Interactive ML examples](https://research.google.com/seedbank/)  
+* [Iodide - Python in Firefox](https://alpha.iodide.io)  
+* [Missingno - Missing Data Visualization](https://github.com/ResidentMario/missingno)  
+* [Bert - Google Language Model](https://github.com/google-research/bert)  
+* [Tensorspace - 3d rendering of tensor graph](https://github.com/tensorspace-team/tensorspace)  
+
+
+
+OS
+---------------------------------
+* [NixOS - Purely Functional Linux Distro](https://nixos.org)
 
 
 ### Articles
@@ -336,11 +355,13 @@ Datascience
 * [Towards Data Science - My journey towards Reinforcement Learning](https://towardsdatascience.com/my-journey-to-reinforcement-learning-part-0-introduction-1e3aec1ee5bf)   
 
 
-
-
 Completed
 --------------------------
 * Install FreeBSD 9.2 on VMWare workstation 9
 * AWS EC2 Container Service (Initial Research)
 * [Docker](https://www.docker.io/)
 * [SproutCore - OOS Framework for Web Apps](http://Sproutcore.com) 
+* [Recipe for Training Neural Networks](https://karpathy.github.io/2019/04/25/)  
+* [Implement Custom Automatic Differentiation (AD) in Julia in one Day](http://blog.rogerluo.me/2018/10/23/write-an-ad-in-one-day/)  
+
+
