@@ -22,3 +22,4 @@ node_modules
 *REMOTE*
 *LOCAL*
 .ipynb_checkpoints
+.vscode
