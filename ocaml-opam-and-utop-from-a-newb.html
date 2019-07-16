@@ -106,15 +106,15 @@ solution is one that should work on any nix system.  </p>
 <p>This was the first attempt that I had at installing ocaml and opam, using the debian
 provided packages.  This had a few issues, the main issue being that opam is not included
 in the standard repositories, so they require you to add another repository.  </p>
-<div class="highlight"><pre><span></span>    add-apt-repository ppa:avsm/ppa
-    apt-get update
-    apt-get install ocaml opam
+<div class="highlight"><pre><span></span>    <span class="k">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">avsm</span><span class="o">/</span><span class="n">ppa</span>
+    <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>
+    <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">ocaml</span> <span class="n">opam</span>
 </pre></div>
 
 
 <p>This worked to install the basic opam and ocaml systems, except that I already had ocaml
 installed, so I had to first remove the original ocaml package</p>
-<div class="highlight"><pre><span></span>    apt-get remove ocaml
+<div class="highlight"><pre><span></span>    <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">remove</span> <span class="n">ocaml</span>
 </pre></div>
 
 

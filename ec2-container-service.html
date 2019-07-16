@@ -122,13 +122,13 @@ to have more instances than absolutely necessary.   </p>
 <p>Tasks are basically the starting point of your cluster deploy.  Anytime you want to deploy
 your application you will start by defining the task.  Tasks themselves are defined as json
 objects.  </p>
-<div class="highlight"><pre><span></span>{
-  &quot;family&quot;: &quot;application-name&quot;,
-  &quot;version&quot;: &quot;9a56714245e7e603127&quot;,    -- This can be a simple version or git SHA1
-  &quot;containers&quot;: [
-    &lt;&lt; CONTAINER DEFINITIONS &gt;&gt;
-  ]
-}
+<div class="highlight"><pre><span></span><span class="err">{</span>
+  <span class="ss">&quot;family&quot;</span><span class="p">:</span> <span class="ss">&quot;application-name&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;version&quot;</span><span class="p">:</span> <span class="ss">&quot;9a56714245e7e603127&quot;</span><span class="p">,</span>    <span class="c1">-- This can be a simple version or git SHA1</span>
+  <span class="ss">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">&lt;&lt;</span> <span class="n">CONTAINER</span> <span class="n">DEFINITIONS</span> <span class="o">&gt;&gt;</span>
+  <span class="p">]</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -138,32 +138,32 @@ server as a container, the actual web server as a container and then a container
 database (if one exists).   </p>
 <p>When you have your task defined, you can register that task with EC2 Container Service 
 to specify that you have the new task.   </p>
-<div class="highlight"><pre><span></span>aws ecs register-task-definition --family &quot;custom-name&quot; --version &quot;custom-version&quot; definition.json
+<div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ecs</span> <span class="n">register</span><span class="o">-</span><span class="n">task</span><span class="o">-</span><span class="n">definition</span> <span class="c1">--family &quot;custom-name&quot; --version &quot;custom-version&quot; definition.json</span>
 </pre></div>
 
 
 <p>After you have registered the task and you have the cluster created you can run the 
 task using the following command.  </p>
-<div class="highlight"><pre><span></span>aws ecs run-task custom-name:custom-version
+<div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ecs</span> <span class="n">run</span><span class="o">-</span><span class="n">task</span> <span class="n">custom</span><span class="o">-</span><span class="n">name</span><span class="p">:</span><span class="n">custom</span><span class="o">-</span><span class="k">version</span>
 </pre></div>
 
 
 <h3>Containers</h3>
 <p>Container definitions are very simple and can follow a lot of the docker idioms in creation.  </p>
-<div class="highlight"><pre><span></span>{
-  &quot;name&quot;: &quot;container-name&quot;, 
-  &quot;image&quot;: &quot;app-container:latest&quot;, 
-  &quot;cpu&quot;: 128,                        -- Note CPU is in units, defines the instances that can fit a given instance
-  &quot;memory&quot;: 512,
-  &quot;portMappings&quot;: [
-    {
-      &quot;containerPort&quot;: 9443, 
-      &quot;hostPort&quot;: 443 
-    }
-  ], 
-  &quot;links&quot;: [&quot;frontend&quot;], 
-  &quot;essential&quot;: true
-}
+<div class="highlight"><pre><span></span><span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;container-name&quot;</span><span class="p">,</span> 
+  <span class="ss">&quot;image&quot;</span><span class="p">:</span> <span class="ss">&quot;app-container:latest&quot;</span><span class="p">,</span> 
+  <span class="ss">&quot;cpu&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>                        <span class="c1">-- Note CPU is in units, defines the instances that can fit a given instance</span>
+  <span class="ss">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+  <span class="ss">&quot;portMappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;containerPort&quot;</span><span class="p">:</span> <span class="mi">9443</span><span class="p">,</span> 
+      <span class="ss">&quot;hostPort&quot;</span><span class="p">:</span> <span class="mi">443</span> 
+    <span class="err">}</span>
+  <span class="p">],</span> 
+  <span class="ss">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span><span class="ss">&quot;frontend&quot;</span><span class="p">],</span> 
+  <span class="ss">&quot;essential&quot;</span><span class="p">:</span> <span class="k">true</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -181,7 +181,7 @@ task is not valid anymore.  </p>
 the cluster is first created it is empty and it then populates with container as requirements
 come into play.   </p>
 <p>AWS does have a command line tool that you can use to create a cluster.   </p>
-<div class="highlight"><pre><span></span>aws ec2 create-cluster cluster-name
+<div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ec2</span> <span class="k">create</span><span class="o">-</span><span class="k">cluster</span> <span class="k">cluster</span><span class="o">-</span><span class="n">name</span>
 </pre></div>
 
 

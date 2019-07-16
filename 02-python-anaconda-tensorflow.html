@@ -121,20 +121,20 @@ environment file format.   </p>
 
 <p>So once I had this file created I was able to create and use this file to both create the
 virtual environment and install the dependencies in the environment, using this command.  </p>
-<div class="highlight"><pre><span></span>    conda env create -f environment.yml
+<div class="highlight"><pre><span></span>    <span class="n">conda</span> <span class="n">env</span> <span class="k">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="p">.</span><span class="n">yml</span>
 </pre></div>
 
 
 <p>Now there was one issue that I ran into, and that was the desire to install a dependency
 that did not have an existing conda package.  I found that I could still install dependencies
 to the system using pip.   </p>
-<div class="highlight"><pre><span></span>    name: myenv
-    dependencies:
-      - numpy
-      - jupyter
-      - pip
-      - pip:
-        - https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
+<div class="highlight"><pre><span></span>    <span class="n">name</span><span class="p">:</span> <span class="n">myenv</span>
+    <span class="n">dependencies</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">numpy</span>
+      <span class="o">-</span> <span class="n">jupyter</span>
+      <span class="o">-</span> <span class="n">pip</span>
+      <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">storage</span><span class="p">.</span><span class="n">googleapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">cpu</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">11</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">cp35</span><span class="o">-</span><span class="n">cp35m</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="p">.</span><span class="n">whl</span>
 </pre></div>
 
 
@@ -142,20 +142,20 @@ to the system using pip.   </p>
 <p>So for me, that last part was being able to get the above system working correctly with
 a docker container. Luckily this was a very straight forward process, even allowed me to
 easily install python3.5 on ubuntu 14.04.   </p>
-<div class="highlight"><pre><span></span>    FROM ubuntu:16.04
+<div class="highlight"><pre><span></span>    <span class="k">FROM</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mi">16</span><span class="p">.</span><span class="mi">04</span>
 
-    RUN apt-get update &amp;&amp; \
-        apt-get install -y curl build-essential &amp;&amp; \
-        apt-get clean &amp;&amp; \
-        rm -rf /tmp/ /var/tmp/ /var/lib/apt/lists/*
+    <span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="err">\</span>
+        <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">curl</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="o">&amp;&amp;</span> <span class="err">\</span>
+        <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">clean</span> <span class="o">&amp;&amp;</span> <span class="err">\</span>
+        <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">lists</span><span class="cm">/*</span>
 </pre></div>
 
 
 <p>This is just the basic system installing the curl command (needed to pull down the anaconda installer)
 and the build tools (aka gcc).  </p>
-<div class="highlight"><pre><span></span>    RUN curl -sSL -o installer.sh https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh &amp;&amp; \
-        bash /installer.sh -b -f &amp;&amp; \
-        rm /installer.sh
+<div class="highlight"><pre><span></span>    <span class="n">RUN</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="o">-</span><span class="n">o</span> <span class="n">installer</span><span class="p">.</span><span class="n">sh</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="p">.</span><span class="n">continuum</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="p">.</span><span class="n">sh</span> <span class="o">&amp;&amp;</span> <span class="err">\</span>
+        <span class="n">bash</span> <span class="o">/</span><span class="n">installer</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">b</span> <span class="o">-</span><span class="n">f</span> <span class="o">&amp;&amp;</span> <span class="err">\</span>
+        <span class="n">rm</span> <span class="o">/</span><span class="n">installer</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -164,14 +164,14 @@ use curl instead of the docker <code>ADD</code> command is that I wanted to keep
 <p>The other thing to note is the <code>-b</code> and <code>-f</code> options that are supplied with the installer.  These allow
 for us to run the installer without needing tty access by using the defaults for the installer (including
 the prefix which puts anaconda at <code>/root/anaconda3</code>).   </p>
-<div class="highlight"><pre><span></span><span class="x">    ENV PATH &quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/root/anaconda3/bin&quot;</span>
-<span class="x">    ADD startup /startup</span>
+<div class="highlight"><pre><span></span>    <span class="n">ENV</span> <span class="n">PATH</span> <span class="ss">&quot;$PATH:/root/anaconda3/bin&quot;</span>
+    <span class="k">ADD</span> <span class="n">startup</span> <span class="o">/</span><span class="n">startup</span>
 
-<span class="x">    EXPOSE 8888 6006</span>
-<span class="x">    VOLUME /notebooks</span>
-<span class="x">    WORKDIR &quot;/notebooks&quot;</span>
+    <span class="n">EXPOSE</span> <span class="mi">8888</span> <span class="mi">6006</span>
+    <span class="n">VOLUME</span> <span class="o">/</span><span class="n">notebooks</span>
+    <span class="n">WORKDIR</span> <span class="ss">&quot;/notebooks&quot;</span>
 
-<span class="x">    CMD [&quot;jupyter&quot;, &quot;notebook&quot;, &quot;--port=8888&quot;, &quot;--no-browser&quot;, &quot;--ip=0.0.0.0&quot;]</span>
+    <span class="n">CMD</span> <span class="p">[</span><span class="ss">&quot;jupyter&quot;</span><span class="p">,</span> <span class="ss">&quot;notebook&quot;</span><span class="p">,</span> <span class="ss">&quot;--port=8888&quot;</span><span class="p">,</span> <span class="ss">&quot;--no-browser&quot;</span><span class="p">,</span> <span class="ss">&quot;--ip=0.0.0.0&quot;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -179,9 +179,9 @@ the prefix which puts anaconda at <code>/root/anaconda3</code>).   </p>
 <code>8888</code> being the main port for the notebook. We also set our default commands to startup
 the jupyter notebook allowing access from non-localhost machines (which of course is needed since
 it is running in a container).   </p>
-<div class="highlight"><pre><span></span>    ADD environment.yml /environment.yml
-    RUN conda env create -f /environment.yml
-    ENV CONDA_ENV tensorflow
+<div class="highlight"><pre><span></span>    <span class="k">ADD</span> <span class="n">environment</span><span class="p">.</span><span class="n">yml</span> <span class="o">/</span><span class="n">environment</span><span class="p">.</span><span class="n">yml</span>
+    <span class="n">RUN</span> <span class="n">conda</span> <span class="n">env</span> <span class="k">create</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">environment</span><span class="p">.</span><span class="n">yml</span>
+    <span class="n">ENV</span> <span class="n">CONDA_ENV</span> <span class="n">tensorflow</span>
 </pre></div>
 
 

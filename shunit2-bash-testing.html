@@ -109,16 +109,16 @@ work with Bash scripts.  It has a very simple setup process on my systems (espec
 debian-based systems).   </p>
 <h3>Installation</h3>
 <p>To install shUnit2 on a debian based system you only need to run the below command. </p>
-<div class="highlight"><pre><span></span>    apt-get install shunit2
+<div class="highlight"><pre><span></span>    <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">shunit2</span>
 </pre></div>
 
 
 <p>If everything is setup correctly you should see output similiar to that below. </p>
-<div class="highlight"><pre><span></span>    $ shunit2
+<div class="highlight"><pre><span></span>    <span class="err">$</span> <span class="n">shunit2</span>
 
-    Ran 0 tests.
+    <span class="n">Ran</span> <span class="mi">0</span> <span class="n">tests</span><span class="p">.</span>
 
-    OK
+    <span class="n">OK</span>
 </pre></div>
 
 
@@ -126,10 +126,10 @@ debian-based systems).   </p>
 <a href="https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz">code.google.com</a>. This is actually
 a nice thing to pull down as it contains some useful examples for shUnit2. After pulling it 
 you will need to add it to your path for usage. </p>
-<div class="highlight"><pre><span></span><span class="x">    wget https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz</span>
-<span class="x">    tar -xvf shunit2-2.1.6.tgz</span>
-<span class="x">    PATH=</span><span class="p">$</span><span class="nv">DIRSTACK</span><span class="x">/shunit2-2.1.6/bin:</span><span class="p">$</span><span class="nv">PATH</span><span class="x"></span>
-<span class="x">    shunit2</span>
+<div class="highlight"><pre><span></span>    <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">shunit2</span><span class="p">.</span><span class="n">googlecode</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">shunit2</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="n">tgz</span>
+    <span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">shunit2</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="n">tgz</span>
+    <span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">DIRSTACK</span><span class="o">/</span><span class="n">shunit2</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+    <span class="n">shunit2</span>
 </pre></div>
 
 
@@ -156,14 +156,14 @@ testMyComparison()
 </div>
 <p>Now to run this test you will need to make a few changes to the file, which for this case
 lets have the file called <code>my-first-test.sh</code></p>
-<div class="highlight"><pre><span></span>    $ chmod +x my-first-test.sh
-    $ ./my-first-test.sh
+<div class="highlight"><pre><span></span>    <span class="err">$</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">my</span><span class="o">-</span><span class="k">first</span><span class="o">-</span><span class="n">test</span><span class="p">.</span><span class="n">sh</span>
+    <span class="err">$</span> <span class="p">.</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="k">first</span><span class="o">-</span><span class="n">test</span><span class="p">.</span><span class="n">sh</span>
 
-    testMyComparison
+    <span class="n">testMyComparison</span>
 
-    Ran 1 tests.
+    <span class="n">Ran</span> <span class="mi">1</span> <span class="n">tests</span><span class="p">.</span>
 
-    OK
+    <span class="n">OK</span>
 </pre></div>
 
 

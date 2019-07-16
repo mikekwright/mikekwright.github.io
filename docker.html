@@ -165,12 +165,12 @@ easy way to upgrade the docker daemon, just destroy the current vm and rebuild. 
 <p>This command is the one that I find the most useful.  I am always having to clear out old running
 containers and images that are no longer used.  This command will run two other bash functions.  </p>
 <p>One to clear the containers (and volumes):   </p>
-<div class="highlight"><pre><span></span><span class="x">  </span><span class="p">$</span><span class="nv">DOCKER_RUN</span><span class="x"> ps -a | awk &#39;NR &lt;= 1 </span><span class="err">{</span><span class="x"> next } NR &gt; 1 </span><span class="err">{</span><span class="x">print </span><span class="p">$</span><span class="x">1}&#39; | xargs </span><span class="p">$</span><span class="nv">DOCKER_RUN</span><span class="x"> rm -v</span>
+<div class="highlight"><pre><span></span>  <span class="mh">$D</span><span class="nv">OCKER_RUN</span> <span class="nv">ps</span> <span class="o">-</span><span class="nv">a</span> <span class="o">|</span> <span class="nv">awk</span> <span class="s1">&#39;</span><span class="s">NR &lt;= 1 { next } NR &gt; 1 {print $1}</span><span class="s1">&#39;</span> <span class="o">|</span> <span class="nv">xargs</span> <span class="mh">$D</span><span class="nv">OCKER_RUN</span> <span class="nv">rm</span> <span class="o">-</span><span class="nv">v</span>
 </pre></div>
 
 
 <p>And one to clear the extra images:</p>
-<div class="highlight"><pre><span></span><span class="x">  </span><span class="p">$</span><span class="nv">DOCKER_RUN</span><span class="x"> images | grep &#39;&lt;none&gt;&#39; -a | awk &#39;</span><span class="err">{</span><span class="x">print </span><span class="p">$</span><span class="x">3}&#39; | xargs </span><span class="p">$</span><span class="nv">DOCKER_RUN</span><span class="x"> rmi</span>
+<div class="highlight"><pre><span></span>  <span class="err">$</span><span class="n">DOCKER_RUN</span> <span class="n">images</span> <span class="o">|</span> <span class="n">grep</span> <span class="s1">&#39;&lt;none&gt;&#39;</span> <span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $3}&#39;</span> <span class="o">|</span> <span class="n">xargs</span> <span class="err">$</span><span class="n">DOCKER_RUN</span> <span class="n">rmi</span>
 </pre></div>
 
 

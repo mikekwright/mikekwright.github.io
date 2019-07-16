@@ -123,9 +123,9 @@ TypeScript install directory  </p>
 </ul>
 <p>Noting the above directories location relative to the solution's root, you will then edit 
 the projects csproj file using your favorite editor and add the below lines</p>
-<div class="highlight"><pre><span></span>    <span class="nt">&lt;Target</span> <span class="na">Name=</span><span class="s">&quot;BeforeBuild&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;Exec</span> <span class="na">Command=</span><span class="s">&quot;&amp;quot;$(SolutionDir)&lt;TypescriptDirectory&gt;\tsc&amp;quot; @(TypeScriptCompile -&gt;&#39;&amp;quot;%(fullpath)&amp;quot;&#39;, &#39; &#39;)&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/Target&gt;</span>
+<div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="nv">Target</span> <span class="nv">Name</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">BeforeBuild</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="k">Exec</span> <span class="nv">Command</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">&amp;quot;$(SolutionDir)&lt;TypescriptDirectory&gt;</span><span class="se">\t</span><span class="s">sc&amp;quot; @(TypeScriptCompile -&gt;&#39;&amp;quot;%(fullpath)&amp;quot;&#39;, &#39; &#39;)</span><span class="s2">&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">Target</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -139,7 +139,7 @@ machine that can build a regular csproj project.  When adding the ts file to you
 use the visual studio "Add New Item" option and select a typescript file, if you try to 
 manually add it with the extension you will need to add the compile command to the projects 
 csproj file as well (example below).</p>
-<div class="highlight"><pre><span></span>    &lt;TypeScriptCompile Include=&quot;TSScripts\app.ts&quot; /&gt;
+<div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="nv">TypeScriptCompile</span> <span class="k">Include</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">TSScripts\app.ts</span><span class="s2">&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
   </div>
   <div class="tag-cloud">

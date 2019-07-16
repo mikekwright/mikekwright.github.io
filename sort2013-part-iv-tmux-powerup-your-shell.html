@@ -112,18 +112,18 @@ to a previous pane.    </p>
 <p>Session can be created using names which can allow you to easily switch between multiple 
 sessions depending on work you are doing.  To work with session information you start by
 using </p>
-<div class="highlight"><pre><span></span>    tmux new-session
+<div class="highlight"><pre><span></span>    <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="k">session</span>
 </pre></div>
 
 
 <p>This will create a new unnamed session, which you can rename using <code>C-&lt;bindkey&gt; $</code>.  If you 
 want to create a session from scratch with the correct name you can use </p>
-<div class="highlight"><pre><span></span>    tmux new-session -s &lt;name&gt;
+<div class="highlight"><pre><span></span>    <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="k">session</span> <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>You can now disconnect from a session using <code>C-&lt;bindkey&gt; D</code>.  After disconnecting, reconnecting is accomplished using</p>
-<div class="highlight"><pre><span></span>    tmux attach -t &lt;name&gt;
+<div class="highlight"><pre><span></span>    <span class="n">tmux</span> <span class="n">attach</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -134,14 +134,14 @@ how to work with windows, both creating and navigation. </p>
 This will create a new window that will default to the window number that has already been 
 created.  You can also create a new window for an existing session using the following command
 line call.  </p>
-<div class="highlight"><pre><span></span>    tmux new-window -t &lt;session-name&gt;
+<div class="highlight"><pre><span></span>    <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="k">session</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>If you want to name this window you can either name it using the shortcut <code>C-&lt;bindkey&gt; ,</code>. You can
 also name it at creation or rename from command line using one of the below commands.   </p>
-<div class="highlight"><pre><span></span>    tmux new-window -t &lt;session-name&gt; -n &lt;window-name&gt;
-    tmux rename-window -t &lt;session-name&gt;:&lt;window-number&gt; &lt;window-name&gt;
+<div class="highlight"><pre><span></span>    <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="k">session</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">n</span> <span class="o">&lt;</span><span class="n">window</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="n">tmux</span> <span class="k">rename</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="k">session</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">window</span><span class="o">-</span><span class="nb">number</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">window</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 

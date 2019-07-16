@@ -118,23 +118,23 @@ then I am usually comfortable with. </p>
 most applications are nothing more than a sequence of states and their paths of migration between
 each state.  </p>
 <p>A simple state design for the application would look like this:</p>
-<div class="highlight"><pre><span></span>App.STATE_NAME = SC.State.design({
-  enterState: function() {
-    ... 
-  },
+<div class="highlight"><pre><span></span><span class="n">App</span><span class="p">.</span><span class="n">STATE_NAME</span> <span class="o">=</span> <span class="n">SC</span><span class="p">.</span><span class="k">State</span><span class="p">.</span><span class="n">design</span><span class="p">(</span><span class="err">{</span>
+  <span class="n">enterState</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+    <span class="p">...</span> 
+  <span class="err">}</span><span class="p">,</span>
 
-  exitState: function() {
-    ...
-  },
+  <span class="n">exitState</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+    <span class="p">...</span>
+  <span class="err">}</span><span class="p">,</span>
 
-  customState: function() {
-    ...
-  },
+  <span class="n">customState</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+    <span class="p">...</span>
+  <span class="err">}</span><span class="p">,</span>
 
-  request: function() {
-    ...
-  },
-});
+  <span class="n">request</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+    <span class="p">...</span>
+  <span class="err">}</span><span class="p">,</span>
+<span class="err">}</span><span class="p">);</span>
 </pre></div>
 
 

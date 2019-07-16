@@ -114,24 +114,24 @@ smoothly on vmware.    </p>
 <ol>
 <li>
 <p>Install gnome2</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/x11/gnome2
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">gnome2</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>Install xorg</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/x11/xorg
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">xorg</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>Create the initial xorg.conf file</p>
-<div class="highlight"><pre><span></span><span class="x">Xorg -configure</span>
-<span class="x">cp /root/xorg.conf.new </span><span class="p">$</span><span class="nv">HOME</span><span class="x">/xorg.conf</span>
+<div class="highlight"><pre><span></span><span class="n">Xorg</span> <span class="o">-</span><span class="n">configure</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">xorg</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="k">new</span> <span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">xorg</span><span class="p">.</span><span class="n">conf</span>
 </pre></div>
 
 
@@ -141,16 +141,16 @@ make install clean
 <h1>Configure rc.conf</h1>
 <p>The next step is to configure rc.conf to startup by default.  This can be done by adding 
 the below two lines to /etc/rc.conf and than rebooting.   </p>
-<div class="highlight"><pre><span></span>    # DBus and HALd
-    dbus_enable=&quot;YES&quot;
-    hald_enable=&quot;YES&quot;
+<div class="highlight"><pre><span></span>    <span class="o">#</span> <span class="n">DBus</span> <span class="k">and</span> <span class="n">HALd</span>
+    <span class="n">dbus_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
+    <span class="n">hald_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
 
-    # VMware tools
-    vmware_guest_vmblock_enable=&quot;YES&quot;
-    vmware_guest_vmhgfs_enable=&quot;YES&quot;
-    vmware_guest_vmmemctl_enable=&quot;YES&quot;
-    vmware_guest_vmxnet_enable=&quot;YES&quot;
-    vmware_guestd_enable=&quot;YES&quot;
+    <span class="o">#</span> <span class="n">VMware</span> <span class="n">tools</span>
+    <span class="n">vmware_guest_vmblock_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
+    <span class="n">vmware_guest_vmhgfs_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
+    <span class="n">vmware_guest_vmmemctl_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
+    <span class="n">vmware_guest_vmxnet_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
+    <span class="n">vmware_guestd_enable</span><span class="o">=</span><span class="ss">&quot;YES&quot;</span>
 </pre></div>
 
 
@@ -160,25 +160,25 @@ is the best.    </p>
 <ol>
 <li>
 <p>install open-vm-tools</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/emulators/open-vm-tools
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">emulators</span><span class="o">/</span><span class="k">open</span><span class="o">-</span><span class="n">vm</span><span class="o">-</span><span class="n">tools</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>install the mouse tools</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/x11-drivers/xf86-input-vmmouse
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">drivers</span><span class="o">/</span><span class="n">xf86</span><span class="o">-</span><span class="k">input</span><span class="o">-</span><span class="n">vmmouse</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>install the vmware tools (from the vmware dvd)</p>
-<div class="highlight"><pre><span></span>tar -xvf vmware-freebsd-tools.tar.gz
-cd vmware-tools-distrib
-./vmware-install.pl
+<div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">vmware</span><span class="o">-</span><span class="n">freebsd</span><span class="o">-</span><span class="n">tools</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">vmware</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="n">distrib</span>
+<span class="p">.</span><span class="o">/</span><span class="n">vmware</span><span class="o">-</span><span class="n">install</span><span class="p">.</span><span class="n">pl</span>
 </pre></div>
 
 
@@ -187,37 +187,37 @@ cd vmware-tools-distrib
 <h1>Configure Xorg</h1>
 <p>You will need to configure the screen and input devices to make them work correctly 
 with a virtual system.    </p>
-<div class="highlight"><pre><span></span>    Section &quot;ServerLayout&quot;
-      Identifier &quot;X.org Configured&quot;
-      Screen 0 &quot;VMScreen&quot; 0 0
-      InputDevice &quot;VMMouse&quot; &quot;CorePointer&quot;
-      InputDevice &quot;Keyboard0&quot; &quot;CoreKeyboard&quot; 
-    EndSection
+<div class="highlight"><pre><span></span>    <span class="n">Section</span> <span class="ss">&quot;ServerLayout&quot;</span>
+      <span class="n">Identifier</span> <span class="ss">&quot;X.org Configured&quot;</span>
+      <span class="n">Screen</span> <span class="mi">0</span> <span class="ss">&quot;VMScreen&quot;</span> <span class="mi">0</span> <span class="mi">0</span>
+      <span class="n">InputDevice</span> <span class="ss">&quot;VMMouse&quot;</span> <span class="ss">&quot;CorePointer&quot;</span>
+      <span class="n">InputDevice</span> <span class="ss">&quot;Keyboard0&quot;</span> <span class="ss">&quot;CoreKeyboard&quot;</span> 
+    <span class="n">EndSection</span>
 
-    Section &quot;InputDevice&quot;
-      Identifier &quot;VMMouse&quot;
-      Driver &quot;vmmouse&quot;
-      Option &quot;Protocol&quot; &quot;auto&quot;
-      Option &quot;Device&quot; &quot;/dev/sysmouse&quot;
-      Option &quot;ZAxisMapping&quot; &quot;4 5 6 7&quot;
-    EndSection
+    <span class="n">Section</span> <span class="ss">&quot;InputDevice&quot;</span>
+      <span class="n">Identifier</span> <span class="ss">&quot;VMMouse&quot;</span>
+      <span class="n">Driver</span> <span class="ss">&quot;vmmouse&quot;</span>
+      <span class="k">Option</span> <span class="ss">&quot;Protocol&quot;</span> <span class="ss">&quot;auto&quot;</span>
+      <span class="k">Option</span> <span class="ss">&quot;Device&quot;</span> <span class="ss">&quot;/dev/sysmouse&quot;</span>
+      <span class="k">Option</span> <span class="ss">&quot;ZAxisMapping&quot;</span> <span class="ss">&quot;4 5 6 7&quot;</span>
+    <span class="n">EndSection</span>
 
-    Section &quot;Monitor&quot;
-      Identifier &quot;VMMonitor&quot;
-      VendorName &quot;VMware, Inc&quot;
-    EndSection
+    <span class="n">Section</span> <span class="ss">&quot;Monitor&quot;</span>
+      <span class="n">Identifier</span> <span class="ss">&quot;VMMonitor&quot;</span>
+      <span class="n">VendorName</span> <span class="ss">&quot;VMware, Inc&quot;</span>
+    <span class="n">EndSection</span>
 
-    Section &quot;Device&quot;
-      Identifier &quot;VMware SVGA&quot;
-      Driver &quot;vmware&quot;
-    EndSection
+    <span class="n">Section</span> <span class="ss">&quot;Device&quot;</span>
+      <span class="n">Identifier</span> <span class="ss">&quot;VMware SVGA&quot;</span>
+      <span class="n">Driver</span> <span class="ss">&quot;vmware&quot;</span>
+    <span class="n">EndSection</span>
 
-    Section &quot;Screen&quot;
-      Identifier &quot;VMScreen&quot; 
-      Device &quot;VMware SVGA&quot;
-      Monitor &quot;VMMonitor&quot;
-      ...
-    EndSection
+    <span class="n">Section</span> <span class="ss">&quot;Screen&quot;</span>
+      <span class="n">Identifier</span> <span class="ss">&quot;VMScreen&quot;</span> 
+      <span class="n">Device</span> <span class="ss">&quot;VMware SVGA&quot;</span>
+      <span class="n">Monitor</span> <span class="ss">&quot;VMMonitor&quot;</span>
+      <span class="p">...</span>
+    <span class="n">EndSection</span>
 </pre></div>
 
 
@@ -227,24 +227,24 @@ wget and dependencies.   </p>
 <ol>
 <li>
 <p>Install the gsed dependency</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/textproc/gsed
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">textproc</span><span class="o">/</span><span class="n">gsed</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>Install the newt dependency (<b>include python support</b>)</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/devel/newt
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">devel</span><span class="o">/</span><span class="n">newt</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>Install tmux</p>
-<div class="highlight"><pre><span></span>cd /usr/ports/sysutils/tmux
-make install clean
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">sysutils</span><span class="o">/</span><span class="n">tmux</span>
+<span class="n">make</span> <span class="n">install</span> <span class="n">clean</span>
 </pre></div>
 
 
@@ -252,13 +252,13 @@ make install clean
 <li>
 <p>Install byobu (for tmux support need downloaded version) - Last <b>version used 5.60</b></p>
 <div class="highlight"><pre><span></span><span class="nt">cd</span> <span class="o">$</span><span class="nt">HOME</span>
-<span class="nt">wget</span> <span class="nt">https</span><span class="o">://</span><span class="nt">launchpad</span><span class="nc">.net</span><span class="o">/</span><span class="nt">byobu</span><span class="o">/</span><span class="nt">trunk</span><span class="o">/</span><span class="nt">5</span><span class="nc">.60</span><span class="o">/+</span><span class="nt">download</span><span class="o">/</span><span class="nt">byobu_5</span><span class="nc">.60.orig.tar.gz</span>
-<span class="nt">tar</span> <span class="nt">-xvf</span> <span class="nt">byobu_5</span><span class="nc">.60.orig.tar.gz</span>
+<span class="nt">wget</span> <span class="nt">https</span><span class="o">://</span><span class="nt">launchpad</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">byobu</span><span class="o">/</span><span class="nt">trunk</span><span class="o">/</span><span class="nt">5</span><span class="p">.</span><span class="nc">60</span><span class="o">/+</span><span class="nt">download</span><span class="o">/</span><span class="nt">byobu_5</span><span class="p">.</span><span class="nc">60</span><span class="p">.</span><span class="nc">orig</span><span class="p">.</span><span class="nc">tar</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">tar</span> <span class="nt">-xvf</span> <span class="nt">byobu_5</span><span class="p">.</span><span class="nc">60</span><span class="p">.</span><span class="nc">orig</span><span class="p">.</span><span class="nc">tar</span><span class="p">.</span><span class="nc">gz</span>
 <span class="o">./</span><span class="nt">configure</span> <span class="nt">--prefix</span><span class="o">=</span><span class="s2">&quot;$HOME/byobu&quot;</span>
 <span class="nt">make</span> 
 <span class="nt">make</span> <span class="nt">install</span> <span class="nt">clean</span>
-<span class="nt">echo</span> <span class="s2">&quot;echo &quot;</span><span class="nt">export</span> <span class="nt">PATH</span><span class="o">=$</span><span class="nt">HOME</span><span class="o">/</span><span class="nt">byobu</span><span class="o">/</span><span class="nt">bin</span><span class="o">:$</span><span class="nt">PATH</span><span class="err">&quot;</span> <span class="o">&amp;</span><span class="nt">ltsp</span><span class="o">;&amp;</span><span class="nt">ltsp</span><span class="o">;</span> <span class="o">$</span><span class="nt">HOME</span><span class="o">/</span><span class="nc">.bashrc</span>
-<span class="nt">source</span> <span class="o">$</span><span class="nt">HOME</span><span class="o">/</span><span class="nc">.bashrc</span>
+<span class="nt">echo</span> <span class="s2">&quot;echo &quot;</span><span class="nt">export</span> <span class="nt">PATH</span><span class="o">=$</span><span class="nt">HOME</span><span class="o">/</span><span class="nt">byobu</span><span class="o">/</span><span class="nt">bin</span><span class="o">:$</span><span class="nt">PATH</span><span class="err">&quot;</span> <span class="o">&amp;</span><span class="nt">ltsp</span><span class="o">;&amp;</span><span class="nt">ltsp</span><span class="o">;</span> <span class="o">$</span><span class="nt">HOME</span><span class="o">/</span><span class="p">.</span><span class="nc">bashrc</span>
+<span class="nt">source</span> <span class="o">$</span><span class="nt">HOME</span><span class="o">/</span><span class="p">.</span><span class="nc">bashrc</span>
 </pre></div>
 
 

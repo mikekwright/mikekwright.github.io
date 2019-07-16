@@ -131,7 +131,7 @@ with wildfly.  The tools I used are listed below (with their associated versions
 a maven project that works for this environment.  Luckily there is a usable archetype that we
 can start the process from.  So run the below command (filling in your specific details).  For 
 this tutorial the project name that is created will be called 'weld-tutorial'.    </p>
-<div class="highlight"><pre><span></span>mvn archetype:generate -Dfilter=org.wildfly.archetype:wildfly-javaee7-webapp-archetype
+<div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="n">archetype</span><span class="p">:</span><span class="n">generate</span> <span class="o">-</span><span class="n">Dfilter</span><span class="o">=</span><span class="n">org</span><span class="p">.</span><span class="n">wildfly</span><span class="p">.</span><span class="n">archetype</span><span class="p">:</span><span class="n">wildfly</span><span class="o">-</span><span class="n">javaee7</span><span class="o">-</span><span class="n">webapp</span><span class="o">-</span><span class="n">archetype</span>
 </pre></div>
 
 
@@ -147,23 +147,23 @@ the below block to the dependencies section.  </p>
 
 
 <p>At this point you should be able to build the maven project to created our deployable war. </p>
-<div class="highlight"><pre><span></span>    mvn clean install
-    ls target/*.war
+<div class="highlight"><pre><span></span>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">install</span>
+    <span class="n">ls</span> <span class="n">target</span><span class="cm">/*.war</span>
 </pre></div>
 
 
 <p>Now we need to specify an application instance that this container can run in, so docker
 to the rescue.  Below is the <code>Dockerfile</code> that I created to pull down the created wildfly image
 and add our applications war file to the image.   </p>
-<div class="highlight"><pre><span></span>    FROM jboss/wildfly:9.0.1.Final
-    ADD target/weld-tutorial.war /opt/jboss/wildfly/standalone/deployments/ROOT.war
+<div class="highlight"><pre><span></span>    <span class="k">FROM</span> <span class="n">jboss</span><span class="o">/</span><span class="n">wildfly</span><span class="p">:</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="k">Final</span>
+    <span class="k">ADD</span> <span class="n">target</span><span class="o">/</span><span class="n">weld</span><span class="o">-</span><span class="n">tutorial</span><span class="p">.</span><span class="n">war</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">jboss</span><span class="o">/</span><span class="n">wildfly</span><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">deployments</span><span class="o">/</span><span class="n">ROOT</span><span class="p">.</span><span class="n">war</span>
 </pre></div>
 
 
 <p>Save this <code>Dockerfile</code> and run the below commands and we should have our application up
 and running.    </p>
-<div class="highlight"><pre><span></span>    docker build -t weld-tutorial .
-    docker run -it -p 8080:8080 weld-tutorial
+<div class="highlight"><pre><span></span>    <span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">weld</span><span class="o">-</span><span class="n">tutorial</span> <span class="p">.</span>
+    <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span> <span class="n">weld</span><span class="o">-</span><span class="n">tutorial</span>
 </pre></div>
 
 
@@ -179,20 +179,20 @@ the service <code>call</code> method is executed.  To do this, we first add a ne
 be created by just using a static lookup (such as getInstance).  With our implementation it is
 already provided by the <code>Resources</code> class, so we just need to inject a copy into our class. This 
 is done simply using the <code>@Inject</code> attribute on the private member we need filled.  </p>
-<div class="highlight"><pre><span></span>    @Inject
-    private Logger logger;
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="nv">@Inject</span><span class="w"></span>
+<span class="w">    </span><span class="n">private</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 
 <p>The one thing to note, is that since this is a property injection, we cannot use this object
 within our constructor.  If we need to have it accessible inside the constructor, you can 
 instead inject the dependency in the constructor itself, and save it to a variable.   </p>
-<div class="highlight"><pre><span></span>    private Logger logger;
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="n">private</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="p">;</span><span class="w"></span>
 
-    @Inject
-    public HelloWorldService(Logger logger) {
-        this.logger = logger;
-    }
+<span class="w">    </span><span class="nv">@Inject</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">HelloWorldService</span><span class="p">(</span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">this</span><span class="p">.</span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logger</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
 </pre></div>
 
 
