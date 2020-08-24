@@ -7,5 +7,3 @@ RUN apt-get update \
     && rm -rf /tmp /var/tmp
 
 RUN pip3 install nb2hugo jupyter
-
-#ENV CONDA_ENV blog
