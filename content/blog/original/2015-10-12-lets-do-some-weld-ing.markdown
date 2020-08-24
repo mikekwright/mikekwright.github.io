@@ -1,7 +1,11 @@
+---
 Title: "Let's do some Weld-ing"
 Date: 2015-10-12 14:28
 Category: development
-Tags: java, dependency injection
+Tags:
+ - java
+ - dependency injection
+---
 
 So I am no stranger to dependency injection (DI), having used it for many years (starting with 
 RhinoMocks on .net).  For my new company they are using a CDI implementation (Weld) which is one

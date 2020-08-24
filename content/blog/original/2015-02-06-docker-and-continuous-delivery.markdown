@@ -1,8 +1,13 @@
+---
 Title: "Docker and Continuous Delivery"
 Date: 2015-02-06 14:35
 Status: draft
 Category: ops
-Tags: aws, docker, continuous delivery
+Tags:
+ - aws
+ - docker
+ - continuous delivery
+---
 
 I am a huge fan of continuous delivery, of release code as soon at it is written and passes the
 automated test gates.  I am also a fan of having a deployment system that can be more closely 

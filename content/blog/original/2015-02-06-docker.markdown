@@ -1,7 +1,11 @@
+---
 Title: "Docker"
 Date: 2015-02-06 15:23
 Category: development
-Tags: docker, mac
+Tags:
+ - docker
+ - mac
+---
 
 I love Docker and I really enjoy developing on a stable nix-like environment.  But with the 
 current limitation of the docker daemon requiring the linux kernel to work, I am left trying

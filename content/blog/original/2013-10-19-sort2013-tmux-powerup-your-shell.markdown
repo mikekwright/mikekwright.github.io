@@ -1,7 +1,12 @@
+---
 Title: "Sort2013 Part IV: TMUX - Powerup your shell"
 Date: 2013-10-19 22:43
 Category: conferences, tools
-Tags:  sort, tmux, linux 
+Tags:
+ - sort
+ - tmux
+ - linux
+---
 
 During sort, this session was actually a really insightful look into mouse-less productivity.  
 I have always been a fan of working in the console, and have actually used screen in the past. 

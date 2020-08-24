@@ -1,3 +1,2 @@
-FROM mikewright/anaconda-tensorflow:python35-onbuild
-
-ENV CONDA_ENV blog
+# This new setup uses Hugo, so lets add the hugo image for building
+FROM mikewright/website-builder:hugo-0.74.0

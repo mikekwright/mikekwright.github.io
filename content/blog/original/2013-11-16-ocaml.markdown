@@ -1,7 +1,10 @@
+---
 Title: "Ocaml, Opam and utop from a newb"
 Date: 2013-11-16 15:03
 Category: development
-Tags: ocaml
+Tags:
+ - ocaml
+---
 
 This week I had the chance to attend QCon SF and let me tell you it was a great experience. 
 One of the benefits that came out of this conference was a free ebook from ORielly books. The
