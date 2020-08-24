@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ocaml on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/ocaml/</link>
+    <description>Recent content in ocaml on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/ocaml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ocaml, Opam and utop from a newb</title>
+      <link>http://mikewright.me/blog/original/2013-11-16-ocaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-11-16-ocaml/</guid>
+      <description>This week I had the chance to attend QCon SF and let me tell you it was a great experience. One of the benefits that came out of this conference was a free ebook from ORielly books. The book that I decided to pickup was the newly released Real World Ocaml.
+One of the first things that you need to setup when working with ocaml is, of course, the environment. This book talks about using utop and opam (the ocaml package manager).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Sort2013 Part IV: TMUX - Powerup your shell &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Sort2013 Part IV: TMUX - Powerup your shell">
+<meta itemprop="description" content="During sort, this session was actually a really insightful look into mouse-less productivity.
+I have always been a fan of working in the console, and have actually used screen in the past. However tmux has opened up an entirely new world for me.
+In this post I am going to share some of the things that I have learned from using tmux as setups I have in place for creating easy on &ldquo;dev environments&rdquo;.">
+
+<meta itemprop="wordCount" content="856">
+
+
+
+<meta itemprop="keywords" content="sort,tmux,linux," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sort2013 Part IV: TMUX - Powerup your shell"/>
+<meta name="twitter:description" content="During sort, this session was actually a really insightful look into mouse-less productivity.
+I have always been a fan of working in the console, and have actually used screen in the past. However tmux has opened up an entirely new world for me.
+In this post I am going to share some of the things that I have learned from using tmux as setups I have in place for creating easy on &ldquo;dev environments&rdquo;."/>
+
+
+<meta property="og:title" content="Sort2013 Part IV: TMUX - Powerup your shell" />
+<meta property="og:description" content="During sort, this session was actually a really insightful look into mouse-less productivity.
+I have always been a fan of working in the console, and have actually used screen in the past. However tmux has opened up an entirely new world for me.
+In this post I am going to share some of the things that I have learned from using tmux as setups I have in place for creating easy on &ldquo;dev environments&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Sort2013 Part IV: TMUX - Powerup your shell</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 5 min read
+  </div>
+
+  <p>During sort, this session was actually a really insightful look into mouse-less productivity.<br>
+I have always been a fan of working in the console, and have actually used screen in the past.
+However tmux has opened up an entirely new world for me.</p>
+<p>In this post I am going to share some of the things that I have learned from using tmux
+as setups I have in place for creating easy on &ldquo;dev environments&rdquo;.</p>
+<!-- raw HTML omitted -->
+<h2 id="tmux-overviewhttptmuxsourceforgenet"><a href="http://tmux.sourceforge.net/">TMux overview</a></h2>
+<p>Tmux is a <a href="http://en.wikipedia.org/wiki/Terminal_multiplexer">terminal multiplexer.</a> If you
+are a heavy user of command line execution on nix-like environments (including ssh) than you
+will want to become comfortable with using terminal multiplexers.  This will allow you to
+be able to persist sessions, allow for &ldquo;remote pair-programming&rdquo; like features.</p>
+<p>To work with tmux you need to realize that each tmux run creates a &ldquo;session&rdquo;.  Each session
+can intern have multiple windows.  And each window has 1+ panes.  When a pane is created it
+is a completely new shell environment and does not keep aliases or other configuration applied
+to a previous pane.</p>
+<h3 id="session">Session</h3>
+<p>Session can be created using names which can allow you to easily switch between multiple
+sessions depending on work you are doing.  To work with session information you start by
+using</p>
+<pre><code>    tmux new-session  
+</code></pre>
+<p>This will create a new unnamed session, which you can rename using <code>C-&lt;bindkey&gt; $</code>.  If you
+want to create a session from scratch with the correct name you can use</p>
+<pre><code>    tmux new-session -s &lt;name&gt;  
+</code></pre>
+<p>You can now disconnect from a session using <code>C-&lt;bindkey&gt; D</code>.  After disconnecting, reconnecting is accomplished using</p>
+<pre><code>    tmux attach -t &lt;name&gt;
+</code></pre>
+<h3 id="windows">Windows</h3>
+<p>We have a newly created session and a single window and a pane at this point.  So lets go over
+how to work with windows, both creating and navigation.</p>
+<p>To create a new window from inside the session you can use the default shortcut <code>C-&lt;bindkey&gt; c</code>.
+This will create a new window that will default to the window number that has already been
+created.  You can also create a new window for an existing session using the following command
+line call.</p>
+<pre><code>    tmux new-window -t &lt;session-name&gt;
+</code></pre>
+<p>If you want to name this window you can either name it using the shortcut <code>C-&lt;bindkey&gt; ,</code>. You can
+also name it at creation or rename from command line using one of the below commands.</p>
+<pre><code>    tmux new-window -t &lt;session-name&gt; -n &lt;window-name&gt;
+    tmux rename-window -t &lt;session-name&gt;:&lt;window-number&gt; &lt;window-name&gt;
+</code></pre>
+<p>So we have window creation and renaming, now on to window destruction.  The shortcut for
+destroying the current window is <code>C-&lt;bindkey&gt; &amp;</code>.  This will prompt you before the deletion
+will be completed, it will also terminal all running processes that were started in any
+of the windows open panes.</p>
+<p>Window navigation is also pretty straight forward. The below list is the shortcuts and can be
+used when navigating.</p>
+<ul>
+<li><code>C-&lt;bindkey&gt; n</code> - Navigate to the next window</li>
+<li><code>C-&lt;bindkey&gt; p</code> - Navigate to the previous window</li>
+<li><code>C-&lt;bindkey&gt; w</code> - Open up a window chooser</li>
+<li><code>C-&lt;bindkey&gt; [0-9]</code> - Quickly navigate to selected window [0-9]</li>
+</ul>
+<h3 id="panes">Panes</h3>
+<p>This is (of course) the reason we are using tmux.  The ability to work with terminals.  A
+pane is always its own terminal.  Up until now we have basically defined tools used to
+organize these created terminals, but panes are the only ones that are terminals.</p>
+<p>Pane creation is done through window manipulation.  So you always start with your first
+pane, to create a second you must <strong>SPLIT</strong> the existing pane.  Splitting the pane can
+be down either vertically or horizontally.</p>
+<ul>
+<li><code>C-&lt;bindkey&gt; %</code> - Split pane 50% horizontally</li>
+<li><code>C-&lt;bindkey&gt; &quot;</code> - Split pane 50% vertically</li>
+</ul>
+<p>You can also resize existing panes by using <code>C-&lt;bindkey&gt; C-[up-down-left-right]</code>. As you use
+the arrow keys it will adjust the panes giving you the exact setup you desire.  Navigating
+through the panes uses nearly the same shortcuts <code>C-&lt;bindkey&gt; [up-down-left-right]</code>.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Tmux also provides a means for configuring your tmux setup by supplying .tmux.conf.  Below is
+the sample .tmux.conf file that was created.</p>
+<p>[gist:id=7326539,file=.tmux.conf]</p>
+<h2 id="vim-configuration">Vim Configuration</h2>
+<p>So I am a huge vim fan.  Nearly every ide I have has vim mode enabled.  It is one of the
+funniest things to have happen when a co-worker says &ldquo;wow you go through that fast&rdquo; and I
+respond, &ldquo;it&rsquo;s just the vim binding&rdquo;.  At that point they start to laugh cause I&rsquo;m using
+vim bindings, and I just shrug and say, &ldquo;Whatever makes me more productive than you ;-)&rdquo;.</p>
+<p>My vim setup is pretty simple, since I use vim through ssh shells often and inside of
+screen / tmux sessions, I have adjusted vim to use certain bindings that work in these
+environments.</p>
+<h3 id="plugins">Plugins</h3>
+<p>To really get the power of vim you will need to have some plugins installed and setup
+to be enabled in your environment.  Vim allows you to set any number of keyboard shortcuts
+you would like, but I would recommend not using function keys (you can get conflicts with
+some screen technologies).</p>
+<ul>
+<li><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> - Easy Plugin Management <strong>A MUST</strong></li>
+<li><a href="https://github.com/scrooloose/nerdtree">NerdTree</a> - File Explorer</li>
+<li><a href="https://github.com/kien/ctrlp.vim">ctrlp</a> - Ctrl+P File Searching</li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=42">bufexplorer</a></li>
+<li>Colorscheme <a href="http://www.vim.org/scripts/script.php?script_id=2140">xoria256</a> - 256 trem</li>
+</ul>
+<h3 id="vimrc">vimrc</h3>
+<p>These are just some of the basic options that I prefer for use in my vim environment.</p>
+<p>[gist:id=7326565,file=vimrc]</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

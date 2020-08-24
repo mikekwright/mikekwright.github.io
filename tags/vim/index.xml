@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/vim/</link>
+    <description>Recent content in vim on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting to know vim</title>
+      <link>http://mikewright.me/blog/original/2013-10-12-getting-to-know-vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-12-getting-to-know-vim/</guid>
+      <description>This will be one of those posts, that I hope grows often as I love to use vim, and especially love to write down what I learn in case I forget it in the future.
+Useful Shortcuts   Disable Search Highlighting
+ set nohlsearch &amp;quot; Turn it off set hlsearch! &amp;quot; Toggle on or off :nohlsearch &amp;quot; Turn it off as command :nohl &amp;quot; Shorthand :noh &amp;quot; Even Shorter    Useful Plugins TODO ;-)</description>
+    </item>
+    
+  </channel>
+</rss>

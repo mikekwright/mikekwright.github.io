@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ec2 on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/ec2/</link>
+    <description>Recent content in ec2 on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EC2 Container Service</title>
+      <link>http://mikewright.me/blog/original/2014-12-01-ec2-container-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2014-12-01-ec2-container-service/</guid>
+      <description>At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances.
+We have been using docker for a while now within our organization, and I have to say that I am a huge fan of Docker. This is a great step in the right direction and I believe can help to decrease deploys to AWS while increasing stability and extensibility of a given architecture.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>EC2 Container Service &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="EC2 Container Service">
+<meta itemprop="description" content="At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances.
+We have been using docker for a while now within our organization, and I have to say that I am a huge fan of Docker. This is a great step in the right direction and I believe can help to decrease deploys to AWS while increasing stability and extensibility of a given architecture.">
+
+<meta itemprop="wordCount" content="773">
+
+
+
+<meta itemprop="keywords" content="aws,ec2,docker," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EC2 Container Service"/>
+<meta name="twitter:description" content="At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances.
+We have been using docker for a while now within our organization, and I have to say that I am a huge fan of Docker. This is a great step in the right direction and I believe can help to decrease deploys to AWS while increasing stability and extensibility of a given architecture."/>
+
+
+<meta property="og:title" content="EC2 Container Service" />
+<meta property="og:description" content="At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances.
+We have been using docker for a while now within our organization, and I have to say that I am a huge fan of Docker. This is a great step in the right direction and I believe can help to decrease deploys to AWS while increasing stability and extensibility of a given architecture." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/original/2014-12-01-ec2-container-service/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>EC2 Container Service</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 4 min read
+  </div>
+
+  <p>At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2
+Container Service.  A service provided by AWS to run docker containers on top of EC2 instances.</p>
+<!-- raw HTML omitted -->
+<p>We have been using docker for a while now within our organization, and I have to say that I
+am a huge fan of Docker.  This is a great step in the right direction and I believe can help
+to decrease deploys to AWS while increasing stability and extensibility of a given architecture.</p>
+<h2 id="ec2-container-service">EC2 Container Service</h2>
+<p>At this point in time EC2 Container Service is still in preview, which means that you will need
+to request access to this preview in your own AWS account to follow this pattern.  However
+AWS does have some great material that will allow you to see the benefits of this new service
+without requiring you to have preview access.  This material can be found
+<a href="http://aws.amazon.com/ecs/getting-started/">here</a>.</p>
+<h2 id="service-breakdown">Service Breakdown</h2>
+<p>The main idea of this service is to give you the ability to create complese architectures that
+can be broken down into smaller docker containers, which in turn can be deployed to a cluster
+of actual ec2 instances.  This meanst hat you could have a single m3.xlarge instance for your
+application while keeping the database and application code seperate, but without requiring you
+to have more instances than absolutely necessary.</p>
+<p>The service pieces are broken down into the following.</p>
+<ol>
+<li>Tasks</li>
+<li>Containers</li>
+<li>Clusters</li>
+<li>Container Instances</li>
+</ol>
+<h3 id="tasks">Tasks</h3>
+<p>Tasks are basically the starting point of your cluster deploy.  Anytime you want to deploy
+your application you will start by defining the task.  Tasks themselves are defined as json
+objects.</p>
+<pre><code>{
+  &quot;family&quot;: &quot;application-name&quot;,
+  &quot;version&quot;: &quot;9a56714245e7e603127&quot;,    -- This can be a simple version or git SHA1
+  &quot;containers&quot;: [
+    &lt;&lt; CONTAINER DEFINITIONS &gt;&gt;
+  ]
+}
+</code></pre>
+<p>So with this json definition we are defining the entire application that we are providing,
+so if I had an application that acted as an API endpoint I would provide the load balancing
+server as a container, the actual web server as a container and then a container for the
+database (if one exists).</p>
+<p>When you have your task defined, you can register that task with EC2 Container Service
+to specify that you have the new task.</p>
+<pre><code>aws ecs register-task-definition --family &quot;custom-name&quot; --version &quot;custom-version&quot; definition.json
+</code></pre>
+<p>After you have registered the task and you have the cluster created you can run the
+task using the following command.</p>
+<pre><code>aws ecs run-task custom-name:custom-version    
+</code></pre>
+<h3 id="containers">Containers</h3>
+<p>Container definitions are very simple and can follow a lot of the docker idioms in creation.</p>
+<pre><code>{
+  &quot;name&quot;: &quot;container-name&quot;, 
+  &quot;image&quot;: &quot;app-container:latest&quot;, 
+  &quot;cpu&quot;: 128,                        -- Note CPU is in units, defines the instances that can fit a given instance
+  &quot;memory&quot;: 512,
+  &quot;portMappings&quot;: [
+    {
+      &quot;containerPort&quot;: 9443, 
+      &quot;hostPort&quot;: 443 
+    }
+  ], 
+  &quot;links&quot;: [&quot;frontend&quot;], 
+  &quot;essential&quot;: true
+}
+</code></pre>
+<p>So the main things to understand on this definition is the <code>cpu</code> field.  This represents the
+unit of measurement for a cpu that should be used.  You can think of this as almost a percentage
+of the total CPU to use (which I believe 100% would be 1024).  So if I wanted to use 50% of the
+cpu for a given instance I would have <code>&quot;cpu&quot;: 512</code>.</p>
+<p>The links is the list of containers that this container should reference, you can find information
+about linking containers on the docker documentation site.</p>
+<p>Finally the essential flag is set to let the cluster know if the task is basically good or not.
+If a single container is essential, but cannot be created or fails to run, this would mean the
+task is not valid anymore.</p>
+<h3 id="clusters">Clusters</h3>
+<p>Clusters are basically grouping of container instances that are releated for a given task.  When
+the cluster is first created it is empty and it then populates with container as requirements
+come into play.</p>
+<p>AWS does have a command line tool that you can use to create a cluster.</p>
+<pre><code>aws ec2 create-cluster cluster-name
+</code></pre>
+<p>This will create a cluster an give you the ability to start creating container instances that
+can be part of this cluster.   When this cluster is created you will be given an <code>arn</code> to
+reference this cluster. This is a very similar process to SQS, SNS, etc.</p>
+<h3 id="container-instances">Container Instances</h3>
+<p>These are instances that AWS have setup with a <code>go</code> application (container agent) that will
+tie into the cluster mechanism.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>While I have not yet been able to test out ECS I am very excited about this service and
+very excited about the flow they have created as I feel that it allows us to create much more
+stable and scalable systems.</p>
+<p>Once I have access to the preview I will add my experiences in a follow-up post.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

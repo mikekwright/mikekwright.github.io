@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/javascript/</link>
+    <description>Recent content in javascript on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SproutCore - First Impressions</title>
+      <link>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</guid>
+      <description>Today I decided to spend a little time to try out the sproutcore web framework, which has a lot of strengths centered around using appropriate programming practices.
+What is Sproutcore Sproutcore is a framework that allows you to write the code in Javascript and has that code run on both the server and client. It is a very powerful library that can help you to create web applications, not to extend your existing site.</description>
+    </item>
+    
+  </channel>
+</rss>

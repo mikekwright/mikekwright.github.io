@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Docker &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Docker">
+<meta itemprop="description" content="I love Docker and I really enjoy developing on a stable nix-like environment. But with the current limitation of the docker daemon requiring the linux kernel to work, I am left trying to create the best experience that I can while developing on a mac.
+Why not just use boot2docker So docker does provide a solution for most people which is called boot2docker. This solution provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox that you can use as the docker daemon.">
+
+<meta itemprop="wordCount" content="902">
+
+
+
+<meta itemprop="keywords" content="docker,mac," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="I love Docker and I really enjoy developing on a stable nix-like environment. But with the current limitation of the docker daemon requiring the linux kernel to work, I am left trying to create the best experience that I can while developing on a mac.
+Why not just use boot2docker So docker does provide a solution for most people which is called boot2docker. This solution provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox that you can use as the docker daemon."/>
+
+
+<meta property="og:title" content="Docker" />
+<meta property="og:description" content="I love Docker and I really enjoy developing on a stable nix-like environment. But with the current limitation of the docker daemon requiring the linux kernel to work, I am left trying to create the best experience that I can while developing on a mac.
+Why not just use boot2docker So docker does provide a solution for most people which is called boot2docker. This solution provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox that you can use as the docker daemon." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/original/2015-02-06-docker/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Docker</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 5 min read
+  </div>
+
+  <p>I love Docker and I really enjoy developing on a stable nix-like environment.  But with the
+current limitation of the docker daemon requiring the linux kernel to work, I am left trying
+to create the best experience that I can while developing on a mac.</p>
+<!-- raw HTML omitted -->
+<h2 id="why-not-just-use-boot2docker">Why not just use boot2docker</h2>
+<p>So docker does provide a solution for most people which is called boot2docker.  This solution
+provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox
+that you can use as the docker daemon.</p>
+<p>This is a great solution and fits the majority of requirements that people have.  For me, however,
+I wanted to have a little more control over the virtual machine in use and so I have created a
+script that I use to interact with docker while on my mac.  This script takes care of a number
+of little issues for me, and while it is not perfect, it has been very helpful in making me forget
+that there is a disconnect between mac and docker.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>For the environment that I use there are a few things that first need to be installed on the system:</p>
+<ol>
+<li>docker native client</li>
+<li>virtualbox (with extensions)</li>
+<li><a href="http://vagrantup.com">vagrant</a></li>
+</ol>
+<p>That is all that is needed for this setup to work for you.</p>
+<h2 id="the-script">The Script</h2>
+<p>So the main part of this setup is the docker script (found below).  I basically hijack the docker
+command and will instead have a fronted script whose purpose is to make sure that I am in a
+good state before running the command.  It is broken down into a few sections.</p>
+<h3 id="vagrantfile">Vagrantfile</h3>
+<p>Since I am running on a mac I have to use virtualization to work with docker, there is no getting
+around that at the time this post was written.  To simplifying things, the script is in charge
+of creating a home directory for the docker (by default ~/.docker) and laying down a Vagrantfile
+that will be used to dynamically generate the virtual machine.</p>
+<p>The box uses <code>ubuntu/trusty64</code> as the base image for the docker daemon.  It then sets up the
+environment by adding the docker repo to the apt sources.  After that it updates apt and installs
+a few packages, the most important of these being <code>lxc-docker</code>.  The vim and tmux packages are
+there for when I need to work on that environment, and the openconnect package is there to
+establish a vpn connection to my work (more on this later).</p>
+<p>It then configures docker to enable remote connections over port 2375 to the docker daemon, and
+finally allows an internal docker registry (using an non-global-cert) to still be accepted when
+pulling images.</p>
+<p>The last little bit of the file has to do with setting up a static local ip and port forwarding
+for the docker container.  Now you may be wondering why it is that I need both a static ip and
+the port forwarding to be setup.  This is actually because of an issue that is introduced when
+I establish a vpn connection to my office using anyconnect. I believe that it is in the configuration
+that is allowed by my organizations policies, but after the connection is opened direct access
+to my local address block (192.168.53.X) is blocked.  I have read many different articles and seen
+scripts that are supposed to fix this, but none of them were successful for me (I am sure I gave
+up a little fast as well).</p>
+<h3 id="custom-commands">Custom Commands</h3>
+<p>The other thing that this script does for me is to extend the docker command with a few extra
+commands that I use often.  Some of them are to interact with the underlying virtual machine,
+while others are used to manage the daemon.  The best part is that any other commands are passed
+forward to the actual docker client, so I am not losing any functionality.</p>
+<ul>
+<li>up</li>
+<li>halt</li>
+<li>destroy</li>
+<li>clean</li>
+<li>ssh</li>
+<li>vpn</li>
+<li>portf/noportf</li>
+</ul>
+<h4 id="up">up</h4>
+<p>This command is simple, it will bring up the virtual machine if it is not running.  This command
+is not necessary most of the time as the other docker commands (besides halt and destroy)
+will check if there is a virtual machine running, and if not start it before executing the command.</p>
+<h4 id="halt">halt</h4>
+<p>This command is used to stop the virtual machine.</p>
+<h4 id="destroy">destroy</h4>
+<p>This command is used to destroy the underlying virtual machine.  This is nice as it gives you an
+easy way to upgrade the docker daemon, just destroy the current vm and rebuild.</p>
+<h4 id="clean">clean</h4>
+<p>This command is the one that I find the most useful.  I am always having to clear out old running
+containers and images that are no longer used.  This command will run two other bash functions.</p>
+<p>One to clear the containers (and volumes):</p>
+<pre><code>  $DOCKER_RUN ps -a | awk 'NR &lt;= 1 { next } NR &gt; 1 {print $1}' | xargs $DOCKER_RUN rm -v
+</code></pre>
+<p>And one to clear the extra images:</p>
+<pre><code>  $DOCKER_RUN images | grep '&lt;none&gt;' -a | awk '{print $3}' | xargs $DOCKER_RUN rmi
+</code></pre>
+<h4 id="ssh">ssh</h4>
+<p>Allows for ssh directly into the virtual machine.</p>
+<h4 id="vpn">vpn</h4>
+<p>Enables vpn on the virtual machine.  This lets me give access to internal repositories over vpn
+without requiring my host to vpn.  This saves me from having to do port forwarding (which for some
+reason with docker and virtualbox, it is incredible slow).</p>
+<h4 id="portfnoportf">portf/noportf</h4>
+<p>This command is to enable or disable port forwarding use when connecting to the docker daemon.</p>
+<h2 id="docker">docker</h2>
+<p>[gist:id=172093a8f0ab7542a568,file=docker]</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

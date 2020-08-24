@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cassandra on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/cassandra/</link>
+    <description>Recent content in cassandra on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Datastax Sandbox Network</title>
+      <link>http://mikewright.me/blog/original/2015-10-16-datastax-sandbox-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-10-16-datastax-sandbox-network/</guid>
+      <description>So today I was working with the datastax virtual environment (namely getting the OVA to work inside of VMWare). There was only one issue that I ran into, that was the external networking was not working out of the box. In this post I will discuss what I looked into and how I fixed the problem in the end.
+To start, I am not a very savy linux guru, so the purpose of this post is to both share and record my experience so that I can go over it again in the future if needed.</description>
+    </item>
+    
+  </channel>
+</rss>

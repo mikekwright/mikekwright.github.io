@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>continuous delivery on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/continuous-delivery/</link>
+    <description>Recent content in continuous delivery on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker and Continuous Delivery</title>
+      <link>http://mikewright.me/blog/original/2015-02-06-docker-and-continuous-delivery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-06-docker-and-continuous-delivery/</guid>
+      <description>I am a huge fan of continuous delivery, of release code as soon at it is written and passes the automated test gates. I am also a fan of having a deployment system that can be more closely managed by me (the engineer). Using docker at work we have been able to create a system that allows us to define a running container and using gates, continuously deploy this simple container to many different environments (stage, prod, etc).</description>
+    </item>
+    
+  </channel>
+</rss>

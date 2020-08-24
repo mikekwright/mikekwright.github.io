@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/mac/</link>
+    <description>Recent content in mac on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker</title>
+      <link>http://mikewright.me/blog/original/2015-02-06-docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-06-docker/</guid>
+      <description>I love Docker and I really enjoy developing on a stable nix-like environment. But with the current limitation of the docker daemon requiring the linux kernel to work, I am left trying to create the best experience that I can while developing on a mac.
+Why not just use boot2docker So docker does provide a solution for most people which is called boot2docker. This solution provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox that you can use as the docker daemon.</description>
+    </item>
+    
+  </channel>
+</rss>

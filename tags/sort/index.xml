@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sort on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/sort/</link>
+    <description>Recent content in sort on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sort2013 Part I: A Review</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-a-review/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-a-review/</guid>
+      <description>SORT is a software/technology conference that is held by engineers working for the LDSChurch, FamilySearch and Utah Based Higher Education organizations. It is an annual conference that is free to attend and is held at the University of Utah institute building.
+While this may not be exactly like the other conferences you have attended, QCon and the like, it is still a great experience, and one should never pass up the oppurtunity to learn something new.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part II: Design Thinking</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-design-thinking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-design-thinking/</guid>
+      <description>This lecture was given by Brandon Gillespie and it was fantastic. Below are my attempts at creating reasonable information based on the lecture given.
+This was a fantastic presentation that focused on delving into ideas of archiecture progress and helpful hints that can help keep an architect moving in the correct direction. This session did not have any focus on specific tools so should not be limited to a certain &amp;ldquo;type&amp;rdquo; of architect.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part III: Machine Learning in Python</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-machine-learning-in-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-machine-learning-in-python/</guid>
+      <description>I haven&amp;rsquo;t done much with Machine Learning since graduating from school years ago. However recently there have been a number of projects where the use of machine learning can bring a significant benefit. This lecture was a great refresher and introduction to how task can be accomplished using python.
+Why should we focus on machine learning now?
+The power of a machine learning algorithm is its ability to GENERALIZE from a finite set of examples.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part IV: TMUX - Powerup your shell</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/</guid>
+      <description>During sort, this session was actually a really insightful look into mouse-less productivity.
+I have always been a fan of working in the console, and have actually used screen in the past. However tmux has opened up an entirely new world for me.
+In this post I am going to share some of the things that I have learned from using tmux as setups I have in place for creating easy on &amp;ldquo;dev environments&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

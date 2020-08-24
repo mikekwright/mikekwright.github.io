@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://mikewright.me/blog/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/django/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2012-05-09-installing-django-with-no-root-access/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/python/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/</loc>
+    <lastmod>2012-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/pages/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/awk/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/aws/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/bash/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/cassandra/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/pages/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/continuous-delivery/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/datastax/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2015-10-16-datastax-sandbox-network/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/dependency-injection/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2015-02-06-docker/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2015-02-06-docker-and-continuous-delivery/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/ec2/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2014-12-01-ec2-container-service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/pages/experience/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/freebsd/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-10-freebsd-9-dot-2-and-vmware-workstation-9-dot-4/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-12-getting-to-know-vim/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/java/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/javascript/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2015-10-12-lets-do-some-weld-ing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/linux/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2014-07-02-linux-awk/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/logs/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/mac/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/machine-learning/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/nodejs/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/ocaml/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-11-16-ocaml/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/pages/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/preview/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/python/02-python-anaconda-tensorflow/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/research/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/ruby/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-31-shunit2-bash-testing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/software-craftsmanship/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/sort/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-19-sort2013-a-review/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-19-sort2013-design-thinking/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-19-sort2013-machine-learning-in-python/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/splunk/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-24-splunk-6-whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2013-10-16-static-site-meandering/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/testing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/tmux/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/blog/original/2012-10-21-typescript-preview-on-appharbor/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/vim/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/virtualization/</loc>
+  </url>
+  
+  <url>
+    <loc>http://mikewright.me/tags/vmware/</loc>
+  </url>
+  
+</urlset>

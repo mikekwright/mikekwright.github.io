@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/</link>
+    <description>Recent content in Tags on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mikewright.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>django</title>
+      <link>http://mikewright.me/tags/django/</link>
+      <pubDate>Wed, 09 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://mikewright.me/tags/python/</link>
+      <pubDate>Wed, 09 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>http://mikewright.me/tags/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>http://mikewright.me/tags/awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>http://mikewright.me/tags/aws/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>http://mikewright.me/tags/bash/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cassandra</title>
+      <link>http://mikewright.me/tags/cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/cassandra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continuous delivery</title>
+      <link>http://mikewright.me/tags/continuous-delivery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/continuous-delivery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datastax</title>
+      <link>http://mikewright.me/tags/datastax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/datastax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dependency injection</title>
+      <link>http://mikewright.me/tags/dependency-injection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/dependency-injection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://mikewright.me/tags/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>http://mikewright.me/tags/ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>freebsd</title>
+      <link>http://mikewright.me/tags/freebsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>http://mikewright.me/tags/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>http://mikewright.me/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://mikewright.me/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logs</title>
+      <link>http://mikewright.me/tags/logs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/logs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>http://mikewright.me/tags/mac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>http://mikewright.me/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>http://mikewright.me/tags/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ocaml</title>
+      <link>http://mikewright.me/tags/ocaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/ocaml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>preview</title>
+      <link>http://mikewright.me/tags/preview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/preview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>http://mikewright.me/tags/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>http://mikewright.me/tags/ruby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software craftsmanship</title>
+      <link>http://mikewright.me/tags/software-craftsmanship/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/software-craftsmanship/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sort</title>
+      <link>http://mikewright.me/tags/sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>splunk</title>
+      <link>http://mikewright.me/tags/splunk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/splunk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>http://mikewright.me/tags/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmux</title>
+      <link>http://mikewright.me/tags/tmux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://mikewright.me/tags/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualization</title>
+      <link>http://mikewright.me/tags/virtualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware</title>
+      <link>http://mikewright.me/tags/vmware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

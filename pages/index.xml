@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/pages/</link>
+    <description>Recent content in Pages on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/pages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://mikewright.me/pages/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/about/</guid>
+      <description>I am a developer</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://mikewright.me/pages/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/contact/</guid>
+      <description>Don&amp;rsquo;t call us, we&amp;rsquo;ll call you</description>
+    </item>
+    
+    <item>
+      <title>Experience</title>
+      <link>http://mikewright.me/pages/experience/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/experience/</guid>
+      <description>This is where I put my experience</description>
+    </item>
+    
+  </channel>
+</rss>

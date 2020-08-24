@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/</link>
+    <description>Recent content on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mikewright.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing Django with no root access</title>
+      <link>http://mikewright.me/blog/original/2012-05-09-installing-django-with-no-root-access/</link>
+      <pubDate>Wed, 09 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2012-05-09-installing-django-with-no-root-access/</guid>
+      <description>I really have enjoyed working with a $5/month hosting company for seriously small projects with few performance requirements. The service that I am using at this time is site5. They offer a great plan that works for me and the many simple projects I have been using as prototypes.
+For this specific discussion I am going to talk about what I needed to do get the lastest django (v1.4) working on site5.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://mikewright.me/pages/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/about/</guid>
+      <description>I am a developer</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://mikewright.me/pages/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/contact/</guid>
+      <description>Don&amp;rsquo;t call us, we&amp;rsquo;ll call you</description>
+    </item>
+    
+    <item>
+      <title>Datastax Sandbox Network</title>
+      <link>http://mikewright.me/blog/original/2015-10-16-datastax-sandbox-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-10-16-datastax-sandbox-network/</guid>
+      <description>So today I was working with the datastax virtual environment (namely getting the OVA to work inside of VMWare). There was only one issue that I ran into, that was the external networking was not working out of the box. In this post I will discuss what I looked into and how I fixed the problem in the end.
+To start, I am not a very savy linux guru, so the purpose of this post is to both share and record my experience so that I can go over it again in the future if needed.</description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://mikewright.me/blog/original/2015-02-06-docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-06-docker/</guid>
+      <description>I love Docker and I really enjoy developing on a stable nix-like environment. But with the current limitation of the docker daemon requiring the linux kernel to work, I am left trying to create the best experience that I can while developing on a mac.
+Why not just use boot2docker So docker does provide a solution for most people which is called boot2docker. This solution provides the native docker client for mac, virtualbox and a minimum linux os for virtualbox that you can use as the docker daemon.</description>
+    </item>
+    
+    <item>
+      <title>Docker and Continuous Delivery</title>
+      <link>http://mikewright.me/blog/original/2015-02-06-docker-and-continuous-delivery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-06-docker-and-continuous-delivery/</guid>
+      <description>I am a huge fan of continuous delivery, of release code as soon at it is written and passes the automated test gates. I am also a fan of having a deployment system that can be more closely managed by me (the engineer). Using docker at work we have been able to create a system that allows us to define a running container and using gates, continuously deploy this simple container to many different environments (stage, prod, etc).</description>
+    </item>
+    
+    <item>
+      <title>EC2 Container Service</title>
+      <link>http://mikewright.me/blog/original/2014-12-01-ec2-container-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2014-12-01-ec2-container-service/</guid>
+      <description>At AWS re:Invent (November 2014) a new technology was introduced. This was the AWS EC2 Container Service. A service provided by AWS to run docker containers on top of EC2 instances.
+We have been using docker for a while now within our organization, and I have to say that I am a huge fan of Docker. This is a great step in the right direction and I believe can help to decrease deploys to AWS while increasing stability and extensibility of a given architecture.</description>
+    </item>
+    
+    <item>
+      <title>Experience</title>
+      <link>http://mikewright.me/pages/experience/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/pages/experience/</guid>
+      <description>This is where I put my experience</description>
+    </item>
+    
+    <item>
+      <title>FreeBSD 9.2 on VMware Workstation 9.0.2</title>
+      <link>http://mikewright.me/blog/original/2013-10-10-freebsd-9-dot-2-and-vmware-workstation-9-dot-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-10-freebsd-9-dot-2-and-vmware-workstation-9-dot-4/</guid>
+      <description>Tonight I decided I really wanted to switch to freebsd from Ubuntu. The move was not because ubuntu had issues, but rather because I felt that I would enjoy the experience of freebsd more than that of linux. It was going to be a new world, with a different way of making things work.
+So the items I list below will show the steps that I went through to get freebsd working smoothly on vmware.</description>
+    </item>
+    
+    <item>
+      <title>Getting to know vim</title>
+      <link>http://mikewright.me/blog/original/2013-10-12-getting-to-know-vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-12-getting-to-know-vim/</guid>
+      <description>This will be one of those posts, that I hope grows often as I love to use vim, and especially love to write down what I learn in case I forget it in the future.
+Useful Shortcuts   Disable Search Highlighting
+ set nohlsearch &amp;quot; Turn it off set hlsearch! &amp;quot; Toggle on or off :nohlsearch &amp;quot; Turn it off as command :nohl &amp;quot; Shorthand :noh &amp;quot; Even Shorter    Useful Plugins TODO ;-)</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s do some Weld-ing</title>
+      <link>http://mikewright.me/blog/original/2015-10-12-lets-do-some-weld-ing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-10-12-lets-do-some-weld-ing/</guid>
+      <description>So I am no stranger to dependency injection (DI), having used it for many years (starting with RhinoMocks on .net). For my new company they are using a CDI implementation (Weld) which is one framework that I have yet to use, so today I go over my experience with using this framework.
+Introduction So what is weld you might be asking. Well Java in their &amp;ldquo;infinite&amp;rdquo; wisdom, created a standard for the language to be set around dependency injection, or more specifically around &amp;ldquo;Contexts and Dependency Injection for the Java EE Platform&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Linux - AWK/GAWK</title>
+      <link>http://mikewright.me/blog/original/2014-07-02-linux-awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2014-07-02-linux-awk/</guid>
+      <description>There is a process that I have always wanted to be more familiar with, and this process is awk. Someone might ask why I am spending my time on this tool. I would answer with&amp;hellip; &amp;ldquo;that is a great question&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Ocaml, Opam and utop from a newb</title>
+      <link>http://mikewright.me/blog/original/2013-11-16-ocaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-11-16-ocaml/</guid>
+      <description>This week I had the chance to attend QCon SF and let me tell you it was a great experience. One of the benefits that came out of this conference was a free ebook from ORielly books. The book that I decided to pickup was the newly released Real World Ocaml.
+One of the first things that you need to setup when working with ocaml is, of course, the environment. This book talks about using utop and opam (the ocaml package manager).</description>
+    </item>
+    
+    <item>
+      <title>Python, Anaconda and Tensorflow</title>
+      <link>http://mikewright.me/blog/python/02-python-anaconda-tensorflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/python/02-python-anaconda-tensorflow/</guid>
+      <description>This was the day that I took the time to get myself not only more familiar with Anaconda, but to also create a reusabled docker image.</description>
+    </item>
+    
+    <item>
+      <title>shUnit2 - Bash Testing</title>
+      <link>http://mikewright.me/blog/original/2013-10-31-shunit2-bash-testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-31-shunit2-bash-testing/</guid>
+      <description>So I have been working on the platform team at work for the last 2 years, and during this time we have had to not only write some code in Java and Ruby but also to write a number of bash scripts to help with management of systems. I&amp;rsquo;m a huge proponent of unit testing and especially of TDD.
+Since we have had a goal recently to make sure we are meeting minimum code coverage requirements on all of our tools I have looked into what it would take to unit test our bash scripts.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part I: A Review</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-a-review/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-a-review/</guid>
+      <description>SORT is a software/technology conference that is held by engineers working for the LDSChurch, FamilySearch and Utah Based Higher Education organizations. It is an annual conference that is free to attend and is held at the University of Utah institute building.
+While this may not be exactly like the other conferences you have attended, QCon and the like, it is still a great experience, and one should never pass up the oppurtunity to learn something new.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part II: Design Thinking</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-design-thinking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-design-thinking/</guid>
+      <description>This lecture was given by Brandon Gillespie and it was fantastic. Below are my attempts at creating reasonable information based on the lecture given.
+This was a fantastic presentation that focused on delving into ideas of archiecture progress and helpful hints that can help keep an architect moving in the correct direction. This session did not have any focus on specific tools so should not be limited to a certain &amp;ldquo;type&amp;rdquo; of architect.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part III: Machine Learning in Python</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-machine-learning-in-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-machine-learning-in-python/</guid>
+      <description>I haven&amp;rsquo;t done much with Machine Learning since graduating from school years ago. However recently there have been a number of projects where the use of machine learning can bring a significant benefit. This lecture was a great refresher and introduction to how task can be accomplished using python.
+Why should we focus on machine learning now?
+The power of a machine learning algorithm is its ability to GENERALIZE from a finite set of examples.</description>
+    </item>
+    
+    <item>
+      <title>Sort2013 Part IV: TMUX - Powerup your shell</title>
+      <link>http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-19-sort2013-tmux-powerup-your-shell/</guid>
+      <description>During sort, this session was actually a really insightful look into mouse-less productivity.
+I have always been a fan of working in the console, and have actually used screen in the past. However tmux has opened up an entirely new world for me.
+In this post I am going to share some of the things that I have learned from using tmux as setups I have in place for creating easy on &amp;ldquo;dev environments&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Splunk 6 - Whats New</title>
+      <link>http://mikewright.me/blog/original/2013-10-24-splunk-6-whats-new/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-24-splunk-6-whats-new/</guid>
+      <description>Today we had a Tech Talk at work that was focused on our organizations upgrade to the newly released Splunk 6, and all its bells and whistles. This presentation was given by James Brodsky, a Sr. Sales Engineer from Splunk.
+There are 3 main usage feature changes that have occured in splunk 6. The main focus of these upgrades are focused on increasing &amp;ldquo;non-technical&amp;rdquo; user experiences.
+ Pivot Data Model Analytics  Also rather than reading through the below notes, you can also go through a great tutorial that introduces these new features.</description>
+    </item>
+    
+    <item>
+      <title>SproutCore - First Impressions</title>
+      <link>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</guid>
+      <description>Today I decided to spend a little time to try out the sproutcore web framework, which has a lot of strengths centered around using appropriate programming practices.
+What is Sproutcore Sproutcore is a framework that allows you to write the code in Javascript and has that code run on both the server and client. It is a very powerful library that can help you to create web applications, not to extend your existing site.</description>
+    </item>
+    
+    <item>
+      <title>Static Site Meandering</title>
+      <link>http://mikewright.me/blog/original/2013-10-16-static-site-meandering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2013-10-16-static-site-meandering/</guid>
+      <description>So, I don&amp;rsquo;t know if I want to say that I am &amp;ldquo;late&amp;rdquo; to the game, but I can honestly say that I am glad I have finally moved to a static site generator for my blog posts. Originally when I decided to use static github pages to host my blog, I had decided to be a little bit ambitious and create an entire system using angular and my &amp;ldquo;limited&amp;rdquo; frontend skills.</description>
+    </item>
+    
+    <item>
+      <title>Typescript Preview on AppHarbor</title>
+      <link>http://mikewright.me/blog/original/2012-10-21-typescript-preview-on-appharbor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2012-10-21-typescript-preview-on-appharbor/</guid>
+      <description>So, this weekend a friend and I started working on a little side project and wanted to use Microsoft&amp;rsquo;s new TypeScript language for our JS development. We had also decided on using AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds. There were a few oddities that had to be fixed to allow this to work, and I hope to share with you the process that we went through to allow for typescript to be successfully deployed to an ASP.</description>
+    </item>
+    
+  </channel>
+</rss>

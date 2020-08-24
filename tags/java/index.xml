@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/java/</link>
+    <description>Recent content in java on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Let&#39;s do some Weld-ing</title>
+      <link>http://mikewright.me/blog/original/2015-10-12-lets-do-some-weld-ing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2015-10-12-lets-do-some-weld-ing/</guid>
+      <description>So I am no stranger to dependency injection (DI), having used it for many years (starting with RhinoMocks on .net). For my new company they are using a CDI implementation (Weld) which is one framework that I have yet to use, so today I go over my experience with using this framework.
+Introduction So what is weld you might be asking. Well Java in their &amp;ldquo;infinite&amp;rdquo; wisdom, created a standard for the language to be set around dependency injection, or more specifically around &amp;ldquo;Contexts and Dependency Injection for the Java EE Platform&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

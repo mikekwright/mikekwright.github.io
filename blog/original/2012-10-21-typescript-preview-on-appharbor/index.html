@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Typescript Preview on AppHarbor &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Typescript Preview on AppHarbor">
+<meta itemprop="description" content="So, this weekend a friend and I started working on a little side project and wanted to use Microsoft&rsquo;s new TypeScript language for our JS development. We had also decided on using AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds. There were a few oddities that had to be fixed to allow this to work, and I hope to share with you the process that we went through to allow for typescript to be successfully deployed to an ASP.">
+
+<meta itemprop="wordCount" content="410">
+
+
+
+<meta itemprop="keywords" content="preview," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Typescript Preview on AppHarbor"/>
+<meta name="twitter:description" content="So, this weekend a friend and I started working on a little side project and wanted to use Microsoft&rsquo;s new TypeScript language for our JS development. We had also decided on using AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds. There were a few oddities that had to be fixed to allow this to work, and I hope to share with you the process that we went through to allow for typescript to be successfully deployed to an ASP."/>
+
+
+<meta property="og:title" content="Typescript Preview on AppHarbor" />
+<meta property="og:description" content="So, this weekend a friend and I started working on a little side project and wanted to use Microsoft&rsquo;s new TypeScript language for our JS development. We had also decided on using AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds. There were a few oddities that had to be fixed to allow this to work, and I hope to share with you the process that we went through to allow for typescript to be successfully deployed to an ASP." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/original/2012-10-21-typescript-preview-on-appharbor/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Typescript Preview on AppHarbor</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 2 min read
+  </div>
+
+  <p>So, this weekend a friend and I started working on a little side project and wanted to use
+Microsoft&rsquo;s new TypeScript language for our JS development.  We had also decided on using
+AppHarbor (a fantastic .net paas provider) to automatically deploy our code builds.  There
+were a few oddities that had to be fixed to allow this to work, and I hope to share with
+you the process that we went through to allow for typescript to be successfully deployed
+to an ASP.NET MVC app running on AppHarbor.</p>
+<!-- raw HTML omitted -->
+<h2 id="typescript-installation">Typescript Installation</h2>
+<ol>
+<li>Install VS 2012 (For my case I used Professional 2012)</li>
+<li>Install the Typescript Preview (version 0.8.0.0)</li>
+<li>Install the Visual Studio plugin if it didn&rsquo;t get successfully installed
+<ul>
+<li>Manually run the file TypeScriptLanguageService.vsix found at   %PROGRAM_FILES%\Microsoft SDKs\TypeScript\0.8.0.0\</li>
+</ul>
+</li>
+</ol>
+<h2 id="project-setup">Project Setup</h2>
+<p>At this point we now have visual studio and a developer box setup to create our new project.<br>
+The project template that I used was an ASP.NET MVC 4 web application.  After creating the
+project file you will need to edit the .csproj file to have some tags to run the tsc
+(TypeScript compiler) on the ts files found in your project.  We will also need to copy the
+tsc compiler to our solution, so that we can commit it to the repository
+(required only for AppHarbor building).</p>
+<p>Create a folder in a subdirectory of your solution and copy the following files from the
+TypeScript install directory</p>
+<ul>
+<li>tsc.exe</li>
+<li>tschost.dll (not sure if it is actually required)</li>
+<li>tsc.js</li>
+</ul>
+<p>Noting the above directories location relative to the solution&rsquo;s root, you will then edit
+the projects csproj file using your favorite editor and add the below lines</p>
+<pre><code>    &lt;Target Name=&quot;BeforeBuild&quot;&gt;
+      &lt;Exec Command=&quot;&amp;quot;$(SolutionDir)&lt;TypescriptDirectory&gt;\tsc&amp;quot; @(TypeScriptCompile -&gt;'&amp;quot;%(fullpath)&amp;quot;', ' ')&quot; /&gt;
+    &lt;/Target&gt;
+</code></pre>
+<p>This new command will cause the typescript compiler to run before each build and compile
+the .ts files to .js</p>
+<p><em>Note: The reason for copying the compiler over is so that it will be able to be executed on
+the AppHarbor machines without the need for them to install the dependency.</em></p>
+<h2 id="finishing">Finishing</h2>
+<p>So, at this point you should have an application that will build your typescript files on any
+machine that can build a regular csproj project.  When adding the ts file to your project,
+use the visual studio &ldquo;Add New Item&rdquo; option and select a typescript file, if you try to
+manually add it with the extension you will need to add the compile command to the projects
+csproj file as well (example below).</p>
+<pre><code>    &lt;TypeScriptCompile Include=&quot;TSScripts\app.ts&quot; /&gt;
+</code></pre>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

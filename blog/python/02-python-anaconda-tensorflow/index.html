@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>Python, Anaconda and Tensorflow &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Python, Anaconda and Tensorflow">
+<meta itemprop="description" content="This was the day that I took the time to get myself not only more familiar with Anaconda, but to also create a reusabled docker image.">
+
+<meta itemprop="wordCount" content="717">
+
+
+
+<meta itemprop="keywords" content="python," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python, Anaconda and Tensorflow"/>
+<meta name="twitter:description" content="This was the day that I took the time to get myself not only more familiar with Anaconda, but to also create a reusabled docker image."/>
+
+
+<meta property="og:title" content="Python, Anaconda and Tensorflow" />
+<meta property="og:description" content="This was the day that I took the time to get myself not only more familiar with Anaconda, but to also create a reusabled docker image." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/python/02-python-anaconda-tensorflow/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Python, Anaconda and Tensorflow</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 4 min read
+  </div>
+
+  <p>So I have used python in the past, but generally my experiences with python have
+been limited to either small sinatra scripts and other cli tools.  With my new
+position though, I have needed to get more familiar with the python ecosystem.</p>
+<p>One of the tools that at least a number of other engineers on my team are using is
+<a href="https://www.continuum.io/downloads">anaconda</a>.</p>
+<h2 id="overview">Overview</h2>
+<p>I have used python dependencies before, however up until this point that has been
+limited to both virtualenv and pip.  I really enjoyed the system and the ability
+to be able to quickly and easily install the dependencies that I needed using
+<code>pip install &lt;dependency&gt;</code>.</p>
+<p>Once I got to the position of needing many dependencies and running them on different
+machines I got use the requirements files <code>pip install -r requirements.txt</code>.</p>
+<p>Both of these systems would work well, however I noticed myself sometimes running
+into systems that were failing because of OS dependencies that were missing.  This
+was never more present then when I started to install some of the DataScience tools.</p>
+<h2 id="anaconda">Anaconda</h2>
+<p>It was a this point that I stumbled across Anaconda.  I was quite surprised by this library
+and the ease at which it was to create environments, so long as I was in <code>bash</code> or <code>zsh</code>.
+The installation itself was painless and straightforward.  However what I really wanted
+was the ability to define the different dependencies that I needed and to have those
+be quickly enabled within anaconda.  Luckily this was easily accomplished using the
+environment file format.</p>
+<pre><code>name: myenv
+dependencies:
+  - numpy
+  - jupyter
+</code></pre>
+<p>So once I had this file created I was able to create and use this file to both create the
+virtual environment and install the dependencies in the environment, using this command.</p>
+<pre><code>    conda env create -f environment.yml 
+</code></pre>
+<p>Now there was one issue that I ran into, and that was the desire to install a dependency
+that did not have an existing conda package.  I found that I could still install dependencies
+to the system using pip.</p>
+<pre><code>    name: myenv
+    dependencies:
+      - numpy
+      - jupyter
+      - pip
+      - pip:
+        - https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
+</code></pre>
+<h2 id="dockerize-it">Dockerize It</h2>
+<p>So for me, that last part was being able to get the above system working correctly with
+a docker container. Luckily this was a very straight forward process, even allowed me to
+easily install python3.5 on ubuntu 14.04.</p>
+<pre><code>    FROM ubuntu:16.04
+    
+    RUN apt-get update &amp;&amp; \
+        apt-get install -y curl build-essential &amp;&amp; \
+        apt-get clean &amp;&amp; \
+        rm -rf /tmp/ /var/tmp/ /var/lib/apt/lists/*
+</code></pre>
+<p>This is just the basic system installing the curl command (needed to pull down the anaconda installer)
+and the build tools (aka gcc).</p>
+<pre><code>    RUN curl -sSL -o installer.sh https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh &amp;&amp; \
+        bash /installer.sh -b -f &amp;&amp; \
+        rm /installer.sh
+</code></pre>
+<p>In the above snippet I am actually pulling down the file and installing it.  The reason I chose to
+use curl instead of the docker <code>ADD</code> command is that I wanted to keep the layers as thin as possible.</p>
+<p>The other thing to note is the <code>-b</code> and <code>-f</code> options that are supplied with the installer.  These allow
+for us to run the installer without needing tty access by using the defaults for the installer (including
+the prefix which puts anaconda at <code>/root/anaconda3</code>).</p>
+<pre><code>    ENV PATH &quot;$PATH:/root/anaconda3/bin&quot;
+    ADD startup /startup
+
+    EXPOSE 8888 6006
+    VOLUME /notebooks
+    WORKDIR &quot;/notebooks&quot;
+
+    CMD [&quot;jupyter&quot;, &quot;notebook&quot;, &quot;--port=8888&quot;, &quot;--no-browser&quot;, &quot;--ip=0.0.0.0&quot;]
+</code></pre>
+<p>Here we are setting up the anaconda information for the system, including some exposed ports with
+<code>8888</code> being the main port for the notebook. We also set our default commands to startup
+the jupyter notebook allowing access from non-localhost machines (which of course is needed since
+it is running in a container).</p>
+<pre><code>    ADD environment.yml /environment.yml
+    RUN conda env create -f /environment.yml
+    ENV CONDA_ENV tensorflow
+</code></pre>
+<p>These final 3 values are useful as they allow use to create onbuild versions of the same dockerfile
+that will allow others to specify the environment dependencies.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I really enjoyed using anaconda and the ease that it gave me in setting up some custom python
+environments.  I have already moved most of the existing machines that I have over to anaconda and
+am sure that I will find many more reasons to enjoy it.</p>
+<p>If you are interested in checking out either the docker image or the repo with the Dockerfile, links
+can be found below.</p>
+<ul>
+<li><a href="https://github.com/mikekwright/docker-anaconda-tensorflow/blob/master/Dockerfile">Dockerfile</a></li>
+<li><a href="https://hub.docker.com/r/mikewright/anaconda-tensorflow/">Docker Images</a></li>
+</ul>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

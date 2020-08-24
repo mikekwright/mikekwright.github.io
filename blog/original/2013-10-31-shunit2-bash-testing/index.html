@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <title>shUnit2 - Bash Testing &middot; Mike&#39;s Dev / Data Science Blog</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="shUnit2 - Bash Testing">
+<meta itemprop="description" content="So I have been working on the platform team at work for the last 2 years, and during this time we have had to not only write some code in Java and Ruby but also to write a number of bash scripts to help with management of systems. I&rsquo;m a huge proponent of unit testing and especially of TDD.
+Since we have had a goal recently to make sure we are meeting minimum code coverage requirements on all of our tools I have looked into what it would take to unit test our bash scripts.">
+
+<meta itemprop="wordCount" content="883">
+
+
+
+<meta itemprop="keywords" content="testing,bash," />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="shUnit2 - Bash Testing"/>
+<meta name="twitter:description" content="So I have been working on the platform team at work for the last 2 years, and during this time we have had to not only write some code in Java and Ruby but also to write a number of bash scripts to help with management of systems. I&rsquo;m a huge proponent of unit testing and especially of TDD.
+Since we have had a goal recently to make sure we are meeting minimum code coverage requirements on all of our tools I have looked into what it would take to unit test our bash scripts."/>
+
+
+<meta property="og:title" content="shUnit2 - Bash Testing" />
+<meta property="og:description" content="So I have been working on the platform team at work for the last 2 years, and during this time we have had to not only write some code in Java and Ruby but also to write a number of bash scripts to help with management of systems. I&rsquo;m a huge proponent of unit testing and especially of TDD.
+Since we have had a goal recently to make sure we are meeting minimum code coverage requirements on all of our tools I have looked into what it would take to unit test our bash scripts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mikewright.me/blog/original/2013-10-31-shunit2-bash-testing/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>Mike&#39;s Dev / Data Science Blog</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://mikewright.me/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>shUnit2 - Bash Testing</h1>
+
+  <div class="post-date">
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time> &middot; 5 min read
+  </div>
+
+  <p>So I have been working on the platform team at work for the last 2 years, and during this time
+we have had to not only write some code in Java and Ruby but also to write a number of bash
+scripts to help with management of systems.  I&rsquo;m a huge proponent of unit testing and especially
+of TDD.</p>
+<p>Since we have had a goal recently to make sure we are meeting minimum code coverage
+requirements on all of our tools I have looked into what it would take to unit test our bash
+scripts.  Luckily there is an engineer who is already doing some bash testing on another
+team and he pointed me towards shUnit2 and some example projects they are using it with inhouse.</p>
+<p>In this post I am going to cover the areas of shUnit2 that I have found to be the most useful,
+and how the process of mocking and other interactions could be handled.</p>
+<!-- raw HTML omitted -->
+<h2 id="shunit2">shUnit2</h2>
+<p><a href="https://code.google.com/p/shunit2/">shUnit2</a> is an xunit style testing framework made to
+work with Bash scripts.  It has a very simple setup process on my systems (especially
+debian-based systems).</p>
+<h3 id="installation">Installation</h3>
+<p>To install shUnit2 on a debian based system you only need to run the below command.</p>
+<pre><code>    apt-get install shunit2
+</code></pre>
+<p>If everything is setup correctly you should see output similiar to that below.</p>
+<pre><code>    $ shunit2
+
+    Ran 0 tests. 
+
+    OK
+</code></pre>
+<p>You can also manually install it by downloading the latest build from
+<a href="https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz">code.google.com</a>. This is actually
+a nice thing to pull down as it contains some useful examples for shUnit2. After pulling it
+you will need to add it to your path for usage.</p>
+<pre><code>    wget https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz
+    tar -xvf shunit2-2.1.6.tgz
+    PATH=$DIRSTACK/shunit2-2.1.6/bin:$PATH
+    shunit2
+</code></pre>
+<h3 id="first-tests">First Tests</h3>
+<p>The easiest way to start learning a framework is often to use the framework, so lets quickly
+jump in using an example test.</p>
+<p>Open up your favorite text editor and enter the code defined below.</p>
+<p>[gist:id=7325445,file=my-first-test.sh]</p>
+<p>Now to run this test you will need to make a few changes to the file, which for this case
+lets have the file called <code>my-first-test.sh</code></p>
+<pre><code>    $ chmod +x my-first-test.sh
+    $ ./my-first-test.sh
+    
+    testMyComparison  
+
+    Ran 1 tests.
+
+    OK
+</code></pre>
+<p>If this doesn&rsquo;t work, check a couple of things that might be the cause.</p>
+<ul>
+<li>shunit2 should be in the path</li>
+<li>function name starts with lowercase &lsquo;test&rsquo;</li>
+<li>assertTrue comparison has correct spacing and quotes - <code>&quot;[ 1 -eq 1 ]&quot;</code></li>
+</ul>
+<h3 id="assertions">Assertions</h3>
+<p>One of the most important part of tests is making sure that the test is descriptive
+in what it is trying to accomplish. To help achieve this these xUnit frameworks will
+often include a number of different assertions that can help to make the code more
+readable.</p>
+<p>This is the list of current assertions as of version 2.1.6</p>
+<ul>
+<li>assertEquals [message] expected actual</li>
+<li>assertSame [message] expected actual</li>
+<li>assertNotEquals [message] expected actual</li>
+<li>assertNotSame [message] expected actual</li>
+<li>assertNull [message] value</li>
+<li>assertNotNull [message] value</li>
+<li>assertTrue [message] condition</li>
+<li>assertFalse [message] condition</li>
+</ul>
+<p>There are a couple of things to be aware of when using these assertions, especially the
+assertNull and assertNotNull calls.  They are used to compare a null in bash which is a
+zero length string.</p>
+<h3 id="failures">Failures</h3>
+<p>Next to assertions you also have failures that you can place in your code to automatically
+trigger the test to fail and execution to stop.  This is a list of the different failures
+that are supported in shUnit2.</p>
+<p><em>Note: failures are not for value comparisons, if you need this functionality use assertions</em></p>
+<ul>
+<li>fail [message]</li>
+<li>failNotEquals [message] unexpected actual</li>
+<li>failSame [message] expected actual</li>
+<li>failNotSame [message] unexpected actual</li>
+</ul>
+<h2 id="code-dependencies">Code Dependencies</h2>
+<p>One of the common situations that you will run across with unit testing is making sure that
+your code is testing the smallest piece possible, which can help you quickly and easily
+find bugs that could show up, and give you better confidence with refactoring.</p>
+<p>In most other languages this is accomplished using mocking frameworks (java and mockito,
+.net and rhinomocks). In bash I have not yet found a framework that successfully mocks
+calls that could be made from the bash scripts, so instead the process that I recommend
+is accomplished using PATH manipulation and running calls.</p>
+<p>Lets start with a simple script that is used to pull down a sample configuration using
+wget and then executes the configuration.  <code>configRetriever.sh</code></p>
+<p>[gist:id=7325511,file=configRetriever.sh]</p>
+<p>Now that we have our test file, there are two more files that we need, the tests and
+also a mock of wget.  So lets first start with the mock. <code>wget</code></p>
+<p>[gist:id=7325539,file=wget]</p>
+<p>And finally the actual tests. <code>configTests.sh</code></p>
+<p>[gist:id=7325587,file=configTests.sh]</p>
+<p>A couple of things to point out from here, I am adjusting the path before each test and I am
+restoring it after a test using the <code>setUp()</code> and <code>tearDown()</code>.  It is important to make
+sure that you are forcing a clean slate for each test, so you don&rsquo;t get false negatives (or
+positives for that matter).</p>
+<p>The next important thing to see is how to hide or handle output from the running script,
+you should do this otherwise you might find it hard to find the alerts from test outputs
+that are run.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So after getting my feet a little wet with shUnit2 and using path manipulation to handle
+script internal calls, I have to say that I think bash unit testing is much easier
+than I had originally figured and am excited to move forward with testing my scripts.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

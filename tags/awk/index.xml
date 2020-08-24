@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awk on Mike&#39;s Dev / Data Science Blog</title>
+    <link>http://mikewright.me/tags/awk/</link>
+    <description>Recent content in awk on Mike&#39;s Dev / Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://mikewright.me/tags/awk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux - AWK/GAWK</title>
+      <link>http://mikewright.me/blog/original/2014-07-02-linux-awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikewright.me/blog/original/2014-07-02-linux-awk/</guid>
+      <description>There is a process that I have always wanted to be more familiar with, and this process is awk. Someone might ask why I am spending my time on this tool. I would answer with&amp;hellip; &amp;ldquo;that is a great question&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
