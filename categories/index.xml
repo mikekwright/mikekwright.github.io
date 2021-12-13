@@ -5,10 +5,6 @@
     <link>http://mikewright.me/categories/</link>
     <description>Recent content in Categories on Mike&#39;s Dev / Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="http://mikewright.me/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="http://mikewright.me/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

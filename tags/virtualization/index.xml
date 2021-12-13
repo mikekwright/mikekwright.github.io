@@ -5,11 +5,7 @@
     <link>http://mikewright.me/tags/virtualization/</link>
     <description>Recent content in virtualization on Mike&#39;s Dev / Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="http://mikewright.me/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="http://mikewright.me/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FreeBSD 9.2 on VMware Workstation 9.0.2</title>
       <link>http://mikewright.me/blog/original/2013-10-10-freebsd-9-dot-2-and-vmware-workstation-9-dot-4/</link>

@@ -5,11 +5,7 @@
     <link>http://mikewright.me/tags/research/</link>
     <description>Recent content in research on Mike&#39;s Dev / Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="http://mikewright.me/tags/research/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="http://mikewright.me/tags/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static Site Meandering</title>
       <link>http://mikewright.me/blog/original/2013-10-16-static-site-meandering/</link>

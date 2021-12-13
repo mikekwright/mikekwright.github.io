@@ -5,11 +5,7 @@
     <link>http://mikewright.me/tags/javascript/</link>
     <description>Recent content in javascript on Mike&#39;s Dev / Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="http://mikewright.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="http://mikewright.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SproutCore - First Impressions</title>
       <link>http://mikewright.me/blog/original/2015-02-13-sproutcore-first-impressions/</link>
