@@ -24,3 +24,4 @@ node_modules
 .ipynb_checkpoints
 .vscode
 tmp
+.hugo_build.lock
