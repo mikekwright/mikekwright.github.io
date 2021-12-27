@@ -1,10 +1,13 @@
+---
 Title: Python, Anaconda and Tensorflow
 Slug: 02-python-anaconda-tensorflow
 Date: 2016-11-11 14:00
 Category: development
-Tags: python
 Author: Michael Wright
 Summary: This was the day that I took the time to get myself not only more familiar with Anaconda, but to also create a reusabled docker image.   
+Tags:
+ - python
+---
 
 So I have used python in the past, but generally my experiences with python have
 been limited to either small sinatra scripts and other cli tools.  With my new

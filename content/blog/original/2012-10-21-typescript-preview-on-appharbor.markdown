@@ -1,7 +1,10 @@
+---
 Title: "Typescript Preview on AppHarbor"
 Date: 2012-10-21 00:01
 Category: Development
-Tags: preview 
+Tags:
+ - preview
+---
 
 So, this weekend a friend and I started working on a little side project and wanted to use 
 Microsoft's new TypeScript language for our JS development.  We had also decided on using 

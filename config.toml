@@ -1,0 +1,4 @@
+baseURL = "http://mikewright.me/"
+languageCode = "en-us"
+title = "Mike's Dev / Data Science Blog"
+theme = "soho"

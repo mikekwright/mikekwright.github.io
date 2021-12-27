@@ -1,7 +1,12 @@
+---
 Title: "Sort2013 Part III: Machine Learning in Python"
 Date: 2013-10-19 22:43
 Category: conferences
-Tags:  sort, python, machine learning
+Tags:
+ - sort
+ - python
+ - machine learning
+---
 
 
 I haven't done much with Machine Learning since graduating from school years ago.  However

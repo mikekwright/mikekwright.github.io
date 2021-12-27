@@ -1,7 +1,11 @@
+---
 Title: "shUnit2 - Bash Testing"
 Date: 2013-10-31 22:03
 Category: development
-Tags: testing, bash
+Tags:
+ - testing
+ - bash
+---
 
 So I have been working on the platform team at work for the last 2 years, and during this time
 we have had to not only write some code in Java and Ruby but also to write a number of bash

@@ -23,3 +23,4 @@ node_modules
 *LOCAL*
 .ipynb_checkpoints
 .vscode
+tmp

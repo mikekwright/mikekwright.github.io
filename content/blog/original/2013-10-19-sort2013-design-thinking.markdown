@@ -1,7 +1,12 @@
+---
 Title: "Sort2013 Part II: Design Thinking"
 Date: 2013-10-19 22:43
 Category: conferences
-Tags:  sort, architecture, software craftsmanship
+Tags:
+ - sort
+ - architecture
+ - software craftsmanship
+---
 
 This lecture was given by Brandon Gillespie and it was fantastic.  Below are my attempts 
 at creating reasonable information based on the lecture given.  
