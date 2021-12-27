@@ -4,7 +4,7 @@
 cd "$(dirname $0)"; cd ..
 
 echo "Need to first clone master to public folder"
-git clone -b master git@github.com:mikekwright.github.io.git public
+git clone -b master git@github.com:mikekwright/mikekwright.github.io.git public
 
 echo "Setting correct git credentials for public folder"
 cd public

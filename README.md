@@ -7,6 +7,11 @@ and other items.
 This new blog was migrated from jekyll to pelican so that I could utilize the jupyter 
 notebook tool.    
 
+## Setup (Hugo)
+
+Be sure to download the latest hugo release from github (https://github.com/gohugoio/hugo/releases)
+and place the `hugo` executable in the `bin` directory
+
 ## Setup
 
 To setup this system you will need to make sure that everything is installed and working 

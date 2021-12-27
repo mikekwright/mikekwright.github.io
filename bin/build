@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#vim :set filetype=sh:
+
+cd "$(dirname $0)"; cd ..
+
+if [[ ! -e public ]]; then
+  echo "public folder has not been setup, unable to continue"
+  exit 1
+fi
+
+echo "Cleaning the initial deploy"
+cd public
+for item in $(find . | grep -v ./.git); do
+  echo "deleting file entry $item"
+  rm $item
+done
+
+cd ..
+
+echo "Copy the common files over to site"
+cd common
+cp -r * ../public
+
+cd ..
+
+echo "Generate the new site information"
+bin/hugo
+
