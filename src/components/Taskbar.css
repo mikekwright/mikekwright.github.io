@@ -1,0 +1,139 @@
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 10000;
+  user-select: none;
+}
+
+.taskbar-start {
+  display: flex;
+  align-items: center;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.start-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.start-icon {
+  font-size: 16px;
+}
+
+.start-text {
+  font-size: 14px;
+}
+
+.taskbar-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+  max-width: 800px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.taskbar-center::-webkit-scrollbar {
+  display: none;
+}
+
+.taskbar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  max-width: 200px;
+  min-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.taskbar-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.taskbar-item.active {
+  background: rgba(0, 120, 212, 0.8);
+  border-color: rgba(0, 120, 212, 1);
+  box-shadow: 0 0 0 1px rgba(0, 120, 212, 0.5);
+}
+
+.taskbar-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.taskbar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.taskbar-end {
+  display: flex;
+  align-items: center;
+}
+
+.system-tray {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.date {
+  font-size: 10px;
+  opacity: 0.9;
+}
