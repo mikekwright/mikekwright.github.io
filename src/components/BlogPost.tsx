@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { getBlogPost } from '../utils/blogLoader'
 import type { BlogPostMetadata } from '../utils/blogLoader'
-import './BlogPost.css'
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>()
@@ -48,54 +47,82 @@ const BlogPost = () => {
 
   if (isLoading) {
     return (
-      <div className="blog-post-page">
-        <div className="loading">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl text-gray-600">Loading...</div>
       </div>
     )
   }
 
   if (error || !post) {
     return (
-      <div className="blog-post-page">
-        <div className="error">
-          {error || 'Post not found'}
-          <Link to="/" className="back-link">← Back to home</Link>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-xl text-red-600 mb-4">
+            {error || 'Post not found'}
+          </div>
+          <Link
+            to="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+          >
+            ← Back to home
+          </Link>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="blog-post-page">
-      <header className="post-header">
-        <div className="header-nav">
-          <Link to="/" className="back-button">← Back to posts</Link>
-        </div>
-        <div className="header-content">
-          <h1 className="post-title">{post.title}</h1>
-          <div className="post-meta">
-            <span className="post-date">{formatDate(post.date)}</span>
-            <span className="post-category">{post.category}</span>
-            <div className="post-tags">
-              {post.tags.map((tag: string) => (
-                <span key={tag} className="tag">
-                  {tag}
-                </span>
-              ))}
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 py-8">
+          <Link
+            to="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-8"
+          >
+            ← Back to posts
+          </Link>
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              {post.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              <span className="font-medium text-gray-700">
+                {formatDate(post.date)}
+              </span>
+              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                {post.category}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="post-main">
-        <article className="post-content">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        <article className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="blog-post-content">
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
         </article>
       </main>
 
-      <footer className="post-footer">
-        <div className="footer-nav">
-          <Link to="/" className="back-button">← Back to all posts</Link>
+      <footer className="border-t border-gray-200 bg-white mt-16">
+        <div className="max-w-4xl mx-auto px-6 py-8 text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+          >
+            ← Back to all posts
+          </Link>
         </div>
       </footer>
     </div>
