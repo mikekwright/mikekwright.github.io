@@ -4,60 +4,72 @@ import { readdir, writeFile, mkdir, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 
-async function generateManifest() {
-  try {
-    console.log('🔄 Pre-build: Generating posts manifest...')
+const POST_DIR = 'posts';
+const PUBLIC_DIR = 'public/posts';
+const MANIFEST_FILE = 'src/generated/posts-manifest.ts';
 
-    // Generate posts manifest during build
-    const postsDir = resolve('posts')
-    const publicPostsDir = resolve('public/posts')
-    const manifestPath = resolve('src/generated/posts-manifest.ts')
+async function createExpectedDirectories(manifestDir, postDir, publicDir) {
+  const dirs = [
+    manifestDir ?? dirname(MANIFEST_FILE),
+    postDir ?? POST_DIR,
+    publicDir ?? PUBLIC_DIR
+  ].map(dir => resolve(dir));
 
-    // Ensure the generated directory exists
-    const generatedDir = dirname(manifestPath)
-    if (!existsSync(generatedDir)) {
-      console.log('📂 Creating generated directory:', generatedDir)
-      await mkdir(generatedDir, { recursive: true })
+  for (const dir of dirs) {
+    if (!existsSync(dir)) {
+      console.log('📂 Creating directory:', dir)
+      await mkdir(dir, { recursive: true })
     }
+  }
+}
 
-    // Ensure the public/posts directory exists
-    if (!existsSync(publicPostsDir)) {
-      console.log('📂 Creating public/posts directory:', publicPostsDir)
-      await mkdir(publicPostsDir, { recursive: true })
-    }
+async function copyPostFilesToPublic(postDir, publicDir) {
+    const sourceDir = resolve(postDir ?? POST_DIR);
+    const targetDir = resolve(publicDir ?? PUBLIC_DIR);
 
-    // Read all markdown files from posts directory
-    const postSlugs = []
+    const postSlugs = [];
 
-    if (existsSync(postsDir)) {
-      const files = await readdir(postsDir)
+    const files = await readdir(sourceDir)
+    for (const file of files) {
+      if (file.endsWith('.md')) {
+        const slug = file.replace('.md', '');
+        postSlugs.push(slug);
 
-      for (const file of files) {
-        if (file.endsWith('.md')) {
-          const slug = file.replace('.md', '')
-          postSlugs.push(slug)
-
-          // Copy post to public directory
-          const sourcePath = join(postsDir, file)
-          const targetPath = join(publicPostsDir, file)
-          await copyFile(sourcePath, targetPath)
-        }
+        const sourcePath = join(sourceDir, file);
+        const targetPath = join(targetDir, file);
+        await copyFile(sourcePath, targetPath)
       }
     }
 
-    // Sort slugs alphabetically for consistency
-    postSlugs.sort()
+    return postSlugs;
+}
 
-    // Generate the manifest file
-    const manifestContent = `// Auto-generated file - do not edit manually
+
+
+
+async function createListOfPostsForWebsite() {
+  try {
+    console.log('🔄 Pre-build: Generating posts manifest...')
+
+    await createExpectedDirectories()
+
+    const postSlugs = await copyPostFilesToPublic()
+    if (postSlugs.length === 0) {
+      console.warn('⚠️ No posts found in the posts directory. Manifest will be empty.')
+    }
+
+    const manifestContent =
+    `// Auto-generated file - do not edit manually
 // Generated at build time from posts directory
 
 export const postSlugs = ${JSON.stringify(postSlugs, null, 2)} as const
 
 export type PostSlug = typeof postSlugs[number]
 `
-
+    const manifestPath = resolve(MANIFEST_FILE)
+    await createExpectedDirectories(dirname(manifestPath));
     await writeFile(manifestPath, manifestContent)
+
     console.log(`✅ Generated posts manifest with ${postSlugs.length} posts:`, postSlugs)
   } catch (error) {
     console.error('❌ Failed to generate posts manifest:', error)
@@ -65,4 +77,4 @@ export type PostSlug = typeof postSlugs[number]
   }
 }
 
-generateManifest()
+createListOfPostsForWebsite()
