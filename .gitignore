@@ -26,5 +26,5 @@ node_modules
 tmp
 .hugo_build.lock
 .direnv
-dist
+dist/
 *.log
