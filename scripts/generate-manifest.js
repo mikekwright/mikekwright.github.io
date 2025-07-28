@@ -7,7 +7,7 @@ import { resolve, dirname, join } from 'path'
 async function generateManifest() {
   try {
     console.log('🔄 Pre-build: Generating posts manifest...')
-    
+
     // Generate posts manifest during build
     const postsDir = resolve('posts')
     const publicPostsDir = resolve('public/posts')
@@ -31,7 +31,7 @@ async function generateManifest() {
 
     if (existsSync(postsDir)) {
       const files = await readdir(postsDir)
-      
+
       for (const file of files) {
         if (file.endsWith('.md')) {
           const slug = file.replace('.md', '')
