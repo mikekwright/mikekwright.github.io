@@ -1,122 +1,103 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import { getBlogPost } from '../utils/blogLoader'
+import type { BlogPostMetadata } from '../utils/blogLoader'
 import './BlogPost.css'
 
-interface BlogPostProps {
-  readonly windowId: string
-  readonly title: string
-  readonly content: string
-  readonly isActive: boolean
-  readonly onClose: () => void
-  readonly onMinimize: () => void
-  readonly onActivate: () => void
-}
-
-interface WindowPosition {
-  x: number
-  y: number
-}
-
-const BlogPost: React.FC<BlogPostProps> = ({
-  windowId,
-  title,
-  content,
-  isActive,
-  onClose,
-  onMinimize,
-  onActivate
-}) => {
-  const [position, setPosition] = useState<WindowPosition>({ x: 100, y: 100 })
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
-  const windowRef = useRef<HTMLDivElement>(null)
+const BlogPost = () => {
+  const { slug } = useParams<{ slug: string }>()
+  const [post, setPost] = useState<BlogPostMetadata | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Offset each new window slightly
-    const offset = parseInt(windowId.split('-')[1] || '0') * 30
-    setPosition({ x: 100 + offset, y: 100 + offset })
-  }, [windowId])
+    const loadPost = async () => {
+      if (!slug) {
+        setError('No post slug provided')
+        setIsLoading(false)
+        return
+      }
 
-  const handleMouseDown = (event: React.MouseEvent) => {
-    if (event.target === event.currentTarget ||
-        (event.target as HTMLElement).classList.contains('window-header')) {
-      setIsDragging(true)
-      setDragOffset({
-        x: event.clientX - position.x,
-        y: event.clientY - position.y
-      })
-      onActivate()
-    }
-  }
-
-  const handleMouseMove = useCallback((event: MouseEvent) => {
-    if (isDragging) {
-      setPosition({
-        x: event.clientX - dragOffset.x,
-        y: event.clientY - dragOffset.y
-      })
-    }
-  }, [isDragging, dragOffset])
-
-  const handleMouseUp = useCallback(() => {
-    setIsDragging(false)
-  }, [])
-
-  useEffect(() => {
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
-      return () => {
-        document.removeEventListener('mousemove', handleMouseMove)
-        document.removeEventListener('mouseup', handleMouseUp)
+      try {
+        const postData = await getBlogPost(slug)
+        if (postData) {
+          setPost(postData)
+        } else {
+          setError('Post not found')
+        }
+      } catch (err) {
+        console.error('Failed to load blog post:', err)
+        setError('Failed to load post')
+      } finally {
+        setIsLoading(false)
       }
     }
-  }, [isDragging, handleMouseMove, handleMouseUp])
 
-  const handleWindowClick = () => {
-    if (!isActive) {
-      onActivate()
-    }
+    loadPost()
+  }, [slug])
+
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  if (isLoading) {
+    return (
+      <div className="blog-post-page">
+        <div className="loading">Loading...</div>
+      </div>
+    )
+  }
+
+  if (error || !post) {
+    return (
+      <div className="blog-post-page">
+        <div className="error">
+          {error || 'Post not found'}
+          <Link to="/" className="back-link">← Back to home</Link>
+        </div>
+      </div>
+    )
   }
 
   return (
-    <div
-      ref={windowRef}
-      className={`blog-window ${isActive ? 'active' : ''} ${isDragging ? 'dragging' : ''}`}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        zIndex: isActive ? 1000 : 999
-      }}
-      onClick={handleWindowClick}
-    >
-      <div
-        className="window-header"
-        onMouseDown={handleMouseDown}
-      >
-        <div className="window-title">{title}</div>
-        <div className="window-controls">
-          <button
-            className="window-button minimize"
-            onClick={onMinimize}
-            aria-label="Minimize window"
-          >
-            −
-          </button>
-          <button
-            className="window-button close"
-            onClick={onClose}
-            aria-label="Close window"
-          >
-            ×
-          </button>
+    <div className="blog-post-page">
+      <header className="post-header">
+        <div className="header-nav">
+          <Link to="/" className="back-button">← Back to posts</Link>
         </div>
-      </div>
-      <div className="window-content">
-        <div className="blog-content">
-          <ReactMarkdown>{content}</ReactMarkdown>
+        <div className="header-content">
+          <h1 className="post-title">{post.title}</h1>
+          <div className="post-meta">
+            <span className="post-date">{formatDate(post.date)}</span>
+            <span className="post-category">{post.category}</span>
+            <div className="post-tags">
+              {post.tags.map((tag: string) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </header>
+
+      <main className="post-main">
+        <article className="post-content">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+        </article>
+      </main>
+
+      <footer className="post-footer">
+        <div className="footer-nav">
+          <Link to="/" className="back-button">← Back to all posts</Link>
+        </div>
+      </footer>
     </div>
   )
 }

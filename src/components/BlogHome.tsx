@@ -63,7 +63,7 @@ const BlogHome = () => {
                     <span className="post-date">{formatDate(post.date)}</span>
                     <span className="post-category">{post.category}</span>
                     <div className="post-tags">
-                      {post.tags.map((tag) => (
+                      {post.tags.map((tag: string) => (
                         <span key={tag} className="tag">
                           {tag}
                         </span>
