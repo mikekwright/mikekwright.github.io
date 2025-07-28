@@ -99,9 +99,7 @@ const BlogHome = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Latest Posts</h2>
               <p className="text-gray-600">Thoughts on software engineering, technology, and continuous learning</p>
             </div>
-
-            <h1>{blogPosts.length}</h1>
-
+            
             {blogPosts.map((post, index) => (
               <article
                 key={post.slug}

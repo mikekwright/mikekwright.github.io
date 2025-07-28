@@ -12,6 +12,17 @@ export default defineConfig({
     generatePostsManifest()
   ],
   base: './',
+  define: {
+    global: 'globalThis',
+  },
+  resolve: {
+    alias: {
+      buffer: 'buffer',
+    },
+  },
+  optimizeDeps: {
+    include: ['buffer'],
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
