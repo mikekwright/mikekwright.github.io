@@ -1,4 +1,4 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization #_use-a-githubcopilotinstructionsmd-file -->
 
 # Personal Blog Project Instructions
 
@@ -6,12 +6,12 @@ This is a React TypeScript personal blog project with the following characterist
 
 ## Project Structure
 - **React 19** with **TypeScript** and **Vite** for building
-- **Desktop-style UI** that mimics a desktop environment
-- **Windows 11 style taskbar** at the bottom of the page
-- **Desktop icons** represent different blog posts
+- **Medium-style blog UI** with clean, modern design
+- **Client-side routing** using React Router with SPA support for static hosting
 - **Markdown support** for blog posts using react-markdown and gray-matter
 - **GitHub Actions** for deployment to GitHub Pages
 - **Domain**: mikewright.me will reference the GitHub Pages
+- **Relative imports** for all built resources to support static hosting
 
 ## Code Guidelines
 - Follow functional programming paradigms
@@ -22,11 +22,10 @@ This is a React TypeScript personal blog project with the following characterist
 - Avoid unnecessary complexity and focus on clarity
 
 ## UI/UX Requirements
-- Desktop metaphor with draggable icons
-- Taskbar at bottom with Windows 11 styling
-- Icons represent blog posts that can be opened
-- Clean, modern design
-- Responsive but desktop-focused layout
+- Medium-style blog layout with post previews
+- Clean navigation and typography
+- Responsive design that works on all devices
+- Professional appearance suitable for a software engineer's blog
 
 ## Blog Features
 - Markdown posts with frontmatter metadata
@@ -36,5 +35,6 @@ This is a React TypeScript personal blog project with the following characterist
 
 ## Deployment
 - GitHub Actions workflow for building and deploying to GitHub Pages
-- Static site generation optimized for GitHub Pages
+- Static site generation optimized for GitHub Pages with relative paths
+- SPA routing support using 404.html redirect technique
 - Custom domain configuration for mikewright.me

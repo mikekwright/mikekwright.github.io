@@ -7,14 +7,19 @@ import './BlogHome.css'
 const BlogHome = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPostMetadata[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
+        console.log('Loading blog posts...')
         const posts = await loadBlogPosts()
+        console.log('Loaded posts:', posts)
         setBlogPosts(posts)
+        setError(null)
       } catch (error) {
         console.error('Failed to load blog posts:', error)
+        setError(`Failed to load blog posts: ${error}`)
       } finally {
         setIsLoading(false)
       }
@@ -36,6 +41,14 @@ const BlogHome = () => {
     return (
       <div className="blog-home">
         <div className="loading">Loading...</div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="blog-home">
+        <div className="loading">{error}</div>
       </div>
     )
   }

@@ -21,7 +21,7 @@ export const loadBlogPosts = async (): Promise<BlogPostMetadata[]> => {
 
   for (const slug of postSlugs) {
     try {
-      const response = await fetch(`/posts/${slug}.md`)
+      const response = await fetch(`./posts/${slug}.md`)
       const markdownContent = await response.text()
 
       const { data: frontmatter, content } = matter(markdownContent)
@@ -46,7 +46,7 @@ export const loadBlogPosts = async (): Promise<BlogPostMetadata[]> => {
 
 export const getBlogPost = async (slug: string): Promise<BlogPostMetadata | null> => {
   try {
-    const response = await fetch(`/posts/${slug}.md`)
+    const response = await fetch(`./posts/${slug}.md`)
     if (!response.ok) {
       return null
     }
