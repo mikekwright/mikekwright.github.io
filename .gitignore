@@ -25,3 +25,4 @@ node_modules
 .vscode
 tmp
 .hugo_build.lock
+.direnv
