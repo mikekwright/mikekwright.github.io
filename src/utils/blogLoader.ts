@@ -1,4 +1,5 @@
 import matter from 'gray-matter'
+import { postSlugs } from '../generated/posts-manifest'
 
 export interface BlogPostMetadata {
   slug: string
@@ -9,12 +10,6 @@ export interface BlogPostMetadata {
   excerpt: string
   content: string
 }
-
-// In a real app, this would be dynamically loaded from your posts directory
-const postSlugs = [
-  'welcome-to-my-blog',
-  'building-modern-blog'
-]
 
 export const loadBlogPosts = async (): Promise<BlogPostMetadata[]> => {
   const posts: BlogPostMetadata[] = []
